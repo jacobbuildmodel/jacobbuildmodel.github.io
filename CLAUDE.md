@@ -1,63 +1,123 @@
-# CLAUDE.md — DRIVE v2 Automation Project
+# CLAUDE.md — jacobbuildmodel.github.io
 
-You are operating the DRIVE v2 equity-screening system for Jacob, a Singapore-based
-active investor with NO coding background. He talks to you in plain English. You do ALL
-the technical work (installing tools, running Python, editing files). Never ask him to
-run a command himself — you run it.
+Instructions for Claude Code working in this repository. Read this before any commit.
 
-## WHAT'S IN THIS FOLDER
-- `DRIVE_v2_Cell2_v19_3.py` — the screening engine (the "Colab code"). It fetches market
-  data (yfinance), computes RSI/OBV/scores, and prints 10 ranked output tables.
-- `custom_instructions_v20.md` — the DRIVE framework (scoring rules, gates, exit rubric,
-  decisiveness mandate, evaluate-protocol, auto-add). This governs all judgment.
-- This file (CLAUDE.md) — how you operate.
+## What this repo is
 
-## FIRST-TIME SETUP (do this automatically when asked to "set up")
-1. Check whether Python 3 is installed (`python3 --version`). If not, install it (Homebrew
-   on macOS, the official installer on Windows). Tell Jacob in one plain sentence what
-   you're doing; don't make him decide technical details.
-2. Install the screen's libraries:
-   `pip install yfinance pandas pandas_ta requests numpy lxml --break-system-packages`
-   (drop `--break-system-packages` if it errors on his platform).
-3. Do a test run of the screen on a 3-ticker subset to confirm data fetches work.
-4. Report "Setup done — ready for the weekly run" in one line.
+The public site. Hugo + PaperMod, deployed to GitHub Pages by GitHub Actions on push to `main`.
+**Everything committed here is world-readable, permanently, and indexed by search engines.**
+There is no such thing as a private commit in this repo.
 
-## THE WEEKLY RUN (when Jacob says "run the weekly screen")
-1. Run `python3 DRIVE_v2_Cell2_v19_3.py` and capture the full output.
-2. Show him Output 1 (Entry Priority), Output 8 (Actions Required), Output 9 (Deployment
-   Queue), and Output 10 (Catalyst Calendar) — these are the decision tables.
-3. THEN, only if he asks for analysis, apply `custom_instructions_v20.md` and produce the
-   ACTIONS REQUIRED for the $500K book per the Output Spec (action-first, ranked, sized,
-   sequenced, conviction-labelled, with the gate-completion stamp and one disclaimer footer).
-4. If a yfinance ticker fails to download, note it and continue — do not halt the whole run.
+## The never-publish list — this is the hard boundary
 
-## MAINTAINING PORTFOLIO / WATCHLIST STATE (the auto-add mechanism)
-- The `.py` file is the SOURCE OF TRUTH for holdings. The editable block is at the top:
-  the `PORTFOLIO`, `WATCHLIST`, and `CATALYST_CALENDAR` dictionaries (clearly marked
-  "EDIT ONLY THIS SECTION").
-- When Jacob approves a name for the portfolio or watchlist (or an `evaluate [ticker]`
-  verdict approves one), you edit the relevant dict DIRECTLY — no permission needed. Add
-  the line with score, role/tier, weight, sector-ETF benchmark, and a one-line entry note.
-- When a name is exited/trimmed per the Exit Rubric, remove or re-weight its line.
-- EVERY time you edit the file: (a) bump the version number in the header, (b) add a
-  one-line CHANGELOG entry at the top, (c) re-run `python3 -m py_compile` to confirm it
-  still compiles before telling him it's done. Never hand back a file that doesn't compile.
-- Keep a running "PENDING CHANGES" note in your reply so nothing is silently dropped.
+Refuse to write, commit, or push anything containing:
 
-## EVALUATE A STOCK (when Jacob says "evaluate [TICKER]")
-Run the full Evaluation Protocol from `custom_instructions_v20.md` Section 6: the reordered
-gates, T1/T2 quality, the five lenses, T3/T4, the MANDATORY bear thesis, the disruptor
-check, the verdict block, and the gate-completion stamp. If approved, auto-add per above.
-Use web search for current financials — do NOT score from memory.
+- **Holdings, position sizes, weights, cost basis, account balances, cash, or P&L.** In any form,
+  including "small position", "half size", "I'm long", or a ticker paired with a percentage.
+- **Kelly fractions, position sizing output, conviction scores, composite scores, or rankings.**
+  These are DRIVE / MERIDIAN internals. A rank is a recommendation with the reasoning removed.
+- **Performance or returns.** Realised, unrealised, backtested, or hypothetical.
+- **Any API key, token, password, or broker credential.**
+- **Personal identifiers** — account numbers, addresses, tax IDs.
+- **Recommendation language** — "buy", "consider buying", "price target", "strong conviction",
+  "I'm adding". The site publishes reasoning, never a directive.
+- **File paths or contents from `accounts/`, `PRE/ledger.jsonl`, or any DRIVE state file.**
+- **§7 HANDOFF blocks or the closing JSON block** from a weekly brief. Those are machine-facing.
 
-## HARD RULES
-- VERIFY every dollar figure / contract / statistic against a primary source before it
-  touches a score. Weekly briefs have repeatedly contained FABRICATED numbers (e.g. a
-  "$95.9M RCAT award" that was really $742K). Flag fabrications explicitly.
-- You run the deterministic SCREEN and maintain FILES. Final trading decisions are Jacob's.
-  Always end portfolio output with one "not financial advice" line.
-- Never fabricate market data. If a fetch fails, say so.
-- Keep replies tight and copy-paste-ready. Tables for rankings. Surface the uncomfortable
-  finding. No threaded hedging.
-- Token discipline: the screen run itself is cheap. Heavy analysis is what consumes tokens.
-  Keep separate tasks in separate sessions; don't let one conversation balloon.
+If you encounter any of the above in a source file you have been asked to publish: **stop, name what
+you found and where, and write nothing.** Do not clean it up and proceed — surface it and wait.
+
+## What MERIDIAN and CATALYST output may become
+
+Model output is **never published as-is.** It is a source for human-written research notes.
+
+| Model field | Publishable? |
+|---|---|
+| The mechanism — why capital would move | **Yes** |
+| The question being researched | **Yes** |
+| The falsifier and its window | **Yes** |
+| Confidence tier (verified / inferred / speculative) | **Yes** |
+| Ticker as a subject of research | **Yes** |
+| Quality score, value score, composite, rank | **No** |
+| Reverse-DCF implied growth rate as a *stated conclusion* | **No** — the method may be described, the output may not |
+| Position size, Kelly fraction, allocation | **No** |
+| Directional call, T+1 price estimate, expected payoff | **No** |
+| Anything with the word "buy" attached to a ticker | **No** |
+
+The watchlist format is fixed: **ticker · mechanism · the question I'm researching · falsifier ·
+confidence tier.** No score, no rank, no size, no target. If a note cannot be written in that shape,
+it is not ready to publish.
+
+## Publishing workflow
+
+Content is staged, gated, then committed. Never write directly from a model output folder into
+`content/`.
+
+```
+<staging folder>/*.md
+        │
+        ▼
+python scripts/site_publish.py "<staged file>"     # scans, strips, refuses on hit
+        │
+        ▼
+content/briefs/YYYY-MM-DD.md                        # human edit pass happens HERE
+        │
+        ▼
+commit + push                                       # only after the human pass
+```
+
+**The human edit pass is not optional and you do not perform it alone.** After staging, ask Jacob to
+review before you commit. He is publishing under his own name; a figure you could not verify is his
+error to own, so he gets the last look.
+
+## Weekly brief adaptation rules
+
+When turning a brief into a post:
+
+1. Strip §7 and the JSON block entirely.
+2. Strip any holding-period or position language from §1 — "the portfolio can hold this for a month"
+   is a position statement, not a regime read. Write the factor call instead.
+3. Reframe §4 Discovery as **Research Watchlist** in the fixed format above.
+4. Keep source tier tags. Convert them to the shortcode: `{{< tag "hard-flow" >}}`.
+   Recognised: `hard-co`, `company-prelim`, `hard-flow`, `consensus`, `price-proxy`, `cong-disc`,
+   `spec`, `verified`, `inferred`, `speculative`.
+5. Keep every falsifier, with its window.
+6. **Keep the gaps list and publish it in full.** "What I couldn't source this week" is the most
+   credible section on the page. Never quietly drop it to make a post look stronger.
+7. Write a plain-English hook of one to three sentences at the top. The brief is written for a
+   machine; the post needs a human doorway.
+8. Keep prose under ~2,000 words.
+9. Filename and `date:` are the **Saturday of the coverage week**, format `YYYY-MM-DD.md`.
+
+## Flagging figures
+
+Any figure that is large, load-bearing, or extraordinary gets flagged to Jacob before publication,
+not silently carried. Specifically: single-source sell-side estimates, anything above nine figures,
+market-cap derivations built on an unsourced share price, and any percentage change above 50%.
+
+A brief once carried a "$95.9M contract award" that was actually $742K. That was caught internally.
+The same error published under Jacob's name is not recoverable in the same way.
+
+## Repo conventions
+
+- `hugo.toml` — config. Site title, menu, Umami ID, Buttondown username.
+- `content/briefs/` — the weekly series. `TEMPLATE.md` stays `draft: true`; never publish it.
+- `content/process.md` — the Method page. Revise deliberately; it is the most-linked page.
+- `assets/css/extended/custom.css` — custom styling, including source-tier badges.
+- `layouts/partials/` — `extend_head.html` (analytics), `extend_footer.html` (newsletter, disclaimer).
+- Do not commit `public/`, `resources/`, or `.hugo_build.lock`.
+- Use root-relative links (`/process/`), never absolute (`https://jacobbuildmodel.github.io/process/`),
+  so a future custom domain doesn't break them.
+
+## Before every push
+
+- [ ] Nothing from the never-publish list, anywhere in the diff
+- [ ] No §7, no JSON block, no DRIVE references
+- [ ] Every decision-carrying figure has a source tier and a date
+- [ ] Every thesis has a falsifier with a window
+- [ ] Gaps section present and complete
+- [ ] Flagged figures raised with Jacob and cleared
+- [ ] `hugo --gc --minify` builds clean
+- [ ] Jacob has reviewed the post
+
+If any box is unchecked, do not push.
