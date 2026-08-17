@@ -1,0 +1,68 @@
+/* ---- source-tier badges ---- */
+.src-tag {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72em;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  padding: 0.1em 0.5em;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  vertical-align: baseline;
+  white-space: nowrap;
+  background: var(--code-bg);
+  color: var(--secondary);
+}
+/* strongest evidence reads darkest; weakest reads faintest */
+.src-tag.src-hard-co,
+.src-tag.src-hard-flow,
+.src-tag.src-verified   { color: var(--primary); border-color: var(--primary); font-weight: 600; }
+.src-tag.src-cong-disc,
+.src-tag.src-company-prelim { color: var(--primary); }
+.src-tag.src-price-proxy,
+.src-tag.src-consensus,
+.src-tag.src-inferred   { font-style: italic; }
+.src-tag.src-spec,
+.src-tag.src-speculative { opacity: 0.65; font-style: italic; }
+
+/* ---- tables: briefs are table-heavy, make them readable ---- */
+.post-content table { font-size: 0.92em; }
+.post-content table th { font-weight: 600; text-align: left; }
+.post-content table td, .post-content table th { padding: 6px 10px; }
+
+/* ---- blockquote used as the human "hook" at the top of each brief ---- */
+.post-content blockquote {
+  border-inline-start: 3px solid var(--primary);
+  font-size: 1.02em;
+}
+
+/* ---- newsletter box ---- */
+.newsletter-box {
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin: 40px auto 0;
+  padding: 20px var(--gap);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.newsletter-title { margin: 0 0 4px; font-weight: 700; }
+.newsletter-sub { margin: 0 0 12px; font-size: 0.88em; color: var(--secondary); }
+.newsletter-form { display: flex; gap: 8px; flex-wrap: wrap; }
+.newsletter-form input[type=email] {
+  flex: 1 1 220px; padding: 8px 10px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--theme); color: var(--primary);
+}
+.newsletter-form input[type=submit] {
+  padding: 8px 16px; cursor: pointer;
+  border: 1px solid var(--primary); border-radius: var(--radius);
+  background: var(--primary); color: var(--theme); font-weight: 600;
+}
+
+/* ---- per-post disclaimer strip ---- */
+.post-disclaimer {
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin: 24px auto 0;
+  padding: 0 var(--gap);
+  font-size: 0.8em;
+  color: var(--secondary);
+}

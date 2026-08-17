@@ -1,0 +1,5 @@
+{{- with site.Params.analytics.umami }}
+  {{- if .websiteId }}
+<script defer src="{{ .scriptUrl | default "https://cloud.umami.is/script.js" }}" data-website-id="{{ .websiteId }}"></script>
+  {{- end }}
+{{- end }}

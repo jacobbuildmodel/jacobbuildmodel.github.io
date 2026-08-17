@@ -1,0 +1,19 @@
+{{- if and (eq .Kind "page") (site.Params.newsletter.buttondownUsername) }}
+<div class="newsletter-box">
+  <p class="newsletter-title">Get the brief by email</p>
+  <p class="newsletter-sub">One email a week. No recommendations, no spam, unsubscribe anytime.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/{{ site.Params.newsletter.buttondownUsername }}"
+        method="post" target="popupwindow"
+        onsubmit="window.open('https://buttondown.com/{{ site.Params.newsletter.buttondownUsername }}', 'popupwindow')"
+        class="newsletter-form">
+    <input type="email" name="email" placeholder="you@example.com" required>
+    <input type="submit" value="Subscribe">
+  </form>
+</div>
+{{- end }}
+{{- if eq .Kind "page" }}
+<p class="post-disclaimer">
+  Educational analysis only. Not financial advice, not a recommendation to buy or sell any security.
+  <a href="/disclaimer/">Full disclaimer</a>.
+</p>
+{{- end }}

@@ -1,0 +1,106 @@
+# ============================================================
+#  SITE CONFIG
+#  Only the lines marked  # EDIT  need changing.
+# ============================================================
+
+baseURL        = "https://jacobbuildmodel.github.io/"
+languageCode   = "en-us"
+title          = "Jacob | Market Research"          # EDIT — your public site name
+enableRobotsTXT = true
+buildDrafts    = false
+buildFuture    = false
+pagination.pagerSize = 10
+
+# --- theme (pulled automatically at build time, no files to download) ---
+[module]
+  [[module.imports]]
+    path = "github.com/adityatelange/hugo-PaperMod"
+
+# --- markdown rendering ---
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel   = 3
+
+# --- site parameters ---
+[params]
+  env         = "production"
+  author      = "Jacob"                              # EDIT — your name
+  description = "Weekly market analysis: flows, regime, forward catalysts, and a research watchlist. Reasoning, not recommendations."
+  keywords    = ["market analysis", "equity research", "fund flows", "macro"]
+
+  DateFormat        = "2 January 2006"
+  ShowReadingTime   = true
+  ShowToc           = true
+  TocOpen           = false
+  ShowBreadCrumbs   = true
+  ShowPostNavLinks  = true
+  ShowWordCount     = false
+  ShowCodeCopyButtons = false
+  ShowShareButtons  = false
+  ShowRssButtonInSectionTermList = true
+  defaultTheme      = "auto"
+  disableThemeToggle = false
+
+  # Homepage intro block
+  [params.homeInfoParams]
+    Title   = "Reasoning, not recommendations."
+    Content = """
+Weekly analysis of what money is actually doing — measured in dollars, not inferred from price.
+
+Every claim on this site carries a **source tier** and a **falsifier**: the specific observation that
+would prove it wrong. Nothing here is a recommendation to buy or sell anything.
+
+[Start with the method →](/process/) &nbsp;·&nbsp; [Latest brief →](/briefs/)
+"""
+
+  [[params.socialIcons]]
+    name = "github"
+    url  = "https://github.com/jacobbuildmodel"
+  # [[params.socialIcons]]                            # EDIT — uncomment and add your LinkedIn
+  #   name = "linkedin"
+  #   url  = "https://www.linkedin.com/in/YOUR-SLUG/"
+  [[params.socialIcons]]
+    name = "rss"
+    url  = "/index.xml"
+
+  # Analytics — paste your Umami Website ID here after Step 4. Blank = disabled.
+  [params.analytics]
+    [params.analytics.umami]
+      websiteId = ""                                  # EDIT LATER
+      scriptUrl = "https://cloud.umami.is/script.js"
+
+  # Newsletter — paste your Buttondown username here after Step 5. Blank = disabled.
+  [params.newsletter]
+    buttondownUsername = ""                           # EDIT LATER
+
+# --- navigation ---
+[[menu.main]]
+  identifier = "briefs"
+  name       = "Weekly Brief"
+  url        = "/briefs/"
+  weight     = 10
+[[menu.main]]
+  identifier = "watchlist"
+  name       = "Watchlist"
+  url        = "/watchlist/"
+  weight     = 20
+[[menu.main]]
+  identifier = "sector"
+  name       = "Sector Read"
+  url        = "/sector/"
+  weight     = 30
+[[menu.main]]
+  identifier = "process"
+  name       = "Method"
+  url        = "/process/"
+  weight     = 40
+[[menu.main]]
+  identifier = "about"
+  name       = "About"
+  url        = "/about/"
+  weight     = 50
