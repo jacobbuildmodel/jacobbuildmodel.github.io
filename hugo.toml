@@ -71,7 +71,7 @@ would prove it wrong. Nothing here is a recommendation to buy or sell anything.
   # Analytics — paste your Umami Website ID here after Step 4. Blank = disabled.
   [params.analytics]
     [params.analytics.umami]
-      websiteId = ""                                  # EDIT LATER
+      websiteId = "974c6f9a-3122-464c-947f-b581d838adec"
       scriptUrl = "https://cloud.umami.is/script.js"
 
   # Newsletter — paste your Buttondown username here after Step 5. Blank = disabled.
