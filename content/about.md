@@ -3,15 +3,7 @@ title: "About"
 date: 2026-08-17
 showToc: false
 hidemeta: true
----
-
----
-title: "About"
-date: 2026-08-17
-showToc: false
-hidemeta: true
----
-
+--- 
 I'm Jacob Ong, 22, based in Singapore. I have a deep interest in markets and economics, and I spend
 most of my time on one question: can the way we value companies and time decisions be done better
 than it currently is?
