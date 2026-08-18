@@ -50,10 +50,12 @@ pagination.pagerSize = 10
   [params.homeInfoParams]
     Title   = "Reasoning, not recommendations."
     Content = """
-Weekly analysis of what money is actually doing — measured in dollars, not inferred from price.
+Three layers, narrowing each time. **News** — what moved and why, checked against the filing.
+**Sector** — which sectors the data favours, and where the sector contradicts itself. **Standouts**
+— specific companies worth examining, mechanism and falsifier, never a recommendation.
 
-Every claim on this site carries a **source tier** and a **falsifier**: the specific observation that
-would prove it wrong. Nothing here is a recommendation to buy or sell anything.
+Every claim carries a **source tier** and a **falsifier**: the specific observation that would
+prove it wrong.
 
 [Start with the method →](/process/) &nbsp;·&nbsp; [Latest brief →](/briefs/)
 """
