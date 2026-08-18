@@ -44,10 +44,11 @@ action and call it flow.
 Dated events only. Cover macro (CPI, jobs, FOMC, policy deadlines), sector events (major prints, FDA
 dates, OPEC, index rebalances), and at least three non-technology catalysts.
 
-## Research watchlist
+## Standouts
 
 Three to five items, outside the mega-cap technology conversation. At least two outside technology
-entirely; at least one company under roughly $20B market cap.
+entirely; at least one company under roughly $20B market cap. This is analysis, not a recommendation
+— see the compliance section on the [Method](/process/) page.
 
 ### 1. [Theme or company name] {{< tag "inferred" >}}
 
@@ -102,7 +103,8 @@ PRE-PUBLISH CHECKLIST — delete this block before publishing.
   [ ] No positions, portfolio, or performance figures disclosed
   [ ] Every decision-carrying figure has a source tier tag and a date
   [ ] Every thesis has a falsifier with a window
-  [ ] At least 2 non-technology items in the watchlist; at least 1 sub-$20B company
+  [ ] At least 2 non-technology items in Standouts; at least 1 sub-$20B company
+  [ ] No tailored/personalised language anywhere; would read identically to any reader
   [ ] Any figure I could not verify says "figure not obtained" rather than an estimate
   [ ] Moves paired with volume vs average, not reported bare
   [ ] Hedge words removed: may, could potentially, it remains to be seen

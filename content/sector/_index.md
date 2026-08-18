@@ -1,10 +1,11 @@
 ---
-title: "Sector Read"
-description: "A fixed twelve-name bellwether panel, read the same way every week so changes are visible over time."
+title: "Sector"
+description: "Which sectors the data favours this week, and why — the middle layer of the funnel."
 ---
 
-The same twelve companies every time, chosen as read-throughs to their sectors rather than as ideas
-in their own right:
+The second layer. [News](/news/) told you what happened. This is what it means for a sector, read
+through a fixed panel of twelve bellwether companies — the same twelve every week, so the changes are
+what's visible, not the panel.
 
 **XOM** energy · **JPM** financials · **UNH** healthcare · **CAT** industrials · **COST** staples ·
 **NEE** utilities · **FCX** materials · **PLD** real estate · **HD** discretionary · **UNP**
@@ -13,4 +14,5 @@ transport · **LMT** defense · **EEM** emerging markets
 The panel is never substituted. Its entire value is that it is constant — a changing panel measures
 the analyst's attention, a fixed one measures the market.
 
-Nothing here is a recommendation — see the [disclaimer](/disclaimer/).
+This is a general read on sector direction, not advice tailored to any reader's circumstances, and it
+isn't a recommendation to allocate to any sector. See the [disclaimer](/disclaimer/).

@@ -13,7 +13,15 @@ situation, objectives, or needs, and nothing on this site should be construed as
 solicitation, or offer to buy or sell any security or financial instrument.
 
 I am not a licensed financial adviser, broker, or dealer, and I am not registered with the Monetary
-Authority of Singapore or any other financial regulator in any capacity.
+Authority of Singapore or any other financial regulator in any capacity. I do not hold myself out as
+an analyst, professional, or research house of any kind — this is one person's documented reasoning,
+published under his own name.
+
+**Everything published here is generic.** It is not tailored to any individual reader's financial
+situation, goals, income, or risk tolerance, and every reader sees the same content regardless of who
+they are. If you email, comment, or otherwise ask what you personally should do — with a specific
+stock, sector, or your portfolio — the answer is always the same: **I can't comment, because I'm not
+a licensed financial adviser.** That answer doesn't change based on how the question is asked.
 
 **On accuracy.** Figures are sourced and tiered as described on the [Method](/process/) page, but
 errors are possible and some claims are explicitly labelled speculative. Data may be stale by the

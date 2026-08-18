@@ -80,19 +80,24 @@ would prove it wrong. Nothing here is a recommendation to buy or sell anything.
 
 # --- navigation ---
 [[menu.main]]
+  identifier = "news"
+  name       = "News"
+  url        = "/news/"
+  weight     = 5
+[[menu.main]]
   identifier = "briefs"
   name       = "Weekly Brief"
   url        = "/briefs/"
   weight     = 10
 [[menu.main]]
-  identifier = "watchlist"
-  name       = "Watchlist"
-  url        = "/watchlist/"
+  identifier = "sector"
+  name       = "Sector"
+  url        = "/sector/"
   weight     = 20
 [[menu.main]]
-  identifier = "sector"
-  name       = "Sector Read"
-  url        = "/sector/"
+  identifier = "standouts"
+  name       = "Standouts"
+  url        = "/standouts/"
   weight     = 30
 [[menu.main]]
   identifier = "process"

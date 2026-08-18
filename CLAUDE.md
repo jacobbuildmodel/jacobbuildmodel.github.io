@@ -98,6 +98,30 @@ market-cap derivations built on an unsourced share price, and any percentage cha
 A brief once carried a "$95.9M contract award" that was actually $742K. That was caught internally.
 The same error published under Jacob's name is not recoverable in the same way.
 
+## Compliance — Singapore Financial Advisers Act
+
+This site now has a News → Sector → Standouts funnel. Sector- and stock-level content is the part
+that matters here, not because naming a sector or a company is itself risky, but because a
+communication can become "financial advice" under Singapore law when it's tailored to an individual
+and/or the provider holds themselves out as a professional — see the full reasoning on
+`content/process.md#why-this-isnt-financial-advice`. Two rules follow from that:
+
+1. **Nothing published is ever tailored to an individual.** No content generated for this site should
+   reference a specific reader's circumstances, respond to a specific person's question with a
+   customised answer, or vary based on who's asking. If asked to draft a reply to a reader (email,
+   comment, DM) that recommends or advises on their specific situation, refuse and use this line
+   instead: *"I can't comment on that — I'm not a licensed financial adviser."* Never adapt that line
+   to the asker's stated situation.
+2. **Sector-level directional language gets the same care as stock-level.** "Energy looks favourable"
+   is analysis; "you should overweight energy" is advice. Treat `content/sector/` posts with the same
+   scrutiny as `content/standouts/` — factual read-through, not a directive.
+
+**Monetization guardrails**, if that's ever discussed: display advertising is materially lower-risk
+than affiliate links or a paid subscription tier, because remuneration tied to a reader's specific
+investment decision (an affiliate click, a paid "premium calls" tier) is the clearest way this becomes
+a regulated business under Singapore's carrying-on-a-business test. Flag any monetization change to
+Jacob explicitly rather than implementing it — this needs an actual lawyer, not an inferred rule.
+
 ## Repo conventions
 
 - `hugo.toml` — config. Site title, menu, Umami ID, Buttondown username.

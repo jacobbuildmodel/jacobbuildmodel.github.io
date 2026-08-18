@@ -18,6 +18,20 @@ Every brief is written from a blank page, sources evidence published that week, 
 decision-carrying figure with how it was obtained, and attaches to every claim the observation that
 would kill it.
 
+## The structure: news, sector, standouts
+
+The site is organised as a funnel, each layer narrower and more specific than the one before it.
+
+**[News](/news/)** is factual: what moved, what the data says, verifiable and checkable by anyone.
+**[Sector](/sector/)** is a general read on which sectors the data favours, through a fixed panel read
+the same way every week. **[Standouts](/standouts/)** is the narrowest layer — specific companies
+screening strongest within those sectors, with the mechanism and the falsifier that would prove it
+wrong.
+
+Each layer earns the next. The point of writing it this way isn't just clarity — it's that each layer
+gets progressively more careful about staying general rather than personal, for reasons the
+[compliance](#why-this-isnt-financial-advice) section below explains.
+
 ## What the brief is trying to add
 
 A stock's filed financials, its price history, and its analyst coverage are all freely available and
@@ -147,4 +161,31 @@ disclose positions, performance, or returns — partly because that information 
 of reading, and partly because a public track record incentivises writing that defends prior calls
 rather than testing them.
 
-See the [disclaimer](/disclaimer/).
+## Why this isn't financial advice
+
+This matters enough to be explicit about, not just for readers but because it shapes how every layer
+above is written.
+
+Under Singapore's Financial Advisers Act, a communication is generally treated as financial advice
+when it expresses an opinion on the merits of buying, selling or holding a specific investment product
+or a class of them, *and* a reasonable recipient could expect it to be relied on — which turns on
+whether it's tailored to that person's particular circumstances, whether it recommends a course of
+action, and whether the person providing it holds themselves out as a professional adviser. Naming a
+company or a sector isn't the deciding factor. Personalisation is.
+
+So the rules that follow aren't a workaround — they're the actual thing that keeps this a research
+record instead of an advisory service:
+
+- **Nothing here is tailored.** Every reader sees the same page, regardless of their goals, holdings,
+  income, or risk tolerance. Content that responds to an individual's specific situation is
+  categorically different from what's published here, and this site doesn't do that.
+- **Nothing here tells you to act.** Mechanism, evidence, and falsifier — never "buy," "sell," a price
+  target, or a position size.
+- **I don't claim to be a professional.** No "analyst," no "research house," no implied credential.
+  This is one person's documented reasoning, published under his own name.
+- **If you ask what to do with your own money, the answer is the same every time:** *"I can't comment
+  on that — I'm not a licensed financial adviser. If you're weighing a real decision, a licensed
+  adviser can account for your actual situation in a way a public post never can."* That line doesn't
+  change based on who's asking or how the question is framed.
+
+See the [disclaimer](/disclaimer/) for the full statement.

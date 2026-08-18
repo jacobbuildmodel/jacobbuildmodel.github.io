@@ -125,6 +125,18 @@ FLAGS = [
     # Declared gaps must survive into the published post.
     (r"(?i)\b(?:figure not obtained|not obtained|could not reconcile)\b",
      "declared gap — must appear in the published gaps list"),
+
+    # Tailoring language. Under Singapore's FAA, personalisation is a large part of what
+    # turns generic analysis into advice — see content/process.md#why-this-isnt-financial-advice.
+    (r"(?i)\b(?:for your (?:portfolio|situation|goals|risk tolerance)|"
+     r"given your (?:portfolio|holdings|income|risk)|"
+     r"you should (?:buy|sell|hold|overweight|underweight|allocate))\b",
+     "tailored-advice phrasing — this site must read identically to every reader"),
+
+    # Sector-level directives. "Energy looks favourable" is analysis; "overweight energy"
+    # is a directive. Same care as a stock-level recommendation.
+    (r"(?i)\bwe (?:recommend|suggest) (?:overweight|underweight|allocat\w+)\b",
+     "sector-level directive — reframe as a read-through, not an instruction"),
 ]
 
 STRIP_FROM = re.compile(
