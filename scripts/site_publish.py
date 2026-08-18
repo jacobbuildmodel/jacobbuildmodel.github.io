@@ -29,7 +29,7 @@ import re
 import sys
 from pathlib import Path
 
-SECTIONS = ("briefs", "news", "sector", "standouts")
+SECTIONS = ("briefs", "earnings", "sector", "standouts")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # REFUSAL PATTERNS — a hit means nothing gets written.
@@ -234,8 +234,13 @@ def coverage_date(text, section, override=None):
     return d
 
 
-TITLES = {"briefs": "Weekly Brief \u2014 {d}", "news": "News \u2014 {d}",
-          "sector": "Sector Read \u2014 {d}", "standouts": "Standouts \u2014 {d}"}
+# Briefs and Sector are periodic, so a dated title is right for them.
+# Earnings and Standouts are about a specific finding, so the headline has to be
+# written by a human. A date is not a headline.
+TITLES = {"briefs": "Weekly Brief \u2014 {d}",
+          "sector": "Sector Read \u2014 {d}",
+          "earnings": "TODO: the finding, in a sentence a non-finance reader would understand",
+          "standouts": "TODO: the finding, in a sentence a non-finance reader would understand"}
 
 
 def fmt_date(date):
@@ -243,13 +248,13 @@ def fmt_date(date):
 
 
 def build_front_matter(date, section):
-    # News is short and single-topic — a table of contents between the
-    # title and the hook adds friction a 5-minute read doesn't need. The
-    # other three sections are longer/multi-part and genuinely benefit.
-    show_toc = "false" if section == "news" else "true"
+    # Earnings pieces are short and single-topic. A table of contents between
+    # the title and the hook adds friction a five minute read does not need.
+    # The other three sections are longer or multi-part and genuinely benefit.
+    show_toc = "false" if section == "earnings" else "true"
     return (
         "---\n"
-        f'title: "{TITLES[section].format(d=fmt_date(date))}"\n'
+        f'title: "{TITLES[section].format(d=fmt_date(date)) if "{d}" in TITLES[section] else TITLES[section]}"\n'
         f"date: {date.isoformat()}\n"
         "draft: true          # cleared by a human, not by this script\n"
         f"showToc: {show_toc}\n"

@@ -28,7 +28,7 @@ not just by reading the CSS:**
   between the title and the hook adds a real, measured delay before a short single-topic item
   gets to its point — genuinely useful friction for a multi-section Weekly Brief, pure cost for a
   5-minute News item. Set in two places: `scripts/site_publish.py`'s `build_front_matter` (the
-  pipeline path, which is how most content actually gets created) and `content/news/TEMPLATE.md`
+  pipeline path, which is how most content actually gets created) and `content/earnings/TEMPLATE.md`
   (the manual-authoring path). Both need to agree, or the two paths silently diverge.
 - **The hook blockquote has a tinted background**, not just a left border. First attempt used
   `var(--entry)` — turned out to be a dead end worth knowing about: PaperMod's light theme sets
@@ -204,7 +204,7 @@ diversified and are one bet), or a coverage gap (a name that structurally can't 
 filings, and why). These four were named independently as the differentiated material — a plain
 "here's a good business" writeup is the boring version and not what this section is for.
 
-## The News pipeline
+## The Earnings pipeline
 
 Event-driven, not clock-driven — an item is produced when a company reports, not on a fixed
 timer. From the earnings model, via the handoff prompt in `MODEL_HANDOFF_PROMPTS.md`.
@@ -213,12 +213,12 @@ timer. From the earnings model, via the handoff prompt in `MODEL_HANDOFF_PROMPTS
 earnings_traps.py + read-through (earnings model)
         │
         ▼
-   staging/news/<draft>.md            ← raw model output, never committed
+   staging/earnings/<draft>.md            ← raw model output, never committed
         │
         ▼
-python scripts/site_publish.py <file> --section news --date YYYY-MM-DD
+python scripts/site_publish.py <file> --section earnings --date YYYY-MM-DD
         │
-    refuses ──┴── stages content/news/YYYY-MM-DD.md  (draft: true)
+    refuses ──┴── stages content/earnings/YYYY-MM-DD.md  (draft: true)
         │
    Jacob reviews, verifies flags, writes the hook
         │
@@ -277,7 +277,7 @@ archive is the asset. Only `staging/` accumulates clutter worth clearing.
 ```
 python scripts/staging_prune.py --status              # see what would happen, changes nothing
 python scripts/staging_prune.py --prune                # actually delete, keeps newest 3 per section
-python scripts/staging_prune.py --prune --keep 5 --section news
+python scripts/staging_prune.py --prune --keep 5 --section earnings
 ```
 
 Run it after a successful publish, not before — never prune a raw dump you haven't gated yet.
@@ -334,3 +334,33 @@ before trusting the fix, not just against the leak.
 - [ ] Jacob has reviewed the post
 
 If any box is unchecked, do not push.
+
+## House style — how pieces are written
+
+The site is read by people with no finance background, often on a phone, often before work. Every
+editorial rule below came from a real correction, not a preference.
+
+**Never argue with an objection nobody raised.** Early drafts of the Earnings section opened with
+lines like "what a headline number hides, and how often the same check finds nothing," and articles
+contained sentences like "it isn't a filing yet, and that's the first finding." Both are arguing
+against an imaginary skeptic. Say what the thing is. If no one asked, don't answer it. This has been
+flagged twice, once on the About page and once on the Earnings section, so treat it as a standing
+failure mode rather than a one-off.
+
+**Percentages over raw figures.** "Revenue came in about 3% below what analysts expected" is
+readable. "Revenue of $4.62B against a $4.74B consensus estimate" is not, for this audience. Use
+absolute figures only when the absolute size is the actual point.
+
+**Explain jargon in the sentence, or cut it.** Don't write "non-GAAP" and move on. Either explain
+what it means where it appears or find a plainer way to say it. Assume a smart reader with no
+finance training, not a dumb one.
+
+**The headline is the finding.** Not the date, not the section name. Under about 60 characters, so
+it doesn't fill a phone screen and push the hook out of view.
+
+**Forward-looking, always.** Every piece ends with what this makes worth watching and the specific,
+dated observation that would confirm or kill it. Framed as questions to follow, never instructions
+to act on. That framing is both the editorial voice and the compliance boundary, and they happen to
+point the same direction.
+
+**Read it aloud before publishing.** Anything that sounds like a machine wrote it gets rewritten.

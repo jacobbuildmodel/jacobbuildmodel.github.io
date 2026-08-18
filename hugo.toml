@@ -82,9 +82,9 @@ prove it wrong.
 
 # --- navigation ---
 [[menu.main]]
-  identifier = "news"
-  name       = "News"
-  url        = "/news/"
+  identifier = "earnings"
+  name       = "Earnings"
+  url        = "/earnings/"
   weight     = 5
 [[menu.main]]
   identifier = "briefs"
