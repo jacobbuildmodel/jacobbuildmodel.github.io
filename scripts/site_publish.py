@@ -243,12 +243,16 @@ def fmt_date(date):
 
 
 def build_front_matter(date, section):
+    # News is short and single-topic — a table of contents between the
+    # title and the hook adds friction a 5-minute read doesn't need. The
+    # other three sections are longer/multi-part and genuinely benefit.
+    show_toc = "false" if section == "news" else "true"
     return (
         "---\n"
         f'title: "{TITLES[section].format(d=fmt_date(date))}"\n'
         f"date: {date.isoformat()}\n"
         "draft: true          # cleared by a human, not by this script\n"
-        "showToc: true\n"
+        f"showToc: {show_toc}\n"
         "TocOpen: false\n"
         'summary: "TODO — one plain-English line. The most interesting thing here."\n'
         f'tags: ["{section}"]\n'

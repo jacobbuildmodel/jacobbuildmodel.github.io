@@ -29,12 +29,40 @@
 .post-content table { font-size: 0.92em; }
 .post-content table th { font-weight: 600; text-align: left; }
 .post-content table td, .post-content table th { padding: 6px 10px; }
+/* digits align vertically in numeric-dense tables — makes columns of
+   figures actually scannable instead of ragged */
+.post-content table td { font-variant-numeric: tabular-nums; }
 
-/* ---- blockquote used as the human "hook" at the top of each brief ---- */
+/* ---- layer badge: which of the four sections this post belongs to.
+   Deliberately same visual weight as the source-tier badges — a small
+   word, not a loud color block, consistent with the site's calm register. ---- */
+.layer-badge {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  color: var(--secondary);
+}
+
+/* ---- blockquote used as the human "hook" at the top of each post.
+   Given a tinted block rather than just a border, so a reader skimming
+   at speed lands on the point before anything else — this is the one
+   thing that must survive a 3-second glance. ---- */
 .post-content blockquote {
   border-inline-start: 3px solid var(--primary);
-  font-size: 1.02em;
+  background: var(--code-bg);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 18px;
+  margin-inline-start: 0;
+  font-size: 1.06em;
+  line-height: 1.55;
 }
+.post-content blockquote p { margin: 0; }
 
 /* ---- newsletter box ---- */
 .newsletter-box {

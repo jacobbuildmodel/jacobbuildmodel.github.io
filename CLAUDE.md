@@ -2,6 +2,48 @@
 
 Instructions for Claude Code working in this repository. Read this before any commit.
 
+## Mobile reading pass — a `layouts/single.html` override exists, and why
+
+The site has a project-level `layouts/single.html` that overrides PaperMod's default. This is
+Hugo's standard, sanctioned override pattern — it does not modify the vendored theme in
+`themes/PaperMod/`, which stays untouched and gets replaced fresh on every build. If PaperMod
+ever updates its own `single.html` with new features, this override will silently not pick them
+up; that tradeoff was accepted deliberately because no narrower hook point exists. PaperMod ships
+`extend_post_content.html` for adding content, but it only fires *after* the article body — no
+use for anything that needs to be seen in the first three seconds of a skim.
+
+**What the override adds:** a small layer badge (NEWS / SECTOR / STANDOUTS / WEEKLY BRIEF),
+derived automatically from `.Section` — no per-post authoring, so it can't drift out of sync the
+way a manually-typed tag could. It renders right after the date/reading-time line, before the
+table of contents.
+
+**Why this exists at all:** a returning reader skimming on their phone needs to know which speed
+of content they've clicked into before committing to read it. That's invisible without this —
+previously only the nav bar carried that information, not the article itself.
+
+**Two related decisions, tested with real browser screenshots at 390px width (iPhone-class),
+not just by reading the CSS:**
+
+- **News has `showToc: false`; every other section keeps `showToc: true`.** A table of contents
+  between the title and the hook adds a real, measured delay before a short single-topic item
+  gets to its point — genuinely useful friction for a multi-section Weekly Brief, pure cost for a
+  5-minute News item. Set in two places: `scripts/site_publish.py`'s `build_front_matter` (the
+  pipeline path, which is how most content actually gets created) and `content/news/TEMPLATE.md`
+  (the manual-authoring path). Both need to agree, or the two paths silently diverge.
+- **The hook blockquote has a tinted background**, not just a left border. First attempt used
+  `var(--entry)` — turned out to be a dead end worth knowing about: PaperMod's light theme sets
+  `--entry` identical to `--theme` (both pure white), so that tint was completely invisible in
+  light mode, the site's now-primary reading mode. Caught only by actually screenshotting it, not
+  by reading the CSS rule and assuming it worked. Switched to `var(--code-bg)`, which is
+  genuinely distinct from the page background in both light and dark mode — verified with
+  screenshots of both before trusting it.
+
+**Numeric tables** get `font-variant-numeric: tabular-nums` so digits in a comparison table sit
+at equal width and actually line up in a column, instead of ragged proportional-width digits that
+are harder to scan. This doesn't retroactively rewrite any live article's prose into a table —
+that's an editorial call about existing published content, not a styling one, and stays with
+whoever's writing the next piece.
+
 ## What this repo is
 
 The public site. Hugo + PaperMod, deployed to GitHub Pages by GitHub Actions on push to `main`.

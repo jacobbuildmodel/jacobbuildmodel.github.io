@@ -11,7 +11,7 @@
 title: "News — 00 Month 2026"
 date: 2026-01-01
 draft: true
-showToc: true
+showToc: false
 TocOpen: false
 summary: "One line: the sharpest thing a headline number hid today."
 tags: ["news"]
