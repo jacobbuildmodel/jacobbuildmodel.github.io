@@ -3,3 +3,10 @@
 <script defer src="{{ .scriptUrl | default "https://cloud.umami.is/script.js" }}" data-website-id="{{ .websiteId }}"></script>
   {{- end }}
 {{- end }}
+
+<!-- Site-wide social preview image. PaperMod's og:image is per-page only
+     (via cover.image front matter) with no site-wide fallback, so this
+     covers every page until individual posts set their own cover. -->
+<meta property="og:image" content="{{ "img/social-preview.png" | absURL }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ "img/social-preview.png" | absURL }}">
