@@ -98,6 +98,10 @@ MODEL_INTERNALS = [
     (r"(?i)\bsignal_grade\b",                  "signal_grade field — internal"),
     (r"(?i)\bQUALITY-BUY\b",                   "grid-cell vocabulary"),
     (r"(?i)\bclaim_key\b",                     "internal claim schema field"),
+    (r"(?i)\bTrack\s+[A-Z]\b",                 "internal track label"),
+    (r"(?i)\bWATCH-quality\b",                 "internal tier label"),
+    (r"(?i)\bSTAYS?\s+(?:COLD|HOT|WATCH)\b",   "internal tier verdict — decouples from any score"),
+    (r"(?i)\bEXPENSIVE-ON-NORMALISED\b|\bCHEAP-ON-NORMALISED\b", "internal valuation-state label"),
 ]
 
 # Horizon statistics — HELD BACK by explicit decision. Standouts is descriptive

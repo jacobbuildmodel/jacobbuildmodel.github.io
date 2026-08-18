@@ -122,6 +122,46 @@ investment decision (an affiliate click, a paid "premium calls" tier) is the cle
 a regulated business under Singapore's carrying-on-a-business test. Flag any monetization change to
 Jacob explicitly rather than implementing it — this needs an actual lawyer, not an inferred rule.
 
+## The Standouts pipeline
+
+Descriptive only — this was a deliberate decision, not a default. No scores, no ranks, no
+probabilities, no horizon statistics anywhere on this page, ever. From the evaluation model, via
+the handoff prompt in `MODEL_HANDOFF_PROMPTS.md`.
+
+```
+Full/partial evaluation card (evaluation model)
+        │
+        ▼
+   staging/standouts/<draft>.md       ← raw model output, never committed
+        │
+        ▼
+python scripts/site_publish.py <file> --section standouts --date YYYY-MM-DD
+        │
+    refuses ──┴── stages content/standouts/YYYY-MM-DD.md  (draft: true)
+        │
+   Jacob reviews, verifies flags, writes the hook
+        │
+   draft: false, commit, push
+```
+
+**Two standing cautions, every time, not just at launch:**
+
+1. **`RATINGS.md` is mixed-vintage.** Legacy v2 scores sit beside v3.2 CQS values in the same
+   file, and they are not the same measurement. No cross-name score comparison gets published
+   until that's resolved — not because scores are banned generally (they already are, sitewide),
+   but because even an internal comparison used to *select* which name to write up could be
+   silently comparing two different rulers.
+2. **59 ACTIVE names carry a score with no full evaluation behind them.** If the name in an
+   entry is one of them, the depth tag has to say so plainly. A reader can't tell the difference
+   between a full card and a bare score unless the entry tells them.
+
+**Preferred subjects, in the source model's own order of confidence** — a trap (peak-quarter,
+below-the-operating-line, adjusted-vs-GAAP, SBC exceeding operating margin), a stale rejection (a
+name screened out for a reason that stopped being true), a one-link finding (two names that look
+diversified and are one bet), or a coverage gap (a name that structurally can't be scored from
+filings, and why). These four were named independently as the differentiated material — a plain
+"here's a good business" writeup is the boring version and not what this section is for.
+
 ## The News pipeline
 
 Event-driven, not clock-driven — an item is produced when a company reports, not on a fixed
@@ -218,6 +258,13 @@ of these missed real leaks because a naturally-formatted markdown draft writes l
 Fixed by allowing optional `\*\*` or `__` around the keyword and the colon. If you add a new
 line-anchored pattern to the gate, test it against a bold-wrapped variant before trusting it —
 `**Label:**` is the default way anything gets written here, not an edge case.
+
+A second gap found the same way: tier vocabulary like `Track D`, `WATCH-quality`, and
+`STAYS COLD` was only being caught when a `CQS` number happened to sit nearby — strip the
+number and the label alone passed clean through. These are now their own patterns, deliberately
+narrow (`Track [A-Z]`, the exact compound phrases) so they don't false-positive on ordinary use
+of the words "watch," "cold," or "track" in real prose — tested against a normal-English sample
+before trusting the fix, not just against the leak.
 
 ## Repo conventions
 
