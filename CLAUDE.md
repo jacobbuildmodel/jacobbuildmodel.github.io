@@ -122,6 +122,40 @@ investment decision (an affiliate click, a paid "premium calls" tier) is the cle
 a regulated business under Singapore's carrying-on-a-business test. Flag any monetization change to
 Jacob explicitly rather than implementing it — this needs an actual lawyer, not an inferred rule.
 
+## The News pipeline
+
+Event-driven, not clock-driven — an item is produced when a company reports, not on a fixed
+timer. From the earnings model, via the handoff prompt in `MODEL_HANDOFF_PROMPTS.md`.
+
+```
+earnings_traps.py + read-through (earnings model)
+        │
+        ▼
+   staging/news/<draft>.md            ← raw model output, never committed
+        │
+        ▼
+python scripts/site_publish.py <file> --section news --date YYYY-MM-DD
+        │
+    refuses ──┴── stages content/news/YYYY-MM-DD.md  (draft: true)
+        │
+   Jacob reviews, verifies flags, writes the hook
+        │
+   draft: false, commit, push
+```
+
+Up to 4 companies per item — that is the earnings model's actual batch cap, not an arbitrary
+limit. A heavy reporting day is multiple files, never one compressed file; compression under
+load is a documented failure mode of the source model.
+
+**Every trap-gate result states its own denominator.** "This check ran on 6 names this week and
+fired on 2" is the content — not a preamble to a finding, the finding itself. All three source
+models named this independently as the strongest edge the site has. Don't let an edit pass strip
+the denominator out for being "obvious" — it is the opposite of obvious, and it's the reason to
+publish at all.
+
+`--date` is required for News (unlike Briefs/Sector, News does not snap to a Saturday) —
+pass the actual reporting date explicitly.
+
 ## The Sector pipeline
 
 The first section fed by a model rather than by hand. Weekly, from the portfolio model's
@@ -174,6 +208,16 @@ normal use, because you only flip `draft: false` on or after the date you're pub
 page is ever staged and approved ahead of its own `date:`, it will vanish from the build with no
 warning until that date arrives. If a published post is confirmed missing from the live site with
 no build error, check this first.
+
+## A gate-pattern gotcha
+
+Several refusal patterns in `site_publish.py` are line-anchored (`^\s*VERDICT\s*:`, `^\s*ROUTE`,
+`^\s*Score\s*:`) to avoid false-positiving on the word appearing mid-sentence. The first version
+of these missed real leaks because a naturally-formatted markdown draft writes labels as
+`**VERDICT:**`, and the literal `**` sits before the anchor, so `^\s*VERDICT` never matched.
+Fixed by allowing optional `\*\*` or `__` around the keyword and the colon. If you add a new
+line-anchored pattern to the gate, test it against a bold-wrapped variant before trusting it —
+`**Label:**` is the default way anything gets written here, not an edge case.
 
 ## Repo conventions
 

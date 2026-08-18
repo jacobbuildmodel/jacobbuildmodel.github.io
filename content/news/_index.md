@@ -1,15 +1,18 @@
 ---
 title: "News"
-description: "What moved the market and why — the plain-English read before the deeper layers."
+description: "What a headline number hides — and how often the same check finds nothing."
 ---
 
-The fast layer. What happened, in the fewest words that don't lose the reason why — no ten-paragraph
-CNBC treatment of one earnings call, no assumption you already know the backstory.
+The fast layer. Event-driven, not clock-driven — an item runs when a company reports, not on a
+fixed daily timer.
 
-This is factual reporting: what moved, what the data says, what's scheduled next. It's the layer that
-doesn't require trusting anyone's judgement — you can check it yourself. The opinion starts one layer
-down, in [Sector](/sector/).
+Each item takes one company's print and checks the headline against the filing: is the margin
+a through-cycle number or a peak-quarter artefact, is net income coming from operations or from
+somewhere below the line, does the guidance the company is citing say what they claim it says.
 
-Currently published as the opening section of each [Weekly Brief](/briefs/). A standalone, faster
-edition is the plan once the weekly rhythm is solid — see the [Method](/process/) page for why that
-order matters.
+Every check reports its own denominator — how many times it ran, how many times it fired. A
+check that ran fourteen times and fired twice is more informative than one write-up calling
+something a red flag. Nobody publishes the times it found nothing; that's deliberate here.
+
+Deeper opinion starts one layer down, in [Sector](/sector/). This layer is checkable by anyone —
+compare the filing yourself.

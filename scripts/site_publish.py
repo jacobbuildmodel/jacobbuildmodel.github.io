@@ -83,10 +83,12 @@ RECOMMENDATION = [
 # inventories. A rank or score published without its derivation reads as a
 # recommendation no matter what the footer says.
 MODEL_INTERNALS = [
-    (r"(?im)^\s*VERDICT\s*:\s*(?:BUY|ADD|HOLD|TRIM|EXIT|NO POSITION)",
+    (r"(?im)^\s*(?:\*\*|__)?\s*VERDICT\s*(?:\*\*|__)?\s*:\s*(?:\*\*|__)?\s*(?:BUY|ADD|HOLD|TRIM|EXIT|NO POSITION)",
                                                "VERDICT line — house verdict vocabulary"),
-    (r"(?im)^\s*ROUTE\s*:\s*vehicle",          "ROUTE line — internal routing"),
-    (r"(?im)^\s*Score\s*:\s*\d+\s*(?:->|\u2192)", "score delta line"),
+    (r"(?im)^\s*(?:\*\*|__)?\s*ROUTE\s*(?:\*\*|__)?\s*:\s*(?:\*\*|__)?\s*vehicle",
+                                               "ROUTE line — internal routing"),
+    (r"(?im)^\s*(?:\*\*|__)?\s*Score\s*(?:\*\*|__)?\s*:\s*(?:\*\*|__)?\s*\d+\s*(?:->|\u2192)",
+                                               "score delta line"),
     (r"\bDEPLOY-OK\b",                         "DEPLOY-OK flag — deployment marker"),
     (r"(?i)\bCQS\s*\d",                        "CQS quality score"),
     (r"(?i)\bfirst-pass\s+CQS\b",              "CQS quality score"),
