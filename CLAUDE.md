@@ -122,11 +122,67 @@ investment decision (an affiliate click, a paid "premium calls" tier) is the cle
 a regulated business under Singapore's carrying-on-a-business test. Flag any monetization change to
 Jacob explicitly rather than implementing it — this needs an actual lawyer, not an inferred rule.
 
+## The Sector pipeline
+
+The first section fed by a model rather than by hand. Weekly, from the portfolio model's
+`market_pulse.py` sweep, via the handoff prompt in `MODEL_HANDOFF_PROMPTS.md`.
+
+```
+market_pulse.py (portfolio model)
+        │
+        ▼
+   staging/sector/<draft>.md          ← raw model output, never committed
+        │
+        ▼
+python scripts/site_publish.py <file> --section sector
+        │
+    refuses ──┴── stages content/sector/YYYY-MM-DD.md  (draft: true)
+        │
+   Jacob reviews, verifies flags, writes the hook
+        │
+   draft: false, commit, push
+        │
+python scripts/staging_prune.py --prune       ← clears the raw dump, not the published post
+```
+
+Same shape applies to News and Standouts once their pipelines are wired up — same gate,
+different `--section`, different source model.
+
+## Staging and retention
+
+`staging/` holds raw model output before it passes through the gate. It's gitignored — nothing
+in it is ever committed. Once a piece is staged into `content/<section>/`, the raw dump has done
+its job.
+
+**This is the only thing that gets pruned.** The published archive in `content/` is never
+touched by retention — a published post is a few KB, fifty-two weeks of them is nothing, and the
+archive is the asset. Only `staging/` accumulates clutter worth clearing.
+
+```
+python scripts/staging_prune.py --status              # see what would happen, changes nothing
+python scripts/staging_prune.py --prune                # actually delete, keeps newest 3 per section
+python scripts/staging_prune.py --prune --keep 5 --section news
+```
+
+Run it after a successful publish, not before — never prune a raw dump you haven't gated yet.
+
+## A Hugo behaviour worth knowing
+
+`hugo.toml` sets `buildFuture = false`. Any content dated later than the actual calendar day at
+build time is silently excluded — no error, the page just doesn't exist. This will never bite in
+normal use, because you only flip `draft: false` on or after the date you're publishing. But if a
+page is ever staged and approved ahead of its own `date:`, it will vanish from the build with no
+warning until that date arrives. If a published post is confirmed missing from the live site with
+no build error, check this first.
+
 ## Repo conventions
 
 - `hugo.toml` — config. Site title, menu, Umami ID, Buttondown username.
 - `content/briefs/` — the weekly series. `TEMPLATE.md` stays `draft: true`; never publish it.
 - `content/process.md` — the Method page. Revise deliberately; it is the most-linked page.
+- `staging/` — raw model output before the gate. Gitignored, never committed. Pruned by
+  `scripts/staging_prune.py`, never by hand.
+- `scripts/site_publish.py` — the gate. `scripts/staging_prune.py` — retention, staging only.
 - `assets/css/extended/custom.css` — custom styling, including source-tier badges.
 - `layouts/partials/` — `extend_head.html` (analytics), `extend_footer.html` (newsletter, disclaimer).
 - Do not commit `public/`, `resources/`, or `.hugo_build.lock`.
