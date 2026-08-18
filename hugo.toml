@@ -50,14 +50,16 @@ pagination.pagerSize = 10
   [params.homeInfoParams]
     Title   = "Reasoning, not recommendations."
     Content = """
-Three layers, narrowing each time. **News** — what moved and why, checked against the filing.
-**Sector** — which sectors the data favours, and where the sector contradicts itself. **Standouts**
-— specific companies worth examining, mechanism and falsifier, never a recommendation.
+Three sections, each one narrower than the last.
 
-Every claim carries a **source tier** and a **falsifier**: the specific observation that would
-prove it wrong.
+**Earnings** explains what a company's results actually mean, in plain English.
+**Sector** covers which parts of the market the data currently favours.
+**Standouts** looks closely at individual companies worth understanding better.
 
-[Start with the method →](/process/) &nbsp;·&nbsp; [Latest brief →](/briefs/)
+Every claim comes with the specific thing that would prove it wrong, and a date by
+which you'd know.
+
+[Read the latest](/earnings/) &nbsp;·&nbsp; [How this works](/process/)
 """
 
   [[params.socialIcons]]
