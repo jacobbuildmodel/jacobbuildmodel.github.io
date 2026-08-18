@@ -24,9 +24,12 @@ where errors hide. This stages a safe skeleton; the human edit pass is real work
 
 import argparse
 import datetime as dt
+import json
 import re
 import sys
 from pathlib import Path
+
+SECTIONS = ("briefs", "news", "sector", "standouts")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # REFUSAL PATTERNS — a hit means nothing gets written.
@@ -48,6 +51,8 @@ STATE_PATHS = [
     (r"(?i)\bPRE[/\\]ledger\.jsonl",              "capital ledger path"),
     (r"(?i)\b(10K|positions|holdings)\.json\b",   "holdings state file"),
     (r"(?i)\bSTATE\.md\b|\bRATINGS\.md\b",        "DRIVE state document"),
+    (r"(?i)\bdata[/\\]inbox_(?:earnings|eval|brief|status)\.jsonl", "internal claim stream path"),
+    (r"(?i)\bproducer_feedback\.jsonl\b",         "producer scorecard path"),
 ]
 
 DISCLOSURE = [
@@ -60,30 +65,59 @@ DISCLOSURE = [
     (r"(?i)\b\d+(\.\d+)?\s*%\s*(of (the |my )?(portfolio|book|nav|capital))", "portfolio weight"),
     (r"(?i)\b(portfolio|book) (weight|allocation) (of|is|at)\b", "portfolio weight"),
     (r"(?i)\b(account balance|cash balance|buying power)\b", "account balance"),
+    (r"(?i)\bposition_status\b",                       "position_status field — strip entirely"),
 ]
 
-SCORES_AND_CALLS = [
-    (r"(?i)\b(composite|quality|value|conviction)\s+score\b", "model score"),
-    (r"(?i)\bscore\s*[:=]\s*\d",                              "model score"),
-    (r"(?i)\brank(ed|ing)?\s*[:#=]\s*\d",                     "model ranking"),
-    (r"(?i)\bexpected (payoff|value|return) of\b",            "payoff estimate"),
-    (r"(?i)\bT\+1 (price|target|estimate) (of|is|:)\s*\$?\d", "CATALYST directional call"),
-    (r"(?i)\bprice target\b",                                 "price target"),
-]
 
 RECOMMENDATION = [
     (r"(?i)\bconsider (buying|selling|adding)\b",  "recommendation language"),
     (r"(?i)\b(strong )?(buy|sell) (rating|signal|call)\b", "recommendation language"),
     (r"(?i)\b(you should|I recommend|I'd recommend) (buy|sell|add|trim)", "recommendation language"),
     (r"(?i)\bstocks? to buy\b",                    "recommendation language"),
+    (r"(?i)\bprice target of\b",                   "price target"),
+    (r"(?i)\bT\+1 (?:price|target|estimate) (?:of|is|:)\s*\$?\d", "T+1 directional call"),
+    (r"(?i)\bexpected (?:payoff|value|return) of\b", "payoff estimate"),
+]
+
+# Model internals. Every one is a real field or flag seen in the capability
+# inventories. A rank or score published without its derivation reads as a
+# recommendation no matter what the footer says.
+MODEL_INTERNALS = [
+    (r"(?im)^\s*VERDICT\s*:\s*(?:BUY|ADD|HOLD|TRIM|EXIT|NO POSITION)",
+                                               "VERDICT line — house verdict vocabulary"),
+    (r"(?im)^\s*ROUTE\s*:\s*vehicle",          "ROUTE line — internal routing"),
+    (r"(?im)^\s*Score\s*:\s*\d+\s*(?:->|\u2192)", "score delta line"),
+    (r"\bDEPLOY-OK\b",                         "DEPLOY-OK flag — deployment marker"),
+    (r"(?i)\bCQS\s*\d",                        "CQS quality score"),
+    (r"(?i)\bfirst-pass\s+CQS\b",              "CQS quality score"),
+    (r"(?i)\bBuyS\b",                          "BuyS composite score column"),
+    (r"(?i)\bRANKED\s+\d+\s+of\s+\d+",         "ranked universe table header"),
+    (r"(?i)\baction_hint\b",                   "action_hint field — internal routing"),
+    (r"(?i)\bsignal_grade\b",                  "signal_grade field — internal"),
+    (r"(?i)\bQUALITY-BUY\b",                   "grid-cell vocabulary"),
+    (r"(?i)\bclaim_key\b",                     "internal claim schema field"),
+]
+
+# Horizon statistics — HELD BACK by explicit decision. Standouts is descriptive
+# only. These read as predictions and need a regime caveat every time to stay
+# honest; refused rather than flagged so they cannot drift in later.
+HORIZON_STATS = [
+    (r"\bp_(?:up|dn)_\d+_\d+w\b",              "horizon statistic — held back"),
+    (r"\b(?:med|best|worst|skew)_\d+w\b",      "horizon statistic — held back"),
+    (r"(?i)\bP\+\d+/\d+w\b",                   "horizon statistic — held back"),
+    (r"(?i)\bP\(\s*[+\-]?\d+\s*%\s*/\s*\d+\s*w\s*\)", "horizon statistic — held back"),
+    (r"(?i)\bprobability of a [+\-]?\d+\s*%\s*(?:four|4|thirteen|13)[- ]week",
+                                               "horizon statistic — held back"),
+    (r"(?i)\bhorizon_stats\b",                 "horizon statistic — held back"),
 ]
 
 BANDS = [
-    ("CREDENTIAL",     CREDENTIALS),
-    ("DRIVE STATE",    STATE_PATHS),
-    ("DISCLOSURE",     DISCLOSURE),
-    ("SCORE / CALL",   SCORES_AND_CALLS),
-    ("RECOMMENDATION", RECOMMENDATION),
+    ("CREDENTIAL",      CREDENTIALS),
+    ("DRIVE STATE",     STATE_PATHS),
+    ("DISCLOSURE",      DISCLOSURE),
+    ("MODEL INTERNALS", MODEL_INTERNALS),
+    ("HORIZON (HELD)",  HORIZON_STATS),
+    ("RECOMMENDATION",  RECOMMENDATION),
 ]
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -144,6 +178,19 @@ STRIP_FROM = re.compile(
     re.IGNORECASE | re.MULTILINE,
 )
 JSON_FENCE = re.compile(r"^```(?:json)?\s*\n\s*\{.*?^```\s*$", re.DOTALL | re.MULTILINE)
+FILENAME_RE = re.compile(r"^\d{4}-\d{2}-\d{2}\.md$")
+
+
+def write_heartbeat(repo, section, status, filename, findings):
+    """A silent pipeline is indistinguishable from a quiet week without this.
+    A 30,000-char brief once sat invisible for a day because it was named
+    WEEKLY_BRIEF_<date>.md and bypassed intake entirely."""
+    log = Path(repo) / "logs" / "publish_heartbeat.jsonl"
+    log.parent.mkdir(parents=True, exist_ok=True)
+    row = {"ts": dt.datetime.now(dt.timezone.utc).isoformat(), "section": section,
+           "status": status, "file": filename, "findings": findings}
+    with log.open("a", encoding="utf-8") as fh:
+        fh.write(json.dumps(row) + "\n")
 
 
 def scan(text, patterns_bands):
@@ -170,28 +217,35 @@ def strip_machine_sections(text):
     return text.rstrip() + "\n", notes
 
 
-def coverage_saturday(text, override=None):
+def coverage_date(text, section, override=None):
     if override:
         return dt.date.fromisoformat(override)
     m = re.search(r"as_of[:\*\s]*\**\s*(\d{4}-\d{2}-\d{2})", text, re.IGNORECASE)
-    if m:
-        d = dt.date.fromisoformat(m.group(1))
-    else:
-        d = dt.date.today()
-    # Snap back to the Saturday of that coverage week. Saturday == weekday 5.
-    return d - dt.timedelta(days=(d.weekday() - 5) % 7)
+    d = dt.date.fromisoformat(m.group(1)) if m else dt.date.today()
+    if section in ("briefs", "sector"):
+        # Saturday of the coverage week. Saturday == weekday 5.
+        return d - dt.timedelta(days=(d.weekday() - 5) % 7)
+    return d
 
 
-def build_front_matter(date):
+TITLES = {"briefs": "Weekly Brief \u2014 {d}", "news": "News \u2014 {d}",
+          "sector": "Sector Read \u2014 {d}", "standouts": "Standouts \u2014 {d}"}
+
+
+def fmt_date(date):
+    return date.strftime("%#d %B %Y" if sys.platform == "win32" else "%-d %B %Y")
+
+
+def build_front_matter(date, section):
     return (
         "---\n"
-        f'title: "Weekly Brief — {date.strftime("%-d %B %Y") if sys.platform != "win32" else date.strftime("%#d %B %Y")}"\n'
+        f'title: "{TITLES[section].format(d=fmt_date(date))}"\n'
         f"date: {date.isoformat()}\n"
         "draft: true          # cleared by a human, not by this script\n"
         "showToc: true\n"
         "TocOpen: false\n"
-        'summary: "TODO — one plain-English line. The most interesting thing in this brief."\n'
-        'tags: ["weekly brief"]\n'
+        'summary: "TODO — one plain-English line. The most interesting thing here."\n'
+        f'tags: ["{section}"]\n'
         "---\n\n"
         "> **TODO — the hook.** One to three sentences, no jargon, before any structure.\n\n"
     )
@@ -200,14 +254,16 @@ def build_front_matter(date):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("source", help="staged markdown file from the model output folder")
+    ap.add_argument("--section", default="briefs", choices=SECTIONS)
     ap.add_argument("--repo", default=".", help="path to the site repo root (default: cwd)")
-    ap.add_argument("--date", help="override the as_of date (YYYY-MM-DD)")
+    ap.add_argument("--date", help="override the coverage date (YYYY-MM-DD)")
     ap.add_argument("--scan-only", action="store_true", help="scan and report, write nothing")
     args = ap.parse_args()
 
     src = Path(args.source)
     if not src.is_file():
         print(f"REFUSED — source not found: {src}")
+        write_heartbeat(args.repo, args.section, "REFUSED_NO_SOURCE", str(src), 0)
         return 2
 
     raw = src.read_text(encoding="utf-8", errors="replace")
@@ -222,6 +278,7 @@ def main():
             print(f"  [{band}] line {line}: {label}")
             print(f"      {snippet}")
         print(f"\n{len(hits)} finding(s). Exit 2.")
+        write_heartbeat(args.repo, args.section, "REFUSED", src.name, len(hits))
         return 2
 
     body, notes = strip_machine_sections(raw)
@@ -231,26 +288,35 @@ def main():
         print("REFUSED — findings appeared after stripping. Exit 2.")
         for band, label, line, snippet in post_hits:
             print(f"  [{band}] line {line}: {label}\n      {snippet}")
+        write_heartbeat(args.repo, args.section, "REFUSED_POST_STRIP", src.name, len(post_hits))
         return 2
 
-    date = coverage_saturday(raw, args.date)
+    date = coverage_date(raw, args.section, args.date)
     flags = scan(body, [("REVIEW", FLAGS)])
 
-    print(f"scan clean — 0 refusal findings")
+    print(f"scan clean — 0 refusal findings   [section: {args.section}]")
     for n in notes:
         print(f"  · {n}")
-    print(f"  · as_of resolved to {date.isoformat()} ({date.strftime('%A')})")
+    print(f"  · date resolved to {date.isoformat()} ({date.strftime('%A')})")
 
     if args.scan_only:
         print("\n--scan-only: nothing written.")
     else:
-        out = Path(args.repo) / "content" / "briefs" / f"{date.isoformat()}.md"
+        name = f"{date.isoformat()}.md"
+        # The filename IS the safety mechanism. Assert, never assume.
+        if not FILENAME_RE.match(name):
+            print(f"\nREFUSED — derived filename {name!r} is not YYYY-MM-DD.md. Exit 2.")
+            write_heartbeat(args.repo, args.section, "REFUSED_BAD_FILENAME", name, 0)
+            return 2
+        out = Path(args.repo) / "content" / args.section / name
         out.parent.mkdir(parents=True, exist_ok=True)
         if out.exists():
             print(f"\nREFUSED — {out} already exists. Delete it or pass --date. Exit 2.")
+            write_heartbeat(args.repo, args.section, "REFUSED_EXISTS", name, 0)
             return 2
-        out.write_text(build_front_matter(date) + body, encoding="utf-8")
+        out.write_text(build_front_matter(date, args.section) + body, encoding="utf-8")
         print(f"\nstaged: {out}  (draft: true)")
+        write_heartbeat(args.repo, args.section, "STAGED", name, len(flags))
 
     if flags:
         by_line = {}
@@ -268,7 +334,7 @@ def main():
         "\nnext:\n"
         "  1. verify every flagged figure against a primary source\n"
         "  2. write the hook and the summary line\n"
-        "  3. reframe discovery items as: ticker · mechanism · the question · falsifier · tier\n"
+        "  3. confirm depth/provenance markers travel with each claim\n"
         "  4. confirm the gaps list survived\n"
         "  5. set draft: false, then commit\n"
     )
