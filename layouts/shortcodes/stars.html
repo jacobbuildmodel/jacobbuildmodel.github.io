@@ -1,0 +1,14 @@
+{{- $value := int (.Get "value") -}}
+{{- $max := int (.Get "max" | default "5") -}}
+<div class="attr-row">
+  <div class="attr-head">
+    <span class="attr-label">{{ .Get "label" }}</span>
+    <span class="attr-stars" role="img" aria-label="{{ $value }} out of {{ $max }}">
+      {{- range $i := (seq 1 $max) -}}
+        <span class="star {{ if le $i $value }}on{{ else }}off{{ end }}">&#9679;</span>
+      {{- end -}}
+      <span class="attr-num">{{ $value }}/{{ $max }}</span>
+    </span>
+  </div>
+  {{- with .Get "why" }}<div class="attr-why">{{ . }}</div>{{ end -}}
+</div>

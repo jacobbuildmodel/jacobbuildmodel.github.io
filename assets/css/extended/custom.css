@@ -94,3 +94,121 @@
   font-size: 0.8em;
   color: var(--secondary);
 }
+
+/* ─────────────────────────────────────────────────────────────
+   STOCK PAGE ATTRIBUTES
+   Descriptive business attributes, not investment ratings. Deliberately
+   quiet: same visual weight as the source-tier badges, no colour-coding
+   that implies good/bad. A 5 for cyclicality is not "better" than a 1,
+   it just describes a more cyclical business.
+   ───────────────────────────────────────────────────────────── */
+
+.attr-row {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.attr-row:last-child { border-bottom: none; }
+
+.attr-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.attr-label {
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.attr-stars { white-space: nowrap; }
+
+.attr-stars .star {
+  font-size: 0.78em;
+  letter-spacing: 0.12em;
+}
+.attr-stars .star.on  { color: var(--primary); }
+.attr-stars .star.off { color: var(--border); }
+
+.attr-num {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.74em;
+  color: var(--secondary);
+  margin-inline-start: 8px;
+}
+
+/* word-valued attributes (margin trend, statement integrity) */
+.attr-word,
+.attr-fact {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.76em;
+  letter-spacing: 0.02em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  color: var(--secondary);
+}
+/* Short status words stay on one line. Facts carry real sentences
+   ("Top 3 = 54% of revenue") and MUST wrap — nowrap overflowed the
+   container on a 390px viewport. */
+.attr-word { white-space: nowrap; }
+.attr-fact {
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+/* statement integrity is the one place a flag genuinely means "look closer" */
+.attr-word.attrflagged,
+.attr-word.attrredflag { color: var(--primary); font-weight: 600; }
+
+.attr-why {
+  margin-top: 4px;
+  font-size: 0.86em;
+  color: var(--secondary);
+  line-height: 1.45;
+}
+
+/* the block as a whole */
+.attr-block {
+  margin: 22px 0;
+  padding: 4px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* ---- stocks directory index ---- */
+.stock-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+.stock-card {
+  display: block;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+}
+.stock-card:hover { border-color: var(--secondary); }
+.stock-ticker {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-weight: 700;
+  font-size: 1.05em;
+  color: var(--primary);
+}
+.stock-name {
+  display: block;
+  font-size: 0.84em;
+  color: var(--secondary);
+  margin-top: 2px;
+}
+
+/* Section-index prose. PaperMod's list pages don't inherit the paragraph
+   spacing that single posts get, so intro copy on /stocks/ ran together. */
+.stock-grid + .post-content p,
+main .post-content > p { margin-bottom: 1em; }
+.page-header + .post-content p { margin-bottom: 1em; }

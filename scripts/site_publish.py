@@ -29,7 +29,7 @@ import re
 import sys
 from pathlib import Path
 
-SECTIONS = ("briefs", "earnings", "sector", "standouts")
+SECTIONS = ("briefs", "earnings", "sector", "standouts", "stocks")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # REFUSAL PATTERNS — a hit means nothing gets written.
@@ -92,7 +92,11 @@ MODEL_INTERNALS = [
     (r"\bDEPLOY-OK\b",                         "DEPLOY-OK flag — deployment marker"),
     (r"(?i)\bCQS\s*\d",                        "CQS quality score"),
     (r"(?i)\bfirst-pass\s+CQS\b",              "CQS quality score"),
-    (r"(?i)\bBuyS\b",                          "BuyS composite score column"),
+    # Case-SENSITIVE and column-anchored. The old case-insensitive \bBuyS\b
+    # fired on the ordinary word "buys", which appears constantly on stock
+    # explainer pages ("who buys it"). Match the real ranking-table header:
+    # BuyS followed by whitespace and CQS, or BuyS immediately before a number.
+    (r"\bBuyS\s+CQS\b|\bBuyS\s+\d",       "BuyS composite score column"),
     (r"(?i)\bRANKED\s+\d+\s+of\s+\d+",         "ranked universe table header"),
     (r"(?i)\baction_hint\b",                   "action_hint field — internal routing"),
     (r"(?i)\bsignal_grade\b",                  "signal_grade field — internal"),
@@ -240,7 +244,8 @@ def coverage_date(text, section, override=None):
 TITLES = {"briefs": "Weekly Brief \u2014 {d}",
           "sector": "Sector Read \u2014 {d}",
           "earnings": "TODO: the finding, in a sentence a non-finance reader would understand",
-          "standouts": "TODO: the finding, in a sentence a non-finance reader would understand"}
+          "standouts": "TODO: the finding, in a sentence a non-finance reader would understand",
+          "stocks": "TODO: Company Name (TICKER)"}
 
 
 def fmt_date(date):

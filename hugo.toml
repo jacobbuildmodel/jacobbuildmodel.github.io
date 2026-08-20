@@ -84,6 +84,11 @@ which you'd know.
 
 # --- navigation ---
 [[menu.main]]
+  identifier = "stocks"
+  name       = "Stocks"
+  url        = "/stocks/"
+  weight     = 1
+[[menu.main]]
   identifier = "earnings"
   name       = "Earnings"
   url        = "/earnings/"
