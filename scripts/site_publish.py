@@ -211,6 +211,18 @@ def write_heartbeat(repo, section, status, filename, findings):
         fh.write(json.dumps(row) + "\n")
 
 
+# Windows consoles default to cp1252, which cannot encode characters like
+# U+2212 MINUS SIGN. Without this, the gate crashes while PRINTING its own
+# flagged-line snippets — losing the review list, which is the whole point
+# of flagging. Reconfigure stdout to replace unencodable chars instead.
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(errors="replace")
+        sys.stderr.reconfigure(errors="replace")
+    except Exception:
+        pass
+
+
 def scan(text, patterns_bands):
     hits = []
     for band, patterns in patterns_bands:
