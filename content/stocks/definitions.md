@@ -3,45 +3,23 @@ title: "How the scores are calculated"
 date: 2026-08-19
 showToc: true
 TocOpen: true
-summary: "Every descriptive score on a stock page, what it measures, and how it's worked out."
+summary: "Every figure on a stock page, what it measures, and how it's worked out."
 _build:
   list: never
 ---
 
-Every score on a stock page describes something about the **business**. None of them says whether
-the shares are worth buying. There is no overall score, no ranking of one company against another,
-and no buy or sell call anywhere on this site.
+Everything on a stock page describes the **business**. Nothing says whether the shares are worth
+buying. There is no overall score, no ranking of one company against another, and no buy or sell
+call anywhere on this site.
 
-A score you can't check is just an opinion with a number attached. So each one below states what it
-measures, what the scale means, and where the inputs come from.
-
-## Revenue cyclicality
-
-**Scale 1 to 5.** How much this company's profits swing with the economic cycle.
-
-Worked out from how far operating margins have swung between their best and worst points over ten
-years, cross-checked against how far revenue itself has fallen in bad years.
-
-| Score | What it means |
-|---|---|
-| 1 | Barely moves. Demand holds up through downturns. |
-| 2 | Mild swings. |
-| 3 | Noticeable swings, in line with the wider economy. |
-| 4 | Large swings. Good years and bad years look very different. |
-| 5 | Extreme. Boom and bust is the normal state of this business. |
-
-This is arithmetic on filed figures, not a judgement call.
-
-**A high score is not bad.** Cyclical businesses aren't worse than steady ones. They're just a
-different shape, and worth knowing about before you look at a single good year and assume it's
-normal.
+Most of what follows is arithmetic on filed accounts. Where something is a judgement, it says so.
 
 ## Balance sheet resilience
 
 **Scale 1 to 5.** How well the company could survive a bad stretch without needing to raise money.
 
-Based on how much debt it carries relative to its earnings, the ratio of debt to shareholder funds,
-and, for companies not yet profitable, how many months of cash it has left at the current burn rate.
+Computed from net cash or net debt, debt relative to shareholder funds, and the current ratio. For
+companies not yet profitable, months of cash left at the current burn rate.
 
 | Score | What it means |
 |---|---|
@@ -51,96 +29,100 @@ and, for companies not yet profitable, how many months of cash it has left at th
 | 4 | Comfortable. |
 | 5 | Fortress. Could absorb a severe downturn without flinching. |
 
-Computed from filed balance-sheet figures.
-
 ## Margin trend
 
-**Expanding, stable, or compressing.** Which direction profitability has been moving.
+**Expanding, stable, or compressing.** Which direction profitability is moving, measured against
+both the previous quarter and the same quarter a year earlier.
 
-Not a score, because a direction isn't a quantity. Expanding means the company is keeping more of
-each dollar of sales than it used to. Compressing means less. Both can be temporary, and neither on
-its own tells you why.
+Not a score, because a direction isn't a quantity.
 
 ## Dilution trend
 
-**The share count's annual growth rate.** Whether your slice of the company is being quietly cut.
+**Two figures, always.** The three-year annual growth rate in share count, *and* the most recent
+quarter.
 
-If a company issues more shares each year, existing owners hold a smaller share of the same
-business. Some issuance is normal, particularly where staff are paid partly in shares. Persistent
-heavy issuance is worth noticing, and it rarely appears in a headline.
+Both are needed because they routinely disagree. A company can show heavy three-year issuance while
+having largely stopped, or the reverse. One figure alone would mislead. Where the basic and diluted
+share counts diverge meaningfully, both are shown.
 
-Taken straight from filed share counts.
+If a company issues more shares, existing owners hold a smaller slice of the same business. Some
+issuance is normal where staff are paid partly in shares. Persistent heavy issuance is worth
+noticing and rarely appears in a headline.
 
 ## Statement integrity
 
-**Clean, flagged, or red-flag.** Whether the accounts show any of the patterns that are known to
-precede restatements or aggressive reporting.
+**Clean, flagged, or red-flag**, always accompanied by which checks *passed*.
 
-This runs a set of standard accounting-quality checks. **Clean** means nothing tripped. **Flagged**
-means at least one check wants a closer look. **Red-flag** means several did.
+A set of standard accounting-quality checks runs against the filings: whether net profit exceeds
+operating profit, share-based pay as a share of revenue, cash flow against reported earnings, how
+long customers take to pay, and inventory movement.
 
-Important: a flag is not an accusation. These checks produce false positives, and plenty of
-perfectly honest companies trip one for innocent reasons. It means look closer, nothing more.
+Showing only the flags would be misleading. A company can trip one check while passing the one that
+matters most, and that combination is a very different picture from tripping several. So the passed
+checks are always listed alongside.
 
-## Moat strength
+**A flag is not an accusation.** These checks produce false positives and plenty of honest companies
+trip one for innocent reasons. It means look closer, nothing more.
 
-**Scale 1 to 3.** How well protected the business is from competitors taking its customers.
+## What the revenue rides on
 
-| Score | What it means |
-|---|---|
-| 1 | Weak. Little stopping a competitor doing the same thing. |
-| 2 | Adequate. Real advantages, but contestable. |
-| 3 | Strong. Durable advantages that are hard to copy. |
+**A statement, not a score.** What this company's sales actually depend on: the economic cycle,
+government budgets, a commodity price, consumer credit, or something else.
 
-This one is a judgement, not arithmetic, and each score has to cite at least two independently
-observable things that support it.
-
-**This score is not shown on every page**, and the absence is deliberate. The framework behind it
-was built for businesses that compete on product and brand. It has no meaningful equivalent for
-banks, insurers, or heavily cyclical commodity businesses. Rather than invent a number for those,
-the attribute is left off entirely.
-
-## Pricing power
-
-**Shown alongside moat strength, and only on the same companies, for the same reason.** Whether the
-company can raise prices without losing customers, based on what has happened to its gross margins
-when its own costs rose.
+This replaced a cyclicality score during testing, because the score was measuring the wrong thing. A
+company with eight unbroken years of growth scores as perfectly stable, even when half its revenue
+depends on government spending decisions that could change in a single budget. The number looked
+precise and hid the actual risk. The sentence naming what the revenue rides on is more useful and
+harder to misread.
 
 ## Customer concentration
 
-**A percentage, not a score.** How much of revenue comes from the largest handful of customers.
+**A percentage, not a score.** How much of revenue comes from the largest customers.
 
-Published as the actual disclosed figure, because "top three customers are 54% of revenue" tells you
-far more than a 3 out of 5 ever could. Where no single customer exceeds 10%, that shows as **not
-concentrated**. Where a company doesn't disclose it, that shows as **not disclosed** rather than a
-guess.
+Shown as the disclosed figure. Where no customer exceeds the disclosure threshold, that shows as
+**not concentrated**. Where a company doesn't disclose it, **not disclosed**.
+
+Expect "not disclosed" often. Many large companies report concentration without naming who the
+customers are, listing them only as Customer A, B and C.
 
 ## Recurring revenue
 
-**A percentage, not a score, and only where the company reports it.** How much of revenue arrives
-again next year without having to win a new sale.
+**A percentage where the company publishes one.** How much of revenue arrives again next year
+without winning a new sale.
 
-Shown as **not applicable** for businesses where the concept genuinely doesn't apply. A bank or an
-oil producer doesn't have a subscription base, and forcing a number onto one would be false
-precision.
+Three possible answers, and the distinction matters:
+
+- **A percentage** where the company discloses it.
+- **Not applicable** where the concept genuinely doesn't apply. A bank or an oil producer has no
+  subscription base.
+- **Not disclosed** where the business clearly is subscription-based but the company doesn't publish
+  the figure. Some large subscription businesses don't. Calling that "not applicable" would be
+  false, and inventing a number would break the rule that every figure here traces to a filing.
 
 ## What isn't here, and why
 
-An earlier draft of this page included an **AI-resistance** score, meaning how exposed a company's
-own business is to being replaced by artificial intelligence. It was cut before launch.
+**Moat strength and pricing power** were designed as scores and cut after testing.
 
-The reason is that nothing behind the scenes actually measures it. It would have been a guess with a
-number attached to make it look rigorous, which is the exact failure this page exists to prevent. It
-may come back if a real method for measuring it gets built. Until then, its absence is the honest
-answer.
+Moat was scored 1 to 3, but in practice nothing publishable ever scored 1, making it a two-point
+scale pretending to be three. Both were pure judgement, which conflicts directly with the rule that
+every score shows its arithmetic. And both were only available for certain kinds of business, so
+pages carried or omitted them with no explanation a reader could see.
+
+The underlying evidence was always the useful part, and it now appears as plain prose instead: that
+gross margins held flat through a large volume increase says more about pricing power than a number
+out of five ever did.
+
+**AI-resistance** was cut before launch for the same reason in a stronger form: nothing behind the
+scenes measured it at all. It would have been a guess with a number attached to look rigorous.
 
 ## Coverage
 
-Companies appear on this site only when there's real evidence behind them. A large number of
-companies sit in the underlying system with a score but no supporting work, and none of those are
-published here. If a company isn't listed, the work hasn't been done.
+Companies appear here only when there's real evidence behind them, drawn from filings rather than
+from any internal summary. A large number of companies sit in the underlying system with a score and
+no supporting work. None of those are published. If a company isn't listed, the work hasn't been
+done.
 
 ---
 
-*These scores describe businesses. They are not investment advice, not a recommendation, and not
+*These figures describe businesses. They are not investment advice, not a recommendation, and not
 tailored to anyone's circumstances. See the [disclaimer](/disclaimer/).*

@@ -1,7 +1,6 @@
 ---
 # ── COPY THIS FILE for each company. Rename to the lowercase ticker: nvda.md ──
-# The URL becomes /stocks/nvda/ — evergreen, not dated. Update it in place when
-# something material changes; don't create a second page.
+# URL becomes /stocks/nvda/ — evergreen, not dated. Update in place.
 title: "TODO: Company Name (TICKER)"
 ticker: "TICKER"
 company: "TODO: Company Name"
@@ -9,7 +8,7 @@ date: 2026-01-01
 draft: true
 showToc: true
 TocOpen: false
-summary: "TODO: one sentence a 15-year-old would understand. What does this company do?"
+summary: "TODO: one sentence a 15-year-old would understand."
 tags: ["stocks"]
 ---
 
@@ -17,51 +16,79 @@ tags: ["stocks"]
 
 ## What it actually sells
 
-Concrete. Not "a data analytics platform" — what is the thing, who holds it or uses it, what does
-it do for them. If a reader can't picture it, rewrite it.
+Concrete. Not "a data analytics platform" — what is the thing, who uses it, what does it do for
+them.
+
+For companies where no honest short description exists, the pilot found only one thing that works:
+**one specific worked example, then generalise from it.** Not a category, not an abstraction. A
+single concrete situation the reader can picture, followed by "and the same applies to..."
+
+Every genuinely hard-to-explain company needs its own example invented from scratch. This is the
+most expensive part of the page and it does not get easier with practice.
 
 ## How a dollar arrives
 
-Who pays, for what, how often, and whether it repeats. This is the section almost nobody can
-answer about the companies they own, and it's the reason this page exists.
+Who pays, for what, how often, and whether it repeats.
+
+**Ratios, not raw dollars.** A contracted revenue figure means nothing on its own; the same figure
+expressed as a share of a quarter's sales is immediately readable. Where an absolute number is
+genuinely the point, give the denominator beside it.
 
 ## What the business is made of
 
-The segments and roughly what share each is. Percentages, not raw revenue figures.
+The segments and roughly what share each is.
+
+**A company may publish more than one split that doesn't reconcile** — one by product line, another
+by reporting segment, for the same revenue. Show both and say they're different cuts. Don't pick one
+silently.
 
 ## Who buys it, who competes
 
-Named customers where the company discloses them. Named competitors.
+**Customers.** Name them where disclosed. Expect **"not disclosed"** to be the normal answer:
+plenty of large companies report that three customers are most of their revenue while identifying
+them only as Customer A, B and C.
 
-Note: competitors here means who actually competes for the same customers, which is NOT the same
-list as the companies used for valuation comparison.
+**Competitors.** Name them where the company does.
+
+**If the company names no competitor, say that explicitly first**, then list the market-consensus
+alternatives clearly labelled as not company-sourced. Some companies state they compete against
+customers' own internal teams rather than against named firms, and that fact is itself worth
+reporting. Without this rule the writer imports a list from memory and presents it as disclosure.
+
+Competitors means who competes for the same customers, which is not the valuation comparison set.
 
 ## What would break it
 
 What would have to change for this business to be in real trouble.
 
+## How it's owned and controlled
+
+Governance, where there's something worth knowing: dual-class shares, founder voting control, a
+structure where a small economic stake carries a large share of the votes.
+
+**Omit this section entirely for ordinary single-class companies.** It exists because the pilot
+found a share structure carrying roughly 4% of the economics and up to 49.999999% of the votes,
+which doesn't "break the business" and so had nowhere else to go.
+
 ## What most people get wrong
 
-The thing that's commonly misunderstood about this company.
+The commonly misunderstood thing.
+
+**This section may reference the dollar mechanics above rather than restating them.** On both pilot
+names the most misunderstood thing *was* how the money actually works. If that's the case here, say
+so briefly and point back rather than writing it twice.
 
 ## The business at a glance
 
 {{</* attr-open */>}}
 
-{{</* stars label="Revenue cyclicality" value="3" max="5" why="One line a reader can check." */>}}
-{{</* stars label="Balance sheet resilience" value="4" max="5" why="One line a reader can check." */>}}
-{{</* trend label="Margin trend" value="Expanding" why="One line." */>}}
-{{</* trend label="Dilution trend" value="+1.2% a year" why="One line." */>}}
-{{</* trend label="Statement integrity" value="Clean" why="One line." */>}}
-
-<!-- CONDITIONAL — include ONLY for compounder/disruptor businesses.
-     OMIT ENTIRELY for banks, insurers and cyclicals. Do not substitute a guess. -->
-{{</* stars label="Moat strength" value="3" max="3" why="One line, citing what supports it." */>}}
-{{</* trend label="Pricing power" value="Strong" why="One line." */>}}
-
-<!-- DISCLOSED FIGURES — real numbers, never scores -->
-{{</* fact label="Customer concentration" value="Top 3 = 54% of revenue" */>}}
-{{</* fact label="Recurring revenue" value="Not applicable" */>}}
+{{</* exposure value="Government budgets" why="One line naming what sales actually depend on." */>}}
+{{</* stars label="Balance sheet resilience" value="4" max="5" why="Net cash position, debt to equity, current ratio." */>}}
+{{</* trend label="Margin trend" value="Expanding" why="Versus prior quarter and prior year." */>}}
+{{</* trend label="Dilution trend" value="+7.5% over 3 years, +0.2% last quarter" why="Both figures required — they routinely disagree." */>}}
+{{</* integrity value="Flagged" flagged="Which checks tripped." passed="Which checks passed — required, never omit." */>}}
+{{</* fact label="Customer concentration" value="Top 3 = 54% of revenue, not named" */>}}
+{{</* fact label="Recurring revenue" value="Not disclosed as a percentage" */>}}
 
 {{</* attr-close */>}}
 
@@ -74,23 +101,29 @@ PRE-PUBLISH CHECKLIST. Delete before publishing.
 
   SUBSTANCE
   [ ] Someone with no finance background could follow every section
-  [ ] "How a dollar arrives" actually answers who pays and how often
-  [ ] Competitors are real competitors, not the valuation comp set
-  [ ] Every score has a one-line justification a reader could check
-  [ ] Moat and pricing power OMITTED if this is a bank/insurer/cyclical
-  [ ] Concentration and recurring revenue are real figures or an honest
-      "not disclosed" / "not applicable" — never invented
+  [ ] Section 1 uses a concrete worked example if the company is hard to explain
+  [ ] Ratios, not raw dollars — every absolute figure has its denominator
+  [ ] Multiple revenue splits shown where the company publishes more than one
+  [ ] Competitors: named, or "company names none" stated explicitly before
+      any consensus list, which is labelled as not company-sourced
+  [ ] Customers: "not disclosed" is a normal and acceptable answer
+  [ ] Governance section present only if there's something worth knowing
+  [ ] Statement integrity shows BOTH what flagged and what passed
+
+  SOURCING
+  [ ] Every figure traces to a filing, not to an internal card or summary
+  [ ] Card material re-verified against the filing before use — cards go
+      stale and can miss an entire quarter
 
   HARD RULES
-  [ ] No overall score, no ranking against other companies, no buy/sell call
+  [ ] No overall score, no ranking, no buy/sell call
+  [ ] No moat or pricing-power score (cut — judgement, no arithmetic)
+  [ ] No cyclicality score (replaced by the exposure statement)
   [ ] No AI-resistance score (cut — nothing measures it)
-  [ ] No CQS, band, tier, or Track labels anywhere (the gate refuses these)
+  [ ] No CQS, band, tier, or Track labels (the gate refuses these)
   [ ] No price target, no valuation verdict
-  [ ] This company has real evidence behind it. If it's one of the
-      score-only names, it does NOT get published
 
   MECHANICS
-  [ ] Filename is the lowercase ticker (nvda.md), ticker + company set in
-      front matter so it appears in the directory
+  [ ] Filename is the lowercase ticker; ticker + company set in front matter
   [ ] draft: false
 -->

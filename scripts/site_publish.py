@@ -59,7 +59,15 @@ DISCLOSURE = [
     (r"(?i)\bmy (position|holding|portfolio|book|allocation|stake)\b", "position disclosure"),
     (r"(?i)\bI (?:currently )?(own|hold|bought|sold|added to|trimmed)\b", "position disclosure"),
     (r"(?i)\bI'?m (long|short)\b",                     "directional position disclosure"),
-    (r"(?i)\b(cost basis|unrealised|unrealized|realised P&L|realized P&L)\b", "P&L disclosure"),
+    # "unrealised/realised gains" is standard accounting language that appears
+    # throughout filings — NVIDIA's net-profit-exceeds-operating-profit quirk is
+    # explained by unrealised gains on equity stakes, and that is exactly the kind
+    # of insight these pages exist to surface. Only match PERSONAL P&L disclosure:
+    # a possessive, or the explicit "P&L" abbreviation.
+    (r"(?i)\b(?:my|our)\s+(?:cost basis|unrealised|unrealized|realised|realized)\b",
+                                                       "personal P&L disclosure"),
+    (r"(?i)\b(?:realised|realized|unrealised|unrealized)\s+P&L\b", "P&L disclosure"),
+    (r"(?i)\bmy\s+cost\s+basis\b",                   "cost basis disclosure"),
     (r"(?i)\b(position siz\w+|kelly (fraction|siz\w+|criterion)|half[- ]size|full size)\b",
                                                         "position sizing"),
     (r"(?i)\b\d+(\.\d+)?\s*%\s*(of (the |my )?(portfolio|book|nav|capital))", "portfolio weight"),

@@ -149,10 +149,18 @@
   border: 1px solid var(--border);
   color: var(--secondary);
 }
-/* Short status words stay on one line. Facts carry real sentences
-   ("Top 3 = 54% of revenue") and MUST wrap — nowrap overflowed the
-   container on a 390px viewport. */
-.attr-word { white-space: nowrap; }
+/* Short status words ("Expanding", "Clean") read better unbroken, but
+   dilution trend carries two figures in a phrase ("+7.5% a year over 3
+   years, +1.46% latest quarter") which blew the layout to 525px on a
+   390px viewport. Cap the unbroken width instead of forbidding wrap. */
+.attr-word {
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: end;
+  line-height: 1.5;
+}
 .attr-fact {
   display: inline-block;
   max-width: 100%;

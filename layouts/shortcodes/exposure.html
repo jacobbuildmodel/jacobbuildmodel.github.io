@@ -1,0 +1,7 @@
+<div class="attr-row">
+  <div class="attr-head">
+    <span class="attr-label">{{ .Get "label" | default "What the revenue rides on" }}</span>
+    <span class="attr-word">{{ .Get "value" }}</span>
+  </div>
+  {{- with .Get "why" }}<div class="attr-why">{{ . }}</div>{{ end -}}
+</div>
