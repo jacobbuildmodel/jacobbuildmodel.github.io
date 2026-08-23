@@ -29,7 +29,7 @@ import re
 import sys
 from pathlib import Path
 
-SECTIONS = ("briefs", "earnings", "sector", "standouts", "stocks")
+SECTIONS = ("briefs", "earnings", "sector", "standouts", "stocks", "economics")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # REFUSAL PATTERNS — a hit means nothing gets written.
@@ -265,7 +265,8 @@ TITLES = {"briefs": "Weekly Brief \u2014 {d}",
           "sector": "Sector Read \u2014 {d}",
           "earnings": "TODO: the finding, in a sentence a non-finance reader would understand",
           "standouts": "TODO: the finding, in a sentence a non-finance reader would understand",
-          "stocks": "TODO: Company Name (TICKER)"}
+          "stocks": "TODO: Company Name (TICKER)",
+          "economics": "TODO: the finding, in a sentence"}
 
 
 def fmt_date(date):
