@@ -223,6 +223,22 @@ if hasattr(sys.stdout, "reconfigure"):
         pass
 
 
+# Pages that DOCUMENT the never-publish rules have to name the forbidden things.
+# "never a price target or a position size" is a promise not to publish one, and
+# refusing it means the Method page cannot describe its own rules. Lines that are
+# plainly disavowals are exempted from DISCLOSURE patterns only. Credentials and
+# DRIVE state paths are never exempted; those are leaks regardless of framing.
+DISAVOWAL = re.compile(
+    r"(?i)\b(?:never|no|not|without|refus\w+|won't|will not|does not|doesn't|"
+    r"cannot|can't|nothing here|neither)\b"
+)
+
+
+def _is_disavowal(line):
+    """True when a line states a prohibition rather than making a disclosure."""
+    return bool(DISAVOWAL.search(line))
+
+
 def scan(text, patterns_bands):
     hits = []
     for band, patterns in patterns_bands:
@@ -230,6 +246,17 @@ def scan(text, patterns_bands):
             for m in re.finditer(pattern, text):
                 line = text.count("\n", 0, m.start()) + 1
                 snippet = text.splitlines()[line - 1].strip()[:110]
+                # A disclosure pattern inside a disavowal is the site describing
+                # its own rules, not breaking them. Credentials and DRIVE state
+                # paths are never exempted; those are leaks regardless of framing.
+                # Check the previous line too: markdown wraps, so "Never a buy,"
+                # and "a position size." routinely land on different lines.
+                lines_all = text.splitlines()
+                context = snippet
+                if line >= 2:
+                    context = lines_all[line - 2].strip() + " " + snippet
+                if band == "DISCLOSURE" and _is_disavowal(context):
+                    continue
                 hits.append((band, label, line, snippet))
     return hits
 

@@ -1,0 +1,12 @@
+{{/* layouts/shortcodes/aside.html
+     Collapsible depth layer. Usage in markdown:
+        {{< aside title="How the elasticity was estimated" >}}
+        Body text. Markdown works inside, tables included.
+        {{< /aside >}}
+     The markdown stays free of raw HTML, so the publish gate passes it. */}}
+<details class="aside">
+  <summary>{{ .Get "title" | default "More detail" }}</summary>
+  <div class="aside-body">
+    {{ .Inner | markdownify }}
+  </div>
+</details>

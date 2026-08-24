@@ -1,36 +1,17 @@
 ---
-title: "Method"
-date: 2026-08-17
-lastmod: 2026-08-17
+title: "How the weekly brief works"
+description: "The method behind the weekly market brief: source tiers, the blank-page rule, and the failure modes it was built to avoid."
 showToc: true
-TocOpen: true
-hidemeta: false
-summary: "How the weekly brief is produced: what counts as evidence, how claims are tiered, and what would prove them wrong."
+TocOpen: false
 ---
+
+This covers the weekly market brief, which is the oldest thing on the site and currently the least
+active. It is kept here because the source-tier system it introduced is used everywhere else, and
+because the failure modes it documents were expensive to learn.
 
 Most market commentary is unfalsifiable. It describes what happened, attributes a cause after the
 fact, and never states what would have counted as being wrong. This page describes the rules this
 site is written under, so that a reader can check the work rather than take it on trust.
-
-## The one-sentence version
-
-Every brief is written from a blank page, sources evidence published that week, tags each
-decision-carrying figure with how it was obtained, and attaches to every claim the observation that
-would kill it.
-
-## The structure: news, sector, standouts
-
-The site is organised as a funnel, each layer narrower and more specific than the one before it.
-
-**[News](/news/)** is factual: what moved, what the data says, verifiable and checkable by anyone.
-**[Sector](/sector/)** is a general read on which sectors the data favours, through a fixed panel read
-the same way every week. **[Standouts](/standouts/)** is the narrowest layer — specific companies
-screening strongest within those sectors, with the mechanism and the falsifier that would prove it
-wrong.
-
-Each layer earns the next. The point of writing it this way isn't just clarity — it's that each layer
-gets progressively more careful about staying general rather than personal, for reasons the
-[compliance](#why-this-isnt-financial-advice) section below explains.
 
 ## What the brief is trying to add
 
@@ -121,24 +102,6 @@ The **Disconfirmation Watch** section of each brief grades live theses — both 
 market is currently holding and claims made inside that same brief — as `confirmed`,
 `leaning disconfirmed`, `disconfirmed`, or `new variable`.
 
-## Where the machine ends and I begin
-
-The brief is produced with substantial AI assistance and it is worth being precise about the
-division, because vagueness here is the thing that should worry a reader.
-
-The language model runs the search, sweeps the tape, and drafts to a system specification I wrote and
-have revised through eight versions. That specification is the actual work: it encodes the
-monopolies above, the source tiers, the failure modes below, and the hard requirements on
-non-technology coverage and market-cap floor. Left unconstrained, a model writes fluent,
-well-hedged, availability-biased market commentary. Nearly every rule on this page exists because an
-earlier version produced exactly that and I had to build the rule to stop it.
-
-I do the editorial pass: verifying figures that carry weight, cutting anything that restates a filing
-or a price move, and killing claims I cannot defend. Errors that survive to publication are mine.
-
-A separate scoring system I maintain consumes the brief privately. Its outputs — position sizing,
-ranking, anything resembling a recommendation — are not published here and never will be.
-
 ## Known failure modes
 
 These are the specific ways this brief has gone wrong, kept public because a method that only lists
@@ -160,32 +123,3 @@ It does not recommend trades. It does not size, rank, or tell anyone what to buy
 disclose positions, performance, or returns — partly because that information invites the wrong kind
 of reading, and partly because a public track record incentivises writing that defends prior calls
 rather than testing them.
-
-## Why this isn't financial advice
-
-This matters enough to be explicit about, not just for readers but because it shapes how every layer
-above is written.
-
-Under Singapore's Financial Advisers Act, a communication is generally treated as financial advice
-when it expresses an opinion on the merits of buying, selling or holding a specific investment product
-or a class of them, *and* a reasonable recipient could expect it to be relied on — which turns on
-whether it's tailored to that person's particular circumstances, whether it recommends a course of
-action, and whether the person providing it holds themselves out as a professional adviser. Naming a
-company or a sector isn't the deciding factor. Personalisation is.
-
-So the rules that follow aren't a workaround — they're the actual thing that keeps this a research
-record instead of an advisory service:
-
-- **Nothing here is tailored.** Every reader sees the same page, regardless of their goals, holdings,
-  income, or risk tolerance. Content that responds to an individual's specific situation is
-  categorically different from what's published here, and this site doesn't do that.
-- **Nothing here tells you to act.** Mechanism, evidence, and falsifier — never "buy," "sell," a price
-  target, or a position size.
-- **I don't claim to be a professional.** No "analyst," no "research house," no implied credential.
-  This is one person's documented reasoning, published under his own name.
-- **If you ask what to do with your own money, the answer is the same every time:** *"I can't comment
-  on that — I'm not a licensed financial adviser. If you're weighing a real decision, a licensed
-  adviser can account for your actual situation in a way a public post never can."* That line doesn't
-  change based on who's asking or how the question is framed.
-
-See the [disclaimer](/disclaimer/) for the full statement.

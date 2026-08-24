@@ -1,0 +1,88 @@
+/* assets/css/extended/economics.css
+   PaperMod picks up anything in assets/css/extended automatically.
+
+   Everything here is defined in terms of PaperMod's own variables, so the
+   figures and asides follow whatever theme the reader has chosen. The two
+   accent colours are the only literals, and each has a dark-mode value chosen
+   for that ground rather than an inverted copy of the light one. */
+
+:root {
+  --fig-ink:      var(--primary);
+  --fig-ink-2:    var(--content);
+  --fig-ink-3:    var(--secondary);
+  --fig-rule:     var(--border);
+  --fig-surface:  var(--entry);
+  --fig-subject:  #a32a1e;   /* the series the piece is about */
+  --fig-context:  #8d9096;   /* everything the reader is comparing it against */
+}
+
+.dark {
+  --fig-subject:  #e0705f;
+  --fig-context:  #90939a;
+}
+
+/* Figures ---------------------------------------------------------------- */
+
+.post-content figure img,
+.post-content figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.post-content figure {
+  margin: 2rem 0;
+}
+
+.post-content figure figcaption {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--secondary);
+  margin-top: 0.6rem;
+  text-align: left;
+}
+
+/* Tables ----------------------------------------------------------------- */
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.4rem 0;
+}
+.table-scroll table { margin: 0; min-width: 100%; }
+.table-scroll td,
+.table-scroll th { font-variant-numeric: tabular-nums; }
+.table-scroll:focus-visible { outline: 2px solid var(--fig-subject); outline-offset: 2px; }
+
+/* The depth layer -------------------------------------------------------- */
+
+details.aside {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 1.8rem 0;
+}
+details.aside + details.aside { margin-top: -1.8rem; border-top: none; }
+
+details.aside summary {
+  cursor: pointer;
+  padding: 0.8rem 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--secondary);
+  list-style: none;
+}
+details.aside summary::-webkit-details-marker { display: none; }
+details.aside summary::before { content: "+ "; color: var(--fig-subject); }
+details.aside[open] summary::before { content: "- "; }
+details.aside summary:hover { color: var(--primary); }
+details.aside summary:focus-visible { outline: 2px solid var(--fig-subject); outline-offset: 3px; }
+
+details.aside .aside-body {
+  padding: 0 0 1.2rem;
+  font-size: 0.95rem;
+}
+details.aside .aside-body > :first-child { margin-top: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  details.aside { transition: none; }
+}

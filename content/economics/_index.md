@@ -1,17 +1,16 @@
 ---
 title: "Economics"
-description: "Singapore questions, answered with data rather than with what everyone assumes."
+draft: false
+summary: "Singapore questions people already have a view about, answered with primary data."
 ---
 
-Why do COE prices keep climbing? Is HDB really getting less affordable? What is actually driving the
-thing everyone has an opinion about?
+One question people have an opinion about. Then the data. Then what is actually going on.
 
-Most answers to these questions are assumptions repeated until they sound like facts. Usually the
-assumption points at whoever is easiest to blame. Sometimes the data agrees. Often it doesn't, and
-the real driver turns out to be something nobody was looking at.
+Each piece states the common explanation in its strongest form, puts the primary figures
+next to it, and works out what the numbers can and cannot settle. Every claim carries the
+observation that would prove it wrong, and every figure carries its source.
 
-Each piece here takes one question, states what people generally believe, then goes to the numbers
-and shows what they actually say. Where the data contradicts the common explanation, that's the
-piece. Where it supports it, that's worth knowing too.
+The method behind all of it, including how a causal claim gets licensed and what happens
+when a number turns out to be wrong, is on the [Method](/process/) page.
 
-Written for anyone who lives here and has wondered about this, with no economics background assumed.
+Nothing here is financial advice. These are public statistics, not investment products.

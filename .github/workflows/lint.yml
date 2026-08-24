@@ -1,0 +1,39 @@
+# .github/workflows/lint.yml
+#
+# Two changes from the version Gemini suggested, both of which matter:
+#
+#   1. aitell.py needs --strict to exit non-zero. Without it the script prints
+#      its findings and returns 0, so the job goes green no matter what it found
+#      and nothing is ever blocked.
+#   2. --published-only skips files still carrying `draft: true`. Without it
+#      every work-in-progress breaks CI and you will disable the check within a
+#      week.
+#
+# A green check does not block a deploy on its own. Either make this a required
+# status check in branch protection, or give the deploy job `needs: lint` as
+# shown in deploy.yml.
+
+name: lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Check prose and encoding
+        run: |
+          shopt -s nullglob
+          files=(content/economics/*.md content/method.md)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "no files to lint"; exit 0
+          fi
+          python scripts/aitell.py "${files[@]}" --strict --published-only
