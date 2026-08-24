@@ -19,7 +19,27 @@ defaults:
     shell: bash
 
 jobs:
+  # Runs BEFORE build, in the same workflow, because `needs:` only works between
+  # jobs in one file. A separate lint.yml workflow cannot gate this one; it would
+  # go red while the site deployed anyway.
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check prose and encoding
+        run: |
+          shopt -s nullglob
+          files=(content/economics/*.md content/process/*.md)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "no files to lint"; exit 0
+          fi
+          python scripts/aitell.py "${files[@]}" --strict --published-only
+
   build:
+    needs: lint
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.147.9

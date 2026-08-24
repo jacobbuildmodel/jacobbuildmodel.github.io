@@ -15,9 +15,9 @@
 
 name: lint
 
+# Pull requests only. On push to main the lint runs inside deploy.yml, where it
+# actually gates the build; running it here too would just duplicate the job.
 on:
-  push:
-    branches: [main]
   pull_request:
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
       - name: Check prose and encoding
         run: |
           shopt -s nullglob
-          files=(content/economics/*.md content/method.md)
+          files=(content/economics/*.md content/process/*.md)
           if [ ${#files[@]} -eq 0 ]; then
             echo "no files to lint"; exit 0
           fi

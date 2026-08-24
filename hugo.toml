@@ -97,11 +97,6 @@ which you'd know.
   url        = "/economics/"
   weight     = 8
 [[menu.main]]
-  identifier = "briefs"
-  name       = "Weekly Brief"
-  url        = "/briefs/"
-  weight     = 10
-[[menu.main]]
   identifier = "process"
   name       = "Method"
   url        = "/process/"

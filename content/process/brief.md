@@ -69,7 +69,7 @@ whatever is already owned.
 **Deltas, not levels.** A backlog above fifteen billion dollars means nothing on its own. Whether it
 rose or fell, and against what, is the entire signal.
 
-**Moves are paired with participation.** A theme up twelve per cent on 0.6× average volume is a weak
+**Moves are paired with participation.** A theme up twelve per cent on 0.6x average volume is a weak
 signal, and saying so is more useful than reporting the twelve per cent.
 
 **Price is not flow.** Money "flowing into" something means dollars were measured moving. A rising
