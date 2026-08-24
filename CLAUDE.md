@@ -146,7 +146,7 @@ This site now has a News → Sector → Standouts funnel. Sector- and stock-leve
 that matters here, not because naming a sector or a company is itself risky, but because a
 communication can become "financial advice" under Singapore law when it's tailored to an individual
 and/or the provider holds themselves out as a professional — see the full reasoning on
-`content/process.md#why-this-isnt-financial-advice`. Two rules follow from that:
+`content/process/_index.md#why-this-isnt-financial-advice`. Two rules follow from that:
 
 1. **Nothing published is ever tailored to an individual.** No content generated for this site should
    reference a specific reader's circumstances, respond to a specific person's question with a
@@ -155,8 +155,8 @@ and/or the provider holds themselves out as a professional — see the full reas
    instead: *"I can't comment on that — I'm not a licensed financial adviser."* Never adapt that line
    to the asker's stated situation.
 2. **Sector-level directional language gets the same care as stock-level.** "Energy looks favourable"
-   is analysis; "you should overweight energy" is advice. Treat `content/sector/` posts with the same
-   scrutiny as `content/standouts/` — factual read-through, not a directive.
+   is analysis; "you should overweight energy" is advice. The same scrutiny applies wherever a
+   sector-level view appears, including inside a stock page or a weekly brief.
 
 **Monetization guardrails**, if that's ever discussed: display advertising is materially lower-risk
 than affiliate links or a paid subscription tier, because remuneration tied to a reader's specific
@@ -164,7 +164,13 @@ investment decision (an affiliate click, a paid "premium calls" tier) is the cle
 a regulated business under Singapore's carrying-on-a-business test. Flag any monetization change to
 Jacob explicitly rather than implementing it — this needs an actual lawyer, not an inferred rule.
 
-## The Standouts pipeline
+## The Standouts pipeline (retired)
+
+**This section is retired.** Standouts was superseded by `content/stocks/`, which does the same job
+better. The folder still exists and builds, but it is not in the nav and nothing new should be
+written to it. Kept below because the descriptive-only discipline it established still governs the
+stock pages.
+
 
 Descriptive only — this was a deliberate decision, not a default. No scores, no ranks, no
 probabilities, no horizon statistics anywhere on this page, ever. From the evaluation model, via
@@ -238,7 +244,12 @@ publish at all.
 `--date` is required for News (unlike Briefs/Sector, News does not snap to a Saturday) —
 pass the actual reporting date explicitly.
 
-## The Sector pipeline
+## The Sector pipeline (retired)
+
+**This section is retired** and removed from the nav. `market_pulse.py` still runs and the
+contradiction-first framing is still the right way to read a sector, so this is kept as reference
+rather than as an active workflow.
+
 
 The first section fed by a model rather than by hand. Weekly, from the portfolio model's
 `market_pulse.py` sweep, via the handoff prompt in `MODEL_HANDOFF_PROMPTS.md`.
@@ -312,7 +323,11 @@ before trusting the fix, not just against the leak.
 
 - `hugo.toml` — config. Site title, menu, Umami ID, Buttondown username.
 - `content/briefs/` — the weekly series. `TEMPLATE.md` stays `draft: true`; never publish it.
-- `content/process.md` — the Method page. Revise deliberately; it is the most-linked page.
+- `content/process/` — the Method pages. `_index.md` is the hub at `/process/`, written for a retail
+  reader and carrying the compliance section. Annexes: `economics.md`, `brief.md`. Revise the hub
+  deliberately; it is the most-linked page and the compliance text lives there.
+- `content/economics/` — Singapore economics research. Has its own linter (`scripts/aitell.py`) and
+  its own method page at `/process/economics/`.
 - `staging/` — raw model output before the gate. Gitignored, never committed. Pruned by
   `scripts/staging_prune.py`, never by hand.
 - `scripts/site_publish.py` — the gate. `scripts/staging_prune.py` — retention, staging only.
