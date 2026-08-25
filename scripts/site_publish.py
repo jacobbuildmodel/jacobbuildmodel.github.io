@@ -246,16 +246,18 @@ def scan(text, patterns_bands):
             for m in re.finditer(pattern, text):
                 line = text.count("\n", 0, m.start()) + 1
                 snippet = text.splitlines()[line - 1].strip()[:110]
-                # A disclosure pattern inside a disavowal is the site describing
-                # its own rules, not breaking them. Credentials and DRIVE state
-                # paths are never exempted; those are leaks regardless of framing.
+                # A disclosure or recommendation pattern inside a disavowal is the
+                # site describing its own rules, not breaking them: "no overall
+                # score, no ranking, and no buy or sell call" is a promise, not a
+                # call. Credentials, DRIVE state paths, model internals and held-back
+                # statistics are never exempted; those are leaks regardless of framing.
                 # Check the previous line too: markdown wraps, so "Never a buy,"
                 # and "a position size." routinely land on different lines.
                 lines_all = text.splitlines()
                 context = snippet
                 if line >= 2:
                     context = lines_all[line - 2].strip() + " " + snippet
-                if band == "DISCLOSURE" and _is_disavowal(context):
+                if band in ("DISCLOSURE", "RECOMMENDATION") and _is_disavowal(context):
                     continue
                 hits.append((band, label, line, snippet))
     return hits

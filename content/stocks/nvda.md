@@ -3,9 +3,10 @@ title: "NVIDIA (NVDA)"
 ticker: "NVDA"
 company: "NVIDIA"
 date: 2026-08-21
+lastReviewed: 2026-08-21
 draft: false
 showToc: true
-TocOpen: false
+TocOpen: true
 summary: "NVIDIA sells the chips AI runs on. Three unnamed customers are now 54% of its revenue, and its headline profit is partly no longer coming from selling chips at all."
 tags: ["stocks"]
 ---
@@ -17,7 +18,7 @@ tags: ["stocks"]
 *Last filed quarter: three months to 26 April 2026 (Form 10-Q, filed 20 May 2026). Figures come from
 that filing or the annual report to 25 January 2026 unless labelled otherwise.*
 
-## What it actually sells
+## What does this company sell?
 
 NVIDIA sells a computer chip, and increasingly, an entire cabinet of computers built around those
 chips.
@@ -60,7 +61,7 @@ the organisations that end up using the machine, buying through those middlemen.
 famous technology company is a huge NVIDIA customer, that relationship may well sit in the second
 group, and NVIDIA does not confirm names in either.
 
-## What the business is made of
+## Which parts are biggest
 
 NVIDIA publishes two different splits of the same quarter. Both are shown, because they answer
 different questions and they do not reconcile.

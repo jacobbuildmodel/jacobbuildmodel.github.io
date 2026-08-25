@@ -5,11 +5,8 @@ description: "What each company actually does, how it makes money, and what kind
 
 Plain-English explanations of companies, written for someone with no finance background.
 
-Most places will tell you a company's share price and its P/E ratio. Very few will tell you what
-the company actually sells, who pays for it, or how often. That's the gap these pages fill.
-
-Each page covers what the company sells, how a dollar of revenue actually arrives, who its
-customers and competitors are, what would have to go wrong for it to be in trouble, and the thing
+Every page answers the same questions. What the company sells. Who pays for it, and how often.
+Who else wants that business. What would have to go wrong for it to be in trouble. And the thing
 most people misunderstand about it.
 
 Each also carries a set of **descriptive scores** covering things like how cyclical the revenue is

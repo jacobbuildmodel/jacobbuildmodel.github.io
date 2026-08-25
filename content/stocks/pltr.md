@@ -3,9 +3,10 @@ title: "Palantir (PLTR)"
 ticker: "PLTR"
 company: "Palantir Technologies"
 date: 2026-08-21
+lastReviewed: 2026-08-21
 draft: false
 showToc: true
-TocOpen: false
+TocOpen: true
 summary: "Palantir sells software that answers questions no single system can answer alone. Its 55% profit margin sits on a 1.4% tax rate, and roughly 4% of the company can carry half the votes."
 tags: ["stocks"]
 ---
@@ -16,7 +17,7 @@ tags: ["stocks"]
 *Last filed quarter: three months to 30 June 2026 (Form 10-Q, filed 4 August 2026). Figures come from
 that filing, the earnings release filed with it, or the 2025 annual report unless labelled otherwise.*
 
-## What it actually sells
+## What does this company sell?
 
 Palantir sells software that sits on top of all the *other* software an organisation already owns,
 and answers questions that no single one of those systems can answer alone.
@@ -78,7 +79,7 @@ nobody walks away, while the company states elsewhere that most customers *can* 
 The $4.9 billion figure is the stricter one, because it deliberately excludes anything cancellable.
 When you see a Palantir backlog number quoted, it matters enormously which of the two it is.
 
-## What the business is made of
+## Which parts are biggest
 
 **By customer type:**
 

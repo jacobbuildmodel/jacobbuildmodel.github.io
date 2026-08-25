@@ -1,0 +1,5 @@
+# Project-level override. PaperMod ships "{{ .Count }} min", which reads as a
+# measurement rather than a courtesy. "~8 min read" tells a reader what the
+# number is for. Hugo merges this over the theme's file.
+- id: read_time
+  translation: "~{{ .Count }} min read"

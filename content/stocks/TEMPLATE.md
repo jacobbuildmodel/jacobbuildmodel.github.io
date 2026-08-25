@@ -5,16 +5,17 @@ title: "TODO: Company Name (TICKER)"
 ticker: "TICKER"
 company: "TODO: Company Name"
 date: 2026-01-01
+lastReviewed: 2026-01-01
 draft: true
 showToc: true
-TocOpen: false
+TocOpen: true
 summary: "TODO: one sentence a 15-year-old would understand."
 tags: ["stocks"]
 ---
 
 > TODO: two sentences. What is this company, in the plainest words possible?
 
-## What it actually sells
+## What does this company sell?
 
 Concrete. Not "a data analytics platform" — what is the thing, who uses it, what does it do for
 them.
@@ -34,7 +35,7 @@ Who pays, for what, how often, and whether it repeats.
 expressed as a share of a quarter's sales is immediately readable. Where an absolute number is
 genuinely the point, give the denominator beside it.
 
-## What the business is made of
+## Which parts are biggest
 
 The segments and roughly what share each is.
 

@@ -29,7 +29,7 @@ pagination.pagerSize = 10
 # --- site parameters ---
 [params]
   env         = "production"
-  author      = "Jacob"                              # EDIT — your name
+  author      = "Jacob Ong"
   description = "Weekly market analysis: flows, regime, forward catalysts, and a research watchlist. Reasoning, not recommendations."
   keywords    = ["market analysis", "equity research", "fund flows", "macro"]
 

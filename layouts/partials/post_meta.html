@@ -1,0 +1,36 @@
+{{- $scratch := newScratch }}
+
+{{/* Stock pages are evergreen reference, not dated posts. A publication date makes
+     an explainer look stale within a quarter and implies an obligation to rewrite it
+     on a schedule. Those pages show "Last reviewed" instead, taken from lastReviewed
+     in front matter, falling back to the date. Every other section is unchanged. */}}
+{{- $isEvergreen := eq .Section "stocks" }}
+
+{{- if $isEvergreen }}
+    {{- $reviewed := .Params.lastReviewed | default .Date }}
+    {{- if $reviewed }}
+        {{- $scratch.Add "meta" (slice (printf "<span title='Last reviewed %s'>Last reviewed %s</span>" ($reviewed) ($reviewed | time.Format "January 2006"))) }}
+    {{- end }}
+{{- else }}
+    {{- if not .Date.IsZero -}}
+        {{- $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" (.Date) (.Date | time.Format (default ":date_long" site.Params.DateFormat)))) }}
+    {{- end }}
+{{- end }}
+
+{{- if (.Param "ShowReadingTime") -}}
+    {{- $scratch.Add "meta" (slice (printf "<span>%s</span>" (i18n "read_time" .ReadingTime | default (printf "~%d min read" .ReadingTime)))) }}
+{{- end }}
+
+{{- if (.Param "ShowWordCount") -}}
+    {{- $scratch.Add "meta" (slice (printf "<span>%s</span>" (i18n "words" .WordCount | default (printf "%d words" .WordCount)))) }}
+{{- end }}
+
+{{- if not (.Param "hideAuthor") -}}
+    {{- with (partial "author.html" .) }}
+        {{- $scratch.Add "meta" (slice (printf "<span>%s</span>" .)) }}
+    {{- end }}
+{{- end }}
+
+{{- with ($scratch.Get "meta") }}
+    {{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
+{{- end -}}

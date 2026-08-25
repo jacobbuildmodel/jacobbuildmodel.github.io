@@ -3,9 +3,10 @@ title: "Shopify (SHOP)"
 ticker: "SHOP"
 company: "Shopify"
 date: 2026-08-21
+lastReviewed: 2026-08-21
 draft: false
 showToc: true
-TocOpen: false
+TocOpen: true
 summary: "Most people think Shopify sells shop software. Three-quarters of its revenue is a cut of what its merchants sell, and the fast-growing half is the low-margin one."
 tags: ["stocks"]
 ---
@@ -16,7 +17,7 @@ tags: ["stocks"]
 *Last filed quarter: three months to 30 June 2026 (Form 10-Q, filed 5 August 2026). Every figure
 below comes from that filing or from the annual report for 2025.*
 
-## What it actually sells
+## What does this company sell?
 
 Shopify sells the machinery behind an online shop, and then takes a cut of everything that shop
 sells.
@@ -73,7 +74,7 @@ sold ran through Shopify Payments**, up from 64% a year earlier. That four-point
 deal: payments revenue alone rose by $624 million year over year. Watching that percentage is the
 closest thing to watching the engine directly.
 
-## What the business is made of
+## Which parts are biggest
 
 Shopify reports two segments, and the company's own names for them are unhelpful, so here is what
 each actually contains.

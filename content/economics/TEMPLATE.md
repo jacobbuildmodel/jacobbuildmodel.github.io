@@ -8,7 +8,7 @@ title: "TODO: the finding, in a sentence"
 date: 2026-01-01
 draft: true
 showToc: true
-TocOpen: false
+TocOpen: true
 summary: "TODO: two sentences. What people believe, and what the data actually shows."
 tags: ["economics"]
 ---
