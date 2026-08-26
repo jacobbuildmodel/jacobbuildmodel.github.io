@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 330" role="img" aria-label="Line chart. Category A car premiums and Category D motorcycle premiums, both indexed to 100 in 2022. By 2026 the car index reaches 155 and the motorcycle index falls to 86. The two lines separate after 2022. The final point covers 15 exercises rather than a full year." font-family="IBM Plex Sans, system-ui, sans-serif">
+<g font-size="11.5"><rect x="54" y="18" width="9" height="9" rx="2" fill="var(--fig-subject,#a32a1e)"/><text x="69" y="26.5" fill="var(--fig-ink-2,#5b5e64)">motorcycles</text><rect x="166" y="18" width="9" height="9" rx="2" fill="var(--fig-context,#8d9096)"/><text x="181" y="26.5" fill="var(--fig-ink-2,#5b5e64)">smaller cars</text><text x="282" y="26.5" fill="var(--fig-ink-3,#8d9096)">both = 100 in 2022</text></g>
+<line x1="54" y1="230.4" x2="498" y2="230.4" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
+<text x="46" y="234.4" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">20</text>
+<line x1="54" y1="208.9" x2="498" y2="208.9" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
+<text x="46" y="212.9" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">40</text>
+<line x1="54" y1="187.3" x2="498" y2="187.3" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
+<text x="46" y="191.3" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">60</text>
+<line x1="54" y1="165.8" x2="498" y2="165.8" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
+<text x="46" y="169.8" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">80</text>
+<line x1="54" y1="144.2" x2="498" y2="144.2" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
+<text x="46" y="148.2" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">100</text>
+<line x1="54" y1="122.7" x2="498" y2="122.7" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
+<text x="46" y="126.7" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">120</text>
+<line x1="54" y1="101.1" x2="498" y2="101.1" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
+<text x="46" y="105.1" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">140</text>
+<line x1="54" y1="79.6" x2="498" y2="79.6" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
+<text x="46" y="83.6" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">160</text>
+<line x1="244.3" y1="54" x2="244.3" y2="252" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
+<text x="250.3" y="66" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">motorcycle premiums peak</text>
+<text x="54.0" y="271" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2019</text>
+<text x="117.4" y="271" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2020</text>
+<text x="180.9" y="271" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2021</text>
+<text x="244.3" y="271" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2022</text>
+<text x="307.7" y="271" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2023</text>
+<text x="371.1" y="271" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2024</text>
+<text x="434.6" y="271" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2025</text>
+<text x="498.0" y="271" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2026</text>
+<polyline points="54.0,209.5 117.4,201.7 180.9,184.6 244.3,144.2 307.7,117.6 371.1,123.3 434.6,105.7 498.0,84.9" fill="none" stroke="var(--fig-context,#8d9096)" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="54.0,216.4 117.4,189.2 180.9,167.5 244.3,144.2 307.7,145.9 371.1,160.6 434.6,163.9 498.0,159.2" fill="none" stroke="var(--fig-subject,#a32a1e)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="498.0" cy="84.9" r="4.5" fill="var(--fig-context,#8d9096)"/>
+<circle cx="498.0" cy="159.2" r="4.5" fill="var(--fig-subject,#a32a1e)"/>
+<text x="510" y="85.9" font-size="12.5" fill="var(--fig-context,#8d9096)">cars 155</text>
+<text x="510" y="100.9" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2026 part year</text>
+<text x="510" y="160.2" font-size="12.5" fill="var(--fig-subject,#a32a1e)" font-weight="600">bikes 86</text>
+<text x="510" y="175.2" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2026 part year</text>
+<text x="54" y="304" font-size="11" fill="var(--fig-ink-3,#8d9096)">Annual mean premiums, indexed to 100 in 2022. A full year holds 24 bidding exercises.</text>
+<text x="54" y="319" font-size="11" fill="var(--fig-ink-3,#8d9096)">2026 has run 15, so the final point is a part year. Headline figures pool 2025 and 2026.</text>
+</svg>
