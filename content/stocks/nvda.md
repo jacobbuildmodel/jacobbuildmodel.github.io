@@ -9,7 +9,10 @@ showToc: true
 TocOpen: true
 summary: "NVIDIA sells the chips AI runs on. Three unnamed customers are now 54% of its revenue, and its headline profit is partly no longer coming from selling chips at all."
 tags: ["stocks"]
+sectors: ["Semiconductors"]
 ---
+
+*You have used something built on these chips in the last hour, probably without knowing it.*
 
 > NVIDIA makes a computer chip that turned out to be exactly what artificial intelligence needed.
 > It sells them to a very small number of very large buyers, and those buyers are increasingly
@@ -18,7 +21,7 @@ tags: ["stocks"]
 *Last filed quarter: three months to 26 April 2026 (Form 10-Q, filed 20 May 2026). Figures come from
 that filing or the annual report to 25 January 2026 unless labelled otherwise.*
 
-## What does this company sell?
+## What the company sells
 
 NVIDIA sells a computer chip, and increasingly, an entire cabinet of computers built around those
 chips.
@@ -40,7 +43,7 @@ There is also software, called **CUDA**. NVIDIA gives it away free. It is the to
 to write instructions these chips understand. It runs on NVIDIA hardware and nothing else, so every
 hour a programmer spends learning it is an hour invested in NVIDIA specifically.
 
-## How a dollar arrives
+## How it makes money
 
 **Someone buys a box, once.** There is no subscription and no monthly fee.
 
@@ -61,7 +64,7 @@ the organisations that end up using the machine, buying through those middlemen.
 famous technology company is a huge NVIDIA customer, that relationship may well sit in the second
 group, and NVIDIA does not confirm names in either.
 
-## Which parts are biggest
+## Revenue by segment
 
 NVIDIA publishes two different splits of the same quarter. Both are shown, because they answer
 different questions and they do not reconcile.
@@ -91,7 +94,7 @@ Kong 5.6%, everywhere else 1.6%.
 Sales to customers headquartered outside the United States were **22%** of revenue this quarter, down
 from **42%** a year earlier. The business has become dramatically more American in twelve months.
 
-## Who buys it, who competes
+## Customers and competitors
 
 **Who buys it: NVIDIA will not say.**
 
@@ -114,7 +117,7 @@ and its most capable rivals are, to a significant degree, the same handful of co
 unusual, and it means the customer risk and the competition risk are not two separate problems. They
 are one problem.
 
-## What would break it
+## Key risks
 
 **A big buyer builds its own.** Alphabet, Amazon and Microsoft are already designing their own AI
 chips, which is precisely why they appear on the competitor list. Because three customers are 54% of
@@ -134,7 +137,7 @@ concentrated overwhelmingly in Taiwan.
 **It has happened before.** In the year to January 2023, revenue was essentially flat, up 0.2%, while
 profit fell by about 55%. Sales held up and earnings still halved.
 
-## What most people get wrong
+## Common misconceptions
 
 **The profit is no longer purely from selling chips.** In the latest quarter, profit from the actual
 business of designing and selling hardware, meaning operating profit, was **$53.5 billion**. But the
@@ -150,7 +153,7 @@ above, concentration is rising rather than falling: two customers at 30% combine
 at 54% today. On money billed but not yet collected the picture is tighter still, with three
 customers accounting for **30%, 18% and 16% of receivables**, or **64%**.
 
-## On competitive protection
+## Competitive position
 
 NVIDIA's gross margin was **74.9%** while revenue grew **85%** year on year, and the company has
 guided it to stay near 75%. A business with no protection has to cut prices to grow quickly. NVIDIA
@@ -162,6 +165,24 @@ accumulates in a form that does not transfer to a rival's chips.
 
 The qualifier matters. The three largest buyers are also on the company's own competitor list and are
 actively building alternatives. That describes the position today, not ten years out.
+
+## What would have to change
+
+Not a forecast. These are the specific things that would make this a different business, and
+what you would watch to see them happening.
+
+**If a large buyer switches to its own chips.** Three customers are 54% of revenue and all
+three appear on NVIDIA's own competitor list. The signal would be a hyperscaler disclosing
+that its in-house accelerator is carrying a meaningful share of its own training workload,
+rather than being announced as a project.
+
+**If the software advantage stops holding.** The moat is that a decade of AI code is written
+against CUDA. The signal would be a major AI framework shipping first-class support for a
+rival's chips, so that switching stops requiring a rewrite.
+
+**If gross margin slips below the mid-sixties.** It has run near 75% while revenue nearly
+doubled, which means buyers are paying full price. Sustained compression while volume still
+grows would say a real alternative exists.
 
 ## The business at a glance
 

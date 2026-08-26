@@ -1,0 +1,33 @@
+{{- /* Related reads. Fires only on stock pages. Shows other companies in the same
+       sector first, then falls back to any other stock page, so a reader who came
+       for one ticker has somewhere to go next. Suppressed entirely when there is
+       nothing to show, rather than rendering an empty heading. */ -}}
+{{- if eq .Section "stocks" }}
+  {{- $me := . }}
+  {{- $sector := index (.Params.sectors | default slice) 0 }}
+  {{- $all := where (where site.RegularPages "Section" "stocks") "Params.ticker" "!=" nil }}
+  {{- $pool := where $all "Permalink" "!=" .Permalink }}
+  {{- $same := slice }}
+  {{- $other := slice }}
+  {{- range $pool }}
+    {{- if and $sector (in (.Params.sectors | default slice) $sector) }}
+      {{- $same = $same | append . }}
+    {{- else }}
+      {{- $other = $other | append . }}
+    {{- end }}
+  {{- end }}
+  {{- $show := first 3 ($same | append $other) }}
+  {{- with $show }}
+  <nav class="related-reads" aria-label="More companies">
+    <h3>More companies</h3>
+    <div class="stock-grid">
+      {{- range . }}
+      <a class="stock-card" href="{{ .Permalink }}">
+        <span class="stock-ticker">{{ .Params.ticker }}</span>
+        {{- with index (.Params.sectors | default slice) 0 }}<span class="stock-name">{{ . }}</span>{{ end }}
+      </a>
+      {{- end }}
+    </div>
+  </nav>
+  {{- end }}
+{{- end }}

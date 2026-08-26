@@ -16,6 +16,13 @@ pagination.pagerSize = 10
   [[module.imports]]
     path = "github.com/adityatelange/hugo-PaperMod"
 
+# --- taxonomies ---
+# Sector lets a reader who came for one company find the next one. "tag" is kept
+# because existing content already uses it.
+[taxonomies]
+  tag    = "tags"
+  sector = "sectors"
+
 # --- markdown rendering ---
 [markup]
   [markup.goldmark.renderer]
@@ -50,9 +57,9 @@ pagination.pagerSize = 10
   [params.homeInfoParams]
     Title   = "Reasoning, not recommendations."
     Content = """
-**Stocks** explains what a company actually does and how it makes money, in plain English.
-**Earnings** covers what a set of results really means, once you look past the headline.
-**Economics** takes a question people have opinions about and checks it against the data.
+**Stocks** — what a company sells, who pays for it, and how often.
+**Earnings** — what a set of results really means, once you look past the headline.
+**Economics** — a question people argue about, put next to the actual data.
 
 Every claim comes with the specific thing that would prove it wrong, and a date by
 which you'd know.

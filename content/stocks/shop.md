@@ -9,7 +9,10 @@ showToc: true
 TocOpen: true
 summary: "Most people think Shopify sells shop software. Three-quarters of its revenue is a cut of what its merchants sell, and the fast-growing half is the low-margin one."
 tags: ["stocks"]
+sectors: ["Software"]
 ---
+
+*The company you buy from may be running on this without ever mentioning it.*
 
 > On every $100 of goods sold through a Shopify shop, Shopify keeps about $3.10. Only 69 cents of
 > that is the monthly software fee. The rest is a cut of the transaction, and that is the business.
@@ -17,7 +20,7 @@ tags: ["stocks"]
 *Last filed quarter: three months to 30 June 2026 (Form 10-Q, filed 5 August 2026). Every figure
 below comes from that filing or from the annual report for 2025.*
 
-## What does this company sell?
+## What the company sells
 
 Shopify sells the machinery behind an online shop, and then takes a cut of everything that shop
 sells.
@@ -40,7 +43,7 @@ when its merchants sell more, whether or not a single new merchant ever signs up
 So the honest one-line description is not "it sells shop software." It is: **Shopify rents you a
 shop, and then charges you a small percentage of everything you sell through it.**
 
-## How a dollar arrives
+## How it makes money
 
 This is the section worth reading twice, because the answer is not the one the product suggests.
 
@@ -74,7 +77,7 @@ sold ran through Shopify Payments**, up from 64% a year earlier. That four-point
 deal: payments revenue alone rose by $624 million year over year. Watching that percentage is the
 closest thing to watching the engine directly.
 
-## Which parts are biggest
+## Revenue by segment
 
 Shopify reports two segments, and the company's own names for them are unhelpful, so here is what
 each actually contains.
@@ -96,7 +99,7 @@ gross margin was 47.7%, against 48.6% a year earlier.
 **Where the merchants are**, by location, from the annual report: 44% United States, 31% Europe,
 Middle East and Africa, 16% Asia Pacific, 5% Canada, 5% Latin America.
 
-## Who buys it, who competes
+## Customers and competitors
 
 **Who buys it.** Millions of merchants across more than 175 countries, from one person selling
 candles to large brands running their own direct-to-customer operations. That breadth is the defining
@@ -121,7 +124,7 @@ without leaving the shop software. Each departure removes a slice of that $3.10.
 Any specific company you see listed against Shopify reflects the market's view of the alternatives,
 not the company's own disclosure.
 
-## What would break it
+## Key risks
 
 **Consumer spending falls.** Because most revenue is a percentage of sales rather than a fixed fee, a
 downturn in online shopping hits Shopify immediately and directly. It does not need to lose a single
@@ -144,7 +147,7 @@ retailers are precisely the borrowers who struggle.
 falling. It falls simply because the lower-margin half keeps growing faster, which is the current,
 ordinary state of the business.
 
-## What most people get wrong
+## Common misconceptions
 
 **It is mostly a payments company wearing a software company's clothes.**
 
@@ -172,6 +175,22 @@ slower-growing half. What actually moves the numbers is existing merchants selli
 share of those sales running through Shopify's own payment system. Goods sold through the platform
 grew 33% over the half-year; the subscription line grew 22%. **The business grows mainly because its
 customers grow, not because it adds customers.**
+
+## What would have to change
+
+Not a forecast. These are the things that would make this a different business.
+
+**If payments penetration stops rising.** 68% of goods sold run through Shopify Payments, up
+from 64%. That four-point move was worth $624 million of revenue growth. If it flattens, the
+largest engine in the business flattens with it.
+
+**If merchants start unbundling.** There are eleven categories of competitor because Shopify
+sells eleven things. Each one a merchant takes elsewhere removes a slice of the $3.10. The
+signal would be take rate falling while merchant numbers hold.
+
+**If loan losses keep outgrowing revenue.** Transaction and loan losses ran $141 million
+against $80 million a year earlier. In a downturn, small retailers are exactly the borrowers
+who struggle.
 
 ## The business at a glance
 

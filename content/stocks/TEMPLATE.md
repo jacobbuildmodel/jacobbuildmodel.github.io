@@ -15,7 +15,7 @@ tags: ["stocks"]
 
 > TODO: two sentences. What is this company, in the plainest words possible?
 
-## What does this company sell?
+## What the company sells
 
 Concrete. Not "a data analytics platform" — what is the thing, who uses it, what does it do for
 them.
@@ -27,7 +27,7 @@ single concrete situation the reader can picture, followed by "and the same appl
 Every genuinely hard-to-explain company needs its own example invented from scratch. This is the
 most expensive part of the page and it does not get easier with practice.
 
-## How a dollar arrives
+## How it makes money
 
 Who pays, for what, how often, and whether it repeats.
 
@@ -35,7 +35,7 @@ Who pays, for what, how often, and whether it repeats.
 expressed as a share of a quarter's sales is immediately readable. Where an absolute number is
 genuinely the point, give the denominator beside it.
 
-## Which parts are biggest
+## Revenue by segment
 
 The segments and roughly what share each is.
 
@@ -43,7 +43,7 @@ The segments and roughly what share each is.
 by reporting segment, for the same revenue. Show both and say they're different cuts. Don't pick one
 silently.
 
-## Who buys it, who competes
+## Customers and competitors
 
 **Customers.** Name them where disclosed. Expect **"not disclosed"** to be the normal answer:
 plenty of large companies report that three customers are most of their revenue while identifying
@@ -58,7 +58,7 @@ reporting. Without this rule the writer imports a list from memory and presents 
 
 Competitors means who competes for the same customers, which is not the valuation comparison set.
 
-## What would break it
+## Key risks
 
 What would have to change for this business to be in real trouble.
 
@@ -71,7 +71,7 @@ structure where a small economic stake carries a large share of the votes.
 found a share structure carrying roughly 4% of the economics and up to 49.999999% of the votes,
 which doesn't "break the business" and so had nowhere else to go.
 
-## What most people get wrong
+## Common misconceptions
 
 The commonly misunderstood thing.
 

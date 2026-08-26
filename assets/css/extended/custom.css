@@ -220,3 +220,111 @@
 .stock-grid + .post-content p,
 main .post-content > p { margin-bottom: 1em; }
 .page-header + .post-content p { margin-bottom: 1em; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   TYPOGRAPHY AND COLOUR
+   PaperMod styles almost nothing inside .post-content. It sets 18px
+   and line-height 1.6 on the body, then leaves paragraphs and headings
+   to browser defaults. Browser defaults give a heading equal space above
+   and below, which is why headings look like they float between two
+   paragraphs instead of belonging to the one underneath.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Steel blue, the colour already used in the favicon and the social
+     card, so the site matches its own preview. 6.16:1 on white. */
+  --accent:        #446485;
+  --accent-quiet:  #6b86a4;
+  --pos:           #2E7D5B;   /* 5.00:1 on white */
+  --neg:           #8A6116;   /* 5.52:1 on white. Amber, not red: these
+                                 mark "look closer", not "bad news". */
+}
+.dark {
+  /* #446485 is only 2.71:1 on the dark background, so dark mode needs
+     genuinely lighter values rather than the same hex. */
+  --accent:        #7BA3C9;   /* 6.30:1 */
+  --accent-quiet:  #93a9c0;
+  --pos:           #6FBF9A;   /* 7.62:1 */
+  --neg:           #D6A544;   /* 7.41:1 */
+}
+
+/* ---- measure ----
+   720px at 18px is roughly 80 characters per line. Comfortable reading
+   is 60-75. 660px brings it to about 73 without shrinking the type. */
+:root { --main-width: 660px; }
+
+/* ---- vertical rhythm ----
+   A heading belongs to what follows it, so the space above must be
+   clearly larger than the space below. This is the single biggest cause
+   of the "weird spacing" feeling. */
+.post-content p { margin: 0 0 1.15em; }
+
+/* Telerik's guidance is H2 at ~200% of body and H3 at ~150%. Body here is
+   18px, so that would be 36px and 27px. 2em H2 reads as shouting at a 660px
+   measure on a text-heavy research page, so H2 sits at 1.7em (~31px) and H3
+   at 1.3em (~23px). That is a deliberate step down from the guidance, but
+   still a far clearer hierarchy than the 1.45em/1.15em it replaces, where
+   H3 was barely distinguishable from bold body text. */
+.post-content h2 {
+  margin-top: 2.4em;
+  margin-bottom: 0.6em;
+  line-height: 1.25;
+  font-size: 1.7em;
+  letter-spacing: -0.01em;
+}
+.post-content h3 {
+  margin-top: 1.9em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+  font-size: 1.3em;
+}
+.post-content h2:first-child,
+.post-content h3:first-child { margin-top: 0; }
+
+.post-content ul,
+.post-content ol { margin: 0 0 1.15em; padding-inline-start: 1.4em; }
+.post-content li { margin-bottom: 0.4em; }
+.post-content li > p { margin-bottom: 0.5em; }
+
+/* ---- links: the accent's main job ---- */
+.post-content a { color: var(--accent); text-decoration-color: var(--accent-quiet); }
+.post-content a:hover { text-decoration-thickness: 2px; }
+
+/* ---- standfirst: the italic line under the title ---- */
+.post-content > p > em:only-child,
+.standfirst {
+  color: var(--secondary);
+  font-size: 1.06em;
+  line-height: 1.5;
+}
+
+/* ---- the hook keeps a coloured edge instead of a black bar ---- */
+.post-content blockquote { border-inline-start-color: var(--accent); }
+
+/* ---- attribute block: colour carries meaning, nothing else ---- */
+.attr-stars .star.on { color: var(--accent); }
+.attr-word.attrexpanding,
+.attr-word.attrclean,
+.attr-word.attrstrong    { color: var(--pos);  border-color: var(--pos); }
+.attr-word.attrflagged,
+.attr-word.attrredflag,
+.attr-word.attrcompressing { color: var(--neg); border-color: var(--neg); }
+
+/* ---- section badge picks up the accent ---- */
+.layer-badge { color: var(--accent); border-color: var(--accent-quiet); }
+
+/* ---- related reads ---- */
+.related-reads {
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin: 44px auto 0;
+  padding: 0 var(--gap);
+}
+.related-reads h3 {
+  font-size: 0.78em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin: 0 0 12px;
+}
+.related-reads .stock-grid { margin: 0; }
+.stock-card:hover { border-color: var(--accent); }

@@ -18,7 +18,7 @@ tags: ["earnings"]
 > TODO: the hook. Two or three sentences, plain English, no jargon. Someone reading this on their
 > phone should understand the whole story from this block alone.
 
-## What happened
+## The results
 
 What the company reported, in plain language. Lead with percentages, not raw figures: "revenue came
 in about 3% below what analysts expected" beats "revenue of $4.62B against a $4.74B estimate."
@@ -26,7 +26,7 @@ in about 3% below what analysts expected" beats "revenue of $4.62B against a $4.
 If a number needs explaining, explain it in the sentence rather than assuming. Write for someone
 with no finance background who is smart and wants to actually understand.
 
-## The part worth paying attention to
+## What the headline missed
 
 The single most interesting thing in this report, explained properly. This is the section that
 justifies the piece existing.
@@ -34,14 +34,14 @@ justifies the piece existing.
 Take the time to build the idea. If it depends on knowing what a business does, explain what the
 business does first. An analogy is usually worth more than another number.
 
-## What management said about the months ahead
+## What management said
 
 What the company said about the quarter or year ahead, and what they pointedly didn't say.
 
 If management gave no guidance, say so plainly in one line and move on. Never invent forward-looking
 statements a company didn't make.
 
-## Key highlights
+## Key figures
 
 A short table. Percentages and directions, not raw currency figures wherever possible. Five rows at
 most. This is a glance, not a data dump.
@@ -50,7 +50,7 @@ most. This is a glance, not a data dump.
 |---|---|
 | | |
 
-## What this makes worth watching
+## What to watch next
 
 Forward-looking, and the reason a reader comes back.
 
@@ -62,7 +62,7 @@ End with the specific, dated thing that would confirm or kill the idea, in plain
 stays above roughly 250% next quarter, the acceleration is real. If it drops back below 184%, this
 was a one-off."
 
-## What we couldn't check
+## Unconfirmed figures
 
 What wasn't verifiable, in plain language. Filing not yet published, thin analyst coverage, figures
 that come from the company rather than an audited source. Keep it short and matter of fact.

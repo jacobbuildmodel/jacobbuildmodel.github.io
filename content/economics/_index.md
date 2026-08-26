@@ -4,13 +4,15 @@ draft: false
 summary: "Singapore questions people already have a view about, answered with primary data."
 ---
 
-One question people have an opinion about. Then the data. Then what is actually going on.
+People around me have strong opinions about COE prices, housing and wages. Usually so do I.
+These are the ones where I went and checked, and some of the answers surprised me.
 
-Each piece states the common explanation in its strongest form, puts the primary figures
-next to it, and works out what the numbers can and cannot settle. Every claim carries the
-observation that would prove it wrong, and every figure carries its source.
+Each piece takes one belief, puts the primary data next to it, and says what the numbers can
+and cannot settle. Every figure has a source, and every claim has the observation that would
+prove it wrong.
 
-The method behind all of it, including how a causal claim gets licensed and what happens
-when a number turns out to be wrong, is on the [Method](/process/) page.
+Some of it will interest you. Some of it will not, and the headline tells you which.
 
-Nothing here is financial advice. These are public statistics, not investment products.
+The method behind all of it, including what gets published when a result does not work, is on
+the [Method page](/process/economics/). Every piece links to the code and the raw file, so you
+can run it yourself.

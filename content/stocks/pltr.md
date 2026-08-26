@@ -9,7 +9,10 @@ showToc: true
 TocOpen: true
 summary: "Palantir sells software that answers questions no single system can answer alone. Its 55% profit margin sits on a 1.4% tax rate, and roughly 4% of the company can carry half the votes."
 tags: ["stocks"]
+sectors: ["Software"]
 ---
+
+*Plenty of people own Palantir. Far fewer can say what it actually sells.*
 
 > Palantir builds software that sits on top of all the other software an organisation already owns.
 > It is one of the hardest companies in the market to explain, which is itself part of the story.
@@ -17,7 +20,7 @@ tags: ["stocks"]
 *Last filed quarter: three months to 30 June 2026 (Form 10-Q, filed 4 August 2026). Figures come from
 that filing, the earnings release filed with it, or the 2025 annual report unless labelled otherwise.*
 
-## What does this company sell?
+## What the company sells
 
 Palantir sells software that sits on top of all the *other* software an organisation already owns,
 and answers questions that no single one of those systems can answer alone.
@@ -49,7 +52,7 @@ The platform ships under a few names. **Gotham** for defence and intelligence wo
 companies, **AIP** for the AI layer added on top of both, and **Apollo**, the plumbing that delivers
 software updates into secure environments not connected to the open internet.
 
-## How a dollar arrives
+## How it makes money
 
 A customer signs a contract, usually running several years, covering access to the platform plus the
 engineering work to set it up. They pay on a schedule, frequently partly in advance. Palantir records
@@ -79,7 +82,7 @@ nobody walks away, while the company states elsewhere that most customers *can* 
 The $4.9 billion figure is the stricter one, because it deliberately excludes anything cancellable.
 When you see a Palantir backlog number quoted, it matters enormously which of the two it is.
 
-## Which parts are biggest
+## Revenue by segment
 
 **By customer type:**
 
@@ -106,7 +109,7 @@ The single most important thing in this table is that the growth is overwhelming
 revenue grew **115%** year on year; the rest of the world grew **34%**. Palantir is often described as
 a global intelligence company, but almost all of its recent growth has come from inside one country.
 
-## Who buys it, who competes
+## Customers and competitors
 
 **Who buys it.** Palantir had **1,049 customers** in total, and **653** US commercial customers. Note
 what that means: a company with billions in annual revenue serves roughly a thousand customers
@@ -134,7 +137,7 @@ and Accenture Federal on the government side — reflects the market's view of w
 behave differently: a named rival can be beaten on price or features, while "the customer decides to
 build it themselves" is beaten only by being faster than their own engineers.
 
-## What would break it
+## Key risks
 
 **Customers can leave, and the company says so plainly.** Its own risk disclosures state that many
 customer contracts "may be terminated by the customer at any time for convenience." This is a
@@ -171,7 +174,7 @@ which was **100 million shares** as of 30 June 2026. That threshold is roughly *
 Ordinary shareholders can own the overwhelming majority of the economics and still not be able to
 outvote the founders.
 
-## What most people get wrong
+## Common misconceptions
 
 **The 55% profit margin is mostly not from running the business.**
 
@@ -192,6 +195,23 @@ Palantir promotes an adjusted operating margin of **62%**. The accounting figure
 $282 million, and **$265 million of it, or 94%, is stock granted to employees**, which the adjusted
 number removes. That stock is 13.7% of revenue, and it is a real cost: it is paid in new shares, so
 every existing owner's slice gets slightly smaller.
+
+## What would have to change
+
+Not a forecast. These are the things that would make this a different business, and what you
+would watch for.
+
+**If net dollar retention falls toward 110%.** The entire model is landing small and growing
+inside the account. Retention at 157% says that works. Somewhere near 110% it becomes an
+ordinary software company that has to keep winning new logos.
+
+**If AI coding tools make building it yourself cheap.** The company's own stated competitor is
+a customer's internal engineering team. The signal would be a large customer publicly
+migrating off the platform to something built in-house.
+
+**If US government revenue stops growing.** It is 41.8% of sales and moves with
+appropriations. A budget cycle that flattens that line would test how much of the commercial
+growth was standing on its own.
 
 ## The business at a glance
 
