@@ -16,6 +16,19 @@ tags: ["economics"]
 > TODO: the hook. Two or three sentences. What does everyone assume, and what did the numbers
 > actually say?
 
+TODO: the introduction. Three short paragraphs, NO heading. A heading here would have to be
+called something like "Introduction", which says nothing, and it would break the property that
+makes these pieces work: the headings, read alone, tell the story.
+
+Paragraph one: the context. What the thing is, and what the situation is now. Compare with the
+past where the comparison is the point.
+
+Paragraph two: why the question is worth asking. Usually a tension between two facts that are
+hard to hold at once.
+
+Paragraph three: what the piece covers. Not "in this article we will" - just name the three or
+four things, in the order they arrive.
+
 ## What everyone assumes
 
 State the common explanation fairly and in its strongest form. Not a strawman.
@@ -51,6 +64,22 @@ it's an opinion with numbers attached.
 What this argument does *not* account for. Every explanation has a residual, and naming it is more
 convincing than pretending there isn't one.
 
+## What to take from this
+
+TODO: the conclusion. Three or four short paragraphs, under a heading that says something
+rather than "Conclusion".
+
+Paragraph one: what was found, stated plainly. Assume the reader skimmed.
+
+Paragraph two: what it means or reframes. This is the paragraph that makes the piece worth
+having read rather than a set of figures.
+
+Paragraph three: what to carry forward. The specific thing to watch, and what a change in it
+would mean. Without this the piece ends and nothing follows from it.
+
+Add no new figures here. If a number belongs in the conclusion it belonged in the body first,
+and it has to be in the manifest.
+
 ## Sources
 
 Where every figure came from, with dates. Link to the primary source where it's public.
@@ -65,6 +94,10 @@ PRE-PUBLISH CHECKLIST. Delete before publishing.
   [ ] Every figure has a source and a period
   [ ] The working is shown — a reader could reproduce the calculation
   [ ] The causal chain is explicit, not implied
+  [ ] Introduction present: context, why it matters, what the piece covers
+  [ ] Conclusion present: what was found, what it reframes, what to watch
+  [ ] No figure in the intro or conclusion that is not in the body and manifest
+  [ ] Each section leads into the next; no heading arrives as a fresh topic
   [ ] Correlation is not being presented as causation
   [ ] "What would prove this wrong" is specific and checkable
   [ ] The residual is named — what this does NOT explain
