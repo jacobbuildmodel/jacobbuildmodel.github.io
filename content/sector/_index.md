@@ -3,7 +3,7 @@ title: "Sector"
 description: "Which sectors the data favours this week, and why — the middle layer of the funnel."
 ---
 
-The second layer. [News](/news/) told you what happened. This is what it means for a sector, read
+The second layer. [Earnings](/earnings/) told you what happened. This is what it means for a sector, read
 through a fixed panel of twelve bellwether companies — the same twelve every week, so the changes are
 what's visible, not the panel.
 

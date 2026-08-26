@@ -3,7 +3,7 @@ title: "How the economics research works"
 description: "What licenses a causal claim, how the data is handled, and what gets published when a result doesn't work."
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 ---
 
 This covers the [Economics](/economics/) pieces specifically. The two rules on the

@@ -3,7 +3,7 @@ title: "Standouts"
 description: "Names screening strongest in the sectors this data currently favours, and why."
 ---
 
-The third layer. [News](/news/) said what happened. [Sector](/sector/) said which sectors the data
+The third layer. [Earnings](/earnings/) said what happened. [Sector](/sector/) said which sectors the data
 favours. This is which specific companies stand out within them — and, just as importantly, what
 would prove that wrong.
 
