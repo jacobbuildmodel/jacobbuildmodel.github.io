@@ -34,3 +34,18 @@
 {{- with ($scratch.Get "meta") }}
     {{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
 {{- end -}}
+
+{{/* Reproducibility line — economics list cards only. Sits directly under the
+     date/read-time meta so a reader sees the "you can run this yourself" signal
+     while deciding whether to click, not after. Suppressed on the article's own
+     page: the global `page` is the top-level template's page, so on a list or
+     home template it is the section/home page and differs from the card's page,
+     while on single.html it is the article itself. This partial is a plain
+     partial (never partialCached, never called from a shortcode), which is the
+     one context where the global `page` is dependable. */}}
+{{- if and (eq .Section "economics") (ne page.RelPermalink .RelPermalink) }}
+    {{- $repro := slice (printf "<a href=%q>Method</a>" "/process/economics/") }}
+    {{- with .Params.repo }}{{ $repro = $repro | append (printf "<a href=%q>Code</a>" .) }}{{ end }}
+    {{- with .Params.dataset }}{{ $repro = $repro | append (printf "<a href=%q>Data</a>" .) }}{{ end }}
+    <div class="entry-repro">{{ delimit $repro "&nbsp;·&nbsp;" | safeHTML }}</div>
+{{- end -}}

@@ -270,7 +270,6 @@ main .post-content > p { margin-bottom: 1em; }
   margin-bottom: 0.6em;
   line-height: 1.25;
   font-size: 1.7em;
-  letter-spacing: -0.01em;
 }
 .post-content h3 {
   margin-top: 1.9em;
@@ -312,6 +311,23 @@ main .post-content > p { margin-bottom: 1em; }
 
 /* ---- section badge picks up the accent ---- */
 .layer-badge { color: var(--accent); border-color: var(--accent-quiet); }
+
+/* ---- reproducibility line on economics list cards ----
+   Rendered by layouts/partials/post_meta.html, directly under the card's
+   date/read-time line. Inherits .entry-footer's muted colour and size; the
+   links stay muted too so the whole line reads as one quiet signal, not a
+   call to action. */
+.entry-repro {
+  margin-top: 4px;
+}
+.entry-repro a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+}
+.entry-repro a:hover {
+  text-decoration-color: currentColor;
+}
 
 /* ---- related reads ---- */
 .related-reads {
