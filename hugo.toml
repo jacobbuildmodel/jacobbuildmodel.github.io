@@ -39,6 +39,7 @@ pagination.pagerSize = 10
   author      = "Jacob Ong"
   description = "Weekly market analysis: flows, regime, forward catalysts, and a research watchlist. Reasoning, not recommendations."
   keywords    = ["market analysis", "equity research", "fund flows", "macro"]
+  mainSections = ["economics"]
 
   DateFormat        = "2 January 2006"
   ShowReadingTime   = true
@@ -55,16 +56,16 @@ pagination.pagerSize = 10
 
   # Homepage intro block
   [params.homeInfoParams]
-    Title   = "Reasoning, not recommendations."
+    Title   = "Singapore policy, measured with public data."
     Content = """
-**Stocks** — what a company sells, who pays for it, and how often.
-**Earnings** — what a set of results really means, once you look past the headline.
-**Economics** — a question people argue about, put next to the actual data.
+Questions people argue about, put next to the actual data. What drives COE prices,
+whether the quota lever works, and what the numbers can and cannot settle.
 
-Every claim comes with the specific thing that would prove it wrong, and a date by
-which you'd know.
+Every figure comes from a public source, every claim carries the observation that
+would prove it wrong, and the code behind each piece is published so you can run it
+yourself.
 
-[Start with the stocks](/stocks/) &nbsp;·&nbsp; [How this works](/process/)
+[Read the research](/economics/) &nbsp;·&nbsp; [How it works](/process/)
 """
 
   [[params.socialIcons]]
@@ -92,17 +93,12 @@ which you'd know.
   identifier = "stocks"
   name       = "Stocks"
   url        = "/stocks/"
-  weight     = 1
-[[menu.main]]
-  identifier = "earnings"
-  name       = "Earnings"
-  url        = "/earnings/"
   weight     = 5
 [[menu.main]]
   identifier = "economics"
   name       = "Economics"
   url        = "/economics/"
-  weight     = 8
+  weight     = 1
 [[menu.main]]
   identifier = "process"
   name       = "Method"

@@ -14,8 +14,8 @@ What it does, in order:
        recommendation language. ANY hit -> exit 2, nothing written.
     2. Strips section 7 / HANDOFF onward, and any fenced JSON block.
     3. Re-scans the stripped text (belt and braces).
-    4. Derives the as_of date (Saturday of the coverage week) and writes
-       content/briefs/YYYY-MM-DD.md with front matter and draft: true.
+    4. Derives the as_of date and writes
+       content/<section>/YYYY-MM-DD.md with front matter and draft: true.
     5. Prints a review checklist. The post stays draft until a human clears it.
 
 It deliberately does NOT rewrite prose. Automatic transformation of analysis is
@@ -29,7 +29,7 @@ import re
 import sys
 from pathlib import Path
 
-SECTIONS = ("briefs", "earnings", "sector", "standouts", "stocks", "economics")
+SECTIONS = ("economics", "stocks")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # REFUSAL PATTERNS — a hit means nothing gets written.
@@ -281,21 +281,13 @@ def coverage_date(text, section, override=None):
         return dt.date.fromisoformat(override)
     m = re.search(r"as_of[:\*\s]*\**\s*(\d{4}-\d{2}-\d{2})", text, re.IGNORECASE)
     d = dt.date.fromisoformat(m.group(1)) if m else dt.date.today()
-    if section in ("briefs", "sector"):
-        # Saturday of the coverage week. Saturday == weekday 5.
-        return d - dt.timedelta(days=(d.weekday() - 5) % 7)
     return d
 
 
-# Briefs and Sector are periodic, so a dated title is right for them.
-# Earnings and Standouts are about a specific finding, so the headline has to be
-# written by a human. A date is not a headline.
-TITLES = {"briefs": "Weekly Brief \u2014 {d}",
-          "sector": "Sector Read \u2014 {d}",
-          "earnings": "TODO: the finding, in a sentence a non-finance reader would understand",
-          "standouts": "TODO: the finding, in a sentence a non-finance reader would understand",
-          "stocks": "TODO: Company Name (TICKER)",
-          "economics": "TODO: the finding, in a sentence"}
+# Both sections are about a specific finding, so the headline has to be written
+# by a human. A date is not a headline.
+TITLES = {"economics": "TODO: the finding, in a sentence",
+          "stocks": "TODO: Company Name (TICKER)"}
 
 
 def fmt_date(date):
@@ -303,10 +295,9 @@ def fmt_date(date):
 
 
 def build_front_matter(date, section):
-    # Earnings pieces are short and single-topic. A table of contents between
-    # the title and the hook adds friction a five minute read does not need.
-    # The other three sections are longer or multi-part and genuinely benefit.
-    show_toc = "false" if section == "earnings" else "true"
+    # Economics and stocks pieces are longer-form and genuinely benefit from a
+    # table of contents between the title and the hook.
+    show_toc = "true"
     return (
         "---\n"
         f'title: "{TITLES[section].format(d=fmt_date(date)) if "{d}" in TITLES[section] else TITLES[section]}"\n'
@@ -324,7 +315,7 @@ def build_front_matter(date, section):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("source", help="staged markdown file from the model output folder")
-    ap.add_argument("--section", default="briefs", choices=SECTIONS)
+    ap.add_argument("--section", default="economics", choices=SECTIONS)
     ap.add_argument("--repo", default=".", help="path to the site repo root (default: cwd)")
     ap.add_argument("--date", help="override the coverage date (YYYY-MM-DD)")
     ap.add_argument("--scan-only", action="store_true", help="scan and report, write nothing")
