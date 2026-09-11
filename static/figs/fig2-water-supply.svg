@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="Bar chart of the month-on-month change in Singapore's water supply consumer price index into each January from 2016 to 2026. Nine of the eleven Januaries show a change of exactly zero and are drawn as flat ticks on the baseline. The two exceptions are January 2023 at plus 1.02 per cent and January 2024 at plus 0.97 per cent, the two months the GST rate rose. A reference line marks 0.93 per cent, the amount the tax rise alone should add, and both bars sit just above it. PUB last revised the water price in 2017 and next in April 2024 and April 2025, so no January in this chart contains a tariff decision." style="max-width:100%;height:auto">
+  <style>
+    :root{--fg:#1c1c1c;--muted:#767676;--faint:#c8c8c8;--grid:#e6e6e6;--accent:#0b6bcb;}
+    @media (prefers-color-scheme: dark){
+      :root{--fg:#ececec;--muted:#9a9a9a;--faint:#565656;--grid:#3a3a3a;--accent:#5aa9f0;}
+    }
+    .fg{fill:var(--fg,#1c1c1c)} .mut{fill:var(--muted,#767676)}
+    .lbl{font:11px system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+    .lbl-b{font:600 11px system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+    .grid{stroke:var(--grid,#e6e6e6);stroke-width:1;fill:none}
+    .axis{stroke:var(--muted,#767676);stroke-width:1;fill:none}
+    .ctx{fill:var(--faint,#c8c8c8)} .ctxs{stroke:var(--faint,#c8c8c8)}
+    .acc{fill:var(--accent,#0b6bcb)} .accs{stroke:var(--accent,#0b6bcb)}
+  </style>
+  <line class="grid" stroke="#e6e6e6" x1="54" y1="202.4" x2="618" y2="202.4"/>
+  <text class="lbl mut" fill="#767676" x="46" y="206.4" text-anchor="end">0.00%</text>
+  <line class="grid" stroke="#e6e6e6" x1="54" y1="169.9" x2="618" y2="169.9"/>
+  <text class="lbl mut" fill="#767676" x="46" y="173.9" text-anchor="end">0.25%</text>
+  <line class="grid" stroke="#e6e6e6" x1="54" y1="137.4" x2="618" y2="137.4"/>
+  <text class="lbl mut" fill="#767676" x="46" y="141.4" text-anchor="end">0.50%</text>
+  <line class="grid" stroke="#e6e6e6" x1="54" y1="105.0" x2="618" y2="105.0"/>
+  <text class="lbl mut" fill="#767676" x="46" y="109.0" text-anchor="end">0.75%</text>
+  <line class="grid" stroke="#e6e6e6" x1="54" y1="72.5" x2="618" y2="72.5"/>
+  <text class="lbl mut" fill="#767676" x="46" y="76.5" text-anchor="end">1.00%</text>
+  <line class="grid" stroke="#e6e6e6" x1="54" y1="40.0" x2="618" y2="40.0"/>
+  <text class="lbl mut" fill="#767676" x="46" y="44.0" text-anchor="end">1.25%</text>
+  <line class="accs" stroke="#0b6bcb" x1="54" y1="81.0" x2="618" y2="81.0" stroke-width="1.5"/>
+  <text class="lbl-b acc" fill="#0b6bcb" x="54" y="74.0">what the tax alone should add, 0.93%</text>
+  <line class="axis" stroke="#767676" x1="54" y1="202.4" x2="618" y2="202.4"/>
+  <line class="ctxs" stroke="#c8c8c8" x1="66.8" y1="202.4" x2="92.5" y2="202.4" stroke-width="2.5"/>
+  <text class="lbl mut" fill="#767676" x="79.6" y="236" text-anchor="middle">16</text>
+  <line class="ctxs" stroke="#c8c8c8" x1="118.1" y1="202.4" x2="143.7" y2="202.4" stroke-width="2.5"/>
+  <text class="lbl mut" fill="#767676" x="130.9" y="236" text-anchor="middle">17</text>
+  <line class="ctxs" stroke="#c8c8c8" x1="169.4" y1="202.4" x2="195.0" y2="202.4" stroke-width="2.5"/>
+  <text class="lbl mut" fill="#767676" x="182.2" y="236" text-anchor="middle">18</text>
+  <line class="ctxs" stroke="#c8c8c8" x1="220.6" y1="202.4" x2="246.3" y2="202.4" stroke-width="2.5"/>
+  <text class="lbl mut" fill="#767676" x="233.5" y="236" text-anchor="middle">19</text>
+  <line class="ctxs" stroke="#c8c8c8" x1="271.9" y1="202.4" x2="297.5" y2="202.4" stroke-width="2.5"/>
+  <text class="lbl mut" fill="#767676" x="284.7" y="236" text-anchor="middle">20</text>
+  <line class="ctxs" stroke="#c8c8c8" x1="323.2" y1="202.4" x2="348.8" y2="202.4" stroke-width="2.5"/>
+  <text class="lbl mut" fill="#767676" x="336.0" y="236" text-anchor="middle">21</text>
+  <line class="ctxs" stroke="#c8c8c8" x1="374.5" y1="202.4" x2="400.1" y2="202.4" stroke-width="2.5"/>
+  <text class="lbl mut" fill="#767676" x="387.3" y="236" text-anchor="middle">22</text>
+  <rect class="acc" fill="#0b6bcb" x="425.7" y="69.5" width="25.6" height="132.9"/>
+  <text class="lbl-b acc" fill="#0b6bcb" x="438.5" y="62.5" text-anchor="middle">1.02%</text>
+  <text class="lbl mut" fill="#767676" x="438.5" y="236" text-anchor="middle">23</text>
+  <rect class="acc" fill="#0b6bcb" x="477.0" y="75.9" width="25.6" height="126.5"/>
+  <text class="lbl-b acc" fill="#0b6bcb" x="489.8" y="68.9" text-anchor="middle">0.97%</text>
+  <text class="lbl mut" fill="#767676" x="489.8" y="236" text-anchor="middle">24</text>
+  <line class="ctxs" stroke="#c8c8c8" x1="528.3" y1="202.4" x2="553.9" y2="202.4" stroke-width="2.5"/>
+  <text class="lbl mut" fill="#767676" x="541.1" y="236" text-anchor="middle">25</text>
+  <line class="ctxs" stroke="#c8c8c8" x1="579.5" y1="202.4" x2="605.2" y2="202.4" stroke-width="2.5"/>
+  <text class="lbl mut" fill="#767676" x="592.4" y="236" text-anchor="middle">26</text>
+  <text class="lbl mut" fill="#767676" x="54" y="22">water supply price, change into each January</text>
+  <text class="lbl mut" fill="#767676" x="54" y="266">Nine Januaries at exactly zero. Two at the size of the tax.</text>
+  <text class="lbl mut" fill="#767676" x="54" y="282">PUB last revised the price in 2017, then in April 2024 and April 2025.</text>
+</svg>
