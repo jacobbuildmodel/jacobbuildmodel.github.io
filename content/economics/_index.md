@@ -12,8 +12,8 @@ surprised me.
 
 ## On the roadmap
 
-**Next:** GST pass-through, using the 2023 and 2024 rate changes as a natural
-experiment. Did prices rise by the full amount of the tax, and which categories
-over-shifted?
+**Next:** HDB resale prices. Whether affordability has actually worsened once
+income and financing are accounted for, or whether the headline price is doing
+all the talking.
 
 **The gap I am most aware of:** nothing here on nowcasting or forecasting yet.
