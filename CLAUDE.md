@@ -12,31 +12,28 @@ up; that tradeoff was accepted deliberately because no narrower hook point exist
 `extend_post_content.html` for adding content, but it only fires *after* the article body — no
 use for anything that needs to be seen in the first three seconds of a skim.
 
-**What the override adds:** a small layer badge (NEWS / SECTOR / STANDOUTS / WEEKLY BRIEF),
-derived automatically from `.Section` — no per-post authoring, so it can't drift out of sync the
-way a manually-typed tag could. It renders right after the date/reading-time line, before the
-table of contents.
+**What the override adds:** a small layer badge (ECONOMICS / STOCKS), derived automatically from
+`.Section` — no per-post authoring, so it can't drift out of sync the way a manually-typed tag
+could. It renders right after the date/reading-time line, before the table of contents.
 
-**Why this exists at all:** a returning reader skimming on their phone needs to know which speed
-of content they've clicked into before committing to read it. That's invisible without this —
+**Why this exists at all:** a returning reader skimming on their phone needs to know which
+section they've clicked into before committing to read it. That's invisible without this —
 previously only the nav bar carried that information, not the article itself.
 
-**Two related decisions, tested with real browser screenshots at 390px width (iPhone-class),
-not just by reading the CSS:**
+Every section keeps `showToc: true` — economics pieces and stock pages are both long-form enough
+to benefit from a table of contents between the title and the hook. Set in two places:
+`scripts/site_publish.py`'s `build_front_matter` (the pipeline path for economics) and
+`content/stocks/TEMPLATE.md` (the hand-authoring path for stock pages). Both need to agree, or
+the two paths silently diverge.
 
-- **News has `showToc: false`; every other section keeps `showToc: true`.** A table of contents
-  between the title and the hook adds a real, measured delay before a short single-topic item
-  gets to its point — genuinely useful friction for a multi-section Weekly Brief, pure cost for a
-  5-minute News item. Set in two places: `scripts/site_publish.py`'s `build_front_matter` (the
-  pipeline path, which is how most content actually gets created) and `content/earnings/TEMPLATE.md`
-  (the manual-authoring path). Both need to agree, or the two paths silently diverge.
-- **The hook blockquote has a tinted background**, not just a left border. First attempt used
-  `var(--entry)` — turned out to be a dead end worth knowing about: PaperMod's light theme sets
-  `--entry` identical to `--theme` (both pure white), so that tint was completely invisible in
-  light mode, the site's now-primary reading mode. Caught only by actually screenshotting it, not
-  by reading the CSS rule and assuming it worked. Switched to `var(--code-bg)`, which is
-  genuinely distinct from the page background in both light and dark mode — verified with
-  screenshots of both before trusting it.
+**Tested with real browser screenshots at 390px width (iPhone-class), not just by reading the
+CSS:** the hook blockquote has a tinted background, not just a left border. First attempt used
+`var(--entry)` — turned out to be a dead end worth knowing about: PaperMod's light theme sets
+`--entry` identical to `--theme` (both pure white), so that tint was completely invisible in
+light mode, the site's now-primary reading mode. Caught only by actually screenshotting it, not
+by reading the CSS rule and assuming it worked. Switched to `var(--code-bg)`, which is
+genuinely distinct from the page background in both light and dark mode — verified with
+screenshots of both before trusting it.
 
 **Numeric tables** get `font-variant-numeric: tabular-nums` so digits in a comparison table sit
 at equal width and actually line up in a column, instead of ragged proportional-width digits that
@@ -57,14 +54,14 @@ Refuse to write, commit, or push anything containing:
 - **Holdings, position sizes, weights, cost basis, account balances, cash, or P&L.** In any form,
   including "small position", "half size", "I'm long", or a ticker paired with a percentage.
 - **Kelly fractions, position sizing output, conviction scores, composite scores, or rankings.**
-  These are DRIVE / MERIDIAN internals. A rank is a recommendation with the reasoning removed.
+  These are MERIDIAN / CATALYST internals. A rank is a recommendation with the reasoning removed.
 - **Performance or returns.** Realised, unrealised, backtested, or hypothetical.
 - **Any API key, token, password, or broker credential.**
 - **Personal identifiers** — account numbers, addresses, tax IDs.
 - **Recommendation language** — "buy", "consider buying", "price target", "strong conviction",
   "I'm adding". The site publishes reasoning, never a directive.
-- **File paths or contents from `accounts/`, `PRE/ledger.jsonl`, or any DRIVE state file.**
-- **§7 HANDOFF blocks or the closing JSON block** from a weekly brief. Those are machine-facing.
+- **§7 HANDOFF blocks or a closing JSON block**, if a source file ever carries one. Those are
+  machine-facing, from the same model tooling that never-publish exists to keep off this site.
 
 If you encounter any of the above in a source file you have been asked to publish: **stop, name what
 you found and where, and write nothing.** Do not clean it up and proceed — surface it and wait.
@@ -93,43 +90,29 @@ it is not ready to publish.
 ## Publishing workflow
 
 Content is staged, gated, then committed. Never write directly from a model output folder into
-`content/`.
+`content/`. The gate (`scripts/site_publish.py`) recognises exactly two sections:
 
 ```
 <staging folder>/*.md
         │
         ▼
-python scripts/site_publish.py "<staged file>"     # scans, strips, refuses on hit
+python scripts/site_publish.py "<staged file>" --section economics   # or --section stocks
         │
         ▼
-content/briefs/YYYY-MM-DD.md                        # human edit pass happens HERE
+content/<section>/YYYY-MM-DD.md                     # human edit pass happens HERE
         │
         ▼
 commit + push                                       # only after the human pass
 ```
 
+In practice `stocks` pages don't flow through this dated staging path — they're evergreen
+(`content/stocks/<ticker>.md`), copied by hand from `content/stocks/TEMPLATE.md` and updated in
+place, per the Repo conventions below. `--section stocks` exists in the gate but is rarely
+exercised; `economics` is the active pipeline.
+
 **The human edit pass is not optional and you do not perform it alone.** After staging, ask Jacob to
 review before you commit. He is publishing under his own name; a figure you could not verify is his
 error to own, so he gets the last look.
-
-## Weekly brief adaptation rules
-
-When turning a brief into a post:
-
-1. Strip §7 and the JSON block entirely.
-2. Strip any holding-period or position language from §1 — "the portfolio can hold this for a month"
-   is a position statement, not a regime read. Write the factor call instead.
-3. Reframe §4 Discovery as **Research Watchlist** in the fixed format above.
-4. Keep source tier tags. Convert them to the shortcode: `{{< tag "hard-flow" >}}`.
-   Recognised: `hard-co`, `company-prelim`, `hard-flow`, `consensus`, `price-proxy`, `cong-disc`,
-   `spec`, `verified`, `inferred`, `speculative`.
-5. Keep every falsifier, with its window.
-6. **Keep the gaps list and publish it in full.** "What I couldn't source this week" is the most
-   credible section on the page. Never quietly drop it to make a post look stronger.
-7. Write a plain-English hook of one to three sentences at the top. The brief is written for a
-   machine; the post needs a human doorway.
-8. Keep prose under ~2,000 words.
-9. Filename and `date:` are the **Saturday of the coverage week**, format `YYYY-MM-DD.md`.
 
 ## Flagging figures
 
@@ -142,11 +125,12 @@ The same error published under Jacob's name is not recoverable in the same way.
 
 ## Compliance — Singapore Financial Advisers Act
 
-This site now has a News → Sector → Standouts funnel. Sector- and stock-level content is the part
-that matters here, not because naming a sector or a company is itself risky, but because a
-communication can become "financial advice" under Singapore law when it's tailored to an individual
-and/or the provider holds themselves out as a professional — see the full reasoning on
-`content/process/_index.md#why-this-isnt-financial-advice`. Two rules follow from that:
+This site publishes two kinds of content: Singapore economics research and stock explainer
+pages. Stock-level content is the part that matters most here, not because naming a company is
+itself risky, but because a communication can become "financial advice" under Singapore law when
+it's tailored to an individual and/or the provider holds themselves out as a professional — see
+the full reasoning on `content/process/_index.md#why-this-isnt-financial-advice`. Two rules follow
+from that:
 
 1. **Nothing published is ever tailored to an individual.** No content generated for this site should
    reference a specific reader's circumstances, respond to a specific person's question with a
@@ -156,7 +140,7 @@ and/or the provider holds themselves out as a professional — see the full reas
    to the asker's stated situation.
 2. **Sector-level directional language gets the same care as stock-level.** "Energy looks favourable"
    is analysis; "you should overweight energy" is advice. The same scrutiny applies wherever a
-   sector-level view appears, including inside a stock page or a weekly brief.
+   sector-level view appears, including inside a stock page or an economics piece.
 
 **Monetization guardrails**, if that's ever discussed: display advertising is materially lower-risk
 than affiliate links or a paid subscription tier, because remuneration tied to a reader's specific
@@ -164,116 +148,61 @@ investment decision (an affiliate click, a paid "premium calls" tier) is the cle
 a regulated business under Singapore's carrying-on-a-business test. Flag any monetization change to
 Jacob explicitly rather than implementing it — this needs an actual lawyer, not an inferred rule.
 
-## The Standouts pipeline (retired)
+## The `aitell.py` lint gate — enforced in CI, before the build ever runs
 
-**This section is retired.** Standouts was superseded by `content/stocks/`, which does the same job
-better. The folder still exists and builds, but it is not in the nav and nothing new should be
-written to it. Kept below because the descriptive-only discipline it established still governs the
-stock pages.
-
-
-Descriptive only — this was a deliberate decision, not a default. No scores, no ranks, no
-probabilities, no horizon statistics anywhere on this page, ever. From the evaluation model, via
-the handoff prompt in `MODEL_HANDOFF_PROMPTS.md`.
+`.github/workflows/deploy.yml` runs a `lint` job before `build`, wired with `needs:` so build
+cannot start until lint passes — a separate `lint.yml` workflow couldn't gate this, since `needs:`
+only works between jobs in the same file. It runs:
 
 ```
-Full/partial evaluation card (evaluation model)
-        │
-        ▼
-   staging/standouts/<draft>.md       ← raw model output, never committed
-        │
-        ▼
-python scripts/site_publish.py <file> --section standouts --date YYYY-MM-DD
-        │
-    refuses ──┴── stages content/standouts/YYYY-MM-DD.md  (draft: true)
-        │
-   Jacob reviews, verifies flags, writes the hook
-        │
-   draft: false, commit, push
+python scripts/aitell.py content/economics/*.md content/process/*.md --strict --published-only
 ```
 
-**Two standing cautions, every time, not just at launch:**
+`--strict` is required for it to actually fail the job — without it, `aitell.py` prints its
+findings and still exits 0. `--published-only` skips anything still `draft: true`, so
+work-in-progress drafts don't break CI. What it enforces at `--strict` level: em-dash density
+under 8 per 1,000 words, and no gate-breaking Unicode (see the ASCII/Unicode note below) — the
+rest of what `aitell.py` reports (opener monotony, sentence-rhythm clustering, AI-lexicon hits,
+hedge language, tidy three-item lists) is advisory and does not block, but should be read and
+acted on before a draft goes to Jacob for review.
 
-1. **`RATINGS.md` is mixed-vintage.** Legacy v2 scores sit beside v3.2 CQS values in the same
-   file, and they are not the same measurement. No cross-name score comparison gets published
-   until that's resolved — not because scores are banned generally (they already are, sitewide),
-   but because even an internal comparison used to *select* which name to write up could be
-   silently comparing two different rulers.
-2. **59 ACTIVE names carry a score with no full evaluation behind them.** If the name in an
-   entry is one of them, the depth tag has to say so plainly. A reader can't tell the difference
-   between a full card and a bare score unless the entry tells them.
+`content/stocks/*.md` is **not** currently in the lint job's file list. If stock pages start
+seeing heavier machine-assisted drafting, that's worth revisiting; until then, run
+`scripts/aitell.py` on a stock draft by hand rather than assuming CI caught it.
 
-**Preferred subjects, in the source model's own order of confidence** — a trap (peak-quarter,
-below-the-operating-line, adjusted-vs-GAAP, SBC exceeding operating margin), a stale rejection (a
-name screened out for a reason that stopped being true), a one-link finding (two names that look
-diversified and are one bet), or a coverage gap (a name that structurally can't be scored from
-filings, and why). These four were named independently as the differentiated material — a plain
-"here's a good business" writeup is the boring version and not what this section is for.
+## Repo conventions
 
-## The Earnings pipeline
-
-Event-driven, not clock-driven — an item is produced when a company reports, not on a fixed
-timer. From the earnings model, via the handoff prompt in `MODEL_HANDOFF_PROMPTS.md`.
-
-```
-earnings_traps.py + read-through (earnings model)
-        │
-        ▼
-   staging/earnings/<draft>.md            ← raw model output, never committed
-        │
-        ▼
-python scripts/site_publish.py <file> --section earnings --date YYYY-MM-DD
-        │
-    refuses ──┴── stages content/earnings/YYYY-MM-DD.md  (draft: true)
-        │
-   Jacob reviews, verifies flags, writes the hook
-        │
-   draft: false, commit, push
-```
-
-Up to 4 companies per item — that is the earnings model's actual batch cap, not an arbitrary
-limit. A heavy reporting day is multiple files, never one compressed file; compression under
-load is a documented failure mode of the source model.
-
-**Every trap-gate result states its own denominator.** "This check ran on 6 names this week and
-fired on 2" is the content — not a preamble to a finding, the finding itself. All three source
-models named this independently as the strongest edge the site has. Don't let an edit pass strip
-the denominator out for being "obvious" — it is the opposite of obvious, and it's the reason to
-publish at all.
-
-`--date` is required for News (unlike Briefs/Sector, News does not snap to a Saturday) —
-pass the actual reporting date explicitly.
-
-## The Sector pipeline (retired)
-
-**This section is retired** and removed from the nav. `market_pulse.py` still runs and the
-contradiction-first framing is still the right way to read a sector, so this is kept as reference
-rather than as an active workflow.
-
-
-The first section fed by a model rather than by hand. Weekly, from the portfolio model's
-`market_pulse.py` sweep, via the handoff prompt in `MODEL_HANDOFF_PROMPTS.md`.
-
-```
-market_pulse.py (portfolio model)
-        │
-        ▼
-   staging/sector/<draft>.md          ← raw model output, never committed
-        │
-        ▼
-python scripts/site_publish.py <file> --section sector
-        │
-    refuses ──┴── stages content/sector/YYYY-MM-DD.md  (draft: true)
-        │
-   Jacob reviews, verifies flags, writes the hook
-        │
-   draft: false, commit, push
-        │
-python scripts/staging_prune.py --prune       ← clears the raw dump, not the published post
-```
-
-Same shape applies to News and Standouts once their pipelines are wired up — same gate,
-different `--section`, different source model.
+- `hugo.toml` — config. Site title, menu, Umami ID, Buttondown username.
+- `content/economics/` — Singapore economics research, the active pipeline. Has its own linter
+  (`scripts/aitell.py`, gated in CI) and its own method page at `/process/economics/`. Each
+  published piece's front matter carries a `repo:` field linking to the public code/data
+  repository behind it — currently `coe-analysis`, `gst-passthrough`, and `hdb-affordability`,
+  all under `github.com/jacobbuildmodel`. Link a new finding's repo the same way rather than
+  inlining code in the post.
+- `content/stocks/` — evergreen company explainer pages, one file per ticker (`nvda.md`,
+  `pltr.md`, `shop.md`), copied from `content/stocks/TEMPLATE.md` and updated in place rather
+  than dated and re-staged. `definitions.md` documents every score shown on a stock page.
+- `content/process/` — the Method pages. `_index.md` is the hub at `/process/`, written for a retail
+  reader and carrying the compliance section. Annexes: `economics.md`, `brief.md`. Revise the hub
+  deliberately; it is the most-linked page and the compliance text lives there. `brief.md`
+  documents the weekly-brief method for historical/reference purposes — the pipeline that used to
+  produce that content is retired, but the source-tier system it introduced is still used
+  everywhere else, so the page stays linked from the hub.
+- `staging/` — raw model output before the gate. Gitignored, never committed. Meant to be pruned by
+  `scripts/staging_prune.py`, never by hand — but see the gotcha below before relying on that script.
+- `scripts/site_publish.py` — the gate. `SECTIONS = ("economics", "stocks")`; passing any other
+  `--section` value is a hard argparse error, by design.
+- `scripts/staging_prune.py` — retention for `staging/` only. **Its own `SECTIONS` tuple is
+  `("news", "sector", "standouts", "briefs")` — none of which match `site_publish.py`'s current
+  sections.** `--section economics` or `--section stocks` will fail with an invalid-choice error.
+  Fix the tuple before relying on `--section` with this script; running it with no `--section` at
+  all still works (it just iterates its own stale list, most of which are empty directories now).
+- `scripts/aitell.py` — the prose/AI-tell linter, described above.
+- `assets/css/extended/custom.css` — custom styling, including source-tier badges.
+- `layouts/partials/` — `extend_head.html` (analytics), `extend_footer.html` (newsletter, disclaimer).
+- Do not commit `public/`, `resources/`, or `.hugo_build.lock`.
+- Use root-relative links (`/process/`), never absolute (`https://jacobbuildmodel.github.io/process/`),
+  so a future custom domain doesn't break them.
 
 ## Staging and retention
 
@@ -288,7 +217,6 @@ archive is the asset. Only `staging/` accumulates clutter worth clearing.
 ```
 python scripts/staging_prune.py --status              # see what would happen, changes nothing
 python scripts/staging_prune.py --prune                # actually delete, keeps newest 3 per section
-python scripts/staging_prune.py --prune --keep 5 --section earnings
 ```
 
 Run it after a successful publish, not before — never prune a raw dump you haven't gated yet.
@@ -319,24 +247,6 @@ narrow (`Track [A-Z]`, the exact compound phrases) so they don't false-positive 
 of the words "watch," "cold," or "track" in real prose — tested against a normal-English sample
 before trusting the fix, not just against the leak.
 
-## Repo conventions
-
-- `hugo.toml` — config. Site title, menu, Umami ID, Buttondown username.
-- `content/briefs/` — the weekly series. `TEMPLATE.md` stays `draft: true`; never publish it.
-- `content/process/` — the Method pages. `_index.md` is the hub at `/process/`, written for a retail
-  reader and carrying the compliance section. Annexes: `economics.md`, `brief.md`. Revise the hub
-  deliberately; it is the most-linked page and the compliance text lives there.
-- `content/economics/` — Singapore economics research. Has its own linter (`scripts/aitell.py`) and
-  its own method page at `/process/economics/`.
-- `staging/` — raw model output before the gate. Gitignored, never committed. Pruned by
-  `scripts/staging_prune.py`, never by hand.
-- `scripts/site_publish.py` — the gate. `scripts/staging_prune.py` — retention, staging only.
-- `assets/css/extended/custom.css` — custom styling, including source-tier badges.
-- `layouts/partials/` — `extend_head.html` (analytics), `extend_footer.html` (newsletter, disclaimer).
-- Do not commit `public/`, `resources/`, or `.hugo_build.lock`.
-- Use root-relative links (`/process/`), never absolute (`https://jacobbuildmodel.github.io/process/`),
-  so a future custom domain doesn't break them.
-
 ## Before every push
 
 - [ ] Nothing from the never-publish list, anywhere in the diff
@@ -354,6 +264,12 @@ If any box is unchecked, do not push.
 
 The site is read by people with no finance background, often on a phone, often before work. Every
 editorial rule below came from a real correction, not a preference.
+
+**First person, never "we."** This is one person's research, published under Jacob's own name —
+see the Compliance section above and `/disclaimer/`. Write "I" for the author's own reasoning and
+"you" for the reader; never the royal or institutional "we," even in a piece with substantial
+model-assisted drafting behind it. A "we" reads as a research house issuing a call, which is
+exactly the impression the compliance section exists to avoid.
 
 **Never argue with an objection nobody raised.** Early drafts of the Earnings section opened with
 lines like "what a headline number hides, and how often the same check finds nothing," and articles

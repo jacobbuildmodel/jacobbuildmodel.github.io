@@ -12,8 +12,9 @@ surprised me.
 
 ## On the roadmap
 
-**Next:** HDB resale prices. Whether affordability has actually worsened once
-income and financing are accounted for, or whether the headline price is doing
-all the talking.
+**Next:** nothing scheduled. Three questions are open: whether MAS exchange-rate
+policy shows up in import prices, what the COE data says about who actually
+benefits from the quota, and whether Singapore's productivity slowdown is real
+or a measurement artefact.
 
 **The gap I am most aware of:** nothing here on nowcasting or forecasting yet.
