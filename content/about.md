@@ -3,58 +3,74 @@ title: "About"
 date: 2026-08-17
 showToc: false
 hidemeta: true
---- 
+---
 
-I'm Jacob Ong, 22, based in Singapore. I have a deep interest in markets and economics, and I spend
-most of my time on one question: can the way we value companies and time decisions be done better
-than it currently is?
+I'm Jacob Ong, {{< age >}}, writing from Singapore.
 
-I think it can, and I think AI is how. Not as a shortcut to an answer, but as a way to reason across
-far more data than a person could hold in their head, and to do it consistently rather than however
-the mood on a given day dictates. The interesting territory right now is the combination — knowing
-enough about markets to ask the right question, and enough about AI to actually go and answer it. So
-I build things.
+## What this is
 
-## The models
+A public record of my own reasoning about companies and economies. Reasoning that
+stays in your head never gets tested. Reasoning published under your own name, with
+the falsifier attached, does.
 
-**[MERIDIAN](https://github.com/jacobbuildmodel/meridian)** works on three things at once: **trend,
-growth, and value.** It scores a business on quality, uses a reverse-DCF to extract the growth rate
-the current price is already implying, and reads the result off a quality-versus-valuation grid to
-surface candidates worth buying. The point is that a great business at an impossible price isn't an
-opportunity, and a cheap price on a deteriorating business isn't either — you need all three lenses
-before the answer means anything.
+Every piece publishes its data and its code, so anyone can rebuild the figures and
+check whether I got it right.
 
-**[CATALYST](https://github.com/jacobbuildmodel/catalyst)** goes after a harder problem: deducing
-where a stock trades the day *after* an earnings release. Not by guessing sentiment, but through
-analysis, evaluation, and pattern recognition — reading the data around a print and reasoning from it
-to a directional conclusion, with the payoff worked out before the position exists.
+## Why I built it
 
-Both are built end-to-end: I design the factors, the weighting logic, the valuation methods, and the
-decision rules, and I use them in my own portfolio. Two years of work, and they get revised every
-time they're wrong about something.
+Three reasons, in order of honesty.
 
-## What's on this site
+To build something that shows what I can actually do, rather than telling people
+about it.
 
-A weekly brief on what money is actually doing — measured in dollars, not inferred from a price
-chart. A fixed twelve-name panel I read the same way every week so the changes are visible. A running
-list of companies I'm researching and the question I'm trying to answer about each. And read-throughs
-on earnings that say something about the wider economy.
+To stay disciplined. A public page you have to keep updating is a harder taskmaster
+than a private folder you can quietly abandon. Writing in the open keeps me honest
+about the work and keeps me doing it.
 
-Everything here carries a source tier and a falsifier — the observation that would prove it wrong. I'd
-rather be less wrong than yesterday than right by luck, and writing down what would kill a view is
-the only way to tell the difference. The full method is
-[documented here](/process/).
+And because I'd like this to still exist in twenty years. Somewhere in here is a
+record of how I thought at 22, what I got right, what I got badly wrong, and how
+long I stuck with it. If I ever have kids, I'd rather hand them that than a story
+about it.
 
-## Follow the journey
+## What I am
 
-This is a public record of me learning in the open — working out a modern way to reach investment and
-trading decisions, and sharing it as I go. Some of it will be wrong, and finding out where is the
-whole point.
+A polytechnic graduate in banking and finance, recently out of National Service,
+currently on a traineeship at a bank and applying to read economics at university.
+I'm not an analyst, I hold no professional credential in this field, and I'm not
+licensed by the Monetary Authority of Singapore. If anything here reads as
+authority, that's a failure in the writing rather than a claim I'm making.
 
-Come along and let's uncover more of it together. If you've got a view, a correction, or something
-you're building yourself, I'd like to hear it.
+What I do have is two years of building the models behind this in my own time, and
+the habit of writing down what would prove me wrong.
 
-**Email:** [jacobong999@gmail.com](mailto:jacobong999@gmail.com)
-**LinkedIn:** [jacobong-cv](https://www.linkedin.com/in/jacobong-cv/)
+## How I work
 
-*Not financial advice. [Full disclaimer](/disclaimer/).*
+Most of what's here is produced with AI systems I built and maintain. I write the
+specifications, decide what counts as evidence, and do the editorial pass. That came
+out of a view I formed early: AI is going to change how this kind of research gets
+done, and I would rather learn to direct it well than learn the old way and adapt
+later.
+
+It also came with a lesson. Nearly every rule on the [Method page](/process/) exists
+because an early version of one of these systems produced something fluent and
+wrong. The rules are what's left after that.
+
+## Where this goes
+
+I'm working toward the FMVA certification and the rest of the CFI programme now,
+economics at university after that, and the CFA charter somewhere further down the
+road.
+
+## Away from the screen
+
+Badminton, Texas hold'em, and American mahjong. All three reward the same thing:
+reading a situation with incomplete information, staying calm when it turns, and
+thinking a few moves ahead. I got better at markets partly by getting better at
+those.
+
+> "Wealth gained hastily will dwindle, but whoever gathers little by little will
+> increase it."
+>
+> Proverbs 13:11
+
+Mistakes that reach publication are mine.

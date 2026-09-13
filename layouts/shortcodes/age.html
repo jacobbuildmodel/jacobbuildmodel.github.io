@@ -1,0 +1,5 @@
+{{- $birth := time.AsTime "2004-06-10" -}}
+{{- $now := now -}}
+{{- $age := sub $now.Year $birth.Year -}}
+{{- if lt $now.YearDay $birth.YearDay }}{{ $age = sub $age 1 }}{{ end -}}
+{{- $age -}}
