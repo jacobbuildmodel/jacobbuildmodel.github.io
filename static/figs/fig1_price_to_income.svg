@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="100%" role="img" aria-label="Line chart. The price of a constant-quality four-room HDB resale flat expressed in years of median annual household income, 2013 to 2025, on an axis running from 0 to 6 years. It starts at 5.43 years in 2013, falls to a low of 4.04 in 2019, then climbs to 5.04 in 2025, ending below where it began." class="viz" preserveAspectRatio="xMidYMid meet">
+<title>Years of income to buy a four-room flat</title>
+<desc>The series falls for six years and then climbs, and ends below its 2013 level.</desc>
+
+<style>
+  .viz { --surface-1:#fcfcfb; --text-primary:#0b0b0b; --text-secondary:#52514e;
+         --grid:#e4e3df; --series-1:#2a78d6; --series-2:#eb6834; }
+  @media (prefers-color-scheme: dark) {
+    .viz { --surface-1:#1a1a19; --text-primary:#ffffff; --text-secondary:#c3c2b7;
+           --grid:#383835; --series-1:#3987e5; --series-2:#d95926; }
+  }
+  :root[data-theme="dark"] .viz { --surface-1:#1a1a19; --text-primary:#ffffff;
+           --text-secondary:#c3c2b7; --grid:#383835; --series-1:#3987e5;
+           --series-2:#d95926; }
+  :root[data-theme="light"] .viz { --surface-1:#fcfcfb; --text-primary:#0b0b0b;
+           --text-secondary:#52514e; --grid:#e4e3df; --series-1:#2a78d6;
+           --series-2:#eb6834; }
+  .viz text { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI,
+              Roboto, Helvetica, Arial, sans-serif; }
+  .ax   { font-size: 12px; fill: var(--text-secondary, #52514e); }
+  .lbl  { font-size: 13px; font-weight: 600; }
+  .note { font-size: 11px; fill: var(--text-secondary, #52514e); }
+</style>
+
+<rect x="0" y="0" width="720" height="400" fill="var(--surface-1, #fcfcfb)"/>
+<line x1="62.0" y1="356.0" x2="568.0" y2="356.0" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<text class="ax" x="54.0" y="360.0" text-anchor="end">0</text>
+<line x1="62.0" y1="302.3" x2="568.0" y2="302.3" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<text class="ax" x="54.0" y="306.3" text-anchor="end">1</text>
+<line x1="62.0" y1="248.7" x2="568.0" y2="248.7" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<text class="ax" x="54.0" y="252.7" text-anchor="end">2</text>
+<line x1="62.0" y1="195.0" x2="568.0" y2="195.0" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<text class="ax" x="54.0" y="199.0" text-anchor="end">3</text>
+<line x1="62.0" y1="141.3" x2="568.0" y2="141.3" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<text class="ax" x="54.0" y="145.3" text-anchor="end">4</text>
+<line x1="62.0" y1="87.7" x2="568.0" y2="87.7" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<text class="ax" x="54.0" y="91.7" text-anchor="end">5</text>
+<line x1="62.0" y1="34.0" x2="568.0" y2="34.0" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<text class="ax" x="54.0" y="38.0" text-anchor="end">6</text>
+<text class="ax" x="62.0" y="376.0" text-anchor="middle">2013</text>
+<text class="ax" x="188.5" y="376.0" text-anchor="middle">2016</text>
+<text class="ax" x="315.0" y="376.0" text-anchor="middle">2019</text>
+<text class="ax" x="441.5" y="376.0" text-anchor="middle">2022</text>
+<text class="ax" x="568.0" y="376.0" text-anchor="middle">2025</text>
+<line x1="62.0" y1="64.6" x2="62.0" y2="356.0" stroke="var(--text-secondary, #52514e)" stroke-width="1" opacity="0.3"/>
+<text class="note" x="62.0" y="54.6" text-anchor="start">2013 5.43</text>
+<line x1="315.0" y1="139.0" x2="315.0" y2="356.0" stroke="var(--text-secondary, #52514e)" stroke-width="1" opacity="0.3"/>
+<text class="note" x="315.0" y="129.0" text-anchor="middle">2019 low 4.04</text>
+<path d="M 62.0 64.6 L 104.2 97.3 L 146.3 114.2 L 188.5 119.2 L 230.7 126.5 L 272.8 135.3 L 315.0 139.0 L 357.2 125.8 L 399.3 110.6 L 441.5 96.9 L 483.7 98.6 L 525.8 88.1 L 568.0 85.7" fill="none" stroke="var(--series-1, #2a78d6)" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="568.0" cy="85.7" r="4" fill="var(--series-1, #2a78d6)" stroke="var(--surface-1, #fcfcfb)" stroke-width="2"/><text class="lbl" x="578.0" y="89.7" fill="var(--series-1, #2a78d6)">5.04 years</text><text class="note" x="578.0" y="103.7">of median income</text>
+</svg>

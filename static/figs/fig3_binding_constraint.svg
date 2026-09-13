@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="100%" role="img" aria-label="Line chart in Singapore dollars, 2019 to 2025, on one axis, for a buyer at the 20th percentile of household income. One line is the loan-to-value cap on the loan. The other is the purchase price less grants. The loan is whichever is lower. In 2019 the price less grants is lower, so grants set the loan. By 2025 the cap is lower, so the cap sets the loan and an extra dollar of grant no longer reduces it." class="viz" preserveAspectRatio="xMidYMid meet">
+<title>Which constraint sets the loan</title>
+<desc>The loan is the lower of the two lines. They swap over inside the window.</desc>
+
+<style>
+  .viz { --surface-1:#fcfcfb; --text-primary:#0b0b0b; --text-secondary:#52514e;
+         --grid:#e4e3df; --series-1:#2a78d6; --series-2:#eb6834; }
+  @media (prefers-color-scheme: dark) {
+    .viz { --surface-1:#1a1a19; --text-primary:#ffffff; --text-secondary:#c3c2b7;
+           --grid:#383835; --series-1:#3987e5; --series-2:#d95926; }
+  }
+  :root[data-theme="dark"] .viz { --surface-1:#1a1a19; --text-primary:#ffffff;
+           --text-secondary:#c3c2b7; --grid:#383835; --series-1:#3987e5;
+           --series-2:#d95926; }
+  :root[data-theme="light"] .viz { --surface-1:#fcfcfb; --text-primary:#0b0b0b;
+           --text-secondary:#52514e; --grid:#e4e3df; --series-1:#2a78d6;
+           --series-2:#eb6834; }
+  .viz text { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI,
+              Roboto, Helvetica, Arial, sans-serif; }
+  .ax   { font-size: 12px; fill: var(--text-secondary, #52514e); }
+  .lbl  { font-size: 13px; font-weight: 600; }
+  .note { font-size: 11px; fill: var(--text-secondary, #52514e); }
+</style>
+
+<rect x="0" y="0" width="720" height="400" fill="var(--surface-1, #fcfcfb)"/>
+<line x1="62.0" y1="356.0" x2="568.0" y2="356.0" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<text class="ax" x="54.0" y="360.0" text-anchor="end">0</text>
+<line x1="62.0" y1="291.6" x2="568.0" y2="291.6" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<text class="ax" x="54.0" y="295.6" text-anchor="end">100k</text>
+<line x1="62.0" y1="227.2" x2="568.0" y2="227.2" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<text class="ax" x="54.0" y="231.2" text-anchor="end">200k</text>
+<line x1="62.0" y1="162.8" x2="568.0" y2="162.8" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<text class="ax" x="54.0" y="166.8" text-anchor="end">300k</text>
+<line x1="62.0" y1="98.4" x2="568.0" y2="98.4" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<text class="ax" x="54.0" y="102.4" text-anchor="end">400k</text>
+<line x1="62.0" y1="34.0" x2="568.0" y2="34.0" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<text class="ax" x="54.0" y="38.0" text-anchor="end">500k</text>
+<text class="ax" x="62.0" y="376.0" text-anchor="middle">2019</text>
+<text class="ax" x="315.0" y="376.0" text-anchor="middle">2022</text>
+<text class="ax" x="568.0" y="376.0" text-anchor="middle">2025</text>
+<path d="M 62.0 121.7 L 146.3 114.6 L 230.7 88.1 L 315.0 73.6 L 399.3 70.0 L 483.7 47.4 L 568.0 46.8" fill="none" stroke="var(--series-2, #eb6834)" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 62.0 163.3 L 146.3 158.6 L 230.7 126.0 L 315.0 91.4 L 399.3 82.2 L 483.7 54.0 L 568.0 37.1" fill="none" stroke="var(--series-1, #2a78d6)" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="568.0" cy="55.0" r="4" fill="var(--series-2, #eb6834)" stroke="var(--surface-1, #fcfcfb)" stroke-width="2"/><text class="lbl" x="578.0" y="59.0" fill="var(--series-2, #eb6834)">LTV cap</text><text class="note" x="578.0" y="73.0">480,118</text>
+<circle cx="568.0" cy="29.0" r="4" fill="var(--series-1, #2a78d6)" stroke="var(--surface-1, #fcfcfb)" stroke-width="2"/><text class="lbl" x="578.0" y="33.0" fill="var(--series-1, #2a78d6)">price - grants</text><text class="note" x="578.0" y="47.0">495,157</text>
+<rect x="70.0" y="38.0" width="10" height="10" rx="2" fill="var(--series-1, #2a78d6)"/>
+<text class="ax" x="86.0" y="46.0">Price less grants</text>
+<rect x="70.0" y="56.0" width="10" height="10" rx="2" fill="var(--series-2, #eb6834)"/>
+<text class="ax" x="86.0" y="64.0">Loan-to-value cap</text>
+</svg>
