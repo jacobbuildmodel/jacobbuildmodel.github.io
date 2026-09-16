@@ -134,6 +134,9 @@ a false negative before.
 
 Every rule came from a real correction.
 
+- **Delivery comes first.** Research that is not shown clearly is wasted. Plan
+  the key charts and headline numbers before the prose, and check every piece
+  at 390px and desktop, light and dark, before publishing.
 - **Never argue with an objection nobody raised.** Flagged three times. Standing
   failure mode.
 - **Pure ASCII.** No em dashes. No U+2212 minus sign, it crashes the gate on
