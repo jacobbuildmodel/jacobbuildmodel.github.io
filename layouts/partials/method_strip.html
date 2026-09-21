@@ -28,7 +28,7 @@
     <span class="method-strip-item">
       <span class="method-strip-label">TESTS</span>
       <span class="method-strip-value">
-        <span class="ms-pass">{{ $passed }}&nbsp;passed</span>{{ if $failed }}, <span class="ms-fail">{{ $failed }}&nbsp;failed</span>{{ end }}{{ if $other }}, {{ $other }}&nbsp;other{{ end }}<span class="ms-total">&nbsp;of&nbsp;{{ $total }}</span>
+        <span class="ms-pass">{{ $passed }}&nbsp;passed</span>{{ if $failed }}, <span class="ms-fail">{{ $failed }}&nbsp;failed</span>{{ end }}{{ if $other }}, {{ $other }}&nbsp;inconclusive{{ end }}<span class="ms-total">&nbsp;of&nbsp;{{ $total }}</span>
       </span>
     </span>
     {{- end }}
