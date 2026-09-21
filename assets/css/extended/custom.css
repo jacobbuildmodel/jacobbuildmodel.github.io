@@ -231,19 +231,37 @@ main .post-content > p { margin-bottom: 1em; }
    ═══════════════════════════════════════════════════════════════════ */
 
 :root {
-  /* Steel blue, the colour already used in the favicon and the social
-     card, so the site matches its own preview. 6.16:1 on white. */
-  --accent:        #446485;
-  --accent-quiet:  #6b86a4;
+  /* Morning palette (chosen from three options after Phase 1/2 review):
+     a fresher, cooler steel blue than the original #446485, on a cooler
+     blue-grey code-bg/border instead of neutral grey. 5.64:1 on white. */
+  --accent:        #3d6c8c;
+  --accent-quiet:  #6f93ad;
   --pos:           #2E7D5B;   /* 5.00:1 on white */
   --neg:           #8A6116;   /* 5.52:1 on white. Amber, not red: these
                                  mark "look closer", not "bad news". */
+  /* The dull-background complaint: PaperMod's own --code-bg default is
+     rgb(245,245,245), numerically neutral grey (not literally beige) but
+     flat against white cards. Morning's replacement is a cool blue-grey
+     instead — every list page, every tinted component (method strip, lead
+     figure, aside, src-tag) inherits this since they're all built on
+     --code-bg/--border already. Dark mode is untouched: only the accent
+     hue changed above, per "dark mode must stay as good as it is". */
+  --code-bg: #f4f7f9;
+  --border:  #e0e6ea;
 }
-.dark {
-  /* #446485 is only 2.71:1 on the dark background, so dark mode needs
-     genuinely lighter values rather than the same hex. */
-  --accent:        #7BA3C9;   /* 6.30:1 */
-  --accent-quiet:  #93a9c0;
+/* Was ".dark" — this site's own theme-init script (in the PaperMod partial
+   this project inherits) always stamps data-theme="dark"/"light" on <html>
+   before paint, including when just following system preference, so a
+   media-query fallback is not needed here. But ".dark" as a class has never
+   matched anything: --accent/--accent-quiet/--pos/--neg were silently
+   falling through to the LIGHT values in dark mode — #446485 at only
+   2.71:1 on the dark background, a live WCAG AA failure on every link and
+   badge, undiscovered until this pass because the wrong hex was still
+   "blue enough" to not look obviously broken in a screenshot. Found and
+   fixed alongside the same bug in economics.css. */
+:root[data-theme="dark"] {
+  --accent:        #85acc9;   /* Morning's dark-mode accent, 6.94:1 */
+  --accent-quiet:  #a3c0d6;
   --pos:           #6FBF9A;   /* 7.62:1 */
   --neg:           #D6A544;   /* 7.41:1 */
 }
@@ -451,38 +469,3 @@ main .post-content > p { margin-bottom: 1em; }
    tinted inset background and the desktop margin float — added there
    instead of a second, competing ruleset here. */
 
-/* ═══════════════════════════════════════════════════════════════════
-   TEMPORARY — palette comparison scaffolding for Jacob's review only.
-   Switch with ?palette=morning|mint|sky on any page (see the inline script
-   in extend_head.html). Remove this whole block and the script once a
-   palette is chosen and baked into the tokens above — this is not meant
-   to ship. Dark mode is intentionally left alone in every option except
-   the accent hue: Jacob asked that dark mode not get worse, so only light
-   backgrounds change here.
-
-   Baseline being replaced: --code-bg (the list/card background every list
-   page and every tinted component inherits) is currently rgb(245,245,245)
-   — numerically neutral grey, not literally beige, but flat and low-
-   contrast against white cards, which reads as dull exactly as flagged.
-   ═══════════════════════════════════════════════════════════════════ */
-html[data-palette="morning"] {
-  --code-bg: #f4f7f9; --border: #e0e6ea;
-  --accent: #3d6c8c; --accent-quiet: #6f93ad;
-}
-html[data-palette="morning"].dark, html[data-palette="morning"][data-theme="dark"] {
-  --accent: #85acc9; --accent-quiet: #a3c0d6;
-}
-html[data-palette="mint"] {
-  --code-bg: #f2f8f4; --border: #dcebe1;
-  --accent: #2f7d5e; --accent-quiet: #6ba488;
-}
-html[data-palette="mint"].dark, html[data-palette="mint"][data-theme="dark"] {
-  --accent: #7fc2a4; --accent-quiet: #9ed3bb;
-}
-html[data-palette="sky"] {
-  --code-bg: #f3f4fb; --border: #dfe1f0;
-  --accent: #4d5fd1; --accent-quiet: #7c87dd;
-}
-html[data-palette="sky"].dark, html[data-palette="sky"][data-theme="dark"] {
-  --accent: #9aa4f0; --accent-quiet: #b7bff5;
-}

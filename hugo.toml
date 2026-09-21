@@ -37,8 +37,13 @@ pagination.pagerSize = 10
 [params]
   env         = "production"
   author      = "Jacob Ong"
-  description = "Weekly market analysis: flows, regime, forward catalysts, and a research watchlist. Reasoning, not recommendations."
-  keywords    = ["market analysis", "equity research", "fund flows", "macro"]
+  # Reused verbatim from the live homepage intro (params.homeInfoParams.Title
+  # below) rather than composed fresh — Jacob's own already-published words,
+  # picked over the old copy which still described deleted sections (NEWS,
+  # SECTOR, STANDOUTS) and a "weekly market analysis" format that no longer
+  # exists.
+  description = "Singapore policy, measured with public data."
+  keywords    = ["Singapore economics", "COE", "HDB", "GST", "public data", "stock research"]
   mainSections = ["economics"]
 
   DateFormat        = "2 January 2006"
