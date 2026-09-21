@@ -344,3 +344,145 @@ main .post-content > p { margin-bottom: 1em; }
 }
 .related-reads .stock-grid { margin: 0; }
 .stock-card:hover { border-color: var(--accent); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   PHASE 2 — masthead byline
+   "Jacob Ong" now appears once, here, instead of on every card/article
+   meta line (hideAuthor: true in hugo.toml suppresses the repeats).
+   ═══════════════════════════════════════════════════════════════════ */
+.logo-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.masthead-byline {
+  font-size: 0.68em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.04em;
+  color: var(--secondary);
+  line-height: 1;
+}
+
+/* ---- reading serif ----
+   .post-content prose only. Nav, meta, labels, the method strip and every
+   mono-tagged component stay in the theme's system sans so structured facts
+   stay visually distinct from running prose — the same split the site
+   already draws between .src-tag/.layer-badge (mono) and body text. */
+.post-content,
+.entry-lead {
+  font-family: 'Source Serif 4', Georgia, 'Iowan Old Style', serif;
+}
+.post-content { font-size: 1.05em; }
+.post-content h2, .post-content h3 { font-weight: 600; }
+
+/* ---- the dek: Jacob's own summary line, promoted ----
+   Same text already shown on home/list cards (.entry-content), reused here
+   rather than authored twice. */
+.entry-lead {
+  font-size: 1.22em;
+  line-height: 1.5;
+  color: var(--primary);
+  font-style: italic;
+  margin: 14px 0 0;
+  max-width: var(--main-width);
+}
+
+/* ---- lead figure: the piece's own first chart, pulled above the fold ----
+   Extracted from .Content server-side (layouts/single.html, layouts/list.html)
+   — never a second, invented image. */
+.lead-figure {
+  margin: 20px 0 0;
+  padding: 10px 8px 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--code-bg);
+}
+.lead-figure img, .lead-figure svg { display: block; width: 100%; height: auto; }
+
+.entry-figure {
+  margin-top: 10px;
+  padding: 6px 6px 2px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--code-bg);
+}
+.entry-figure img, .entry-figure svg { display: block; width: 100%; height: auto; }
+
+/* ---- method strip ----
+   Transcribed facts only (seal date, pass/fail counts, repo link) — see
+   layouts/partials/method_strip.html for what populates it and why. Stays in
+   mono, same visual family as .src-tag/.layer-badge: a structured fact, not
+   a headline and not a score. Failures get no different treatment from
+   passes — same weight, same row. */
+.method-strip {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--code-bg);
+}
+.method-strip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 22px;
+  align-items: baseline;
+}
+.method-strip-item {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78em;
+  line-height: 1.6;
+  color: var(--secondary);
+}
+.method-strip-label {
+  letter-spacing: 0.06em;
+  margin-right: 6px;
+}
+.method-strip-value { color: var(--primary); font-variant-numeric: tabular-nums; }
+.method-strip .ms-pass { color: var(--pos); }
+.method-strip .ms-fail { color: var(--neg); }
+.method-strip .ms-total { color: var(--secondary); }
+.method-strip-link { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-quiet); }
+
+/* ---- asides ----
+   The actual styling lives in assets/css/extended/economics.css, which
+   already had a working details.aside component (the +/- marker, hover and
+   focus-visible states, reduced-motion handling) before this pass touched
+   anything. See that file for the "unmistakably an aside" additions —
+   tinted inset background and the desktop margin float — added there
+   instead of a second, competing ruleset here. */
+
+/* ═══════════════════════════════════════════════════════════════════
+   TEMPORARY — palette comparison scaffolding for Jacob's review only.
+   Switch with ?palette=morning|mint|sky on any page (see the inline script
+   in extend_head.html). Remove this whole block and the script once a
+   palette is chosen and baked into the tokens above — this is not meant
+   to ship. Dark mode is intentionally left alone in every option except
+   the accent hue: Jacob asked that dark mode not get worse, so only light
+   backgrounds change here.
+
+   Baseline being replaced: --code-bg (the list/card background every list
+   page and every tinted component inherits) is currently rgb(245,245,245)
+   — numerically neutral grey, not literally beige, but flat and low-
+   contrast against white cards, which reads as dull exactly as flagged.
+   ═══════════════════════════════════════════════════════════════════ */
+html[data-palette="morning"] {
+  --code-bg: #f4f7f9; --border: #e0e6ea;
+  --accent: #3d6c8c; --accent-quiet: #6f93ad;
+}
+html[data-palette="morning"].dark, html[data-palette="morning"][data-theme="dark"] {
+  --accent: #85acc9; --accent-quiet: #a3c0d6;
+}
+html[data-palette="mint"] {
+  --code-bg: #f2f8f4; --border: #dcebe1;
+  --accent: #2f7d5e; --accent-quiet: #6ba488;
+}
+html[data-palette="mint"].dark, html[data-palette="mint"][data-theme="dark"] {
+  --accent: #7fc2a4; --accent-quiet: #9ed3bb;
+}
+html[data-palette="sky"] {
+  --code-bg: #f3f4fb; --border: #dfe1f0;
+  --accent: #4d5fd1; --accent-quiet: #7c87dd;
+}
+html[data-palette="sky"].dark, html[data-palette="sky"][data-theme="dark"] {
+  --accent: #9aa4f0; --accent-quiet: #b7bff5;
+}

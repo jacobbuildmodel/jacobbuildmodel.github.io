@@ -53,6 +53,10 @@ pagination.pagerSize = 10
   ShowRssButtonInSectionTermList = true
   defaultTheme      = "auto"
   disableThemeToggle = false
+  # "Jacob Ong" now appears once, in the masthead (layouts/partials/header.html),
+  # reading this same author value. Suppressing it from every card/article meta
+  # line removes the repetition without adding a second source of the name.
+  hideAuthor        = true
 
   # Homepage intro block
   [params.homeInfoParams]

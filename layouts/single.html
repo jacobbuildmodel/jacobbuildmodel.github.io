@@ -39,6 +39,39 @@
   </header>
   {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }}
   {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" $isHidden) }}
+
+  {{- /* Method strip: only renders when the piece carries transcribed
+         pre-registration facts (see layouts/partials/method_strip.html). */}}
+  {{- partial "method_strip.html" . }}
+
+  {{- /* The finding, first: Jacob's own summary line (already exists in every
+         post's front matter for the card blurb) stood up as a dek, then the
+         piece's own lead chart pulled above the fold. No new authoring field
+         for the chart — the first <img> already in the body is extracted and
+         removed from its original position, never duplicated. */}}
+  {{- with .Summary }}
+  <div class="entry-lead">{{ . | plainify | htmlUnescape }}</div>
+  {{- end }}
+
+  {{- $bodyContent := .Content }}
+  {{- $leadImgs := findRE "<img[^>]*>" .Content 1 }}
+  {{- with $leadImgs }}
+  <figure class="lead-figure">{{ index . 0 | safeHTML }}</figure>
+  {{- /* Remove the image from its original position so it is never shown
+         twice. When the source used the figure shortcode, the image sits
+         inside a figure/figcaption wrapper — removing only the img would
+         leave an orphaned, caption-only figure behind, so the whole wrapper
+         is removed in that case instead. Plain markdown images (no
+         shortcode, no wrapper) fall back to stripping the bare img, which
+         leaves at most an empty paragraph that renders as nothing. */}}
+  {{- $wrapped := findRE "(?s)<figure>\\s*<img[^>]*>.*?</figure>" $bodyContent 1 }}
+  {{- if $wrapped }}
+  {{- $bodyContent = replaceRE "(?s)<figure>\\s*<img[^>]*>.*?</figure>" "" $bodyContent 1 }}
+  {{- else }}
+  {{- $bodyContent = replaceRE "<img[^>]*>" "" $bodyContent 1 }}
+  {{- end }}
+  {{- end }}
+
   {{- if (.Param "ShowToc") }}
   {{- partial "toc.html" . }}
   {{- end }}
@@ -46,8 +79,8 @@
   {{- if .Content }}
   <div class="post-content md-content">
     {{- if not (.Param "disableAnchoredHeadings") }}
-    {{- partial "anchored_headings.html" .Content -}}
-    {{- else }}{{ .Content }}{{ end }}
+    {{- partial "anchored_headings.html" $bodyContent -}}
+    {{- else }}{{ $bodyContent | safeHTML }}{{ end }}
   </div>
   {{- end }}
 

@@ -16,7 +16,12 @@
   --fig-context:  #8d9096;   /* everything the reader is comparing it against */
 }
 
-.dark {
+/* Was ".dark" — this site's dark mode stamps data-theme="dark" on <html>
+   (see the theme toggle script in extend_head.html's inherited partial),
+   never a literal .dark class, so this rule has not matched anything since
+   it was written. Fixed while touching this file for the Phase 2 aside
+   work; --fig-subject/--fig-context now actually get their dark values. */
+[data-theme="dark"] {
   --fig-subject:  #e0705f;
   --fig-context:  #90939a;
 }
@@ -56,12 +61,22 @@
 
 /* The depth layer -------------------------------------------------------- */
 
+/* Phase 2 addition: a tinted, bordered inset so a closed aside reads as its
+   own distinct component at a glance, not a thin rule between two
+   paragraphs — the "unmistakably an aside" ask. The +/- marker, hover and
+   focus-visible states below are unchanged from before this pass. */
 details.aside {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  /* --fig-surface (= --entry) is the same white as the page background in
+     light mode, so it gave a bordered box with no visible tint. --code-bg
+     is what every other tinted component on the site already uses (the
+     method strip, the lead figure, .src-tag) — matching that instead. */
+  background: var(--code-bg);
   margin: 1.8rem 0;
+  padding: 0 1rem;
 }
-details.aside + details.aside { margin-top: -1.8rem; border-top: none; }
+details.aside + details.aside { margin-top: 1.8rem; border-top: 1px solid var(--border); }
 
 details.aside summary {
   cursor: pointer;
@@ -74,15 +89,31 @@ details.aside summary {
 details.aside summary::-webkit-details-marker { display: none; }
 details.aside summary::before { content: "+ "; color: var(--fig-subject); }
 details.aside[open] summary::before { content: "- "; }
+details.aside[open] summary { border-bottom: 1px solid var(--border); }
 details.aside summary:hover { color: var(--primary); }
 details.aside summary:focus-visible { outline: 2px solid var(--fig-subject); outline-offset: 3px; }
 
 details.aside .aside-body {
-  padding: 0 0 1.2rem;
+  padding: 0.2rem 0 1.2rem;
   font-size: 0.95rem;
 }
 details.aside .aside-body > :first-child { margin-top: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   details.aside { transition: none; }
+}
+
+@media (min-width: 1000px) {
+  /* Desktop margin note: float into the space beyond the 660px reading
+     column (--main-width) when the viewport actually has room for it.
+     Below this width the rule does not apply and the aside stays the
+     inline inset above. */
+  .post-content details.aside {
+    float: right;
+    width: 260px;
+    margin: 4px -300px 16px 24px;
+    padding: 0 0.85rem;
+  }
+  .post-content details.aside summary { font-size: 0.8rem; }
+  .post-content details.aside .aside-body { font-size: 0.85rem; }
 }
