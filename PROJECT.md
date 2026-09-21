@@ -69,9 +69,10 @@ Committed, in order:
    a researcher chat; first task is establishing whether a defensible public bank
    mortgage rate series exists for 2010 to 2025. If it does not, the piece changes
    shape or does not happen.
-2. **COE lease versus buy.** The ten-year cash-flow decision under COE renewal
-   versus buying new, as a real amortisation model. A decision model rather than
-   another data article, so it adds variety.
+2. **Renew or replace at year ten.** When a car's ten-year COE ran out, was
+   renewing it cheaper than scrapping and buying new, and did the February 2026
+   PARF cut change the answer? Brief is in the WEBSITE project as
+   briefs/BRIEF_coe_renew_or_replace.md.
 3. **Cooling measures replication.** A published study found Singapore's cooling
    measures cut prices 10 to 15 per cent. Four more rounds have happened since
    (Dec 2021, Sep 2022, Apr 2023, Aug 2024). Does the finding still hold? Uses
