@@ -1,18 +1,23 @@
 {{- /* layouts/partials/method_strip.html
-   Renders only when a piece carries pre-registration facts in front matter —
+   Renders only when a piece carries pre-registration facts in front matter --
    thesisSealed, testsPassed, testsFailed, testsOther, testsTotal. These are
    transcribed, not composed: copied verbatim from the linked repo's THESIS.md
    seal line and RESULTS.md summary table at publish time. No prose is
-   generated here, and nothing is scored or ranked — failures render exactly
+   generated here, and nothing is scored or ranked -- failures render exactly
    like passes, same weight, same place. Pieces without these fields (no
    THESIS.md/RESULTS.md in the linked repo yet) render nothing: the strip
-   never appears half-true. */ -}}
+   never appears half-true.
+
+   Revisit date is computed, not transcribed -- publish date plus twelve
+   months, a fixed mechanical rule rather than a per-post field, so it can
+   never drift out of sync with the post's own date. */ -}}
 {{- with .Param "thesisSealed" }}
 {{- $sealed := . }}
 {{- $passed := $.Param "testsPassed" }}
 {{- $failed := $.Param "testsFailed" }}
 {{- $other := $.Param "testsOther" }}
 {{- $total := $.Param "testsTotal" }}
+{{- $revisit := $.Date.AddDate 1 0 0 }}
 <div class="method-strip">
   <div class="method-strip-row">
     <span class="method-strip-item">
@@ -23,11 +28,14 @@
     <span class="method-strip-item">
       <span class="method-strip-label">TESTS</span>
       <span class="method-strip-value">
-        <span class="ms-pass">{{ $passed }} passed</span>{{ if $failed }}, <span class="ms-fail">{{ $failed }} failed</span>{{ end }}{{ if $other }}, {{ $other }} other{{ end }}
-        <span class="ms-total">&nbsp;of {{ $total }}</span>
+        <span class="ms-pass">{{ $passed }}&nbsp;passed</span>{{ if $failed }}, <span class="ms-fail">{{ $failed }}&nbsp;failed</span>{{ end }}{{ if $other }}, {{ $other }}&nbsp;other{{ end }}<span class="ms-total">&nbsp;of&nbsp;{{ $total }}</span>
       </span>
     </span>
     {{- end }}
+    <span class="method-strip-item">
+      <span class="method-strip-label">REVISIT</span>
+      <span class="method-strip-value">{{ $revisit | time.Format "2 January 2006" }}</span>
+    </span>
     {{- with $.Params.repo }}
     <span class="method-strip-item">
       <a href="{{ . }}" class="method-strip-link">Repository &rarr;</a>

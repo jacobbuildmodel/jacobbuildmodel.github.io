@@ -47,60 +47,37 @@
 
 {{- $paginator := .Paginate $pages }}
 
+{{- $term := .Data.Term }}
+{{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
+
+{{- /* Home, page 1: the latest piece -- its own headline, summary and chart
+       -- renders before the intro, not after. Phone readers were opening on
+       a paragraph about the site with the actual finding below the fold.
+       The featured entry below is the same partial the loop below uses for
+       every other card; range's "continue" skips it there so it is never
+       rendered twice. */}}
+{{- if and .IsHome (eq $paginator.PageNumber 1) (gt (len $paginator.Pages) 0) }}
+{{- $featured := index $paginator.Pages 0 }}
+{{- partial "entry_card.html" (dict "page" $featured "class" "post-entry") }}
+{{- end }}
+
 {{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
 {{- partial "home_info.html" . }}
 {{- end }}
 
-{{- $term := .Data.Term }}
 {{- range $index, $page := $paginator.Pages }}
+{{- if and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) }}
+{{- continue }}
+{{- end }}
 
 {{- $class := "post-entry" }}
-
-{{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
 {{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
 {{- $class = "first-entry" }}
 {{- else if $term }}
 {{- $class = "post-entry tag-entry" }}
 {{- end }}
 
-<article class="{{ $class }}">
-  {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
-  {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">
-      {{- .Title }}
-      {{- if .Draft }}
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-      {{- end }}
-    </h2>
-  </header>
-  {{- if (ne (.Param "hideSummary") true) }}
-  <div class="entry-content">
-    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-  </div>
-  {{- end }}
-  {{- /* Card-level chart thumbnail: the entry's own first <img>, reusing the
-         same zero-new-fields extraction as the article page. Economics
-         cards only — a card is worth the extra weight when the piece
-         actually has a figure to show. */}}
-  {{- if eq .Type "economics" }}
-  {{- $cardImgs := findRE "<img[^>]*>" .Content 1 }}
-  {{- with $cardImgs }}
-  <div class="entry-figure">{{ index . 0 | safeHTML }}</div>
-  {{- end }}
-  {{- end }}
-  {{- if not (.Param "hideMeta") }}
-  <footer class="entry-footer">
-    {{- partial "post_meta.html" . -}}
-  </footer>
-  {{- end }}
-  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-</article>
+{{- partial "entry_card.html" (dict "page" $page "class" $class) }}
 {{- end }}
 
 {{- if gt $paginator.TotalPages 1 }}
@@ -108,7 +85,7 @@
   <nav class="pagination">
     {{- if $paginator.HasPrev }}
     <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">
-      «&nbsp;{{ i18n "prev_page" }}&nbsp;
+      &laquo;&nbsp;{{ i18n "prev_page" }}&nbsp;
       {{- if (.Param "ShowPageNums") }}
       {{- sub $paginator.PageNumber 1 }}/{{ $paginator.TotalPages }}
       {{- end }}
@@ -119,7 +96,7 @@
       {{- i18n "next_page" }}&nbsp;
       {{- if (.Param "ShowPageNums") }}
       {{- add 1 $paginator.PageNumber }}/{{ $paginator.TotalPages }}
-      {{- end }}&nbsp;»
+      {{- end }}&nbsp;&raquo;
     </a>
     {{- end }}
   </nav>

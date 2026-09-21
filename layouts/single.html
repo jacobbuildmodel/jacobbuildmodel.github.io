@@ -47,9 +47,17 @@
   {{- /* The finding, first: Jacob's own summary line (already exists in every
          post's front matter for the card blurb) stood up as a dek, then the
          piece's own lead chart pulled above the fold. No new authoring field
-         for the chart — the first <img> already in the body is extracted and
-         removed from its original position, never duplicated. */}}
-  {{- with .Summary }}
+         for the chart -- the first <img> already in the body is extracted
+         and removed from its original position, never duplicated.
+
+         Must be .Params.summary, the raw front matter value, never .Summary
+         -- Hugo falls .Summary back to an auto-generated excerpt (headings
+         stripped, run together) for any page without an explicit summary,
+         which is every non-article page (About, Method, Stocks index). That
+         auto text rendered as a dek on /about/ until this fix. Pages that
+         set description but not summary already get it rendered above, in
+         the theme's own .post-description block -- not duplicated here. */}}
+  {{- with .Params.summary }}
   <div class="entry-lead">{{ . | plainify | htmlUnescape }}</div>
   {{- end }}
 
@@ -59,7 +67,7 @@
   <figure class="lead-figure">{{ index . 0 | safeHTML }}</figure>
   {{- /* Remove the image from its original position so it is never shown
          twice. When the source used the figure shortcode, the image sits
-         inside a figure/figcaption wrapper — removing only the img would
+         inside a figure/figcaption wrapper -- removing only the img would
          leave an orphaned, caption-only figure behind, so the whole wrapper
          is removed in that case instead. Plain markdown images (no
          shortcode, no wrapper) fall back to stripping the bare img, which

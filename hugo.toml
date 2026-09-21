@@ -38,7 +38,7 @@ pagination.pagerSize = 10
   env         = "production"
   author      = "Jacob Ong"
   # Reused verbatim from the live homepage intro (params.homeInfoParams.Title
-  # below) rather than composed fresh — Jacob's own already-published words,
+  # below) rather than composed fresh -- Jacob's own already-published words,
   # picked over the old copy which still described deleted sections (NEWS,
   # SECTOR, STANDOUTS) and a "weekly market analysis" format that no longer
   # exists.

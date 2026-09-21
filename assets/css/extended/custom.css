@@ -242,19 +242,19 @@ main .post-content > p { margin-bottom: 1em; }
   /* The dull-background complaint: PaperMod's own --code-bg default is
      rgb(245,245,245), numerically neutral grey (not literally beige) but
      flat against white cards. Morning's replacement is a cool blue-grey
-     instead — every list page, every tinted component (method strip, lead
+     instead -- every list page, every tinted component (method strip, lead
      figure, aside, src-tag) inherits this since they're all built on
      --code-bg/--border already. Dark mode is untouched: only the accent
      hue changed above, per "dark mode must stay as good as it is". */
   --code-bg: #f4f7f9;
   --border:  #e0e6ea;
 }
-/* Was ".dark" — this site's own theme-init script (in the PaperMod partial
+/* Was ".dark" -- this site's own theme-init script (in the PaperMod partial
    this project inherits) always stamps data-theme="dark"/"light" on <html>
    before paint, including when just following system preference, so a
    media-query fallback is not needed here. But ".dark" as a class has never
    matched anything: --accent/--accent-quiet/--pos/--neg were silently
-   falling through to the LIGHT values in dark mode — #446485 at only
+   falling through to the LIGHT values in dark mode -- #446485 at only
    2.71:1 on the dark background, a live WCAG AA failure on every link and
    badge, undiscovered until this pass because the wrong hex was still
    "blue enough" to not look obviously broken in a screenshot. Found and
@@ -363,28 +363,31 @@ main .post-content > p { margin-bottom: 1em; }
 .related-reads .stock-grid { margin: 0; }
 .stock-card:hover { border-color: var(--accent); }
 
-/* ═══════════════════════════════════════════════════════════════════
-   PHASE 2 — masthead byline
+/* ---- masthead byline ----
    "Jacob Ong" now appears once, here, instead of on every card/article
    meta line (hideAuthor: true in hugo.toml suppresses the repeats).
-   ═══════════════════════════════════════════════════════════════════ */
+   font-size bumped and margin-top added after review: 0.68em (12.24px)
+   measured over the 11px floor but a monospace face reads visually smaller
+   than its font-size at a glance, and the byline sat flush against the very
+   top of the viewport with no clearance -- both fixed here. */
 .logo-title-group {
   display: flex;
   flex-direction: column;
   gap: 1px;
+  padding-top: 6px;
 }
 .masthead-byline {
-  font-size: 0.68em;
+  font-size: 0.8em;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   letter-spacing: 0.04em;
   color: var(--secondary);
-  line-height: 1;
+  line-height: 1.3;
 }
 
 /* ---- reading serif ----
    .post-content prose only. Nav, meta, labels, the method strip and every
    mono-tagged component stay in the theme's system sans so structured facts
-   stay visually distinct from running prose — the same split the site
+   stay visually distinct from running prose -- the same split the site
    already draws between .src-tag/.layer-badge (mono) and body text. */
 .post-content,
 .entry-lead {
@@ -407,7 +410,7 @@ main .post-content > p { margin-bottom: 1em; }
 
 /* ---- lead figure: the piece's own first chart, pulled above the fold ----
    Extracted from .Content server-side (layouts/single.html, layouts/list.html)
-   — never a second, invented image. */
+   -- never a second, invented image. */
 .lead-figure {
   margin: 20px 0 0;
   padding: 10px 8px 4px;
@@ -427,11 +430,11 @@ main .post-content > p { margin-bottom: 1em; }
 .entry-figure img, .entry-figure svg { display: block; width: 100%; height: auto; }
 
 /* ---- method strip ----
-   Transcribed facts only (seal date, pass/fail counts, repo link) — see
+   Transcribed facts only (seal date, pass/fail counts, repo link) -- see
    layouts/partials/method_strip.html for what populates it and why. Stays in
    mono, same visual family as .src-tag/.layer-badge: a structured fact, not
    a headline and not a score. Failures get no different treatment from
-   passes — same weight, same row. */
+   passes -- same weight, same row. */
 .method-strip {
   margin-top: 14px;
   padding: 10px 14px;
@@ -458,14 +461,16 @@ main .post-content > p { margin-bottom: 1em; }
 .method-strip-value { color: var(--primary); font-variant-numeric: tabular-nums; }
 .method-strip .ms-pass { color: var(--pos); }
 .method-strip .ms-fail { color: var(--neg); }
-.method-strip .ms-total { color: var(--secondary); }
+/* nowrap so "of 9" (and each &nbsp;-joined pass/fail/other fragment) never
+   splits across a line break on a narrow phone width -- caught in review. */
+.method-strip .ms-pass, .method-strip .ms-fail, .method-strip .ms-total { white-space: nowrap; }
 .method-strip-link { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-quiet); }
 
 /* ---- asides ----
    The actual styling lives in assets/css/extended/economics.css, which
    already had a working details.aside component (the +/- marker, hover and
    focus-visible states, reduced-motion handling) before this pass touched
-   anything. See that file for the "unmistakably an aside" additions —
-   tinted inset background and the desktop margin float — added there
+   anything. See that file for the "unmistakably an aside" additions --
+   tinted inset background and the desktop margin float -- added there
    instead of a second, competing ruleset here. */
 
