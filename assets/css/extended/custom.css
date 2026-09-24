@@ -487,3 +487,24 @@ main .post-content > p { margin-bottom: 1em; }
   color: var(--secondary);
 }
 
+/* ---- question lead-in ----
+   Optional front matter "question", rendered directly above the headline on
+   the article page (layouts/single.html) and above the card h2
+   (layouts/partials/entry_card.html). Sentence case, never uppercase: it
+   reads as the question the headline answers, not as a label. rem sizes so
+   it never drops below 12px at 390px (0.85rem = 13.6px). */
+.entry-question {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.4;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--secondary);
+}
+.post-header .entry-question { margin-top: 4px; }
+.post-entry .entry-question,
+.first-entry .entry-question {
+  margin: 0 0 4px;
+  font-size: 0.85rem;
+}

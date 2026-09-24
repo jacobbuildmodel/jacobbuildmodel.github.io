@@ -3,6 +3,12 @@
 <article class="post-single">
   <header class="post-header">
     {{ partial "breadcrumbs.html" . }}
+    {{- /* Optional front matter "question": the argument the piece tests,
+           shown as a lead-in directly above the headline, which answers it.
+           Pages without the field render exactly as before. */}}
+    {{- with .Params.question }}
+    <p class="entry-question">{{ . }}</p>
+    {{- end }}
     <h1 class="post-title entry-hint-parent">
       {{ .Title }}
       {{- if .Draft }}
