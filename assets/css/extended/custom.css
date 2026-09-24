@@ -474,3 +474,16 @@ main .post-content > p { margin-bottom: 1em; }
    tinted inset background and the desktop margin float -- added there
    instead of a second, competing ruleset here. */
 
+/* ---- lead figure caption ----
+   The italic caption paragraph that follows a plain markdown image (e.g.
+   "*Figure 1. ...*") gets lifted into .lead-figure as a real figcaption
+   when that image is the one promoted above the fold -- see the caption-
+   lifting logic in layouts/single.html. */
+.lead-figure .lead-caption {
+  margin: 10px 4px 0;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--secondary);
+}
+
