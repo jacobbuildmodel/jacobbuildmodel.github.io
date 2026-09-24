@@ -1,51 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="Dot plot of the month-on-month change in Singapore's All Items consumer price index into each January from 2010 to 2026. The values range from minus 0.75 per cent in 2025 to plus 1.63 per cent in 2011, with a standard deviation of 0.61 per cent across the non-GST years. The two GST years are highlighted: January 2023 at plus 0.19 per cent and January 2024 at minus 0.43 per cent, both sitting well inside the ordinary spread. A bar beneath shows that full pass-through of the 2023 GST rise would be 0.93 per cent, which is smaller than the ordinary year-to-year variation in the dots above it." style="max-width:100%;height:auto">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Dot plot of the month-on-month change in Singapore's All Items consumer price index into each January from 2010 to 2026. The values range from minus 0.75 per cent in 2025 to plus 1.63 per cent in 2011, with a standard deviation of 0.61 per cent across the non-GST years. The two GST years are highlighted: January 2023 at plus 0.19 per cent and January 2024 at minus 0.43 per cent, both sitting well inside the ordinary spread. A bar beneath shows that full pass-through of the 2023 GST rise would be 0.93 per cent, which is smaller than the ordinary year-to-year variation in the dots above it." style="max-width:100%;height:auto">
   <style>
-    :root{--fg:#1c1c1c;--muted:#767676;--faint:#c8c8c8;--grid:#e6e6e6;--accent:#0b6bcb;}
+    :root{--fig-ink:#0b0b0b;--fig-ink-2:#52514e;--fig-ink-3:#717171;--fig-rule:#e2e1dd;
+      --fig-surface:#fcfcfa;--fig-subject:#2873ce;--fig-context:#707379;}
     @media (prefers-color-scheme: dark){
-      :root{--fg:#ececec;--muted:#9a9a9a;--faint:#565656;--grid:#3a3a3a;--accent:#5aa9f0;}
+      :root{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;
+        --fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}
     }
-    .fg{fill:var(--fg,#1c1c1c)} .mut{fill:var(--muted,#767676)}
-    .lbl{font:11px system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-    .lbl-b{font:600 11px system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-    .grid{stroke:var(--grid,#e6e6e6);stroke-width:1;fill:none}
-    .axis{stroke:var(--muted,#767676);stroke-width:1;fill:none}
-    .ctx{fill:var(--faint,#c8c8c8)} .ctxs{stroke:var(--faint,#c8c8c8)}
-    .acc{fill:var(--accent,#0b6bcb)} .accs{stroke:var(--accent,#0b6bcb)}
+    :root[data-theme="dark"]{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;
+      --fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}
+    text{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+    .fg{fill:var(--fig-ink,#0b0b0b)} .mut{fill:var(--fig-ink-3,#717171)}
+    .lbl{font-size:14px} .lbl-b{font-size:14px;font-weight:600}
+    .grid{stroke:var(--fig-rule,#e2e1dd);stroke-width:1;fill:none}
+    .axis{stroke:var(--fig-ink-3,#717171);stroke-width:1;fill:none}
+    .ctx{fill:var(--fig-context,#707379)} .ctxs{stroke:var(--fig-context,#707379)}
+    .acc{fill:var(--fig-subject,#2873ce)} .accs{stroke:var(--fig-subject,#2873ce)}
   </style>
-  <line class="axis" stroke="#767676" x1="46" y1="200" x2="616" y2="200"/>
-  <line class="grid" stroke="#e6e6e6" x1="46.0" y1="34" x2="46.0" y2="200"/>
-  <text class="lbl mut" fill="#767676" x="46.0" y="216" text-anchor="middle">-1.0%</text>
-  <line class="grid" stroke="#e6e6e6" x1="147.8" y1="34" x2="147.8" y2="200"/>
-  <text class="lbl mut" fill="#767676" x="147.8" y="216" text-anchor="middle">-0.5%</text>
-  <line class="grid" stroke="#e6e6e6" x1="249.6" y1="34" x2="249.6" y2="200"/>
-  <text class="lbl mut" fill="#767676" x="249.6" y="216" text-anchor="middle">+0.0%</text>
-  <line class="grid" stroke="#e6e6e6" x1="351.4" y1="34" x2="351.4" y2="200"/>
-  <text class="lbl mut" fill="#767676" x="351.4" y="216" text-anchor="middle">+0.5%</text>
-  <line class="grid" stroke="#e6e6e6" x1="453.1" y1="34" x2="453.1" y2="200"/>
-  <text class="lbl mut" fill="#767676" x="453.1" y="216" text-anchor="middle">+1.0%</text>
-  <line class="grid" stroke="#e6e6e6" x1="554.9" y1="34" x2="554.9" y2="200"/>
-  <text class="lbl mut" fill="#767676" x="554.9" y="216" text-anchor="middle">+1.5%</text>
-  <circle class="ctx" fill="#c8c8c8" cx="401.4" cy="190" r="3.5"/>
-  <circle class="ctx" fill="#c8c8c8" cx="581.7" cy="190" r="3.5"/>
-  <circle class="ctx" fill="#c8c8c8" cx="438.6" cy="190" r="3.5"/>
-  <circle class="ctx" fill="#c8c8c8" cx="289.2" cy="190" r="3.5"/>
-  <circle class="ctx" fill="#c8c8c8" cx="272.0" cy="190" r="3.5"/>
-  <circle class="ctx" fill="#c8c8c8" cx="205.7" cy="190" r="3.5"/>
-  <circle class="ctx" fill="#c8c8c8" cx="204.9" cy="175" r="3.5"/>
-  <circle class="ctx" fill="#c8c8c8" cx="285.0" cy="175" r="3.5"/>
-  <circle class="ctx" fill="#c8c8c8" cx="210.4" cy="160" r="3.5"/>
-  <circle class="ctx" fill="#c8c8c8" cx="189.2" cy="190" r="3.5"/>
-  <circle class="ctx" fill="#c8c8c8" cx="201.5" cy="145" r="3.5"/>
-  <circle class="ctx" fill="#c8c8c8" cx="243.9" cy="190" r="3.5"/>
-  <circle class="ctx" fill="#c8c8c8" cx="256.1" cy="190" r="3.5"/>
-  <circle class="acc" fill="#0b6bcb" cx="288.1" cy="160" r="4.5"/>
-  <text class="lbl-b acc" fill="#0b6bcb" x="288.1" y="151" text-anchor="middle">2023</text>
-  <circle class="acc" fill="#0b6bcb" cx="162.3" cy="190" r="4.5"/>
-  <text class="lbl-b acc" fill="#0b6bcb" x="162.3" y="181" text-anchor="middle">2024</text>
-  <circle class="ctx" fill="#c8c8c8" cx="97.3" cy="190" r="3.5"/>
-  <circle class="ctx" fill="#c8c8c8" cx="145.4" cy="190" r="3.5"/>
-  <line class="accs" stroke="#0b6bcb" x1="249.6" y1="246" x2="439.8" y2="246" stroke-width="7"/>
-  <text class="lbl-b acc" fill="#0b6bcb" x="447.8" y="250">the whole 2023 tax rise, 0.93%</text>
-  <text class="lbl mut" fill="#767676" x="46" y="20">each dot is one January, All Items index, 2010 to 2026</text>
-  <text class="lbl mut" fill="#767676" x="46" y="272">month-on-month change into January</text>
+  <line class="axis" stroke="#717171" x1="42" y1="208" x2="460" y2="208"/>
+  <line class="grid" stroke="#e2e1dd" x1="42.0" y1="40" x2="42.0" y2="208"/>
+  <text class="lbl mut" fill="#717171" x="42.0" y="228" text-anchor="middle" font-variant-numeric="tabular-nums">-1.0%</text>
+  <line class="grid" stroke="#e2e1dd" x1="116.6" y1="40" x2="116.6" y2="208"/>
+  <text class="lbl mut" fill="#717171" x="116.6" y="228" text-anchor="middle" font-variant-numeric="tabular-nums">-0.5%</text>
+  <line class="grid" stroke="#e2e1dd" x1="191.3" y1="40" x2="191.3" y2="208"/>
+  <text class="lbl mut" fill="#717171" x="191.3" y="228" text-anchor="middle" font-variant-numeric="tabular-nums">+0.0%</text>
+  <line class="grid" stroke="#e2e1dd" x1="265.9" y1="40" x2="265.9" y2="208"/>
+  <text class="lbl mut" fill="#717171" x="265.9" y="228" text-anchor="middle" font-variant-numeric="tabular-nums">+0.5%</text>
+  <line class="grid" stroke="#e2e1dd" x1="340.6" y1="40" x2="340.6" y2="208"/>
+  <text class="lbl mut" fill="#717171" x="340.6" y="228" text-anchor="middle" font-variant-numeric="tabular-nums">+1.0%</text>
+  <line class="grid" stroke="#e2e1dd" x1="415.2" y1="40" x2="415.2" y2="208"/>
+  <text class="lbl mut" fill="#717171" x="415.2" y="228" text-anchor="middle" font-variant-numeric="tabular-nums">+1.5%</text>
+  <circle class="ctx" fill="#707379" cx="302.6" cy="198" r="3.5"/>
+  <circle class="ctx" fill="#707379" cx="434.9" cy="198" r="3.5"/>
+  <circle class="ctx" fill="#707379" cx="329.9" cy="198" r="3.5"/>
+  <circle class="ctx" fill="#707379" cx="220.4" cy="198" r="3.5"/>
+  <circle class="ctx" fill="#707379" cx="207.7" cy="198" r="3.5"/>
+  <circle class="ctx" fill="#707379" cx="159.1" cy="198" r="3.5"/>
+  <circle class="ctx" fill="#707379" cx="158.5" cy="182" r="3.5"/>
+  <circle class="ctx" fill="#707379" cx="217.3" cy="182" r="3.5"/>
+  <circle class="ctx" fill="#707379" cx="162.6" cy="166" r="3.5"/>
+  <circle class="ctx" fill="#707379" cx="147.0" cy="198" r="3.5"/>
+  <circle class="ctx" fill="#707379" cx="156.0" cy="150" r="3.5"/>
+  <circle class="ctx" fill="#707379" cx="187.1" cy="198" r="3.5"/>
+  <circle class="ctx" fill="#707379" cx="196.1" cy="182" r="3.5"/>
+  <circle class="acc" fill="#2873ce" cx="219.6" cy="166" r="4.5"/>
+  <text class="lbl-b acc" fill="#2873ce" x="219.6" y="156" text-anchor="middle">2023</text>
+  <circle class="acc" fill="#2873ce" cx="127.3" cy="198" r="4.5"/>
+  <text class="lbl-b acc" fill="#2873ce" x="127.3" y="188" text-anchor="middle">2024</text>
+  <circle class="ctx" fill="#707379" cx="79.6" cy="198" r="3.5"/>
+  <circle class="ctx" fill="#707379" cx="114.9" cy="198" r="3.5"/>
+  <line class="accs" stroke="#2873ce" x1="191.3" y1="252" x2="330.8" y2="252" stroke-width="8"/>
+  <text class="lbl-b acc" fill="#2873ce" x="42" y="274">the whole 2023 tax rise, 0.93%</text>
+  <text class="lbl mut" fill="#717171" x="42" y="22">each dot is one January, All Items index, 2010 to 2026</text>
+  <text class="lbl mut" fill="#717171" x="42" y="298">month-on-month change into January</text>
 </svg>

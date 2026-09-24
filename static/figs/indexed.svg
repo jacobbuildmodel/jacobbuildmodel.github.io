@@ -1,29 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 350" role="img" aria-label="Line chart. Category A quota and premium, both indexed to 100 in 2010. By 2026 the quota index is 162 and the premium index is 387. The premium runs above the quota for the whole period, and the two move together only around 2013." font-family="IBM Plex Sans, system-ui, sans-serif">
-<g font-size="11.5"><rect x="52" y="18" width="9" height="9" rx="2" fill="var(--fig-subject,#a32a1e)"/><text x="67" y="26.5" fill="var(--fig-ink-2,#5b5e64)">premium</text><rect x="144" y="18" width="9" height="9" rx="2" fill="var(--fig-context,#8d9096)"/><text x="159" y="26.5" fill="var(--fig-ink-2,#5b5e64)">quota</text><text x="217" y="26.5" fill="var(--fig-ink-3,#8d9096)">both = 100 in 2010</text></g>
-<line x1="52" y1="226.6" x2="500" y2="226.6" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
-<text x="44" y="230.6" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">100</text>
-<line x1="52" y1="175.1" x2="500" y2="175.1" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
-<text x="44" y="179.1" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">200</text>
-<line x1="52" y1="123.7" x2="500" y2="123.7" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
-<text x="44" y="127.7" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">300</text>
-<line x1="52" y1="72.3" x2="500" y2="72.3" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
-<text x="44" y="76.3" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">400</text>
-<line x1="52" y1="278" x2="500" y2="278" stroke="var(--fig-ink-3,#8d9096)" stroke-width="1"/>
-<text x="52.0" y="296" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2010</text>
-<text x="164.0" y="296" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2014</text>
-<text x="276.0" y="296" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2018</text>
-<text x="388.0" y="296" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2022</text>
-<text x="500.0" y="296" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2026</text>
-<polyline points="52.0,226.6 80.0,242.2 108.0,242.6 136.0,254.6 164.0,244.4 192.0,187.8 220.0,144.2 248.0,153.7 276.0,171.3 304.0,187.8 332.0,210.6 360.0,225.0 388.0,241.8 416.0,236.2 444.0,213.4 472.0,197.6 500.0,194.7" fill="none" stroke="var(--fig-context,#8d9096)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="52.0,226.6 80.0,196.5 108.0,169.9 136.0,151.7 164.0,163.5 192.0,175.5 220.0,194.1 248.0,200.2 276.0,222.1 304.0,227.4 332.0,218.1 360.0,197.8 388.0,149.8 416.0,118.1 444.0,124.9 472.0,103.9 500.0,79.2" fill="none" stroke="var(--fig-subject,#a32a1e)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="500.0" cy="79.2" r="4" fill="var(--fig-subject,#a32a1e)"/>
-<circle cx="500.0" cy="194.7" r="4" fill="var(--fig-context,#8d9096)"/>
-<text x="511" y="80.2" font-size="12.5" fill="var(--fig-subject,#a32a1e)" font-weight="600">premium 387</text>
-<text x="511" y="95.2" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">up 287%</text>
-<text x="511" y="195.7" font-size="12.5" fill="var(--fig-context,#8d9096)">quota 162</text>
-<text x="511" y="210.7" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">up 62%</text>
-<line x1="136.0" y1="123.7" x2="136.0" y2="278" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
-<text x="143.0" y="108.3" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2013: quota at its lowest,</text>
-<text x="143.0" y="121.3" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">premium near its peak</text>
-<text x="52" y="336" font-size="11" fill="var(--fig-ink-3,#8d9096)">Annual means of 24 bidding exercises per year. 2026 covers 15 exercises to August.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 280" role="img" aria-label="Line chart. Category A quota and premium, both indexed to 100 in 2010. By 2026 the quota index is 162 and the premium index is 387. The premium runs above the quota for the whole period, and the two move together only around 2013.">
+<style>:root{--fig-ink:#0b0b0b;--fig-ink-2:#52514e;--fig-ink-3:#717171;--fig-rule:#e2e1dd;--fig-surface:#fcfcfa;--fig-subject:#2873ce;--fig-context:#707379;}@media (prefers-color-scheme: dark){:root{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}}:root[data-theme="dark"]{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}text{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}</style>
+<g font-size="14"><rect x="44" y="14" width="10" height="10" rx="2" fill="var(--fig-subject,#2873ce)"/><text x="60" y="23" fill="var(--fig-ink-2,#52514e)">premium</text><rect x="136" y="14" width="10" height="10" rx="2" fill="var(--fig-context,#707379)"/><text x="152" y="23" fill="var(--fig-ink-2,#52514e)">quota</text><text x="209" y="23" fill="var(--fig-ink-3,#717171)">both = 100 in 2010</text></g>
+<line x1="44" y1="177.1" x2="344" y2="177.1" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="36" y="182.1" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">100</text>
+<line x1="44" y1="134.3" x2="344" y2="134.3" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="36" y="139.3" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">200</text>
+<line x1="44" y1="91.4" x2="344" y2="91.4" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="36" y="96.4" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">300</text>
+<line x1="44" y1="48.6" x2="344" y2="48.6" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="36" y="53.6" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">400</text>
+<line x1="44" y1="220" x2="344" y2="220" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
+<text x="44.0" y="242" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2010</text>
+<text x="137.8" y="242" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2015</text>
+<text x="231.5" y="242" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2020</text>
+<text x="344.0" y="242" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2026</text>
+<polyline points="44.0,177.1 62.8,190.2 81.5,190.5 100.2,200.5 119.0,192.0 137.8,144.8 156.5,108.5 175.2,116.4 194.0,131.1 212.8,144.9 231.5,163.8 250.2,175.8 269.0,189.8 287.8,185.1 306.5,166.2 325.2,153.0 344.0,150.6" fill="none" stroke="var(--fig-context,#707379)" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="44.0,177.1 62.8,152.1 81.5,129.9 100.2,114.7 119.0,124.6 137.8,134.6 156.5,150.1 175.2,155.2 194.0,173.4 212.8,177.8 231.5,170.1 250.2,153.2 269.0,113.1 287.8,86.7 306.5,92.4 325.2,74.9 344.0,54.3" fill="none" stroke="var(--fig-subject,#2873ce)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="344.0" cy="54.3" r="4.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="344.0" cy="150.6" r="4.5" fill="var(--fig-context,#707379)"/>
+<text x="354" y="56.3" font-size="16" fill="var(--fig-subject,#2873ce)" font-weight="600">premium 387</text>
+<text x="354" y="73.3" font-size="14" fill="var(--fig-ink-3,#717171)">up 287%</text>
+<text x="354" y="152.6" font-size="16" fill="var(--fig-context,#707379)">quota 162</text>
+<text x="354" y="169.6" font-size="14" fill="var(--fig-ink-3,#717171)">up 62%</text>
+<line x1="100.2" y1="91.4" x2="100.2" y2="220" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="107.2" y="74.3" font-size="14" fill="var(--fig-ink-3,#717171)">2013: quota at its lowest,</text>
+<text x="107.2" y="90.3" font-size="14" fill="var(--fig-ink-3,#717171)">premium near its peak</text>
+<text x="44" y="256" font-size="14" fill="var(--fig-ink-3,#717171)">Annual means of 24 bidding exercises per year.</text>
+<text x="44" y="272" font-size="14" fill="var(--fig-ink-3,#717171)">2026 covers 15 exercises to August.</text>
 </svg>
