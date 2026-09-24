@@ -241,38 +241,69 @@ and re-screenshots every affected article at 390px, both color schemes:
 `2026-08-22`, `2026-08-29`, `2026-09-05`, `2026-09-08`, `2026-09-12`,
 `2026-09-19`. All clean in both modes.
 
-**A pre-existing issue found along the way, not caused by this work and not
-fixed here:** `gst-passthrough`'s `CHECKSUMS.md5` has four `out/*.csv`
-files (`category_2023.csv`, `category_2023_cny.csv`,
-`event_estimates.csv`, `lownoise_2023.csv`) that fail verification even
-on a genuinely fresh clone with `requirements.txt`'s exact pinned
-dependency versions. Not a scipy version mismatch (checked with the exact
-pin) and not run-to-run randomness (stable across in-place reruns, no
-random/seed/bootstrap code in the four scripts that produce them). All four
-come from scripts doing regression/statistical estimation, so this looks
-like platform-level floating-point rounding (BLAS/LAPACK backend)
-differing at the last printed decimal between whatever machine originally
-committed `CHECKSUMS.md5` and this one. Flagged for the GST audit; not
-something this round of work touches.
+**Correction, 24 Sep, after independent review:** the `out/*.csv` drift
+described in the paragraph below (as this file originally had it) was my
+own machine, not the repo. The reviewer ran `gst-passthrough` on Linux with
+the exact pinned `requirements.txt` versions and every entry in
+`CHECKSUMS.md5` matched, including the four files I'd flagged. My Windows
+environment was producing byte-different (not value-different) output on
+those four regression/statistical-estimation scripts, almost certainly a
+BLAS/LAPACK backend difference between the numpy/scipy wheels pip installs
+on Windows and whatever Linux ships -- not a bug in the repo, and not
+something to write into the GST audit as a repo issue. Separately,
+`run_all.sh` in that repo is committed `100644`, not executable; that one
+*is* worth a line in the GST audit, and was left unfixed per the
+reviewer's instruction to flag it there rather than fix it in this pass.
+
+## Review round 2, 24 Sep  -  independent review of all four PRs
+
+Fresh clones, full rebuilds, a `getBBox()` text-overflow measurement of every
+`<text>` in every changed SVG against DejaVu Sans (Linux's default sans, and
+the widest common one -- a margin sized for Helvetica/Segoe UI can clip under
+it, invisible unless actually rendered with that font). Verdict per PR:
+
+- **`hdb-affordability` #13: approved, merged** (merge commit `f2c261d`, on
+  top of `06e5452` merging PR #14, the financing piece). No action needed.
+- **`coe-analysis` #1: revised, pushed** (new head `f6904e9`). Three fixes:
+  (1) the three figure scripts now open their output file with
+  `newline="\n"`, so every OS writes the same LF bytes instead of Windows
+  silently writing CRLF that `.gitattributes`' `*.svg -text` then commits
+  verbatim; (2) `motorcycles/README.md` and `win-rate/README.md` were
+  publishing stale MD5s for their one chart each, both updated with a dated
+  note; (3) DejaVu Sans overflow in `mechanism.svg` ("$118k" and one caption
+  line), `decomposition.svg`, `gap_distribution.svg`, `moto_vs_car.svg` and
+  `winrate.svg` -- fixed by widening a margin or re-wrapping a caption at a
+  different line break, never by shrinking text or changing wording. Added
+  `tools/check_figure_overflow.py` (bundles `DejaVuSans.ttf`) wired into
+  `run_all.sh` and both subdirectory READMEs so this can't regress silently.
+- **`gst-passthrough` #1: revised, pushed** (new head `ce42aa3`). One fix:
+  `fig2-water-supply.svg`'s y-axis labels and closing caption overflowed in
+  DejaVu Sans; same treatment, margin widened and caption re-wrapped. Same
+  overflow-check tool added. Reproducibility was otherwise already fine --
+  see the correction above; the `out/*.csv` drift I'd flagged was my own
+  machine, not the repo.
+- **website #5: was on hold pending the two fixes above, now recopied.**
+  `static/figs/` carries the LF-corrected, overflow-fixed SVGs from both
+  repos as of this update.
+
+All fourteen figures that exist anywhere in this work (the twelve Phase 3
+charts plus the two `financing/23_figures.py` charts, which the reviewer
+confirmed already pass and which this round did not touch) now pass the
+DejaVu Sans overflow check, with 0 CR bytes in every changed SVG.
 
 ## Exact next steps
 
-1. **Jacob reviews and merges the three figure-repo PRs**  -  `hdb-affordability`
-   #13, `coe-analysis` #1, `gst-passthrough` #1  -  in whatever order suits
-   him; they don't depend on each other.
-2. **Jacob reviews and merges this website PR.** It doesn't strictly depend
-   on the three repo PRs merging first  -  the copied SVGs are self-contained
-   files, already regenerated and already in `static/figs/`  -  but merging
-   the source repos first keeps each repo's own git history the record of
-   truth for its own chart, which is the cleaner order.
-3. **Still open, not yet raised for a decision:** whether `gst-passthrough`
+1. **Jacob reviews and merges `coe-analysis` #1 and `gst-passthrough` #1**
+   (both revised per the round above) and **this website PR**, in whatever
+   order suits him -- `hdb-affordability` #13 is already merged.
+2. **Still open, not yet raised for a decision:** whether `gst-passthrough`
    should get its `RESULTS.md` transcribed into that post's front matter so
    its method strip can appear too  -  nobody has done this yet, and it's a
    one-post, ~15-minute job once someone reads that file's verdict block
    format.
-4. **Still open, explicitly deferred in the original Phase 1 brief:**
+3. **Still open, explicitly deferred in the original Phase 1 brief:**
    whether the Stocks section belongs on a site that's otherwise all
    Singapore policy. Not Claude's call; raise it with Jacob separately.
-5. **Still open, found during the Phase 3 pass, not fixed:** the
-   `gst-passthrough` `CHECKSUMS.md5` drift on four `out/*.csv` files,
-   described above. Goes into the GST audit, not this round.
+4. **For the GST audit, not this round:** `gst-passthrough`'s `run_all.sh`
+   is committed `100644`, not executable. Found by the round-2 reviewer,
+   deliberately left unfixed here per their instruction.

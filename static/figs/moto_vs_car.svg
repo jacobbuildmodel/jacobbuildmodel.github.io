@@ -36,8 +36,8 @@
 <text x="368" y="81.2" font-size="14" fill="var(--fig-ink-3,#717171)">2026 part year</text>
 <text x="368" y="125.5" font-size="16" fill="var(--fig-subject,#2873ce)" font-weight="600">bikes 86</text>
 <text x="368" y="142.5" font-size="14" fill="var(--fig-ink-3,#717171)">2026 part year</text>
-<text x="44" y="242" font-size="14" fill="var(--fig-ink-3,#717171)">Annual mean premiums, indexed to 100 in 2022. A full year holds 24</text>
-<text x="44" y="258" font-size="14" fill="var(--fig-ink-3,#717171)">bidding exercises.</text>
-<text x="44" y="280" font-size="14" fill="var(--fig-ink-3,#717171)">2026 has run 15, so the final point is a part year. Headline figures</text>
-<text x="44" y="296" font-size="14" fill="var(--fig-ink-3,#717171)">pool 2025 and 2026.</text>
+<text x="44" y="242" font-size="14" fill="var(--fig-ink-3,#717171)">Annual mean premiums, indexed to 100 in 2022. A full</text>
+<text x="44" y="258" font-size="14" fill="var(--fig-ink-3,#717171)">year holds 24 bidding exercises.</text>
+<text x="44" y="280" font-size="14" fill="var(--fig-ink-3,#717171)">2026 has run 15, so the final point is a part year.</text>
+<text x="44" y="296" font-size="14" fill="var(--fig-ink-3,#717171)">Headline figures pool 2025 and 2026.</text>
 </svg>

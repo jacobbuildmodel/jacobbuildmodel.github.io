@@ -1,30 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 220" role="img" aria-label="Number line. What the 62 percent quota increase alone predicts for the Category A premium is a fall of 13.6 percent, just left of zero. What actually happened is a rise of 287 percent, at the far right of the scale.">
 <style>:root{--fig-ink:#0b0b0b;--fig-ink-2:#52514e;--fig-ink-3:#717171;--fig-rule:#e2e1dd;--fig-surface:#fcfcfa;--fig-subject:#2873ce;--fig-context:#707379;}@media (prefers-color-scheme: dark){:root{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}}:root[data-theme="dark"]{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}text{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}</style>
-<line x1="72" y1="100" x2="434" y2="100" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1.5"/>
-<line x1="82.1" y1="96" x2="82.1" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
-<text x="82.1" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">-50%</text>
-<line x1="132.3" y1="96" x2="132.3" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
-<text x="132.3" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">+0%</text>
-<line x1="182.6" y1="96" x2="182.6" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
-<text x="182.6" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">+50%</text>
-<line x1="232.9" y1="96" x2="232.9" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
-<text x="232.9" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">+100%</text>
-<line x1="283.2" y1="96" x2="283.2" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
-<text x="283.2" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">+150%</text>
-<line x1="333.4" y1="96" x2="333.4" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
-<text x="333.4" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">+200%</text>
-<line x1="383.7" y1="96" x2="383.7" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
-<text x="383.7" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">+250%</text>
+<line x1="80" y1="100" x2="434" y2="100" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1.5"/>
+<line x1="89.8" y1="96" x2="89.8" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
+<text x="89.8" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">-50%</text>
+<line x1="139.0" y1="96" x2="139.0" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
+<text x="139.0" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">+0%</text>
+<line x1="188.2" y1="96" x2="188.2" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
+<text x="188.2" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">+50%</text>
+<line x1="237.3" y1="96" x2="237.3" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
+<text x="237.3" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">+100%</text>
+<line x1="286.5" y1="96" x2="286.5" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
+<text x="286.5" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">+150%</text>
+<line x1="335.7" y1="96" x2="335.7" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
+<text x="335.7" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">+200%</text>
+<line x1="384.8" y1="96" x2="384.8" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
+<text x="384.8" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">+250%</text>
 <line x1="434.0" y1="96" x2="434.0" y2="104" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
 <text x="434.0" y="124" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">+300%</text>
-<line x1="118.7" y1="74" x2="420.9" y2="74" stroke="var(--fig-rule,#e2e1dd)" stroke-width="6" stroke-linecap="round"/>
-<circle cx="118.7" cy="100" r="7" fill="var(--fig-surface,#fcfcfa)" stroke="var(--fig-context,#707379)" stroke-width="2.6"/>
-<circle cx="420.9" cy="100" r="8.5" fill="var(--fig-subject,#2873ce)"/>
-<text x="118.7" y="54" text-anchor="middle" font-size="16" fill="var(--fig-ink-2,#52514e)" font-weight="600">-13.6%</text>
-<text x="118.7" y="34" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">what the extra certificates predict</text>
-<text x="420.9" y="54" text-anchor="end" font-size="22" fill="var(--fig-subject,#2873ce)" font-weight="700">+287%</text>
-<text x="420.9" y="32" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">what happened</text>
-<text x="72" y="182" font-size="14" fill="var(--fig-ink-3,#717171)">Category A average premium, 2010 to 2026.</text>
-<text x="72" y="198" font-size="14" fill="var(--fig-ink-3,#717171)">One axis and no break, so the distance between the</text>
-<text x="72" y="214" font-size="14" fill="var(--fig-ink-3,#717171)">two dots is the finding.</text>
+<line x1="125.6" y1="74" x2="421.2" y2="74" stroke="var(--fig-rule,#e2e1dd)" stroke-width="6" stroke-linecap="round"/>
+<circle cx="125.6" cy="100" r="7" fill="var(--fig-surface,#fcfcfa)" stroke="var(--fig-context,#707379)" stroke-width="2.6"/>
+<circle cx="421.2" cy="100" r="8.5" fill="var(--fig-subject,#2873ce)"/>
+<text x="125.6" y="54" text-anchor="middle" font-size="16" fill="var(--fig-ink-2,#52514e)" font-weight="600">-13.6%</text>
+<text x="125.6" y="34" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">what the extra certificates predict</text>
+<text x="421.2" y="54" text-anchor="end" font-size="22" fill="var(--fig-subject,#2873ce)" font-weight="700">+287%</text>
+<text x="421.2" y="32" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">what happened</text>
+<text x="80" y="182" font-size="14" fill="var(--fig-ink-3,#717171)">Category A average premium, 2010 to 2026.</text>
+<text x="80" y="198" font-size="14" fill="var(--fig-ink-3,#717171)">One axis and no break, so the distance between the</text>
+<text x="80" y="214" font-size="14" fill="var(--fig-ink-3,#717171)">two dots is the finding.</text>
 </svg>

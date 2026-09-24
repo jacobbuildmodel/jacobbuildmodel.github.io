@@ -40,5 +40,6 @@
 <line x1="185.0" y1="223" x2="305.0" y2="223" stroke="var(--fig-ink-3,#717171)" stroke-width="2.5" stroke-linecap="round"/>
 <text x="245.0" y="243" text-anchor="middle" font-size="14" fill="var(--fig-ink-2,#52514e)">one standard deviation, 7.2% either side</text>
 <text x="41" y="265" font-size="14" fill="var(--fig-ink-3,#717171)">Category A, 196 complete months, January 2010 to July 2026.</text>
-<text x="41" y="281" font-size="14" fill="var(--fig-ink-3,#717171)">Positive means the second exercise of the month cleared higher.</text>
+<text x="41" y="281" font-size="14" fill="var(--fig-ink-3,#717171)">Positive means the second exercise of the month</text>
+<text x="41" y="297" font-size="14" fill="var(--fig-ink-3,#717171)">cleared higher.</text>
 </svg>
