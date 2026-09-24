@@ -4,6 +4,12 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  # Daily rebuild so future-dated posts go live on their date without a manual
+  # push. hugo.toml has buildFuture = false and no timeZone, so a post dated
+  # YYYY-MM-DD becomes eligible at 00:00 UTC (08:00 Singapore); this run at
+  # 00:30 UTC (08:30 Singapore) publishes it.
+  schedule:
+    - cron: "30 0 * * *"
 
 permissions:
   contents: read
