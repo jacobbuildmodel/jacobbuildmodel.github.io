@@ -64,16 +64,36 @@
   {{- $bodyContent := .Content }}
   {{- $leadImgs := findRE "<img[^>]*>" .Content 1 }}
   {{- with $leadImgs }}
-  <figure class="lead-figure">{{ index . 0 | safeHTML }}</figure>
+  {{- $leadImg := index . 0 }}
+  {{- /* Plain markdown images (no figure shortcode) render as their own
+         paragraph, immediately followed by an italic caption paragraph if
+         the source wrote one -- Hugo turns "*Figure 1. ...*" on its own
+         line into <p><em>...</em></p>. Lifted into the lead figure as a
+         real figcaption instead of being left behind, orphaned, in the
+         body. Only the lead image's own caption is ever taken -- checked
+         against $leadImg so a later image's caption is never mistaken for
+         the first one's. */}}
+  {{- $capRE := "(?s)<p>\\s*(<img[^>]*>)\\s*</p>\\s*<p><em>(.*?)</em></p>" }}
+  {{- $cap := "" }}
+  {{- with findRESubmatch $capRE $bodyContent 1 }}
+  {{- $m := index . 0 }}
+  {{- if eq (index $m 1) $leadImg }}{{ $cap = index $m 2 }}{{ end }}
+  {{- end }}
+  <figure class="lead-figure">{{ $leadImg | safeHTML }}{{ with $cap }}<figcaption class="lead-caption">{{ . | safeHTML }}</figcaption>{{ end }}</figure>
   {{- /* Remove the image from its original position so it is never shown
          twice. When the source used the figure shortcode, the image sits
          inside a figure/figcaption wrapper -- removing only the img would
          leave an orphaned, caption-only figure behind, so the whole wrapper
          is removed in that case instead. Plain markdown images (no
          shortcode, no wrapper) fall back to stripping the bare img, which
-         leaves at most an empty paragraph that renders as nothing. */}}
+         leaves at most an empty paragraph that renders as nothing -- unless
+         it had an italic caption paragraph after it, in which case that
+         whole two-paragraph block is removed together, never just the img
+         alone, or the caption is left behind exactly as this bug started. */}}
   {{- $wrapped := findRE "(?s)<figure>\\s*<img[^>]*>.*?</figure>" $bodyContent 1 }}
-  {{- if $wrapped }}
+  {{- if $cap }}
+  {{- $bodyContent = replaceRE $capRE "" $bodyContent 1 }}
+  {{- else if $wrapped }}
   {{- $bodyContent = replaceRE "(?s)<figure>\\s*<img[^>]*>.*?</figure>" "" $bodyContent 1 }}
   {{- else }}
   {{- $bodyContent = replaceRE "<img[^>]*>" "" $bodyContent 1 }}
