@@ -42,7 +42,7 @@ pagination.pagerSize = 10
   # picked over the old copy which still described deleted sections (NEWS,
   # SECTOR, STANDOUTS) and a "weekly market analysis" format that no longer
   # exists.
-  description = "Singapore policy, measured with public data."
+  description = "Singapore's favourite arguments, tested with public data."
   keywords    = ["Singapore economics", "COE", "HDB", "GST", "public data", "stock research"]
   mainSections = ["economics"]
 
@@ -65,14 +65,12 @@ pagination.pagerSize = 10
 
   # Homepage intro block
   [params.homeInfoParams]
-    Title   = "Singapore policy, measured with public data."
+    Title   = "Singapore's favourite arguments, tested with public data."
     Content = """
-Questions people argue about, put next to the actual data. What drives COE prices,
-whether the quota lever works, and what the numbers can and cannot settle.
-
-Every figure comes from a public source, every claim carries the observation that
-would prove it wrong, and the code behind each piece is published so you can run it
-yourself.
+COE prices, HDB flats, the GST rise: everyone has a view. Each piece here
+takes one of those arguments, names what would prove it wrong, and checks
+it against the government's own numbers. When a prediction fails, the
+failure is published too.
 
 [Read the research](/economics/) &nbsp;·&nbsp; [How it works](/process/)
 """
