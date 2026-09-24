@@ -1,30 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 280" role="img" aria-label="Line chart. Category A quota and premium, both indexed to 100 in 2010. By 2026 the quota index is 162 and the premium index is 387. The premium runs above the quota for the whole period, and the two move together only around 2013.">
 <style>:root{--fig-ink:#0b0b0b;--fig-ink-2:#52514e;--fig-ink-3:#717171;--fig-rule:#e2e1dd;--fig-surface:#fcfcfa;--fig-subject:#2873ce;--fig-context:#707379;}@media (prefers-color-scheme: dark){:root{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}}:root[data-theme="dark"]{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}text{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}</style>
 <g font-size="14"><rect x="44" y="14" width="10" height="10" rx="2" fill="var(--fig-subject,#2873ce)"/><text x="60" y="23" fill="var(--fig-ink-2,#52514e)">premium</text><rect x="136" y="14" width="10" height="10" rx="2" fill="var(--fig-context,#707379)"/><text x="152" y="23" fill="var(--fig-ink-2,#52514e)">quota</text><text x="209" y="23" fill="var(--fig-ink-3,#717171)">both = 100 in 2010</text></g>
-<line x1="44" y1="177.1" x2="358" y2="177.1" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<line x1="44" y1="177.1" x2="344" y2="177.1" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
 <text x="36" y="182.1" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">100</text>
-<line x1="44" y1="134.3" x2="358" y2="134.3" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<line x1="44" y1="134.3" x2="344" y2="134.3" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
 <text x="36" y="139.3" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">200</text>
-<line x1="44" y1="91.4" x2="358" y2="91.4" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<line x1="44" y1="91.4" x2="344" y2="91.4" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
 <text x="36" y="96.4" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">300</text>
-<line x1="44" y1="48.6" x2="358" y2="48.6" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<line x1="44" y1="48.6" x2="344" y2="48.6" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
 <text x="36" y="53.6" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">400</text>
-<line x1="44" y1="220" x2="358" y2="220" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
+<line x1="44" y1="220" x2="344" y2="220" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
 <text x="44.0" y="242" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2010</text>
-<text x="142.1" y="242" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2015</text>
-<text x="240.2" y="242" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2020</text>
-<text x="358.0" y="242" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2026</text>
-<polyline points="44.0,177.1 63.6,190.2 83.2,190.5 102.9,200.5 122.5,192.0 142.1,144.8 161.8,108.5 181.4,116.4 201.0,131.1 220.6,144.9 240.2,163.8 259.9,175.8 279.5,189.8 299.1,185.1 318.8,166.2 338.4,153.0 358.0,150.6" fill="none" stroke="var(--fig-context,#707379)" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="44.0,177.1 63.6,152.1 83.2,129.9 102.9,114.7 122.5,124.6 142.1,134.6 161.8,150.1 181.4,155.2 201.0,173.4 220.6,177.8 240.2,170.1 259.9,153.2 279.5,113.1 299.1,86.7 318.8,92.4 338.4,74.9 358.0,54.3" fill="none" stroke="var(--fig-subject,#2873ce)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="358.0" cy="54.3" r="4.5" fill="var(--fig-subject,#2873ce)"/>
-<circle cx="358.0" cy="150.6" r="4.5" fill="var(--fig-context,#707379)"/>
-<text x="368" y="56.3" font-size="16" fill="var(--fig-subject,#2873ce)" font-weight="600">premium 387</text>
-<text x="368" y="73.3" font-size="14" fill="var(--fig-ink-3,#717171)">up 287%</text>
-<text x="368" y="152.6" font-size="16" fill="var(--fig-context,#707379)">quota 162</text>
-<text x="368" y="169.6" font-size="14" fill="var(--fig-ink-3,#717171)">up 62%</text>
-<line x1="102.9" y1="91.4" x2="102.9" y2="220" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
-<text x="109.9" y="74.3" font-size="14" fill="var(--fig-ink-3,#717171)">2013: quota at its lowest,</text>
-<text x="109.9" y="90.3" font-size="14" fill="var(--fig-ink-3,#717171)">premium near its peak</text>
+<text x="137.8" y="242" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2015</text>
+<text x="231.5" y="242" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2020</text>
+<text x="344.0" y="242" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2026</text>
+<polyline points="44.0,177.1 62.8,190.2 81.5,190.5 100.2,200.5 119.0,192.0 137.8,144.8 156.5,108.5 175.2,116.4 194.0,131.1 212.8,144.9 231.5,163.8 250.2,175.8 269.0,189.8 287.8,185.1 306.5,166.2 325.2,153.0 344.0,150.6" fill="none" stroke="var(--fig-context,#707379)" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="44.0,177.1 62.8,152.1 81.5,129.9 100.2,114.7 119.0,124.6 137.8,134.6 156.5,150.1 175.2,155.2 194.0,173.4 212.8,177.8 231.5,170.1 250.2,153.2 269.0,113.1 287.8,86.7 306.5,92.4 325.2,74.9 344.0,54.3" fill="none" stroke="var(--fig-subject,#2873ce)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="344.0" cy="54.3" r="4.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="344.0" cy="150.6" r="4.5" fill="var(--fig-context,#707379)"/>
+<text x="354" y="56.3" font-size="16" fill="var(--fig-subject,#2873ce)" font-weight="600">premium 387</text>
+<text x="354" y="73.3" font-size="14" fill="var(--fig-ink-3,#717171)">up 287%</text>
+<text x="354" y="152.6" font-size="16" fill="var(--fig-context,#707379)">quota 162</text>
+<text x="354" y="169.6" font-size="14" fill="var(--fig-ink-3,#717171)">up 62%</text>
+<line x1="100.2" y1="91.4" x2="100.2" y2="220" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="107.2" y="74.3" font-size="14" fill="var(--fig-ink-3,#717171)">2013: quota at its lowest,</text>
+<text x="107.2" y="90.3" font-size="14" fill="var(--fig-ink-3,#717171)">premium near its peak</text>
 <text x="44" y="256" font-size="14" fill="var(--fig-ink-3,#717171)">Annual means of 24 bidding exercises per year.</text>
 <text x="44" y="272" font-size="14" fill="var(--fig-ink-3,#717171)">2026 covers 15 exercises to August.</text>
 </svg>
