@@ -1,25 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 320" role="img" aria-label="Line chart. The share of Category A COE bids that succeed, by year, from 2010 to 2026. The line stays between 54 and 75 percent for the whole period, close to a flat average of 67 percent, while the premium over the same years moved by a factor of almost four." font-family="IBM Plex Sans, system-ui, sans-serif">
-<line x1="56" y1="248.0" x2="512" y2="248.0" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
-<text x="48" y="252.0" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">0%</text>
-<line x1="56" y1="197.0" x2="512" y2="197.0" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
-<text x="48" y="201.0" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">25%</text>
-<line x1="56" y1="146.0" x2="512" y2="146.0" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
-<text x="48" y="150.0" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">50%</text>
-<line x1="56" y1="95.0" x2="512" y2="95.0" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
-<text x="48" y="99.0" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">75%</text>
-<line x1="56" y1="44.0" x2="512" y2="44.0" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
-<text x="48" y="48.0" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">100%</text>
-<rect x="56" y="95.1" width="456" height="43.2" fill="var(--fig-context,#8d9096)" opacity="0.13"/>
-<text x="506" y="88.1" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">every year sits inside this band</text>
-<text x="56.0" y="267" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2010</text>
-<text x="170.0" y="267" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2014</text>
-<text x="284.0" y="267" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2018</text>
-<text x="398.0" y="267" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2022</text>
-<text x="512.0" y="267" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">2026</text>
-<polyline points="56.0,106.5 84.5,124.2 113.0,108.1 141.5,138.3 170.0,128.5 198.5,109.3 227.0,112.0 255.5,95.1 284.0,97.2 312.5,102.3 341.0,116.9 369.5,102.1 398.0,103.7 426.5,100.4 455.0,117.4 483.5,113.4 512.0,116.2" fill="none" stroke="var(--fig-subject,#a32a1e)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="512.0" cy="116.2" r="4.5" fill="var(--fig-subject,#a32a1e)"/>
-<text x="524" y="117.2" font-size="12.5" fill="var(--fig-subject,#a32a1e)" font-weight="600">65% in 2026</text>
-<text x="524" y="133.2" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">67% on average</text>
-<text x="56" y="294" font-size="11" fill="var(--fig-ink-3,#8d9096)">Share of Category A bids that succeeded, annual means of 24 bidding exercises.</text>
-<text x="56" y="309" font-size="11" fill="var(--fig-ink-3,#8d9096)">Over the same years the average premium ran from $29,907 to $117,548.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 310" role="img" aria-label="Line chart. The share of Category A COE bids that succeed, by year, from 2010 to 2026. The line stays between 54 and 75 percent for the whole period, close to a flat average of 67 percent, while the premium over the same years moved by a factor of almost four.">
+<style>:root{--fig-ink:#0b0b0b;--fig-ink-2:#52514e;--fig-ink-3:#717171;--fig-rule:#e2e1dd;--fig-surface:#fcfcfa;--fig-subject:#2873ce;--fig-context:#707379;}@media (prefers-color-scheme: dark){:root{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}}:root[data-theme="dark"]{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}text{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}</style>
+<line x1="42" y1="200.0" x2="358" y2="200.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="34" y="205.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">0%</text>
+<line x1="42" y1="158.0" x2="358" y2="158.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="34" y="163.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">25%</text>
+<line x1="42" y1="116.0" x2="358" y2="116.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="34" y="121.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">50%</text>
+<line x1="42" y1="74.0" x2="358" y2="74.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="34" y="79.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">75%</text>
+<line x1="42" y1="32.0" x2="358" y2="32.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="34" y="37.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">100%</text>
+<rect x="42" y="74.1" width="316" height="35.6" fill="var(--fig-context,#707379)" opacity="0.13"/>
+<text x="352" y="65.1" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">every year sits inside this band</text>
+<text x="42.0" y="220" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2010</text>
+<text x="140.8" y="220" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2015</text>
+<text x="239.5" y="220" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2020</text>
+<text x="358.0" y="220" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2026</text>
+<polyline points="42.0,83.4 61.8,98.0 81.5,84.8 101.2,109.7 121.0,101.6 140.8,85.8 160.5,88.0 180.2,74.1 200.0,75.8 219.8,80.0 239.5,92.0 259.2,79.8 279.0,81.1 298.8,78.4 318.5,92.4 338.2,89.1 358.0,91.5" fill="none" stroke="var(--fig-subject,#2873ce)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="358.0" cy="91.5" r="4.5" fill="var(--fig-subject,#2873ce)"/>
+<text x="368" y="93.5" font-size="16" fill="var(--fig-subject,#2873ce)" font-weight="600">65% in 2026</text>
+<text x="368" y="110.5" font-size="14" fill="var(--fig-ink-3,#717171)">67% on average</text>
+<text x="42" y="242" font-size="14" fill="var(--fig-ink-3,#717171)">Share of Category A bids that succeeded, annual means of 24</text>
+<text x="42" y="258" font-size="14" fill="var(--fig-ink-3,#717171)">bidding exercises.</text>
+<text x="42" y="280" font-size="14" fill="var(--fig-ink-3,#717171)">Over the same years the average premium ran from $29,907 to</text>
+<text x="42" y="296" font-size="14" fill="var(--fig-ink-3,#717171)">$117,548.</text>
 </svg>

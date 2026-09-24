@@ -3,48 +3,48 @@
 <desc>The ceiling has not moved since 2019. Incomes have.</desc>
 
 <style>
-  .viz { --surface-1:#fcfcfb; --text-primary:#0b0b0b; --text-secondary:#52514e;
-         --grid:#e4e3df; --series-1:#2a78d6; --series-2:#eb6834; }
+  .viz { --fig-surface:#fcfcfb; --fig-ink:#0b0b0b; --fig-ink-2:#52514e;
+         --fig-rule:#e4e3df; --fig-subject:#2873ce; --fig-subject-2:#c44613; }
   @media (prefers-color-scheme: dark) {
-    .viz { --surface-1:#1a1a19; --text-primary:#ffffff; --text-secondary:#c3c2b7;
-           --grid:#383835; --series-1:#3987e5; --series-2:#d95926; }
+    .viz { --fig-surface:#1a1a19; --fig-ink:#ffffff; --fig-ink-2:#c3c2b7;
+           --fig-rule:#383835; --fig-subject:#3987e5; --fig-subject-2:#db602f; }
   }
-  :root[data-theme="dark"] .viz { --surface-1:#1a1a19; --text-primary:#ffffff;
-           --text-secondary:#c3c2b7; --grid:#383835; --series-1:#3987e5;
-           --series-2:#d95926; }
-  :root[data-theme="light"] .viz { --surface-1:#fcfcfb; --text-primary:#0b0b0b;
-           --text-secondary:#52514e; --grid:#e4e3df; --series-1:#2a78d6;
-           --series-2:#eb6834; }
+  :root[data-theme="dark"] .viz { --fig-surface:#1a1a19; --fig-ink:#ffffff;
+           --fig-ink-2:#c3c2b7; --fig-rule:#383835; --fig-subject:#3987e5;
+           --fig-subject-2:#db602f; }
+  :root[data-theme="light"] .viz { --fig-surface:#fcfcfb; --fig-ink:#0b0b0b;
+           --fig-ink-2:#52514e; --fig-rule:#e4e3df; --fig-subject:#2873ce;
+           --fig-subject-2:#c44613; }
   .viz text { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI,
               Roboto, Helvetica, Arial, sans-serif; }
-  .ax   { font-size: 14px; fill: var(--text-secondary, #52514e); }
+  .ax   { font-size: 14px; fill: var(--fig-ink-2, #52514e); }
   .lbl  { font-size: 15px; font-weight: 600; }
-  .note { font-size: 14px; fill: var(--text-secondary, #52514e); }
+  .note { font-size: 14px; fill: var(--fig-ink-2, #52514e); }
 </style>
 
-<rect x="0" y="0" width="480" height="340" fill="var(--surface-1, #fcfcfb)"/>
-<line x1="60.0" y1="294.0" x2="338.0" y2="294.0" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<rect x="0" y="0" width="480" height="340" fill="var(--fig-surface, #fcfcfb)"/>
+<line x1="60.0" y1="294.0" x2="338.0" y2="294.0" stroke="var(--fig-rule, #e4e3df)" stroke-width="1"/>
 <text class="ax" x="52.0" y="298.0" text-anchor="end">0</text>
-<line x1="60.0" y1="235.0" x2="338.0" y2="235.0" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<line x1="60.0" y1="235.0" x2="338.0" y2="235.0" stroke="var(--fig-rule, #e4e3df)" stroke-width="1"/>
 <text class="ax" x="52.0" y="239.0" text-anchor="end">3,000</text>
-<line x1="60.0" y1="176.0" x2="338.0" y2="176.0" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<line x1="60.0" y1="176.0" x2="338.0" y2="176.0" stroke="var(--fig-rule, #e4e3df)" stroke-width="1"/>
 <text class="ax" x="52.0" y="180.0" text-anchor="end">6,000</text>
-<line x1="60.0" y1="117.0" x2="338.0" y2="117.0" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<line x1="60.0" y1="117.0" x2="338.0" y2="117.0" stroke="var(--fig-rule, #e4e3df)" stroke-width="1"/>
 <text class="ax" x="52.0" y="121.0" text-anchor="end">9,000</text>
-<line x1="60.0" y1="58.0" x2="338.0" y2="58.0" stroke="var(--grid, #e4e3df)" stroke-width="1"/>
+<line x1="60.0" y1="58.0" x2="338.0" y2="58.0" stroke="var(--fig-rule, #e4e3df)" stroke-width="1"/>
 <text class="ax" x="52.0" y="62.0" text-anchor="end">12,000</text>
 <text class="ax" x="60.0" y="314.0" text-anchor="middle">2013</text>
 <text class="ax" x="152.7" y="314.0" text-anchor="middle">2017</text>
 <text class="ax" x="245.3" y="314.0" text-anchor="middle">2021</text>
 <text class="ax" x="338.0" y="314.0" text-anchor="middle">2025</text>
-<line x1="60.0" y1="117.0" x2="338.0" y2="117.0" stroke="var(--series-2, #eb6834)" stroke-width="2"/>
-<circle cx="338.0" cy="117.0" r="4" fill="var(--series-2, #eb6834)" stroke="var(--surface-1, #fcfcfb)" stroke-width="2"/><text class="lbl" x="348.0" y="121.0" fill="var(--series-2, #eb6834)">9,000 ceiling</text><text class="note" x="348.0" y="137.0">frozen since 2019</text>
-<path d="M 60.0 156.3 L 83.2 148.5 L 106.3 144.1 L 129.5 140.8 L 152.7 137.5 L 175.8 133.3 L 199.0 130.1 L 222.2 134.9 L 245.3 128.4 L 268.5 118.9 L 291.7 104.3 L 314.8 97.4 L 338.0 85.7" fill="none" stroke="var(--series-1, #2a78d6)" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="338.0" cy="85.7" r="4" fill="var(--series-1, #2a78d6)" stroke="var(--surface-1, #fcfcfb)" stroke-width="2"/><text class="lbl" x="348.0" y="89.7" fill="var(--series-1, #2a78d6)">10,591</text><text class="note" x="348.0" y="105.7">median income</text>
-<circle cx="271.5" cy="117.0" r="5" fill="none" stroke="var(--text-primary, #0b0b0b)" stroke-width="2"/>
+<line x1="60.0" y1="117.0" x2="338.0" y2="117.0" stroke="var(--fig-subject-2, #c44613)" stroke-width="2"/>
+<circle cx="338.0" cy="117.0" r="4" fill="var(--fig-subject-2, #c44613)" stroke="var(--fig-surface, #fcfcfb)" stroke-width="2"/><text class="lbl" x="348.0" y="121.0" fill="var(--fig-subject-2, #c44613)">9,000 ceiling</text><text class="note" x="348.0" y="137.0">frozen since 2019</text>
+<path d="M 60.0 156.3 L 83.2 148.5 L 106.3 144.1 L 129.5 140.8 L 152.7 137.5 L 175.8 133.3 L 199.0 130.1 L 222.2 134.9 L 245.3 128.4 L 268.5 118.9 L 291.7 104.3 L 314.8 97.4 L 338.0 85.7" fill="none" stroke="var(--fig-subject, #2873ce)" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="338.0" cy="85.7" r="4" fill="var(--fig-subject, #2873ce)" stroke="var(--fig-surface, #fcfcfb)" stroke-width="2"/><text class="lbl" x="348.0" y="89.7" fill="var(--fig-subject, #2873ce)">10,591</text><text class="note" x="348.0" y="105.7">median income</text>
+<circle cx="271.5" cy="117.0" r="5" fill="none" stroke="var(--fig-ink, #0b0b0b)" stroke-width="2"/>
 <text class="note" x="271.5" y="103.0" text-anchor="middle">crosses 2022.1</text>
-<rect x="8.0" y="8.0" width="10" height="10" rx="2" fill="var(--series-1, #2a78d6)"/>
+<rect x="8.0" y="8.0" width="10" height="10" rx="2" fill="var(--fig-subject, #2873ce)"/>
 <text class="ax" x="24.0" y="18.0">Median household income</text>
-<rect x="8.0" y="28.0" width="10" height="10" rx="2" fill="var(--series-2, #eb6834)"/>
+<rect x="8.0" y="28.0" width="10" height="10" rx="2" fill="var(--fig-subject-2, #c44613)"/>
 <text class="ax" x="24.0" y="38.0">Enhanced CPF Housing Grant ceiling</text>
 </svg>

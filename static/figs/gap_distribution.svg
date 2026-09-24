@@ -1,43 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 348" role="img" aria-label="Histogram of the gap between the two Category A bidding exercises of the same month, in percent, across 196 months. The distribution is centred close to zero with a mean of 0.61 percent and a standard deviation of 7.2 percent, so the average difference is far smaller than the month-to-month spread." font-family="IBM Plex Sans, system-ui, sans-serif">
-<line x1="56" y1="250.0" x2="604" y2="250.0" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
-<text x="48" y="254.0" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">0</text>
-<line x1="56" y1="195.7" x2="604" y2="195.7" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
-<text x="48" y="199.7" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">10</text>
-<line x1="56" y1="141.4" x2="604" y2="141.4" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
-<text x="48" y="145.4" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">20</text>
-<line x1="56" y1="87.2" x2="604" y2="87.2" stroke="var(--fig-rule,#dfdeda)" stroke-width="1"/>
-<text x="48" y="91.2" text-anchor="end" font-size="10.5" fill="var(--fig-ink-3,#8d9096)" font-variant-numeric="tabular-nums">30</text>
-<rect x="148.3" y="244.6" width="20.8" height="5.4" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="171.2" y="233.7" width="20.8" height="16.3" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="194.0" y="201.1" width="20.8" height="48.9" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="216.8" y="201.1" width="20.8" height="48.9" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="239.7" y="201.1" width="20.8" height="48.9" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="262.5" y="195.7" width="20.8" height="54.3" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="285.3" y="157.7" width="20.8" height="92.3" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="308.2" y="103.4" width="20.8" height="146.6" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="331.0" y="70.9" width="20.8" height="179.1" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="353.8" y="76.3" width="20.8" height="173.7" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="376.7" y="174.0" width="20.8" height="76.0" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="399.5" y="195.7" width="20.8" height="54.3" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="422.3" y="206.6" width="20.8" height="43.4" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="445.2" y="233.7" width="20.8" height="16.3" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="468.0" y="233.7" width="20.8" height="16.3" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="490.8" y="239.1" width="20.8" height="10.9" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="513.7" y="244.6" width="20.8" height="5.4" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="559.3" y="244.6" width="20.8" height="5.4" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<rect x="582.2" y="244.6" width="20.8" height="5.4" rx="2" fill="var(--fig-context,#8d9096)" opacity="0.55"/>
-<line x1="56" y1="250" x2="604" y2="250" stroke="var(--fig-ink-3,#8d9096)" stroke-width="1"/>
-<text x="56.0" y="268" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">-24%</text>
-<text x="147.3" y="268" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">-16%</text>
-<text x="238.7" y="268" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">-8%</text>
-<text x="330.0" y="268" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">+0%</text>
-<text x="421.3" y="268" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">+8%</text>
-<text x="512.7" y="268" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">+16%</text>
-<text x="604.0" y="268" text-anchor="middle" font-size="10.5" fill="var(--fig-ink-3,#8d9096)">+24%</text>
-<line x1="336.9" y1="38" x2="336.9" y2="250" stroke="var(--fig-subject,#a32a1e)" stroke-width="2"/>
-<text x="343.9" y="34" font-size="12" fill="var(--fig-subject,#a32a1e)" font-weight="600">mean +0.61%</text>
-<line x1="254.3" y1="284" x2="419.6" y2="284" stroke="var(--fig-ink-3,#8d9096)" stroke-width="2.5" stroke-linecap="round"/>
-<text x="336.9" y="300" text-anchor="middle" font-size="11" fill="var(--fig-ink-2,#5b5e64)">one standard deviation, 7.2% either side</text>
-<text x="56" y="324" font-size="11" fill="var(--fig-ink-3,#8d9096)">Category A, 196 complete months, January 2010 to July 2026.</text>
-<text x="56" y="339" font-size="11" fill="var(--fig-ink-3,#8d9096)">Positive means the second exercise of the month cleared higher.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 305" role="img" aria-label="Histogram of the gap between the two Category A bidding exercises of the same month, in percent, across 196 months. The distribution is centred close to zero with a mean of 0.61 percent and a standard deviation of 7.2 percent, so the average difference is far smaller than the month-to-month spread.">
+<style>:root{--fig-ink:#0b0b0b;--fig-ink-2:#52514e;--fig-ink-3:#717171;--fig-rule:#e2e1dd;--fig-surface:#fcfcfa;--fig-subject:#2873ce;--fig-context:#707379;}@media (prefers-color-scheme: dark){:root{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}}:root[data-theme="dark"]{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}text{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}</style>
+<line x1="41" y1="185.0" x2="439" y2="185.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="33" y="190.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">0</text>
+<line x1="41" y1="146.8" x2="439" y2="146.8" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="33" y="151.8" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">10</text>
+<line x1="41" y1="108.6" x2="439" y2="108.6" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="33" y="113.6" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">20</text>
+<line x1="41" y1="70.4" x2="439" y2="70.4" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="33" y="75.4" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)" font-variant-numeric="tabular-nums">30</text>
+<rect x="108.3" y="181.2" width="14.6" height="3.8" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="124.9" y="173.5" width="14.6" height="11.5" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="141.5" y="150.6" width="14.6" height="34.4" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="158.1" y="150.6" width="14.6" height="34.4" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="174.7" y="150.6" width="14.6" height="34.4" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="191.2" y="146.8" width="14.6" height="38.2" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="207.8" y="120.0" width="14.6" height="65.0" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="224.4" y="81.8" width="14.6" height="103.2" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="241.0" y="58.9" width="14.6" height="126.1" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="257.6" y="62.7" width="14.6" height="122.3" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="274.2" y="131.5" width="14.6" height="53.5" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="290.8" y="146.8" width="14.6" height="38.2" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="307.3" y="154.4" width="14.6" height="30.6" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="323.9" y="173.5" width="14.6" height="11.5" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="340.5" y="173.5" width="14.6" height="11.5" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="357.1" y="177.4" width="14.6" height="7.6" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="373.7" y="181.2" width="14.6" height="3.8" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="406.8" y="181.2" width="14.6" height="3.8" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<rect x="423.4" y="181.2" width="14.6" height="3.8" rx="2" fill="var(--fig-context,#707379)" opacity="0.55"/>
+<line x1="41" y1="185" x2="439" y2="185" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
+<text x="41.0" y="205" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">-24%</text>
+<text x="107.3" y="205" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">-16%</text>
+<text x="173.7" y="205" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">-8%</text>
+<text x="240.0" y="205" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">+0%</text>
+<text x="306.3" y="205" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">+8%</text>
+<text x="372.7" y="205" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">+16%</text>
+<text x="439.0" y="205" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">+24%</text>
+<line x1="245.0" y1="34" x2="245.0" y2="185" stroke="var(--fig-subject,#2873ce)" stroke-width="2"/>
+<text x="252.0" y="30" font-size="14" fill="var(--fig-subject,#2873ce)" font-weight="600">mean +0.61%</text>
+<line x1="185.0" y1="223" x2="305.0" y2="223" stroke="var(--fig-ink-3,#717171)" stroke-width="2.5" stroke-linecap="round"/>
+<text x="245.0" y="243" text-anchor="middle" font-size="14" fill="var(--fig-ink-2,#52514e)">one standard deviation, 7.2% either side</text>
+<text x="41" y="265" font-size="14" fill="var(--fig-ink-3,#717171)">Category A, 196 complete months, January 2010 to July 2026.</text>
+<text x="41" y="281" font-size="14" fill="var(--fig-ink-3,#717171)">Positive means the second exercise of the month cleared higher.</text>
 </svg>
