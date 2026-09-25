@@ -23,9 +23,8 @@ If a page here breaks either rule, it's a mistake rather than a style choice.
 ## What you'll find, and what you won't
 
 The stock pages, which explained what a company does and how it makes money, are archived: they are
-descriptive only and no longer updated. Earnings pieces explain what a set of
-results actually means. Economics pieces take a question people have opinions about and check it
-against data.
+descriptive only and no longer updated. Economics pieces take a question people have opinions about
+and check it against data.
 
 **None of it tells you what to buy.** There's no overall score on any company, no ranking of one
 against another, no price targets, and no buy or sell calls. That's a deliberate limit, not a gap
@@ -73,9 +72,8 @@ full statement.
 
 ## The detail, if you want it
 
-The two rules above apply everywhere. How they're applied differs by section, because reading a
-company's accounts and running a regression are not the same discipline, and pretending otherwise
-would be dishonest.
+The two rules above apply everywhere. How they're applied to the economics research is set out on its
+own method page, because running a regression carries rules a short summary would blur.
 
 - **[How the economics research works](/process/economics/)** — what licenses a causal claim, how the
   data is handled, and what gets published when a result doesn't work.
