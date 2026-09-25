@@ -1,6 +1,7 @@
 {{- define "main" }}
 
 <article class="post-single">
+  {{- partial "page_banner.html" . }}
   <header class="post-header">
     {{ partial "breadcrumbs.html" . }}
     {{- /* Optional front matter "question": the argument the piece tests,

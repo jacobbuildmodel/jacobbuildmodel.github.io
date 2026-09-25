@@ -36,9 +36,22 @@ jobs:
         with:
           python-version: '3.11'
       - name: Check prose and encoding
+        # Files are named explicitly, never content/*.md: about.md and
+        # disclaimer.md are written in a different voice and are not meant to
+        # pass the article linter. A named single file that does not exist yet
+        # is skipped with a notice rather than passed to aitell.py, which would
+        # crash on it and block every deploy (corrections.md arrives in its own
+        # PR). Globs use nullglob, so an empty content/open/ lints nothing.
         run: |
           shopt -s nullglob
-          files=(content/economics/*.md content/process/*.md)
+          files=(content/economics/*.md content/process/*.md content/open/*.md)
+          for f in content/scorecard.md content/corrections.md; do
+            if [ -f "$f" ]; then
+              files+=("$f")
+            else
+              echo "skipped, not present: $f"
+            fi
+          done
           if [ ${#files[@]} -eq 0 ]; then
             echo "no files to lint"; exit 0
           fi
