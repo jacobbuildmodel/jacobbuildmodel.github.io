@@ -83,4 +83,6 @@ would be dishonest.
 - **[How the weekly brief works](/process/brief/)** — the oldest method on the site, and where the
   source-tier system came from.
 
+Every change to a published page is listed on the [corrections page](/corrections/).
+
 None of it is required reading. It exists so that if you want to check the work, nothing is hidden.
