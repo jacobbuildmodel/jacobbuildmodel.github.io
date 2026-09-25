@@ -23,6 +23,16 @@ pagination.pagerSize = 10
   tag    = "tags"
   sector = "sectors"
 
+# /sectors/... and /tags/stocks/ exist only because of the archived stocks
+# pages: kept at their URLs, but out of the sitemap and noindex, like the
+# stocks pages themselves (whose cascade lives in content/stocks/_index.md).
+[[cascade]]
+  robotsNoIndex = true
+  [cascade.sitemap]
+    disable = true
+  [cascade.target]
+    path = "{/sectors,/sectors/**,/tags/stocks}"
+
 # --- markdown rendering ---
 [markup]
   [markup.goldmark.renderer]
@@ -43,7 +53,7 @@ pagination.pagerSize = 10
   # SECTOR, STANDOUTS) and a "weekly market analysis" format that no longer
   # exists.
   description = "Singapore's favourite arguments, tested with public data."
-  keywords    = ["Singapore economics", "COE", "HDB", "GST", "public data", "stock research"]
+  keywords    = ["Singapore economics", "COE", "HDB", "GST", "public data"]
   mainSections = ["economics"]
 
   DateFormat        = "2 January 2006"

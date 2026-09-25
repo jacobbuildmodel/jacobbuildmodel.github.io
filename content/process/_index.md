@@ -22,7 +22,8 @@ If a page here breaks either rule, it's a mistake rather than a style choice.
 
 ## What you'll find, and what you won't
 
-Stock pages explain what a company does and how it makes money. Earnings pieces explain what a set of
+The stock pages, which explained what a company does and how it makes money, are archived: they are
+descriptive only and no longer updated. Earnings pieces explain what a set of
 results actually means. Economics pieces take a question people have opinions about and check it
 against data.
 
@@ -76,8 +77,6 @@ The two rules above apply everywhere. How they're applied differs by section, be
 company's accounts and running a regression are not the same discipline, and pretending otherwise
 would be dishonest.
 
-- **[What each score on a stock page means](/stocks/definitions/)** — every figure, its scale, where
-  the inputs come from, and which scores were cut for measuring nothing real.
 - **[How the economics research works](/process/economics/)** — what licenses a causal claim, how the
   data is handled, and what gets published when a result doesn't work.
 - **[How the weekly brief works](/process/brief/)** — the oldest method on the site, and where the
