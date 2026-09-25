@@ -1,6 +1,11 @@
 ---
 title: "Stocks"
 description: "What each company actually does, how it makes money, and what kind of business it is."
+# Archived: kept at their URLs but out of search. PaperMod turns robotsNoIndex
+# into <meta name="robots" content="noindex, nofollow"> in place of its default.
+robotsNoIndex: true
+cascade:
+  robotsNoIndex: true
 ---
 
 Plain-English explanations of companies: what they sell, who pays for it, and what

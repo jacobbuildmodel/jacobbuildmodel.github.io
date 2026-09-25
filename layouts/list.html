@@ -61,6 +61,10 @@
 {{- partial "entry_card.html" (dict "page" $featured "class" "post-entry") }}
 {{- end }}
 
+{{- if and .IsHome (eq $paginator.PageNumber 1) }}
+{{- partial "open_questions_strip.html" . }}
+{{- end }}
+
 {{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
 {{- partial "home_info.html" . }}
 {{- end }}

@@ -96,11 +96,7 @@ failure is published too.
     buttondownUsername = ""                           # EDIT LATER
 
 # --- navigation ---
-[[menu.main]]
-  identifier = "stocks"
-  name       = "Stocks"
-  url        = "/stocks/"
-  weight     = 5
+# Stocks is archived: off the menu, pages kept at their URLs (noindex, banner).
 [[menu.main]]
   identifier = "economics"
   name       = "Economics"

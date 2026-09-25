@@ -508,3 +508,46 @@ main .post-content > p { margin-bottom: 1em; }
   margin: 0 0 4px;
   font-size: 0.85rem;
 }
+
+/* ---- open questions strip (home) ----
+   Between the lead card and the intro. Rendered by
+   layouts/partials/open_questions_strip.html only when an open question is
+   still unanswered, so nothing here shows while content/open/ is empty. */
+.open-strip {
+  margin: 0 0 var(--gap);
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--code-bg);
+}
+.open-strip-title {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.open-strip-title a { color: var(--accent); box-shadow: none; }
+.open-strip-list { margin: 0; padding: 0; list-style: none; }
+.open-strip-list li { margin: 6px 0 0; line-height: 1.4; }
+.open-strip-list a { color: var(--primary); font-weight: 500; }
+.open-strip-due {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--secondary);
+}
+
+/* ---- page banner (answered open question, archived stocks page) ---- */
+.page-banner {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--code-bg);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--primary);
+}
+.page-banner a { color: var(--accent); font-weight: 600; }
+.page-banner-archived { border-left-color: var(--secondary); }
