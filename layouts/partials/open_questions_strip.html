@@ -1,13 +1,18 @@
 {{- /* Home page strip: one line per open question still awaiting its answer.
-       A page drops out of it once its front matter gains `answered`. The
-       whole strip renders nothing when no open question is left. `answerDue`
-       may be a date (formatted) or free text (printed as written). */}}
-{{- $open := where (where site.RegularPages "Section" "open") "Params.answered" "==" nil }}
+       A page drops out of it once its front matter gains `answered` AND the
+       verdict page it points to is built (answered_verdict.html); until then
+       it stays listed as open. The whole strip renders nothing when no open
+       question is left. `answerDue` may be a date (formatted) or free text
+       (printed as written). */}}
+{{- $open := slice }}
+{{- range where site.RegularPages "Section" "open" }}
+  {{- if not (partial "answered_verdict.html" .) }}{{ $open = $open | append . }}{{ end }}
+{{- end }}
 {{- with $open }}
 <section class="open-strip" aria-labelledby="open-strip-title">
   <h2 id="open-strip-title" class="open-strip-title"><a href="{{ "open/" | relURL }}">Open questions</a></h2>
   <ul class="open-strip-list">
-    {{- range .ByDate.Reverse }}
+    {{- range sort . "Date" "desc" }}
     <li>
       <a href="{{ .RelPermalink }}">{{ .Title }}</a>
       {{- with .Params.answerDue }}
