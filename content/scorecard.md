@@ -100,6 +100,12 @@ Sealed 4 September 2026. Revisit 8 September 2027.
 - **Failed.** Januaries with no tax change would show no step. Result: they showed
   steps as large as the tax, so no national pass-through number could be published.
 
+## Sealed, answer pending
+
+Four predictions on whether COE or ERP keeps Singapore's roads moving were
+sealed on 26 September 2026, each with a confidence. They are not counted
+above until the answer is in. [Read the bets](/open/2026-09-26-coe-or-erp/).
+
 ## Before the rule existed
 
 The four COE pieces were written before this site sealed predictions in advance.
