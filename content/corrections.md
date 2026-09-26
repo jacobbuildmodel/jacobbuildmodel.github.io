@@ -35,6 +35,9 @@ Wording made more accurate, meaning unchanged.
 Layout, charts redrawn, or headline and question wording, with the data
 unchanged.
 
+- **26 September 2026.** [COE or ERP open question](/open/2026-09-26-coe-or-erp/).
+  In each of the four bets, "Why:" moved onto its own line; it previously ran on
+  after the confidence. No words changed. Numbers changed: none.
 - **24 September 2026.** [HDB affordability](/economics/2026-09-19/). Headline
   changed from "A four-room flat costs less income than in 2013", and a question
   line added above it. Numbers changed: none.
