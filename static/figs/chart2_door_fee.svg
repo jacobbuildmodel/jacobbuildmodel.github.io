@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 390" role="img" aria-label="Bar chart. Average kilometres driven per car each year, 2005 to 2018. The seven years with the highest COE premium average 17,600 km, the seven with the lowest 19,772 km, 11 per cent more. All seven high-premium years fall between 2011 and 2017.">
+<style>:root{--fig-ink:#0b0b0b;--fig-ink-2:#52514e;--fig-ink-3:#717171;--fig-rule:#e2e1dd;--fig-surface:#fcfcfa;--fig-subject:#2873ce;--fig-context:#707379;}@media (prefers-color-scheme: dark){:root{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}}:root[data-theme="dark"]{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}text{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}</style>
+<rect x="0" y="0" width="480" height="390" fill="var(--fig-surface,#fcfcfa)"/>
+<text x="12.0" y="24.0" font-size="17" fill="var(--fig-ink,#0b0b0b)" font-weight="600">Cars were driven 11% less in dear-COE</text>
+<text x="12.0" y="45.0" font-size="17" fill="var(--fig-ink,#0b0b0b)" font-weight="600">years; mileage was already falling</text>
+<text x="12.0" y="68.0" font-size="14" fill="var(--fig-ink-3,#717171)">Average km per car per year, 2005-2018</text>
+<rect x="12" y="80" width="12" height="12" rx="2" fill="var(--fig-subject,#2873ce)"/>
+<text x="30.0" y="91.0" font-size="14" fill="var(--fig-ink-3,#717171)">7 dearest-COE years</text>
+<rect x="200" y="80" width="12" height="12" rx="2" fill="var(--fig-context,#707379)"/>
+<text x="218.0" y="91.0" font-size="14" fill="var(--fig-ink-3,#717171)">7 cheapest</text>
+<line x1="60" y1="316.0" x2="372" y2="316.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="54.0" y="321.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">0</text>
+<line x1="60" y1="226.0" x2="372" y2="226.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="54.0" y="231.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">10,000</text>
+<line x1="60" y1="136.0" x2="372" y2="136.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="54.0" y="141.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">20,000</text>
+<rect x="63.0" y="130.6" width="16.3" height="185.4" fill="var(--fig-context,#707379)"/>
+<rect x="85.3" y="126.1" width="16.3" height="189.9" fill="var(--fig-context,#707379)"/>
+<rect x="107.6" y="128.8" width="16.3" height="187.2" fill="var(--fig-context,#707379)"/>
+<rect x="129.9" y="138.7" width="16.3" height="177.3" fill="var(--fig-context,#707379)"/>
+<rect x="152.1" y="139.6" width="16.3" height="176.4" fill="var(--fig-context,#707379)"/>
+<rect x="174.4" y="144.1" width="16.3" height="171.9" fill="var(--fig-context,#707379)"/>
+<rect x="196.7" y="145.0" width="16.3" height="171.0" fill="var(--fig-subject,#2873ce)"/>
+<rect x="219.0" y="152.2" width="16.3" height="163.8" fill="var(--fig-subject,#2873ce)"/>
+<rect x="241.3" y="155.8" width="16.3" height="160.2" fill="var(--fig-subject,#2873ce)"/>
+<rect x="263.6" y="158.5" width="16.3" height="157.5" fill="var(--fig-subject,#2873ce)"/>
+<rect x="285.9" y="160.3" width="16.3" height="155.7" fill="var(--fig-subject,#2873ce)"/>
+<rect x="308.1" y="165.7" width="16.3" height="150.3" fill="var(--fig-subject,#2873ce)"/>
+<rect x="330.4" y="165.7" width="16.3" height="150.3" fill="var(--fig-subject,#2873ce)"/>
+<rect x="352.7" y="158.5" width="16.3" height="157.5" fill="var(--fig-context,#707379)"/>
+<text x="71.1" y="336.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2005</text>
+<text x="182.6" y="336.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2010</text>
+<text x="294.0" y="336.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2015</text>
+<text x="360.9" y="336.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2018</text>
+<line x1="60" y1="138.1" x2="376" y2="138.1" stroke="var(--fig-ink,#0b0b0b)" stroke-width="1.5"/>
+<line x1="60" y1="157.6" x2="376" y2="157.6" stroke="var(--fig-ink,#0b0b0b)" stroke-width="1.5"/>
+<text x="380.0" y="136.1" font-size="14" fill="var(--fig-ink-2,#52514e)">cheapest 7:</text>
+<text x="380.0" y="152.1" font-size="14" fill="var(--fig-ink,#0b0b0b)" font-weight="600">19,772 km</text>
+<text x="380.0" y="179.6" font-size="14" fill="var(--fig-ink-2,#52514e)">dearest 7:</text>
+<text x="380.0" y="195.6" font-size="14" fill="var(--fig-subject,#2873ce)" font-weight="600">17,600 km</text>
+<text x="12.0" y="360.0" font-size="14" fill="var(--fig-ink-3,#717171)">The dear years all fall in 2011-2017, so the gap</text>
+<text x="12.0" y="378.0" font-size="14" fill="var(--fig-ink-3,#717171)">also runs with time. Source: LTA, SingStat.</text>
+</svg>
