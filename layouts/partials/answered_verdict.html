@@ -1,0 +1,11 @@
+{{- /* For an open question, the verdict page its `answered` front matter
+       points to, but only if that page is actually built (site.GetPage finds
+       nothing for a draft or a future-dated page). Returns false otherwise, so
+       an answer whose verdict is not live yet renders as still open. */}}
+{{- $verdict := false }}
+{{- with .Params.answered }}
+  {{- with site.GetPage (strings.TrimSuffix "/" (printf "%v" .)) }}
+    {{- $verdict = . }}
+  {{- end }}
+{{- end }}
+{{- return $verdict }}

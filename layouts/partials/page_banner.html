@@ -1,12 +1,13 @@
 {{- /* Banner at the very top of a page, for two sections only.
        open:   once the question is answered, front matter `answered` holds the
-               verdict's path and this banner links there. Nothing else on an
+               verdict's path and this banner links there -- but only once that
+               page is built (see answered_verdict.html). Nothing else on an
                open page changes after publication.
        stocks: archived. The date is the page's lastReviewed (else its date);
                on the section list it is the latest of those across the section. */}}
 {{- if eq .Section "open" }}
-  {{- with .Params.answered }}
-<p class="page-banner page-banner-answered"><a href="{{ . | relURL }}">Answered: read the verdict</a></p>
+  {{- with partial "answered_verdict.html" . }}
+<p class="page-banner page-banner-answered"><a href="{{ .RelPermalink }}">Answered: read the verdict</a></p>
   {{- end }}
 {{- else if eq .Section "stocks" }}
   {{- $last := time.AsTime (.Params.lastReviewed | default .Date) }}
