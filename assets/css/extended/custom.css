@@ -551,3 +551,49 @@ main .post-content > p { margin-bottom: 1em; }
 }
 .page-banner a { color: var(--accent); font-weight: 600; }
 .page-banner-archived { border-left-color: var(--secondary); }
+
+/* ---- verdict card (layouts/shortcodes/verdict.html) ----
+   Five labelled rows. Stacked on a phone, label beside value where there is
+   room. Labels follow the open-strip title: small uppercase, secondary colour,
+   never under 12px. */
+.post-content .verdict-card {
+  display: block;            /* PaperMod's .md-content dl is a 25%/75% flex row */
+  margin: 20px 0;
+  padding: 4px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--code-bg);
+}
+.post-content .verdict-row {
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+}
+.post-content .verdict-row:first-child { border-top: none; }
+.post-content .verdict-card dt,
+.post-content .verdict-card dd {
+  width: auto;
+  padding-inline-start: 0;
+}
+.post-content .verdict-card dt {
+  margin: 0 0 2px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: max(12px, 0.72rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+.post-content .verdict-card dd {
+  margin: 0;
+  color: var(--primary);
+  line-height: 1.5;
+}
+@media (min-width: 600px) {
+  .post-content .verdict-row {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .post-content .verdict-card dt { margin: 0; }
+}
