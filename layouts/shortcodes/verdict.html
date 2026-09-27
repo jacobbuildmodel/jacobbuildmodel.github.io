@@ -1,0 +1,22 @@
+{{- /* Verdict card: the result of a sealed prediction, in five labelled rows.
+       {{< verdict verdict="..." number="..." expected="..." scored="..." change="..." >}}
+       Values accept inline markdown (links, emphasis). A row whose parameter is
+       left out is not rendered. */}}
+{{- $page := .Page }}
+{{- $rows := slice
+      (dict "label" "Verdict"                "value" (.Get "verdict"))
+      (dict "label" "Key number"             "value" (.Get "number"))
+      (dict "label" "My confidence going in" "value" (.Get "expected"))
+      (dict "label" "Scored"                 "value" (.Get "scored"))
+      (dict "label" "What would change it"   "value" (.Get "change")) }}
+<dl class="verdict-card">
+  {{- range $rows }}
+  {{- $label := .label }}
+  {{- with .value }}
+  <div class="verdict-row">
+    <dt>{{ $label }}</dt>
+    <dd>{{ $page.RenderString (dict "display" "inline") . }}</dd>
+  </div>
+  {{- end }}
+  {{- end }}
+</dl>
