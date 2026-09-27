@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 500" role="img" aria-label="Two-panel chart. Top: average peak-hour speed on expressways and arterial roads each year from 2004 to 2025, against LTA's target bands of 45 to 65 and 20 to 30 km/h. Expressway speed stays inside its band every year. Arterial speed runs above 30 km/h in 2016 and 2023 among the scored years, and in 2020 and 2021, which are not scored. Bottom: cars per lane-kilometre, 2005 = 100, rising by about a quarter on both road types from 2005 to 2017.">
+<style>:root{--fig-ink:#0b0b0b;--fig-ink-2:#52514e;--fig-ink-3:#717171;--fig-rule:#e2e1dd;--fig-surface:#fcfcfa;--fig-subject:#2873ce;--fig-context:#707379;}@media (prefers-color-scheme: dark){:root{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}}:root[data-theme="dark"]{--fig-ink:#ffffff;--fig-ink-2:#c3c2b7;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}text{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}</style>
+<rect x="0" y="0" width="480" height="500" fill="var(--fig-surface,#fcfcfa)"/>
+<text x="12.0" y="24.0" font-size="17" fill="var(--fig-ink,#0b0b0b)" font-weight="600">Roads filled up; peak speeds stayed</text>
+<text x="12.0" y="45.0" font-size="17" fill="var(--fig-ink,#0b0b0b)" font-weight="600">near LTA's targets</text>
+<text x="12.0" y="68.0" font-size="14" fill="var(--fig-ink-3,#717171)">Average peak-hour speed, km/h, 2004-2025,</text>
+<text x="12.0" y="86.0" font-size="14" fill="var(--fig-ink-3,#717171)">against LTA's target bands</text>
+<rect x="268.9" y="104" width="28.8" height="178" fill="var(--fig-context,#707379)" opacity="0.18"/>
+<text x="283.3" y="98.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2020-21</text>
+<rect x="46" y="120.2" width="302" height="64.7" fill="var(--fig-context,#707379)" opacity="0.12"/>
+<rect x="46" y="233.5" width="302" height="32.4" fill="var(--fig-context,#707379)" opacity="0.12"/>
+<line x1="46" y1="265.8" x2="348" y2="265.8" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="40.0" y="270.8" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">20</text>
+<line x1="46" y1="233.5" x2="348" y2="233.5" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="40.0" y="238.5" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">30</text>
+<line x1="46" y1="184.9" x2="348" y2="184.9" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="40.0" y="189.9" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">45</text>
+<line x1="46" y1="120.2" x2="348" y2="120.2" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="40.0" y="125.2" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">65</text>
+<polyline points="46.0,127.6 60.4,126.7 74.8,131.2 89.1,128.6 103.5,125.7 117.9,129.9 132.3,128.9 146.7,128.3 161.0,126.3 175.4,131.8 189.8,123.1 204.2,130.2 218.6,131.5 233.0,135.7 247.3,133.1 261.7,137.0 276.1,123.4 290.5,126.7 304.9,136.4 319.2,139.6 333.6,142.8 348.0,152.5" fill="none" stroke="var(--fig-ink-2,#52514e)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="356.0" y="157.5" font-size="14" fill="var(--fig-ink-2,#52514e)" font-weight="600">expressways</text>
+<polyline points="46.0,250.3 60.4,242.5 74.8,242.8 89.1,243.5 103.5,244.1 117.9,240.3 132.3,239.9 146.7,238.3 161.0,238.0 175.4,237.0 189.8,237.0 204.2,235.4 218.6,232.2 233.0,233.5 247.3,235.4 261.7,235.1 276.1,230.2 290.5,227.0 304.9,233.5 319.2,230.2 333.6,233.5 348.0,236.7" fill="none" stroke="var(--fig-subject,#2873ce)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="356.0" y="241.7" font-size="14" fill="var(--fig-subject,#2873ce)" font-weight="600">arterial roads</text>
+<circle cx="218.6" cy="232.2" r="4.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="319.2" cy="230.2" r="4.5" fill="var(--fig-subject,#2873ce)"/>
+<text x="52.0" y="197.9" font-size="14" fill="var(--fig-ink-2,#52514e)">arterial above the band in 2016</text>
+<text x="52.0" y="214.9" font-size="14" fill="var(--fig-ink-2,#52514e)">and 2023 (dots): bet 1 missed</text>
+<text x="46.0" y="302.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2004</text>
+<text x="132.3" y="302.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2010</text>
+<text x="204.2" y="302.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2015</text>
+<text x="276.1" y="302.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2020</text>
+<text x="348.0" y="302.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2025</text>
+<text x="12.0" y="334.0" font-size="14" fill="var(--fig-ink-3,#717171)">Cars per lane-km, 2005 = 100 (lane-km data end 2017)</text>
+<line x1="46" y1="420.3" x2="348" y2="420.3" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="40.0" y="425.3" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">100</text>
+<line x1="46" y1="361.7" x2="348" y2="361.7" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="40.0" y="366.7" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">125</text>
+<polyline points="60.4,420.3 74.8,402.0 89.1,384.4 103.5,386.7 117.9,374.0 132.3,365.2 146.7,361.0 161.0,354.3 175.4,361.9 189.8,364.1 204.2,370.8 218.6,374.9 233.0,369.8" fill="none" stroke="var(--fig-ink-2,#52514e)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="60.4,420.3 74.8,404.0 89.1,385.3 103.5,369.2 117.9,355.3 132.3,346.6 146.7,351.4 161.0,347.2 175.4,349.9 189.8,356.6 204.2,363.6 218.6,366.7 233.0,361.6" fill="none" stroke="var(--fig-subject,#2873ce)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="241.0" y="363.6" font-size="14" fill="var(--fig-ink-2,#52514e)" font-weight="600">+25%</text>
+<text x="241.0" y="385.8" font-size="14" fill="var(--fig-ink-2,#52514e)" font-weight="600">+22%</text>
+<text x="60.4" y="452.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2005</text>
+<text x="132.3" y="452.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2010</text>
+<text x="204.2" y="452.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2015</text>
+<text x="12.0" y="488.0" font-size="14" fill="var(--fig-ink-3,#717171)">Source: LTA via data.gov.sg. 2020-21 not scored.</text>
+</svg>
