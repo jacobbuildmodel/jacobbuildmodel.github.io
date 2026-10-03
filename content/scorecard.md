@@ -35,7 +35,7 @@ check how often this one does, without reading a single article first.
 | [COE or ERP](/economics/2026-10-17/) | 1 | 2 | 1 |
 | [HDB loan vs bank loan](/economics/2026-10-03/) | 5 | 3 | 0 |
 | [HDB affordability](/economics/2026-09-19/) | 3 | 2 | 4 |
-| [GST pass-through](/economics/2026-09-08/) | 1 | 4 | 1 |
+| [GST rises](/economics/2026-09-08/) | 1 | 4 | 1 |
 | **Total** | **10** | **11** | **6** |
 
 **Held** means the sealed prediction survived. **Failed** means it did not, and the
@@ -134,7 +134,8 @@ Sealed 4 September 2026. Revisit 8 September 2027.
 - **Neither.** Some, but fewer than half, of price categories would over-shoot the
   tax. Result: 6 of 162 did; no verdict was recorded against the sealed wording.
 - **Failed.** Januaries with no tax change would show no step. Result: they showed
-  steps as large as the tax, so no national pass-through number could be published.
+  steps as large as the tax, so no national figure for how much of the GST reached
+  prices could be published.
 
 ## Before the rule existed
 
