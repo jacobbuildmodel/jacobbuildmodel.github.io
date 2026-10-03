@@ -6,10 +6,15 @@ on:
   workflow_dispatch:
   # Daily rebuild so future-dated posts go live on their date without a manual
   # push. hugo.toml has buildFuture = false and no timeZone, so a post dated
-  # YYYY-MM-DD becomes eligible at 00:00 UTC (08:00 Singapore); this run at
-  # 00:30 UTC (08:30 Singapore) publishes it.
+  # YYYY-MM-DD becomes eligible at 00:00 UTC (08:00 Singapore); the run at
+  # 00:30 UTC (08:30 Singapore) is meant to publish it, with a second run at
+  # 01:30 UTC as a backup. GitHub starts scheduled runs late under load, and
+  # can drop them: from 25 Sep to 2 Oct 2026 the 00:30 run started between
+  # 05:13 and 06:22 UTC. A rebuild is idempotent, so two runs on one day are
+  # harmless. workflow_dispatch above stays for publishing by hand.
   schedule:
     - cron: "30 0 * * *"
+    - cron: "30 1 * * *"
 
 permissions:
   contents: read
