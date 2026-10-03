@@ -1,0 +1,25 @@
+{{- /* layouts/partials/answered_strip.html
+   Home page: the three latest published pieces, each as its question line
+   and headline, then a link to the Ideas page. Takes a dict:
+     pages - the pieces to list, newest first (list.html passes the first
+             three of the home paginator, and skips those three below)
+   The Ideas link is looked up with site.GetPage, so it only appears once
+   /ideas/ is actually built (it is dated 17 October 2026). */ -}}
+{{- with .pages }}
+<section class="answered-strip" aria-labelledby="answered-strip-title">
+  <h2 id="answered-strip-title" class="open-strip-title"><a href="{{ "economics/" | relURL }}">Answered</a></h2>
+  <ul class="answered-strip-list">
+    {{- range . }}
+    <li>
+      <a href="{{ .RelPermalink }}">
+        {{- with .Params.question }}<span class="answered-q">{{ . }}</span>{{ end }}
+        <span class="answered-h">{{ .Title }}</span>
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+  {{- with site.GetPage "/ideas" }}
+  <p class="track-band-more"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+  {{- end }}
+</section>
+{{- end }}
