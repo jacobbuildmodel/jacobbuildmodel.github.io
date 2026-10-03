@@ -1,0 +1,11 @@
+# The site publishes reasoning, never a directive (CLAUDE.md, compliance).
+extends: existence
+message: "'%s' tells the reader what to do or which is better. Say what the data shows instead."
+level: error
+ignorecase: true
+tokens:
+  - you should
+  - should
+  - choose
+  - recommend
+  - better option

@@ -1,0 +1,9 @@
+# Explain jargon in the sentence, or cut it (CLAUDE.md, house style).
+extends: existence
+message: "'%s' is jargon for this audience. Explain it where it appears, or say it plainly."
+level: error
+ignorecase: true
+tokens:
+  - log points?
+  - yardsticks?
+  - pass-through

@@ -39,8 +39,11 @@ CLUSTER_WARN = 0.45          # share of sentences in the 15-25 word band
 WPM = 235
 
 # --------------------------------------------------------------- vocabularies
+# "landscape" was here and came out: on this site it is an industry (the
+# landscape sector's wage ladder, landscape firms), not the figurative filler
+# the list is for, so every hit was a false positive.
 AI_LEXICON = [
-    "delve", "delves", "delving", "leverage", "leveraging", "landscape",
+    "delve", "delves", "delving", "leverage", "leveraging",
     "realm", "tapestry", "testament to", "underscore", "underscores",
     "navigate the", "navigating the", "crucial", "pivotal", "myriad",
     "plethora", "robust" , "seamless", "seamlessly", "holistic",

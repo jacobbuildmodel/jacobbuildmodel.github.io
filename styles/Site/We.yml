@@ -1,0 +1,12 @@
+# First person, never "we" (CLAUDE.md, house style): one person's research,
+# published under the author's own name, not a research house issuing a call.
+extends: existence
+message: "'%s': write 'I' for the author and 'you' for the reader, never 'we'."
+level: error
+ignorecase: true
+tokens:
+  - we
+  - we're
+  - we've
+  - we'd
+  - we'll
