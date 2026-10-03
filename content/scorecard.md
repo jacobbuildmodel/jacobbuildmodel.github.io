@@ -9,12 +9,12 @@ summary: "Every prediction this site wrote down and sealed before opening the da
 # Read by the home page band (layouts/partials/track_record.html). Keep these
 # equal to the counts this page states. brier and brierN stay empty until the
 # page states a Brier score; the band then adds its calibration line.
-sealed: 23
-held: 9
-failed: 9
-neither: 5
-brier: ""
-brierN: ""
+sealed: 27
+held: 10
+failed: 11
+neither: 6
+brier: 0.194
+brierN: 4
 menu:
   main:
     name: "Scorecard"
