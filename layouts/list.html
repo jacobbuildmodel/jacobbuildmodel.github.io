@@ -50,19 +50,18 @@
 {{- $term := .Data.Term }}
 {{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
 
-{{- /* Home, page 1: the latest piece -- its own headline, summary and chart
-       -- renders before the intro, not after. Phone readers were opening on
-       a paragraph about the site with the actual finding below the fold.
-       The featured entry below is the same partial the loop below uses for
-       every other card; range's "continue" skips it there so it is never
-       rendered twice. */}}
-{{- if and .IsHome (eq $paginator.PageNumber 1) (gt (len $paginator.Pages) 0) }}
-{{- $featured := index $paginator.Pages 0 }}
-{{- partial "entry_card.html" (dict "page" $featured "class" "post-entry") }}
-{{- end }}
-
+{{- /* Home, page 1, as a track record: the scorecard band first, then the
+       open questions, then the three latest pieces as question + headline
+       with the Ideas link, and only then the intro about the site. The
+       finding stays above the fold on a phone, as the featured card this
+       replaces did. The three listed pieces are the first three of the
+       paginator; range's "continue" skips them below so none is rendered
+       twice. */}}
+{{- $answeredCount := 3 }}
 {{- if and .IsHome (eq $paginator.PageNumber 1) }}
+{{- partial "track_record.html" . }}
 {{- partial "open_questions_strip.html" . }}
+{{- partial "answered_strip.html" (dict "pages" (first $answeredCount $paginator.Pages)) }}
 {{- end }}
 
 {{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
@@ -70,7 +69,7 @@
 {{- end }}
 
 {{- range $index, $page := $paginator.Pages }}
-{{- if and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) }}
+{{- if and $.IsHome (eq $paginator.PageNumber 1) (lt $index $answeredCount) }}
 {{- continue }}
 {{- end }}
 

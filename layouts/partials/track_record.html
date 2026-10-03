@@ -1,0 +1,30 @@
+{{- /* layouts/partials/track_record.html
+   Home page band: the scorecard's counts, read from content/scorecard.md's
+   front matter (sealed, held, failed, neither, brier, brierN). Transcribed,
+   not computed: the numbers are the ones the scorecard page states, kept
+   next to that statement so the two cannot drift apart unnoticed.
+
+   site.GetPage finds nothing for a draft or future-dated page, so until the
+   scorecard is published the band renders nothing at all. The calibration
+   line renders only when both brier and brierN are set. Held and failed get
+   the same weight and colour, as in method_strip.html. */ -}}
+{{- with site.GetPage "/scorecard" }}
+{{- $sealed := .Param "sealed" }}
+{{- if $sealed }}
+<section class="track-band" aria-labelledby="track-band-title">
+  <h2 id="track-band-title" class="open-strip-title"><a href="{{ .RelPermalink }}">Track record</a></h2>
+  <dl class="track-band-counts">
+    <div><dt>sealed predictions</dt><dd>{{ $sealed }}</dd></div>
+    <div><dt>held</dt><dd>{{ .Param "held" | default 0 }}</dd></div>
+    <div><dt>failed</dt><dd>{{ .Param "failed" | default 0 }}</dd></div>
+    <div><dt>neither</dt><dd>{{ .Param "neither" | default 0 }}</dd></div>
+  </dl>
+  {{- $brier := .Param "brier" }}
+  {{- $n := .Param "brierN" }}
+  {{- if and $brier $n }}
+  <p class="track-band-cal">Calibration: Brier {{ $brier }} over {{ $n }} of my confidences</p>
+  {{- end }}
+  <p class="track-band-more"><a href="{{ .RelPermalink }}">Every prediction and what happened to it</a></p>
+</section>
+{{- end }}
+{{- end }}

@@ -537,6 +537,66 @@ main .post-content > p { margin-bottom: 1em; }
   color: var(--secondary);
 }
 
+/* ---- home page: track record band and answered strip ----
+   Same box as the open-questions strip, so the three read as one column of
+   the same kind of thing. Held and failed are set identically: no colour
+   tells the reader which outcome is the good one. */
+.track-band,
+.answered-strip {
+  margin: 0 0 var(--gap);
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--code-bg);
+}
+.track-band-counts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 4px 0 0;
+}
+/* Number above its label, every number on the same top line: a label that
+   wraps (sealed predictions, at 390px) must not push its number up. */
+.track-band-counts div { display: flex; flex-direction: column; justify-content: flex-start; }
+.track-band-counts dd { order: -1; }
+.track-band-counts dd {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+.track-band-counts dt {
+  font-size: 0.75rem;
+  line-height: 1.25;
+  color: var(--secondary);
+}
+.track-band-cal {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+.track-band-more { margin: 8px 0 0; font-size: 0.9rem; }
+.track-band-more a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-quiet);
+  box-shadow: none;
+}
+.track-band-more a::after { content: " \2192"; }
+.answered-strip-list { margin: 0; padding: 0; list-style: none; }
+.answered-strip-list li { margin: 10px 0 0; line-height: 1.35; }
+.answered-strip-list a { display: block; box-shadow: none; }
+.answered-q {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--secondary);
+}
+.answered-h { display: block; color: var(--primary); font-weight: 600; }
+.answered-strip-list a:hover .answered-h { text-decoration: underline; }
+
 /* ---- page banner (answered open question, archived stocks page) ---- */
 .page-banner {
   margin: 0 0 16px;
