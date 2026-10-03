@@ -1,0 +1,10 @@
+# Acronyms and internal labels that mean nothing to a reader without finance
+# training or without the repo open: the SORA benchmark rate, and the T1-T5
+# test labels from THESIS.md. Case-sensitive on purpose.
+extends: existence
+message: "'%s' is jargon for this audience. Explain it where it appears, or say it plainly."
+level: error
+ignorecase: false
+tokens:
+  - SORA
+  - T[1-5]

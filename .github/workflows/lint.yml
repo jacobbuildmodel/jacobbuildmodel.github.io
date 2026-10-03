@@ -37,3 +37,35 @@ jobs:
             echo "no files to lint"; exit 0
           fi
           python scripts/aitell.py "${files[@]}" --strict --published-only
+
+  # Vale (github.com/errata-ai/vale), rules in styles/Site/ (see .vale.ini),
+  # over the content/**/*.md files this pull request adds or changes. Only
+  # those: the older articles still carry hits, listed in the PR that added
+  # this job for a separate cleanup, and checking them here would keep every
+  # PR red. An error fails the job; a warning (the causal verbs) is printed
+  # for the checker and does not. Pull requests only, like the job above;
+  # deploy.yml's gate is unchanged.
+  vale:
+    runs-on: ubuntu-latest
+    env:
+      VALE_VERSION: "3.24.0"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install Vale
+        run: |
+          wget -q -O "${{ runner.temp }}/vale.tar.gz" \
+            "https://github.com/errata-ai/vale/releases/download/v${VALE_VERSION}/vale_${VALE_VERSION}_Linux_64-bit.tar.gz"
+          tar -xzf "${{ runner.temp }}/vale.tar.gz" -C "${{ runner.temp }}" vale
+          echo "${{ runner.temp }}" >> "$GITHUB_PATH"
+      - name: Check changed content with Vale
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          mapfile -t files < <(git diff --name-only --diff-filter=AM "$BASE"...HEAD -- 'content/*.md')
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "no changed content files"; exit 0
+          fi
+          printf 'checking %s\n' "${files[@]}"
+          vale --no-wrap "${files[@]}"

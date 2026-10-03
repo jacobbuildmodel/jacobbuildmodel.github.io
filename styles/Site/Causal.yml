@@ -1,0 +1,12 @@
+# Not banned: a flag for the checker. Each of these words claims a cause, and
+# the economics method page says what licenses a causal claim. Check that the
+# piece has earned it where it appears.
+extends: existence
+message: "'%s' claims a cause. Check the piece has shown it, not just a movement at the same time."
+level: warning
+ignorecase: true
+tokens:
+  - lifted
+  - caused
+  - drove
+  - led to
