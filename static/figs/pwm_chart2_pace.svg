@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 541" role="img" aria-label="Line chart, 2009-2019: bottom pay in jobs without a ladder and the median income, both as the change from their 2010-12 average, in per cent. Jobs without a ladder kept pace: their bottom pay grew 4.6 per cent less than the median.">
+<style>:root{--fig-ink:#0b0b0b;--fig-ink-3:#717171;--fig-rule:#e2e1dd;--fig-surface:#fcfcfa;--fig-subject:#2873ce;--fig-context:#707379;}@media (prefers-color-scheme: dark){:root{--fig-ink:#ffffff;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}}:root[data-theme="dark"]{--fig-ink:#ffffff;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}text{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}</style>
+<rect x="0" y="0" width="480" height="541" fill="var(--fig-surface,#fcfcfa)"/>
+<text x="16.0" y="28.0" font-size="16" fill="var(--fig-ink,#0b0b0b)" font-weight="600">Jobs without a ladder kept pace: their</text>
+<text x="16.0" y="49.0" font-size="16" fill="var(--fig-ink,#0b0b0b)" font-weight="600">bottom pay grew 4.6 per cent less than the</text>
+<text x="16.0" y="70.0" font-size="16" fill="var(--fig-ink,#0b0b0b)" font-weight="600">median</text>
+<rect x="96.0" y="133" width="108.0" height="200" fill="var(--fig-rule,#e2e1dd)" opacity="0.9"/>
+<text x="150.0" y="127.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">start</text>
+<rect x="348.0" y="133" width="108.0" height="200" fill="var(--fig-rule,#e2e1dd)" opacity="0.9"/>
+<text x="402.0" y="127.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">end</text>
+<line x1="60" x2="456" y1="333.0" y2="333.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="54.0" y="338.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">-20</text>
+<line x1="60" x2="456" y1="266.3" y2="266.3" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="54.0" y="271.3" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">0</text>
+<line x1="60" x2="456" y1="199.7" y2="199.7" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="54.0" y="204.7" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">20</text>
+<line x1="60" x2="456" y1="133.0" y2="133.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="54.0" y="138.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">40</text>
+<polyline points="78.0,298.2 114.0,285.7 150.0,260.5 186.0,251.8 222.0,222.8 258.0,219.8 294.0,197.7 330.0,193.9 366.0,165.0 402.0,159.1 438.0,135.9" fill="none" stroke="var(--fig-context,#707379)" stroke-width="2" stroke-dasharray="5 4"/>
+<circle cx="78.0" cy="298.2" r="2.5" fill="var(--fig-context,#707379)"/>
+<circle cx="114.0" cy="285.7" r="2.5" fill="var(--fig-context,#707379)"/>
+<circle cx="150.0" cy="260.5" r="2.5" fill="var(--fig-context,#707379)"/>
+<circle cx="186.0" cy="251.8" r="2.5" fill="var(--fig-context,#707379)"/>
+<circle cx="222.0" cy="222.8" r="2.5" fill="var(--fig-context,#707379)"/>
+<circle cx="258.0" cy="219.8" r="2.5" fill="var(--fig-context,#707379)"/>
+<circle cx="294.0" cy="197.7" r="2.5" fill="var(--fig-context,#707379)"/>
+<circle cx="330.0" cy="193.9" r="2.5" fill="var(--fig-context,#707379)"/>
+<circle cx="366.0" cy="165.0" r="2.5" fill="var(--fig-context,#707379)"/>
+<circle cx="402.0" cy="159.1" r="2.5" fill="var(--fig-context,#707379)"/>
+<circle cx="438.0" cy="135.9" r="2.5" fill="var(--fig-context,#707379)"/>
+<polyline points="78.0,297.2 114.0,279.3 150.0,259.4 186.0,259.9 222.0,233.9 258.0,224.1 294.0,213.6 330.0,195.8 366.0,186.3 402.0,157.4 438.0,175.1" fill="none" stroke="var(--fig-subject,#2873ce)" stroke-width="2"/>
+<circle cx="78.0" cy="297.2" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="114.0" cy="279.3" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="150.0" cy="259.4" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="186.0" cy="259.9" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="222.0" cy="233.9" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="258.0" cy="224.1" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="294.0" cy="213.6" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="330.0" cy="195.8" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="366.0" cy="186.3" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="402.0" cy="157.4" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="438.0" cy="175.1" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<text x="78.0" y="351.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2009</text>
+<text x="186.0" y="351.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2012</text>
+<text x="366.0" y="351.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2017</text>
+<text x="438.0" y="351.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2019</text>
+<text x="16.0" y="379.0" font-size="14" fill="var(--fig-ink-3,#717171)">Blue line: pay at the one-in-four mark (the 25th</text>
+<text x="16.0" y="398.0" font-size="14" fill="var(--fig-ink-3,#717171)">percentile of gross pay) in the jobs that had no</text>
+<text x="16.0" y="417.0" font-size="14" fill="var(--fig-ink-3,#717171)">ladder until 2022. Grey dashed line: the median</text>
+<text x="16.0" y="436.0" font-size="14" fill="var(--fig-ink-3,#717171)">worker's income. Both show the change from their</text>
+<text x="16.0" y="455.0" font-size="14" fill="var(--fig-ink-3,#717171)">2010-12 average, in per cent. Shaded: the start</text>
+<text x="16.0" y="474.0" font-size="14" fill="var(--fig-ink-3,#717171)">(2010-12) and end (2017-19) years compared. A blue</text>
+<text x="16.0" y="493.0" font-size="14" fill="var(--fig-ink-3,#717171)">line that ends below the grey one fell behind; the bet</text>
+<text x="16.0" y="512.0" font-size="14" fill="var(--fig-ink-3,#717171)">failed if the gap at the end reached about 5 per cent.</text>
+</svg>

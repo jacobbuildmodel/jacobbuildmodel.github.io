@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 484" role="img" aria-label="Basic pay at the one-in-four mark as a share of the entry rung, each year compared, against lines at 100 and 97 per cent. Landscape workers: at the one-in-four mark, pay sat exactly on the entry rung in 3 of 4 years.">
+<style>:root{--fig-ink:#0b0b0b;--fig-ink-3:#717171;--fig-rule:#e2e1dd;--fig-surface:#fcfcfa;--fig-subject:#2873ce;--fig-context:#707379;}@media (prefers-color-scheme: dark){:root{--fig-ink:#ffffff;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}}:root[data-theme="dark"]{--fig-ink:#ffffff;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}text{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}</style>
+<rect x="0" y="0" width="480" height="484" fill="var(--fig-surface,#fcfcfa)"/>
+<text x="16.0" y="28.0" font-size="16" fill="var(--fig-ink,#0b0b0b)" font-weight="600">Landscape workers: at the one-in-four mark,</text>
+<text x="16.0" y="49.0" font-size="16" fill="var(--fig-ink,#0b0b0b)" font-weight="600">pay sat exactly on the entry rung in 3 of 4</text>
+<text x="16.0" y="70.0" font-size="16" fill="var(--fig-ink,#0b0b0b)" font-weight="600">years</text>
+<text x="16.0" y="101.0" font-size="14" fill="var(--fig-ink-3,#717171)">Cleaners and security guards: not checked (failed the</text>
+<text x="16.0" y="120.0" font-size="14" fill="var(--fig-ink-3,#717171)">design test).</text>
+<text x="60.0" y="177.0" font-size="14" fill="var(--fig-ink,#0b0b0b)" font-weight="600">Landscape workers</text>
+<line x1="60" x2="456" y1="289.0" y2="289.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="54.0" y="294.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">96</text>
+<line x1="60" x2="456" y1="264.0" y2="264.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="54.0" y="269.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">98</text>
+<line x1="60" x2="456" y1="239.0" y2="239.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="54.0" y="244.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">100</text>
+<line x1="60" x2="456" y1="214.0" y2="214.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="54.0" y="219.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">102</text>
+<line x1="60" x2="456" y1="189.0" y2="189.0" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="54.0" y="194.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">104</text>
+<line x1="60" x2="456" y1="276.5" y2="276.5" stroke="var(--fig-ink,#0b0b0b)" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="60" x2="456" y1="239.0" y2="239.0" stroke="var(--fig-context,#707379)" stroke-width="1"/>
+<polyline points="144.9,239.0 201.4,239.0 258.0,190.9" fill="none" stroke="var(--fig-subject,#2873ce)" stroke-width="2"/>
+<circle cx="144.9" cy="239.0" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="201.4" cy="239.0" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="258.0" cy="190.9" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<circle cx="427.7" cy="239.0" r="2.5" fill="var(--fig-subject,#2873ce)"/>
+<text x="88.3" y="307.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2016</text>
+<text x="258.0" y="307.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2019</text>
+<text x="427.7" y="307.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">2022</text>
+<text x="16.0" y="333.0" font-size="14" fill="var(--fig-ink-3,#717171)">Each panel is one covered job: its basic pay at the</text>
+<text x="16.0" y="352.0" font-size="14" fill="var(--fig-ink-3,#717171)">one-in-four mark (the 25th percentile: a quarter of</text>
+<text x="16.0" y="371.0" font-size="14" fill="var(--fig-ink-3,#717171)">workers earned this or less), as a share of the</text>
+<text x="16.0" y="390.0" font-size="14" fill="var(--fig-ink-3,#717171)">ladder's entry rung in force on 1 June, one dot per</text>
+<text x="16.0" y="409.0" font-size="14" fill="var(--fig-ink-3,#717171)">year compared. Solid line: 100 per cent, pay exactly</text>
+<text x="16.0" y="428.0" font-size="14" fill="var(--fig-ink-3,#717171)">at the rung. Dashed line: 97 per cent; a dot below it</text>
+<text x="16.0" y="447.0" font-size="14" fill="var(--fig-ink-3,#717171)">would have failed the bet.</text>
+</svg>
