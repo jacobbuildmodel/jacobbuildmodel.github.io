@@ -83,3 +83,5 @@ own method page, because running a regression carries rules a short summary woul
 Every change to a published page is listed on the [corrections page](/corrections/).
 
 None of it is required reading. It exists so that if you want to check the work, nothing is hidden.
+
+This site counts page views with Umami, which sets no cookies and, by its own account, collects no personal data.
