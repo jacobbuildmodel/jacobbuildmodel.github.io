@@ -1,0 +1,41 @@
+# .github/workflows/open-pages.yml
+#
+# An open question page cannot change silently after its seal day.
+# scripts/check_open_pages.py fails the job when:
+#   - a content/open/ page's body md5 differs from its entry in
+#     data/open_seals.yaml, or a page has no entry (or an entry no page);
+#   - an entry's body_md5 changed in this PR without a new reason: line;
+#   - the scorecard's front matter breaks sealed == held + failed + neither.
+# The body hash leaves out the front matter, where the answered: marker goes
+# on publication day, so marking a page answered passes.
+#
+# Runs on pull requests that touch the pages or the hashes. The scorecard,
+# the script and this file are in the paths too, so a change to any of them
+# is checked the same way. Pull requests only, like lint.yml; deploy.yml is
+# unchanged.
+
+name: open-pages
+
+on:
+  pull_request:
+    paths:
+      - 'content/open/**'
+      - 'data/open_seals.yaml'
+      - 'content/scorecard.md'
+      - 'scripts/check_open_pages.py'
+      - '.github/workflows/open-pages.yml'
+
+jobs:
+  open-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check open pages against their seals
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: python scripts/check_open_pages.py --base "$BASE"
