@@ -22,9 +22,9 @@ If a page here breaks either rule, it's a mistake rather than a style choice.
 
 ## What you'll find, and what you won't
 
-The stock pages, which explained what a company does and how it makes money, are archived: they are
-descriptive only and no longer updated. Economics pieces take a question people have opinions about
-and check it against data.
+Economics pieces take a question people have opinions about and check it against data. The stock
+pages, which explained what a company does and how it makes money, are archived: they are
+descriptive only and no longer updated.
 
 **None of it tells you what to buy.** There's no overall score on any company, no ranking of one
 against another, no price targets, and no buy or sell calls. That's a deliberate limit, not a gap
