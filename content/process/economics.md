@@ -203,8 +203,7 @@ The word "significant" carries only its statistical meaning in a piece containin
 regressions. Where the point is size rather than a p-value, the piece says large, or sharp,
 or gives the number.
 
-A second checker, Vale, holds the house wording: no first-person plural, no instructions to the
-reader, and acronyms spelled out on first use.
+A second checker, Vale, holds the house wording: no first-person plural and no instructions to the reader.
 
 ## Who checks the work
 
