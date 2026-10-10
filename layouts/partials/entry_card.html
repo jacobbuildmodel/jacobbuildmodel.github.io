@@ -11,9 +11,14 @@
   {{- $isHidden := ($page.Param "cover.hiddenInList") | default ($page.Param "cover.hidden") | default false }}
   {{- partial "cover.html" (dict "cxt" $page "IsSingle" false "isHidden" $isHidden) }}
   <header class="entry-header">
-    {{- /* Optional "question" lead-in, same field as layouts/single.html. */}}
+    {{- /* Optional "question" lead-in, same field as layouts/single.html.
+           Economics answer articles carry the same "The question:" label as
+           on the article page, so a card does not show two headlines. Open
+           question pages stay unlabelled: there the question is the
+           headline. */}}
     {{- with $page.Params.question }}
-    <p class="entry-question">{{ . }}</p>
+    <p class="entry-question">
+      {{- if eq $page.Section "economics" }}<span class="entry-question-label">The question:</span> {{ end }}{{ . }}</p>
     {{- end }}
     <h2 class="entry-hint-parent">
       {{- $page.Title }}

@@ -6,9 +6,13 @@
     {{ partial "breadcrumbs.html" . }}
     {{- /* Optional front matter "question": the argument the piece tests,
            shown as a lead-in directly above the headline, which answers it.
-           Pages without the field render exactly as before. */}}
+           Pages without the field render exactly as before. On answer
+           articles (the economics section) it carries a "The question:"
+           label: without it a reader saw two headlines, the open question
+           and the finding, and took one for a mistake. */}}
     {{- with .Params.question }}
-    <p class="entry-question">{{ . }}</p>
+    <p class="entry-question">
+      {{- if eq $.Section "economics" }}<span class="entry-question-label">The question:</span> {{ end }}{{ . }}</p>
     {{- end }}
     <h1 class="post-title entry-hint-parent">
       {{ .Title }}
