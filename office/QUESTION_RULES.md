@@ -5,7 +5,7 @@ rejected the checker's piece-2 options: rules 1-9 were being applied to a weak
 topic. Rule 0 now comes first. Revised 29 September 2026 after Jacob rejected the
 checker's Singapore-dollar titles as technical and feelingless: the HOOK rules
 (H1-H7) now govern every title and first paragraph; the exam rules govern the
-sealed question in THESIS.md. Applies to: research questions in briefs and
+sealed question in THESIS.md. Revised 5 October 2026 after a friend test failed the replication topic itself: Rule 0 gains item 5, the decision test, and answer articles gain "What it changes". Applies to: research questions in briefs and
 THESIS.md, the "question" line above each headline, headlines, section intros,
 the home header, roadmap items. Every brief and every checkpoint checks against
 this list.
@@ -66,6 +66,9 @@ Before writing any question, answer in one line each:
 2. Who are the sides, or what is the belief and its rival explanation?
 3. What does the whole country, or the ordinary reader, stand to gain or lose?
 4. What is the extreme version of each side, and the everyday analogy for it?
+5. **The decision test (added 5 October 2026).** Who would think or act differently depending on the answer, and how? Name the person (a buyer, a commuter, a planner weighing a policy) and the decision. If nobody would, stop, however clever the method. A link to a professor's research is a reason to choose among questions that pass this test, never a reason on its own (the COE and HDB friend test, 5 Oct: "no need to understand it").
+
+Every answer article then carries a short section, **"What it changes"**: which side of the public debate the evidence strengthens or weakens, and what anyone weighing the policy would now have to count. It names trade-offs; it never says what the government or the reader should do (rule 8).
 
 ## Rules for the sealed question (wording)
 
