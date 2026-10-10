@@ -32,8 +32,8 @@
       </span>
     </span>
     {{- end }}
-    <span class="method-strip-item">
-      <span class="method-strip-label">REVISIT</span>
+    <span class="method-strip-item" title="The date this finding is re-tested against new data">
+      <span class="method-strip-label">RE-CHECK DUE</span>
       <span class="method-strip-value">{{ $revisit | time.Format "2 January 2006" }}</span>
     </span>
     {{- with $.Params.repo }}
@@ -42,5 +42,8 @@
     </span>
     {{- end }}
   </div>
+  {{- /* Visible footnote, not only the title tooltip above: a tooltip never
+         shows on a phone, where most readers are. */}}
+  <p class="method-strip-note">Re-check due: the date this finding is re-tested against new data.</p>
 </div>
 {{- end }}
