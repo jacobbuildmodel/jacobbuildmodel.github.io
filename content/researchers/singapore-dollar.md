@@ -324,7 +324,201 @@ listed, dated and with md5s, in
 [THESIS_ADDENDUM.md](https://github.com/jacobbuildmodel/coe-analysis/blob/main/sgd/THESIS_ADDENDUM.md);
 none changed a rule, a threshold, a window, the coding or a score.
 
-## 10. References
+## 10. After outside review (not sealed)
+
+Added on 10 October 2026, after reading by four outside readers: a lecturer,
+an economics faculty member, a reader with no economics training, and a reader
+who works in currency markets. The first two confirmed the arithmetic and
+asked for the meaning to be tightened. The other two also confirmed it: 78,125
+and 120,482 yen per S$1,000 at the two-decimal rates; 31 + 73 - 4 = 100; 2.68;
+0.136. Everything in this section was **added after
+outside review, not sealed**, and none of it is scored. No sealed number,
+outcome, threshold or verdict wording changed. The script is
+`sgd/16_review.py`: it reuses the sealed definitions in `11_tests.py`
+(the same three-month endpoint means) and writes `out/review_*.csv`. Every
+number below is in the number manifest. The change log is THESIS_ADDENDUM
+item 10.
+
+**The ringgit's shares, explained.** The article no longer prints them. Over
+the scored window, `b_MYR` was small (0.0486) while both broad indices rose,
+so `S_MYR` = 2.5386 and `P_MYR` = -1.7058. In per cent, the Singapore
+dollar's own rise was 254 per cent of the move, and the ringgit's own rise
+took back 171 per cent. A share above 1, or below 0, is what a small
+denominator and two indices moving the same way produce. It is not an error.
+
+### A1. The US dollar as the yardstick
+
+```
+b_X = d ln(X per USD) - d ln(SGD per USD)          exact, no remainder
+1   = [-d ln(SGD per USD)] / b_X + [d ln(X per USD)] / b_X
+       the Singapore dollar's own    X's own fall against
+       move against the US dollar     the US dollar
+```
+
+| Window | Currency | SGD against USD | X against USD | SGD's share | X's share |
+|---|---|---|---|---|---|
+| 2021-25 | yen | up 2.7% | down 31.3% | 0.0670 | 0.9330 |
+| 2021-25 | ringgit | up 2.7% | down 2.1% | 0.5543 | 0.4457 |
+| Aug 2005 on | yen | up 30.6% | down 30.2% | 0.4263 | 0.5737 |
+| Aug 2005 on | ringgit | up 30.6% | down 7.5% | 0.7741 | 0.2259 |
+
+The checker's rough figures for 2021-25 were confirmed: the Singapore dollar
+rose 2.7% and the yen fell 31.3% against the US dollar (shares 7 and 93 per
+cent), and the ringgit fell 2.1% (55 and 45). The identity is exact, but its
+yardstick is a single currency, whose own swings sit inside both shares. On
+the long window the yardstick decides the reading. Against everyone, the
+Singapore dollar's own rise was the larger part (0.5724 against 0.5058, with
+a remainder of -0.0782).
+Against the US dollar, the yen's fall was (0.5737 against 0.4263).
+
+### A2. Each currency removed from the other's basket
+
+```
+s    = w_SG,X * b + (1 - w_SG,X) * s_ex    =>  s_ex = (s - w_SG,X * b) / (1 - w_SG,X)
+n_X  = w_X,SG * (-b) + (1 - w_X,SG) * n_ex =>  n_ex = (n_X + w_X,SG * b) / (1 - w_X,SG)
+S_ex = s_ex / b,  P_ex = -n_ex / b,  R_ex = 1 - S_ex - P_ex
+```
+
+Here `w_SG,X` is X's weight in Singapore's basket and `w_X,SG` is the
+Singapore dollar's weight in X's basket. The weights come from `raw/s1c`.
+Each month of the window takes the sheet whose three-year period holds its
+year, years after 2022 take the 2020-22 sheet, and the result is averaged over
+the window. X's index moves by -b against the Singapore dollar, hence the
+plus sign in `n_ex`. The BIS indices are chain-linked geometric averages with
+time-varying weights, so this is a first-order approximation.
+
+| Window | Currency | X in SG's basket | SGD in X's basket | S_ex | P_ex | R_ex |
+|---|---|---|---|---|---|---|
+| 2021-25 | yen | 6.1% | 2.7% | 0.2620 | 0.7246 | 0.0133 |
+| 2021-25 | ringgit | 13.1% | 12.6% | 2.7703 | -2.0960 | 0.3257 |
+| Aug 2005 on | yen | 8.4% | 2.7% | 0.5332 | 0.4924 | -0.0256 |
+| Aug 2005 on | ringgit | 9.3% | 10.5% | 1.0435 | -0.0868 | 0.0434 |
+
+The yen's split barely moved. For the ringgit on the scored window, the
+remainder rose to 0.3257, above T1's sealed line of 0.20. Without the
+overlap, the ringgit's split is less well determined. That is the overlap
+THESIS sealed as weak evidence.
+
+### A3. The real split of the yen cross
+
+```
+b_real = b + d ln CPI_SG - d ln CPI_JP
+e_real = b_real - s_real + n_real    (s_real, n_real: BIS real broad indices)
+```
+
+Singapore's CPI is S7 (SingStat, All Items). Japan's is the BIS long series
+on consumer prices, M.JP.628. It was retrieved on 10 October 2026 and is
+recorded in RETRIEVED.txt.
+
+| 2021-25 | Value |
+|---|---|
+| Singapore's CPI | up 17.1% |
+| Japan's CPI | up 13.1% |
+| Real yen per SGD | 0.4367 (up 54.8%) |
+| SGD real broad index | up 14.7% |
+| Yen real broad index | down 26.6% |
+| S, P, R (real cross) | 0.3146, 0.7067, -0.0212 |
+| Tokyo goods per SGD, b - d ln CPI_JP (round 5) | up 32.1% |
+| Sealed "real indices" row (nominal cross) | 0.3419, 0.7680, -0.1098 |
+
+The traveller's figure and the real exchange rate sit on opposite sides of the
+nominal 49.5%: deflating by Japan's prices alone gives 32.1% more Tokyo
+goods per Singapore dollar, while the real exchange rate, deflated by both
+countries' prices, rose 54.8%, because Singapore's prices rose faster (17.1%
+against 13.1%). On a real cross the remainder shrank from -0.1098 to -0.0212, as expected
+once both countries' prices are on both sides. The yen's real fall was still
+most of the real rise. The long window was not computed: Japan's series ends
+in July 2026, before the long window's last endpoint month.
+
+### A4. Every five-year window
+
+Each window covers 60 months. The first starts in August 2005 and the next
+every three months after, through the last full month. Each end is a
+three-month mean. Chart 4 plots S and P for the yen.
+
+| Windows | SGD rose against the yen | Did not | Yen's fall larger | SGD's rise larger |
+|---|---|---|---|---|
+| 65 | 46 | 19 | 39 | 7 |
+
+The checker's quick count, one window fewer, matches these counts without
+the last window, which ends in August 2026. The windows overlap: consecutive
+ones share 57 of 60 months, so the 46 are not independent results. They
+describe one persistent pattern, and, as with the serial dependence in A5(c),
+the effective number of independent observations is far smaller than the
+count. The Singapore dollar did not rise against the yen in the
+windows starting from 2005 to 2008 and from 2014 to 2016. Its own rise was
+larger only in windows starting in 2008, 2009, 2013 and 2014. Over the full
+long window the order reverses (S 0.5724, P 0.5058). The Singapore dollar's broad index
+rose in every window, while the yen's rose in some and fell in others, so the
+yen's falls and recoveries partly offset over two decades.
+
+### A5. T7, reconsidered
+
+**(a) A moving-block bootstrap for D.** Blocks of consecutive intervals are
+drawn with replacement, 10,000 draws, seed 20260929, and the range bounds the
+central 90 per cent of the draws.
+
+| Resampling | 90% range for D |
+|---|---|
+| Sealed, ordinary (intervals independent) | 0.1117 to 0.5867 |
+| Block of 2 | 0.10 to 0.63 |
+| Block of 4 (main) | 0.09 to 0.69 |
+| Block of 8 | 0.14 to 0.71 |
+
+Allowing for serial dependence widened the range but kept it above zero. The
+sealed rule reads the point estimate, D 0.3526, not the range.
+
+**(b) Leads.** MAS decides on forecasts, so growth and CPI inflation are
+taken from the stretch shifted 1 or 2 quarters later. Each interval keeps its
+length.
+
+| Predictor | rho | rho_p on the same intervals | D | Intervals |
+|---|---|---|---|---|
+| Growth, led 1 quarter | 0.04 | 0.48 | 0.44 | 60 |
+| Growth, led 2 quarters | -0.18 | 0.48 | 0.66 | 59 |
+| CPI inflation, led 1 quarter | 0.49 | 0.48 | -0.01 | 60 |
+| CPI inflation, led 2 quarters | 0.40 | 0.48 | 0.08 | 59 |
+
+Led growth lined up with the path less well than contemporaneous growth.
+Led inflation at one quarter tied with MAS's decisions, as the sealed CPI
+sensitivity did (D -0.0421).
+
+**(c) Effective sample size.** The 61 intervals do not overlap, so the
+dependence is serial. The lag-1 autocorrelations were 0.14 for the path,
+0.52 for MAS's score and 0.57 for growth.
+
+```
+N_eff = N * (1 - r_y * r_x) / (1 + r_y * r_x)      Bartlett, lag 1
+```
+
+This gives 53 for MAS's score and 52 for growth. A Spearman coefficient then
+has a standard error of about 0.14, against the 0.13 that THESIS assumed.
+
+### A6. Context for the article (round 5)
+
+| Item | Value |
+|---|---|
+| Yen per US dollar, Jan-Mar 2021 (mean of the log, S2) | 105.9 |
+| Yen per US dollar, Oct-Dec 2025 | 154.1 |
+| Japan's real broad index (S1b), 2025 average | 72.5, the 2nd lowest of 32 full years since 1994 |
+| Lowest full year | 2024, at 71.5 |
+| December 2025 among all 392 months | 9th lowest |
+| Lowest month | 65.2, in July 2026 |
+
+The 2025 average was near the bottom of the series but not the lowest: 2024's
+was lower, and the lowest months came in 2026. One line of context in the
+article links the yen's fall to the gap between Japanese and US interest
+rates. Japan's side is cited to the Bank of Japan's statement of 19 March 2024
+(`raw/s9_boj_mps_20240319.html`), which ended its negative interest rate
+policy. The Federal Reserve's policy-rate page could not be retrieved: the
+session's network policy refused the host. So the US side stays general and
+cites nothing. Nothing here tests the interest-rate link.
+
+The specimen at the two-decimal rates the article prints, S$1.28 and S$0.83
+per 100 yen: 78,125 and 120,482 yen per S$1,000, said as "about 78,000" and
+"about 120,000".
+
+## 11. References
 
 - Balassa, B. (1964). "The Purchasing-Power Parity Doctrine: A Reappraisal."
   *Journal of Political Economy* 72(6): 584-596.
