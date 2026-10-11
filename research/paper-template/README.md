@@ -4,6 +4,8 @@ One Quarto source renders to a PDF (Typst) and an HTML page, in the website's
 colours and typefaces. The sample is the published HDB financing piece
 (content/economics/2026-10-03.md, live since 3 October 2026).
 
+Author: Jacob Ong (ORCID 0009-0005-4438-9657). Series label: Jacob's Projects - <project name>, no number, no surname.
+
 ## Render
 
     quarto render            # in this folder: paper.pdf and paper.html
@@ -60,7 +62,6 @@ second. LaTeX was not needed.
   justification off inside tables.
 
 ## Before a real paper
-- The ORCID in paper.qmd is a placeholder (0000-0000-0000-0000).
 - The JEL codes (G21, R31, E43) and keywords are illustrative for the trial.
 - Table 1 restates the eight results as published on the scorecard page; the
   body text is the article's, verbatim, with the two asides as footnotes.

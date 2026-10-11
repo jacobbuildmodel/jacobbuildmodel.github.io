@@ -3,7 +3,7 @@ title: "Early HDB loans lost to any bank charging under 1.4 points"
 series: "Jacob's Projects - HDB financing"
 author:
   - name: Jacob Ong
-    orcid: "0000-0000-0000-0000"   # PLACEHOLDER: Jacob's real ORCID iD goes here
+    orcid: "0009-0005-4438-9657"
 date: "3 October 2026"
 abstract: |
   The HDB concessionary loan has been fixed at 2.6 per cent since 1999 while
