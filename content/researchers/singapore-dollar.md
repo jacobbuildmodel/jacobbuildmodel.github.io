@@ -346,7 +346,7 @@ dollar's own rise was 254 per cent of the move, and the ringgit's own rise
 took back 171 per cent. A share above 1, or below 0, is what a small
 denominator and two indices moving the same way produce. It is not an error.
 
-### A1. The US dollar as the yardstick
+### A1. The US dollar as the reference currency
 
 ```
 b_X = d ln(X per USD) - d ln(SGD per USD)          exact, no remainder
@@ -365,10 +365,10 @@ b_X = d ln(X per USD) - d ln(SGD per USD)          exact, no remainder
 The checker's rough figures for 2021-25 were confirmed: the Singapore dollar
 rose 2.7% and the yen fell 31.3% against the US dollar (shares 7 and 93 per
 cent), and the ringgit fell 2.1% (55 and 45). The identity is exact, but its
-yardstick is a single currency, whose own swings sit inside both shares. On
-the long window the yardstick decides the reading. Against everyone, the
-Singapore dollar's own rise was the larger part (0.5724 against 0.5058, with
-a remainder of -0.0782).
+reference is a single currency, whose own swings sit inside both shares. On
+the long window the choice of reference decides the reading. Against
+everyone, the Singapore dollar's own rise was the larger part (0.5724 against
+0.5058, with a remainder of -0.0782).
 Against the US dollar, the yen's fall was (0.5737 against 0.4263).
 
 ### A2. Each currency removed from the other's basket
