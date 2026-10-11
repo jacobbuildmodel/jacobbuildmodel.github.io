@@ -1,0 +1,27 @@
+# One source, two outputs: `quarto render` makes paper.pdf (Typst) and
+# paper.html from paper.qmd, both in the website's colours and typefaces.
+project:
+  type: default
+  render:
+    - paper.qmd
+
+bibliography: references.bib
+citeproc: true          # pandoc citeproc for both outputs, so references match
+link-citations: true
+section-numbering: "1."
+date-format: "D MMMM YYYY"
+
+format:
+  typst:
+    papersize: a4
+    font-paths: [fonts]
+    template-partials:
+      - partials/typst-template.typ
+      - partials/typst-show.typ
+  html:
+    theme: none
+    css: html/paper.css
+    number-sections: true
+    template-partials:
+      - partials/title-block.html
+    reference-location: document

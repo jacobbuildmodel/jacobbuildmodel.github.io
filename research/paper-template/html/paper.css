@@ -1,0 +1,80 @@
+/* paper.css -- the HTML page of a "Jacob's Projects" working paper.
+   Same colours and typefaces as the website (assets/css/extended/custom.css
+   and the PaperMod light theme) and as the PDF (partials/typst-template.typ). */
+
+@font-face { font-family: "Source Serif 4"; src: url("../fonts/SourceSerif4-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Source Serif 4"; src: url("../fonts/SourceSerif4-It.ttf") format("truetype"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Source Serif 4"; src: url("../fonts/SourceSerif4-Semibold.ttf") format("truetype"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "Source Serif 4"; src: url("../fonts/SourceSerif4-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Source Sans 3"; src: url("../fonts/SourceSans3-Regular.ttf") format("truetype"); font-weight: 400; }
+@font-face { font-family: "Source Sans 3"; src: url("../fonts/SourceSans3-Semibold.ttf") format("truetype"); font-weight: 600; }
+@font-face { font-family: "Source Sans 3"; src: url("../fonts/SourceSans3-Bold.ttf") format("truetype"); font-weight: 700; }
+
+:root {
+  --ink: #1e1e1e;      /* site --primary */
+  --muted: #6c6c6c;    /* site --secondary */
+  --accent: #3d6c8c;   /* site --accent */
+  --tint: #f4f7f9;     /* site --code-bg */
+  --rule: #e0e6ea;     /* site --border */
+  --sans: "Source Sans 3", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --serif: "Source Serif 4", Georgia, serif;
+}
+
+body {
+  max-width: 660px;            /* the site's --main-width */
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  background: #ffffff;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.6;
+}
+h1, h2, h3, .paper-series, .paper-label, figcaption, .figure-caption, caption, table, .paper-byline, .paper-keywords, #refs, .footnotes {
+  font-family: var(--sans);
+}
+h2 { font-size: 1.3rem; margin: 2em 0 0.5em; }
+h3 { font-size: 1.1rem; }
+a { color: var(--accent); text-decoration-color: #6f93ad; }
+
+.paper-title-block {
+  background: var(--tint);
+  border-left: 3px solid var(--accent);
+  border-radius: 2px;
+  padding: 16px 18px;
+}
+.paper-series, .paper-label {
+  margin: 0 0 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+}
+.paper-title-block h1.title { margin: 0 0 10px; font-size: 1.9rem; line-height: 1.2; }
+.paper-byline p { margin: 0; font-size: 0.95rem; }
+.paper-author-name { font-weight: 600; }
+.paper-orcid, .paper-affiliation, .paper-date { color: var(--muted); }
+.paper-abstract { margin: 20px 0; padding: 0 18px 12px; border-bottom: 1px solid var(--rule); font-size: 1rem; }
+.paper-keywords { font-size: 0.85rem; color: var(--muted); }
+
+blockquote {
+  margin: 1.2em 0;
+  padding: 10px 14px;
+  background: var(--tint);
+  border-left: 2.5px solid var(--accent);
+}
+blockquote p { margin: 0; }
+
+figure, .quarto-figure { margin: 1.5em 0; }
+img { max-width: 100%; height: auto; }
+figcaption, .figure-caption, caption { font-size: 0.85rem; color: var(--muted); text-align: left; }
+caption { caption-side: top; padding-bottom: 6px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+thead th { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); text-align: left; font-weight: 600; }
+td, th { padding: 5px 6px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+
+.footnotes { font-size: 0.85rem; color: var(--ink); border-top: 1px solid var(--rule); margin-top: 2em; }
+.footnotes hr { display: none; }
+#refs { font-size: 0.9rem; }
+#refs .csl-entry { margin-bottom: 0.5em; padding-left: 1.5em; text-indent: -1.5em; }
