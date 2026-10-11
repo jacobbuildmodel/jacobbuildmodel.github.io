@@ -1,0 +1,79 @@
+# .github/workflows/linkcheck.yml
+#
+# Builds the site and checks that every internal link (and #anchor) and every
+# link to github.com/jacobbuildmodel/* resolves, with scripts/check_links.py
+# (standard-library Python, no third-party link checker).
+#
+# Future-dated pages: buildFuture is false, so a page dated after today is not
+# in the live build. The site is built twice, as it is live today (public/)
+# and with --buildFuture (public-future/). Only today's pages are checked; a
+# link to a page that exists only in the future build is reported as
+# "future" and never fails the job.
+#
+# EXCLUDED, never requested (they block or rate-limit bots, or are not links a
+# reader follows, so a request would make the job flaky without catching a
+# real break):
+#   - every external host other than github.com/jacobbuildmodel, including
+#     data.gov.sg, api-open.data.gov.sg, tablebuilder.singstat.gov.sg,
+#     www.singstat.gov.sg, www.mas.gov.sg, eservices.mas.gov.sg,
+#     stats.mom.gov.sg, www.mom.gov.sg, www.lta.gov.sg,
+#     onemotoring.lta.gov.sg, www.hdb.gov.sg, data.bis.org, www.bis.org,
+#     web.archive.org, linkedin.com;
+#   - asset and service hosts: fonts.googleapis.com, fonts.gstatic.com,
+#     cloud.umami.is, gohugo.io, and github.com outside jacobbuildmodel (the
+#     theme's footer link).
+# The script prints every skipped host with its count, so a new host shows up
+# in the log.
+#
+# Runs on every pull request, daily at 02:23 UTC (an off-the-hour minute; the
+# scheduler is busiest on the hour), and by hand.
+
+name: linkcheck
+
+on:
+  pull_request:
+  schedule:
+    - cron: "23 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.147.9
+      # sha256 of hugo_extended_0.147.9_linux-amd64.deb, from the release's
+      # hugo_0.147.9_checksums.txt
+      HUGO_SHA256: e9695dab766128bf0240a48d27face6c399f715d7389ef42f8a18a966b1c8843
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Hugo (pinned, checksum-verified)
+        run: |
+          wget -q -O "${{ runner.temp }}/hugo.deb" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          echo "${HUGO_SHA256}  ${{ runner.temp }}/hugo.deb" | sha256sum -c -
+          sudo dpkg -i "${{ runner.temp }}/hugo.deb"
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Fetch theme
+        run: hugo mod get github.com/adityatelange/hugo-PaperMod
+
+      - name: Build, as live today and with future pages
+        run: |
+          hugo --gc --minify -d public
+          hugo --gc --minify --buildFuture -d public-future
+
+      - name: Check links
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/check_links.py --site public --future public-future
