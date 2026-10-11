@@ -1,0 +1,17 @@
+<header id="title-block-header" class="paper-title-block">
+$if(series)$<p class="paper-series">$series$</p>$endif$
+$if(title)$<h1 class="title">$title$</h1>$endif$
+<div class="paper-byline">
+$for(by-author)$
+<p class="paper-author"><span class="paper-author-name">$it.name.literal$</span>$if(it.orcid)$ <span class="paper-orcid">ORCID <a href="https://orcid.org/$it.orcid$">$it.orcid$</a></span>$endif$$if(it.affiliations)$<br><span class="paper-affiliation">$for(it.affiliations)$$it.name$$sep$, $endfor$</span>$endif$</p>
+$endfor$
+$if(date)$<p class="paper-date">$date$</p>$endif$
+</div>
+</header>
+$if(abstract)$
+<section class="paper-abstract">
+<p class="paper-label">Abstract</p>
+$abstract$
+<p class="paper-keywords">$if(keywords)$<strong>Keywords:</strong> $for(keywords)$$keywords$$sep$; $endfor$<br>$endif$$if(jel)$<strong>JEL:</strong> $jel$$endif$</p>
+</section>
+$endif$

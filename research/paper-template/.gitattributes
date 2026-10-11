@@ -1,0 +1,3 @@
+# Rendered PDFs and fonts are binary; keep their bytes.
+*.pdf -text
+*.ttf -text
