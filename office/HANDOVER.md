@@ -68,9 +68,10 @@ home band). Ideas page goes live 17 Oct.
 - aitell as CI: `python scripts/aitell.py content/economics/*.md content/process/*.md content/open/*.md content/scorecard.md content/corrections.md content/ideas.md --strict --published-only`.
 - Vale as lint.yml: Vale 3.24.0 on `git diff --name-only --diff-filter=AM <base>...HEAD -- 'content/*.md'`.
 - Open pages: `python scripts/check_open_pages.py --base origin/main`.
-- Overflow and screenshots: Playwright (Python) at 390 and 1280 px, light and
-  dark; check `document.documentElement.scrollWidth` equals the viewport, and
-  each chart img has naturalWidth > 0.
+- Overflow and screenshots: `python tools/screenshot.py /economics/<date>/ --root <built site> --out shots`
+  (build with `--baseURL http://localhost:1316/`; or pass a URL). Saves 390 and
+  1280 px, light and dark, plus a full-page 390 px PNG; exits 1 on horizontal
+  scroll or an image that does not load. Needs Playwright + Chromium.
 - Piece checks live in coe-analysis: `./run_all.sh` in the piece folder, its
   tests/ fixtures, and for sgd `python 14_manifest.py --check`.
 - Downloads: only `<piece>/00_coverage.py` (labels, coverage, md5) may read a
