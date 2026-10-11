@@ -1,0 +1,72 @@
+{{- /* layouts/partials/share_card.html
+   Returns the 1200x630 share card for a page, built at build time with Hugo
+   image processing (no external service). Hugo caches the result in
+   resources/_gen/images, keyed on the text, size and inputs, so a card is
+   drawn once and only redrawn when its title changes.
+
+   Base: assets/share/base.png (the site's --code-bg, a --accent bar, a rule
+   above the footer). Text: assets/share/SourceSans3-Bold.ttf (SIL OFL 1.1,
+   licence alongside). The title is wrapped here, not by images.Text: Hugo
+   wraps at the image width less x less 20 (to 1180px), and the card needs a
+   1040px measure and a known line count. Widths come from the font itself
+   (data/sharecard_font.json, advance widths in em). The size steps down
+   until the title fits in three lines; at the smallest size it may take
+   more lines. The title is never cut. Curly quotes, dashes and the ellipsis
+   become ASCII; any other non-ASCII character left in a title is a build
+   warning, since the card would draw it from a font that may lack it.
+
+   A page without a title, and the home page, get the home card: the
+   site's tagline (params.homeInfoParams.Title). */ -}}
+{{- $text := .Title }}
+{{- if or .IsHome (not .Title) }}
+  {{- $text = site.Params.homeInfoParams.Title | default site.Title }}
+{{- end }}
+{{- $text = $text | plainify | htmlUnescape }}
+{{- $text = replaceRE `[\x{2018}\x{2019}\x{201A}\x{2032}]` "'" $text }}
+{{- $text = replaceRE `[\x{201C}\x{201D}\x{201E}\x{2033}]` "\"" $text }}
+{{- $text = replaceRE `[\x{2013}\x{2014}\x{2212}]` "-" $text }}
+{{- $text = replace $text "…" "..." }}
+{{- $text = replaceRE `\s+` " " $text | strings.TrimSpace }}
+{{- if findRE `[^\x20-\x7E]` $text }}
+  {{- warnf "share card for %s: non-ASCII character left in title %q" .RelPermalink $text }}
+{{- end }}
+
+{{- $W := site.Data.sharecard_font.widths }}
+{{- $measure := 1040.0 }}
+{{- $sizes := slice 84 76 68 60 54 48 42 38 34 30 }}
+{{- $words := split $text " " }}
+{{- $size := 30 }}
+{{- $lines := slice }}
+{{- range $sizes }}
+  {{- $s := float . }}
+  {{- $space := mul (index $W " ") $s }}
+  {{- $ls := slice }}
+  {{- $cur := "" }}
+  {{- $curw := 0.0 }}
+  {{- range $words }}
+    {{- $ww := 0.0 }}
+    {{- range split . "" }}{{ $ww = add $ww (index $W . | default 0.6) }}{{ end }}
+    {{- $ww = mul $ww $s }}
+    {{- if eq $cur "" }}
+      {{- $cur = . }}{{ $curw = $ww }}
+    {{- else if le (add $curw $space $ww) $measure }}
+      {{- $cur = printf "%s %s" $cur . }}{{ $curw = add $curw $space $ww }}
+    {{- else }}
+      {{- $ls = $ls | append $cur }}{{ $cur = . }}{{ $curw = $ww }}
+    {{- end }}
+  {{- end }}
+  {{- $ls = $ls | append $cur }}
+  {{- $size = . }}
+  {{- $lines = $ls }}
+  {{- if le (len $ls) 3 }}{{ break }}{{ end }}
+{{- end }}
+
+{{- $font := resources.Get "share/SourceSans3-Bold.ttf" }}
+{{- $title := images.Text (delimit $lines "\n") (dict
+      "font" $font "size" $size "color" "#1e1e1e" "linespacing" (int (mul $size 0.18))
+      "x" 80 "y" 280 "alignx" "left" "aligny" "center") }}
+{{- $footer := images.Text site.Title (dict
+      "font" $font "size" 28 "color" "#3d6c8c"
+      "x" 80 "y" 548 "alignx" "left" "aligny" "top") }}
+{{- $card := resources.Get "share/base.png" | images.Filter $title $footer }}
+{{- return $card }}

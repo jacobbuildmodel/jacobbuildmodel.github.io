@@ -2,6 +2,9 @@
 
 Instructions for Claude Code working in this repository. Read this before any commit.
 
+**Hand-back format.** Every hand-back to Jacob uses office/REPLY_FORMAT.md: 12 lines max, no
+pasted diffs; details go in the PR body.
+
 ## Mobile reading pass — a `layouts/single.html` override exists, and why
 
 The site has a project-level `layouts/single.html` that overrides PaperMod's default. This is

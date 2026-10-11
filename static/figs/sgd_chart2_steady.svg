@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 483" role="img" aria-labelledby="sgd-chart2-title sgd-chart2-desc">
+<title id="sgd-chart2-title">The Singapore dollar was steadier than all ten others, Hong Kong's peg included</title>
+<desc id="sgd-chart2-desc">How to read: each bar is how much a currency's value against all its trading partners typically moved in a month, August 2005 on, in per cent. Shorter is steadier; the Singapore dollar is in blue.</desc>
+<style>:root{--fig-ink:#0b0b0b;--fig-ink-3:#717171;--fig-rule:#e2e1dd;--fig-surface:#fcfcfa;--fig-subject:#2873ce;--fig-context:#707379;}@media (prefers-color-scheme: dark){:root{--fig-ink:#ffffff;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}}:root[data-theme="dark"]{--fig-ink:#ffffff;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}text{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}</style>
+<rect x="0" y="0" width="480" height="483" fill="var(--fig-surface,#fcfcfa)"/>
+<text x="16.0" y="28.0" font-size="16" fill="var(--fig-ink,#0b0b0b)" font-weight="600">The Singapore dollar was steadier than all</text>
+<text x="16.0" y="49.0" font-size="16" fill="var(--fig-ink,#0b0b0b)" font-weight="600">ten others, Hong Kong's peg included</text>
+<text x="162.0" y="94.0" text-anchor="end" font-size="14" fill="var(--fig-ink,#0b0b0b)" font-weight="600">Singapore dollar</text>
+<rect x="170" y="82.0" width="37.7" height="16" fill="var(--fig-subject,#2873ce)"/>
+<text x="213.7" y="95.0" font-size="14" fill="var(--fig-ink,#0b0b0b)">0.47%</text>
+<text x="162.0" y="118.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">Hong Kong dollar</text>
+<rect x="170" y="106.0" width="79.9" height="16" fill="var(--fig-context,#707379)"/>
+<text x="255.9" y="119.0" font-size="14" fill="var(--fig-ink,#0b0b0b)">1.00%</text>
+<text x="162.0" y="142.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">Chinese renminbi</text>
+<rect x="170" y="130.0" width="88.0" height="16" fill="var(--fig-context,#707379)"/>
+<text x="162.0" y="166.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">Euro</text>
+<rect x="170" y="154.0" width="88.7" height="16" fill="var(--fig-context,#707379)"/>
+<text x="162.0" y="190.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">Malaysian ringgit</text>
+<rect x="170" y="178.0" width="91.8" height="16" fill="var(--fig-context,#707379)"/>
+<text x="162.0" y="214.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">US dollar</text>
+<rect x="170" y="202.0" width="102.4" height="16" fill="var(--fig-context,#707379)"/>
+<text x="162.0" y="238.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">Thai baht</text>
+<rect x="170" y="226.0" width="103.0" height="16" fill="var(--fig-context,#707379)"/>
+<text x="162.0" y="262.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">Korean won</text>
+<rect x="170" y="250.0" width="148.6" height="16" fill="var(--fig-context,#707379)"/>
+<text x="162.0" y="286.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">Indonesian rupiah</text>
+<rect x="170" y="274.0" width="155.6" height="16" fill="var(--fig-context,#707379)"/>
+<text x="162.0" y="310.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">Australian dollar</text>
+<rect x="170" y="298.0" width="166.7" height="16" fill="var(--fig-context,#707379)"/>
+<text x="162.0" y="334.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">Japanese yen</text>
+<rect x="170" y="322.0" width="173.1" height="16" fill="var(--fig-context,#707379)"/>
+<text x="349.1" y="335.0" font-size="14" fill="var(--fig-ink,#0b0b0b)">2.16%</text>
+<line x1="170" x2="410" y1="344" y2="344" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="170.0" y="362.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">0</text>
+<text x="410.0" y="362.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">3</text>
+<text x="16.0" y="388.0" font-size="14" fill="var(--fig-ink-3,#717171)">How to read: each bar is how much a currency's value</text>
+<text x="16.0" y="407.0" font-size="14" fill="var(--fig-ink-3,#717171)">against all its trading partners typically moved in a</text>
+<text x="16.0" y="426.0" font-size="14" fill="var(--fig-ink-3,#717171)">month, August 2005 on, in per cent. Shorter is</text>
+<text x="16.0" y="445.0" font-size="14" fill="var(--fig-ink-3,#717171)">steadier; the Singapore dollar is in blue.</text>
+</svg>

@@ -9,11 +9,13 @@
 <section class="answered-strip" aria-labelledby="answered-strip-title">
   <h2 id="answered-strip-title" class="open-strip-title"><a href="{{ "economics/" | relURL }}">Answered</a></h2>
   <ul class="answered-strip-list">
-    {{- range . }}
+    {{- range $p := . }}
     <li>
-      <a href="{{ .RelPermalink }}">
-        {{- with .Params.question }}<span class="answered-q">{{ . }}</span>{{ end }}
-        <span class="answered-h">{{ .Title }}</span>
+      <a href="{{ $p.RelPermalink }}">
+        {{- /* Same "The question:" label as the article page and the cards. */}}
+        {{- with $p.Params.question }}<span class="answered-q">
+          {{- if eq $p.Section "economics" }}<span class="entry-question-label">The question:</span> {{ end }}{{ . }}</span>{{ end }}
+        <span class="answered-h">{{ $p.Title }}</span>
       </a>
     </li>
     {{- end }}

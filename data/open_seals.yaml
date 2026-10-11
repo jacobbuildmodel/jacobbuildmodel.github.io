@@ -1,0 +1,25 @@
+# One entry per open question page in content/open/ (not _index.md), checked
+# by scripts/check_open_pages.py in .github/workflows/open-pages.yml.
+#
+#   path      the page
+#   body_md5  md5 of everything after the closing --- of the front matter.
+#             Front matter is left out, so adding the answered: marker on
+#             publication day does not change it.
+#   seal      the commit that sealed the predictions the page states
+#   reason    required when an edit changes body_md5: one line saying why,
+#             new or changed in the same PR, so the edit shows in the diff.
+#
+# A new page adds an entry here in the PR that publishes it. Never change a
+# body_md5 without a reason line.
+
+- path: content/open/2026-09-26-coe-or-erp.md
+  body_md5: 8a37cb9461c72f0598b8257849dead9e
+  seal: https://github.com/jacobbuildmodel/coe-analysis/commit/6d2a345d90015b8911e3be5ccfc76730a9d57206
+
+- path: content/open/2026-09-28-minimum-wage-or-pwm.md
+  body_md5: efb2f87601d23a1edd873a251e455fec
+  seal: https://github.com/jacobbuildmodel/coe-analysis/commit/e5f877b70f60f38a99248e6bd90a3e4063c45a65
+
+- path: content/open/2026-10-03-singapore-dollar.md
+  body_md5: e00e09ca8f676146dd0318b03fdd3e0c
+  seal: https://github.com/jacobbuildmodel/coe-analysis/commit/9e460349ebfc56bf313728e14243876e9dd6c9f4

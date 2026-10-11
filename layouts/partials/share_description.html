@@ -1,0 +1,16 @@
+{{- /* layouts/partials/share_description.html
+   The text shared previews show under the title: the page's front-matter
+   description, or failing that its summary (the site's description on the
+   home page, and on a list page with no summary, as PaperMod did), as plain
+   text, cut to at most 155 characters on a word boundary with an ellipsis
+   counted inside the 155. */ -}}
+{{- $d := .Description }}
+{{- if not $d }}
+  {{- $d = cond .IsHome site.Params.description (.Summary | string) }}
+{{- end }}
+{{- $d = $d | default site.Params.description }}
+{{- $d = $d | plainify | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace }}
+{{- if gt (strings.RuneCount $d) 155 }}
+  {{- $d = printf "%s…" (replaceRE `\s+\S*$` "" (substr $d 0 154)) }}
+{{- end }}
+{{- return $d }}

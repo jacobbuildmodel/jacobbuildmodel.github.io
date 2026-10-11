@@ -4,12 +4,10 @@
   {{- end }}
 {{- end }}
 
-<!-- Site-wide social preview image. PaperMod's og:image is per-page only
-     (via cover.image front matter) with no site-wide fallback, so this
-     covers every page until individual posts set their own cover. -->
-<meta property="og:image" content="{{ "img/social-preview.png" | absURL }}">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="{{ "img/social-preview.png" | absURL }}">
+<!-- Social preview tags (og:*, twitter:*) live in the overridden
+     templates/opengraph.html and templates/twitter_cards.html, with a
+     per-page card from share_card.html. The old site-wide og:image here
+     would have been a second, conflicting image tag. -->
 
 <!-- Reading serif for .post-content prose only -- nav, meta and labels stay in
      the theme's system sans so UI chrome and reading type stay visually

@@ -1,0 +1,12 @@
+{{- /* Overrides PaperMod's templates/twitter_cards.html: always the large
+   card, with this page's share card (share_card.html) as the image.
+   PaperMod's version fell back to twitter:card=summary when a page had no
+   cover or images, which was every page here. */ -}}
+{{- $card := partialCached "share_card.html" . .RelPermalink }}
+{{- $desc := partialCached "share_description.html" . .RelPermalink }}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ $card.Permalink }}">
+<meta name="twitter:title" content="{{ cond (or .IsHome (not .Title)) site.Title .Title | plainify }}">
+{{- with $desc }}
+<meta name="twitter:description" content="{{ . }}">
+{{- end }}

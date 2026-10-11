@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 574" role="img" aria-labelledby="sgd-chart1-title sgd-chart1-desc">
+<title id="sgd-chart1-title">Yen: mostly the yen's own fall. Ringgit: mostly the Singapore dollar's own rise.</title>
+<desc id="sgd-chart1-desc">How to read: each bar is a move in per cent, from the average of January to March 2021 to the average of October to December 2025. Blue, "Singapore dollar vs all": the Singapore dollar against all its trading partners. Grey, "yen vs all" or "ringgit vs all": the other currency against its own trading partners. Outlined, "Singapore dollar vs yen" or "vs ringgit": the Singapore dollar against that one currency. The moves compound rather than add, and a remainder that neither "vs all" move explains makes up the difference. Right of the line is a rise, left a fall.</desc>
+<style>:root{--fig-ink:#0b0b0b;--fig-ink-3:#717171;--fig-rule:#e2e1dd;--fig-surface:#fcfcfa;--fig-subject:#2873ce;--fig-context:#707379;}@media (prefers-color-scheme: dark){:root{--fig-ink:#ffffff;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}}:root[data-theme="dark"]{--fig-ink:#ffffff;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}text{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}</style>
+<rect x="0" y="0" width="480" height="574" fill="var(--fig-surface,#fcfcfa)"/>
+<text x="16.0" y="28.0" font-size="16" fill="var(--fig-ink,#0b0b0b)" font-weight="600">Yen: mostly the yen's own fall. Ringgit:</text>
+<text x="16.0" y="49.0" font-size="16" fill="var(--fig-ink,#0b0b0b)" font-weight="600">mostly the Singapore dollar's own rise.</text>
+<line x1="214.0" x2="214.0" y1="84" y2="308" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="214.0" y="326.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">-40</text>
+<line x1="254.0" x2="254.0" y1="84" y2="308" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="254.0" y="326.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">-20</text>
+<line x1="294.0" x2="294.0" y1="84" y2="308" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="294.0" y="326.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">0</text>
+<line x1="334.0" x2="334.0" y1="84" y2="308" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="334.0" y="326.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">20</text>
+<line x1="374.0" x2="374.0" y1="84" y2="308" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="374.0" y="326.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">40</text>
+<line x1="414.0" x2="414.0" y1="84" y2="308" stroke="var(--fig-rule,#e2e1dd)" stroke-width="1"/>
+<text x="414.0" y="326.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">60</text>
+<line x1="294.0" x2="294.0" y1="84" y2="308" stroke="var(--fig-ink-3,#717171)" stroke-width="1"/>
+<text x="16.0" y="100.0" font-size="14" fill="var(--fig-ink,#0b0b0b)" font-weight="600">The yen</text>
+<text x="206.0" y="123.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">Singapore dollar vs all</text>
+<rect x="294.0" y="110.0" width="26.3" height="17" fill="var(--fig-subject,#2873ce)"/>
+<text x="326.3" y="123.0" font-size="14" fill="var(--fig-ink,#0b0b0b)">up 13%</text>
+<text x="206.0" y="149.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">yen vs all</text>
+<rect x="243.0" y="136.0" width="51.0" height="17" fill="var(--fig-context,#707379)"/>
+<text x="300.0" y="149.0" font-size="14" fill="var(--fig-ink,#0b0b0b)">down 25%</text>
+<text x="206.0" y="175.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">Singapore dollar vs yen</text>
+<rect x="294.8" y="162.8" width="97.4" height="15.5" fill="var(--fig-surface,#fcfcfa)" stroke="var(--fig-ink,#0b0b0b)" stroke-width="1.5"/>
+<text x="398.9" y="175.0" font-size="14" fill="var(--fig-ink,#0b0b0b)">up 49.5%</text>
+<text x="16.0" y="212.0" font-size="14" fill="var(--fig-ink,#0b0b0b)" font-weight="600">The ringgit</text>
+<text x="206.0" y="235.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">Singapore dollar vs all</text>
+<rect x="294.0" y="222.0" width="26.3" height="17" fill="var(--fig-subject,#2873ce)"/>
+<text x="326.3" y="235.0" font-size="14" fill="var(--fig-ink,#0b0b0b)">up 13%</text>
+<text x="206.0" y="261.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">ringgit vs all</text>
+<rect x="294.0" y="248.0" width="17.3" height="17" fill="var(--fig-context,#707379)"/>
+<text x="317.3" y="261.0" font-size="14" fill="var(--fig-ink,#0b0b0b)">up 9%</text>
+<text x="206.0" y="287.0" text-anchor="end" font-size="14" fill="var(--fig-ink-3,#717171)">Singapore dollar vs ringgit</text>
+<rect x="294.8" y="274.8" width="8.5" height="15.5" fill="var(--fig-surface,#fcfcfa)" stroke="var(--fig-ink,#0b0b0b)" stroke-width="1.5"/>
+<text x="310.0" y="287.0" font-size="14" fill="var(--fig-ink,#0b0b0b)">up 5%</text>
+<text x="16.0" y="352.0" font-size="14" fill="var(--fig-ink-3,#717171)">How to read: each bar is a move in per cent, from the</text>
+<text x="16.0" y="371.0" font-size="14" fill="var(--fig-ink-3,#717171)">average of January to March 2021 to the average of</text>
+<text x="16.0" y="390.0" font-size="14" fill="var(--fig-ink-3,#717171)">October to December 2025. Blue, "Singapore dollar vs</text>
+<text x="16.0" y="409.0" font-size="14" fill="var(--fig-ink-3,#717171)">all": the Singapore dollar against all its trading</text>
+<text x="16.0" y="428.0" font-size="14" fill="var(--fig-ink-3,#717171)">partners. Grey, "yen vs all" or "ringgit vs all": the</text>
+<text x="16.0" y="447.0" font-size="14" fill="var(--fig-ink-3,#717171)">other currency against its own trading partners.</text>
+<text x="16.0" y="466.0" font-size="14" fill="var(--fig-ink-3,#717171)">Outlined, "Singapore dollar vs yen" or "vs ringgit":</text>
+<text x="16.0" y="485.0" font-size="14" fill="var(--fig-ink-3,#717171)">the Singapore dollar against that one currency. The</text>
+<text x="16.0" y="504.0" font-size="14" fill="var(--fig-ink-3,#717171)">moves compound rather than add, and a remainder that</text>
+<text x="16.0" y="523.0" font-size="14" fill="var(--fig-ink-3,#717171)">neither "vs all" move explains makes up the</text>
+<text x="16.0" y="542.0" font-size="14" fill="var(--fig-ink-3,#717171)">difference. Right of the line is a rise, left a fall.</text>
+</svg>
