@@ -23,3 +23,7 @@
 - path: content/open/2026-10-03-singapore-dollar.md
   body_md5: e00e09ca8f676146dd0318b03fdd3e0c
   seal: https://github.com/jacobbuildmodel/coe-analysis/commit/9e460349ebfc56bf313728e14243876e9dd6c9f4
+
+- path: content/open/2026-10-12-million-dollar-flats.md
+  body_md5: 4956e27776cf40b0f40d97c2443f2dd6
+  seal: https://github.com/jacobbuildmodel/hdb-affordability/commit/7ee9b9169c36399a80400b0e2e9ef9bd6b5000af
