@@ -86,6 +86,9 @@ home band). Ideas page goes live 17 Oct.
   with Jacob's approval.
 - `build: render: never` on a section _index hides the list page; PaperMod's
   breadcrumb then shows that section as a link to the page itself.
+- Seal guard: .claude/settings.json runs scripts/hooks/guard_open_pages.py before
+  Edit/MultiEdit/Write and refuses a change to a sealed open page's body
+  (front matter passes). To remove it, delete that PreToolUse entry.
 - Git Bash rewrites leading-slash arguments: prefix MSYS_NO_PATHCONV=1.
 - PaperMod's own opengraph/twitter partials are overridden in layouts/partials/templates/.
 
