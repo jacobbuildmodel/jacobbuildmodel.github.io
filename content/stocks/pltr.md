@@ -123,11 +123,13 @@ defence work is widely known while the commercial customer list largely is not.
 
 **Who competes, and here the answer is genuinely surprising.**
 
+<!-- vale Site.We = NO -->
 **Palantir's annual report does not name a single competitor.** What it says instead is this: *"We are
 fundamentally competing with the internal software development efforts of our potential customers.
 Organizations frequently attempt to build their own data platforms before turning to buy ours."* It
 then describes competitors only by category: large enterprise software companies, government
 contractors, and system integrators.
+<!-- vale Site.We = YES -->
 
 So the company's own stated main rival is its customers' in-house engineering departments, meaning the
 option of not buying anything and building it yourself. Every other name commonly listed against
@@ -180,8 +182,7 @@ outvote the founders.
 
 The quarter's revenue was $1.935 billion. Profit from operations, meaning actually selling and
 delivering the software, was **$912 million, a 47% margin**. But the reported net profit was **$1.062
-billion, a 55% margin**: *higher* than the operating profit, which is unusual and should always prompt
-a look.
+billion, a 55% margin**: *higher* than the operating profit, which is unusual.
 
 Two things create the gap. Interest and other income of about **$169 million**, earned on a $9.4
 billion pile of cash and investments rather than on software. And tax: the company paid **$15.4 million
