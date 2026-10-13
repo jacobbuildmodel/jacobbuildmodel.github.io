@@ -35,21 +35,14 @@ main: 23 sealed, 9 held, 9 failed, 5 neither (front-matter params feed the
 home band). Ideas page goes live 17 Oct.
 
 ## Open work, with the exact next step
-- Site PR #17 (erp-pubday): Jacob merges on 17 Oct, not before (scorecard
-  27/10/11/6, Brier 0.194 over 4; marks coe-or-erp answered). It CONFLICTS in
-  .vale.ini: resolve by keeping both one-file sections,
-  [content/open/2026-09-26-coe-or-erp.md] Site.Jargon = NO and
-  [content/researchers/singapore-dollar.md] Site.Acronyms = NO. Then rerun
-  Vale and scripts/check_open_pages.py.
-- coe-analysis PR #5 (sgd-review, d57f873): the article and researcher page
-  after four outside reviews, plus the new sgd/figs/sgd_chart4_rolling.svg.
-  NOT merged on 11 Oct. After Jacob merges it: branch sgd-final from site
-  main, copy sgd/2026-11-14.md -> content/economics/2026-11-14.md and
-  sgd/FOR_RESEARCHERS.md -> content/researchers/singapore-dollar.md, changing
-  only `draft: true` -> `draft: false`. Copy changed charts and chart 4 to
-  static/figs/ (md5 identical). Screenshots, Vale, open-pages check, PR.
-- PWM publication day (31 Oct) and SGD publication day (14 Nov): one PR each,
-  by .claude/skills/site-pubday (scorecard + open page answered). Not yet opened.
+- Site PR #17 (erp-pubday, head 2c795b2): MERGEABLE and CLEAN, with lint,
+  open-pages and vale green; the .vale.ini conflict is resolved (checked 13
+  Oct). Jacob merges on 17 Oct after 08:00 SGT, not before (scorecard
+  27/10/11/6, Brier 0.194 over 4; marks coe-or-erp answered).
+- SGD site copy: done in site PR #32 (sgd-final, merged 11 Oct).
+- PWM publication day (merge 31 Oct) and SGD publication day (merge 14 Nov):
+  one PR each, by .claude/skills/site-pubday (scorecard + open page
+  answered). They come on later cards. Not yet opened.
 - Branches ending -previews hold PR screenshots only; delete after review.
   Many merged feature branches remain; delete only if Jacob says so.
 
