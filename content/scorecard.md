@@ -1,5 +1,5 @@
 ---
-title: "23 sealed predictions: 9 held, 9 failed"
+title: "27 sealed predictions: 10 held, 11 failed"
 question: "How often has this site been wrong?"
 date: 2026-10-03
 draft: false
@@ -9,12 +9,12 @@ summary: "Every prediction this site wrote down and sealed before opening the da
 # Read by the home page band (layouts/partials/track_record.html). Keep these
 # equal to the counts this page states. brier and brierN stay empty until the
 # page states a Brier score; the band then adds its calibration line.
-sealed: 23
-held: 9
-failed: 9
-neither: 5
-brier: ""
-brierN: ""
+sealed: 27
+held: 10
+failed: 11
+neither: 6
+brier: 0.194
+brierN: 4
 menu:
   main:
     name: "Scorecard"
@@ -23,7 +23,7 @@ menu:
 
 > Before any data is opened, each piece writes its predictions into a file called
 > `THESIS.md` and seals it in a dated commit. This page is what happened next.
-> Of 23 sealed predictions, 9 held, 9 failed, and 5 landed in between.
+> Of 27 sealed predictions, 10 held, 11 failed, and 6 landed in between.
 
 A method that never fails is not being tested. This page exists so that anyone can
 check how often this one does, without reading a single article first.
@@ -32,15 +32,42 @@ check how often this one does, without reading a single article first.
 
 | Piece | Held | Failed | Neither |
 |---|---|---|---|
+| [COE or ERP](/economics/2026-10-17/) | 1 | 2 | 1 |
 | [HDB loan vs bank loan](/economics/2026-10-03/) | 5 | 3 | 0 |
 | [HDB affordability](/economics/2026-09-19/) | 3 | 2 | 4 |
-| [GST pass-through](/economics/2026-09-08/) | 1 | 4 | 1 |
-| **Total** | **9** | **9** | **5** |
+| [GST rises](/economics/2026-09-08/) | 1 | 4 | 1 |
+| **Total** | **10** | **11** | **6** |
 
 **Held** means the sealed prediction survived. **Failed** means it did not, and the
 article says so. **Neither** means the result landed between the pass and fail lines
 written in advance, or no verdict was recorded, and it is not rounded to either side.
 Each piece is scored again against newer data twelve months after it is published.
+
+**Calibration.** From the COE or ERP piece on, each sealed prediction also carries
+a confidence, written before the data was opened. The first four: 1 of 4 held,
+against 1.9 expected from those confidences. Brier score 0.194, where 0 is perfect
+and a flat 50 per cent on everything scores 0.25.
+
+## COE or ERP: which one actually keeps Singapore's roads moving?
+
+[Roads got about a quarter more crowded. Speeds held.](/economics/2026-10-17/)
+Sealed 26 September 2026. Revisit 17 October 2027.
+
+- **Failed.** Every scored year's average peak speed would sit inside the Land
+  Transport Authority's target band: 45 to 65 km/h on expressways, 20 to 30 km/h
+  on arterial roads. Confidence 35%. Result: arterial roads ran above the band in
+  2016 (30.4 km/h) and 2023 (31 km/h). No year fell below either band.
+- **Held.** Once road space is allowed for, peak speed would barely move as cars
+  per lane-kilometre changed. Confidence 65%. Result: from 2005 to 2017 crowding
+  rose 22 per cent on expressways and 25 per cent on arterial roads; expressway
+  speed did not move with it, and arterial speed rose.
+- **Failed.** Cars would be driven no more than 3 per cent less in the seven
+  dearest COE years than in the seven cheapest. Confidence 20%. Result: 11.0 per
+  cent less, 17,600 km per car against 19,772.
+- **Neither.** Once the number of cars is known, the COE premium would add nothing
+  to explaining peak speed. Confidence 70%. Result: true on expressways; on
+  arterial roads the premium still carried information, which is neither the pass
+  nor the fail line.
 
 ## Was the HDB loan really cheaper than a bank's?
 
@@ -107,13 +134,8 @@ Sealed 4 September 2026. Revisit 8 September 2027.
 - **Neither.** Some, but fewer than half, of price categories would over-shoot the
   tax. Result: 6 of 162 did; no verdict was recorded against the sealed wording.
 - **Failed.** Januaries with no tax change would show no step. Result: they showed
-  steps as large as the tax, so no national pass-through number could be published.
-
-## Sealed, answer pending
-
-Four predictions on whether COE or ERP keeps Singapore's roads moving were
-sealed on 26 September 2026, each with a confidence. They are not counted
-above until the answer is in. [Read the bets](/open/2026-09-26-coe-or-erp/).
+  steps as large as the tax, so no national figure for how much of the GST reached
+  prices could be published.
 
 ## Before the rule existed
 
