@@ -26,7 +26,7 @@ researcher, never the checker, never the one who merges.
 | 3 Oct | HDB loan vs bank | hdb-affordability | live; scored |
 | 17 Oct | ERP: roads more crowded, speeds held | coe-analysis/erp | sealed 26 Sep; data opened; article on main, hidden until 17 Oct |
 | 31 Oct | PWM: the floor became the pay | coe-analysis/pwm | sealed 28 Sep; data opened; article on main, hidden until 31 Oct |
-| 14 Nov | SGD: the yen did most of the work | coe-analysis/sgd | sealed 3 Oct (9e46034); data opened; article + /researchers/singapore-dollar/ on main, hidden until 14 Nov; reviewed version pending (below) |
+| 14 Nov | SGD: the yen did most of the work | coe-analysis/sgd | sealed 3 Oct (9e46034); data opened; article + /researchers/singapore-dollar/ on main, hidden until 14 Nov; reviewed version copied in site PR #32; the 14 Nov PR is the scorecard and open-page update |
 
 Open question pages (content/open/): coe-or-erp, minimum-wage-or-pwm,
 singapore-dollar. Each is sealed: its body md5 is in data/open_seals.yaml. The
