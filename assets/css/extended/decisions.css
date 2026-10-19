@@ -1,0 +1,95 @@
+/* Decisions section: the decision strip, Figure 1 (the LTA mechanism road),
+   "What I sent" and the changelog. See layouts/partials/decision_strip.html,
+   lta_road.html and lta_road_panel.html.
+
+   Figure colours: navy ink #1f3a5f and one accent #c2410c, the accent only
+   for the BYD Sealion 7 pair. No red or green: the sign of each amount
+   carries the meaning. Dark mode follows the site's own switch,
+   :root[data-theme="dark"] (see custom.css on why not ".dark"). */
+:root {
+  --lr-ink:    #1f3a5f;
+  --lr-accent: #c2410c;   /* 5.18:1 on white */
+  --lr-road:   #e6eaf0;
+  --lr-edge:   #b9c2ce;
+}
+:root[data-theme="dark"] {
+  --lr-ink:    #9dbbe0;
+  --lr-accent: #f08a4b;
+  --lr-road:   #263040;
+  --lr-edge:   #3a4656;
+}
+
+/* ---- decision strip: text only, 13 px, hairline rule ---- */
+.decision-strip {
+  margin: 0 0 18px;
+  padding: 0 0 8px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--secondary);
+}
+.decision-strip-status { color: var(--primary); font-weight: 600; }
+.decision-strip-item { white-space: nowrap; }
+
+/* ---- Figure 1 ---- */
+.lta-road {
+  margin: 28px 0;
+  max-width: 560px;
+  display: grid;
+  gap: 8px;
+}
+.lta-road-caption { font-size: 15px; font-weight: 600; color: var(--primary); }
+.lta-road-panel-title,
+.lta-road-option-title { margin: 8px 0 0; font-size: 14px; font-weight: 600; color: var(--lr-ink); }
+.lta-road-js .lta-road-option-title { display: none; }
+.lta-road-svg { display: block; width: 100%; height: auto; }
+.lta-road-callout { margin: 0; font-size: 14px; font-weight: 600; color: var(--lr-accent); }
+.lta-road-note { margin: 0; font-size: 13px; line-height: 1.45; color: var(--secondary); }
+
+.lr-edge { fill: none; stroke: var(--lr-edge); }
+.lr-road { fill: none; stroke: var(--lr-road); }
+.lr-label { font-size: 13px; font-weight: 600; fill: var(--primary); }
+.lr-amt   { font-size: 15px; font-weight: 700; fill: var(--lr-ink); }
+.lr-band  { font-size: 12px; fill: var(--secondary); }
+.lr-fork  { font-size: 12px; fill: var(--secondary); }
+.lr-trim  { font-size: 12px; font-weight: 600; fill: var(--lr-accent); }
+.lr-dot   { fill: var(--lr-accent); }
+.lr-link  { stroke: var(--lr-accent); stroke-width: 1.5; stroke-dasharray: 3 3; fill: none; }
+
+/* the segmented control: two buttons, 44 px tall, no animation */
+.lta-road-switch {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid var(--lr-ink);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.lta-road-switch[hidden] { display: none; }
+.lta-road-switch button {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 0;
+  background: transparent;
+  color: var(--lr-ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.lta-road-switch button + button { border-left: 1px solid var(--lr-ink); }
+.lta-road-switch button[aria-pressed="true"] { background: var(--lr-ink); color: var(--theme); }
+.lta-road-switch button:focus-visible { outline: 3px solid var(--lr-accent); outline-offset: -3px; }
+
+/* the table under the figure */
+.lta-road-table { font-size: 14px; }
+.lta-road-table summary { cursor: pointer; font-weight: 600; color: var(--lr-ink); min-height: 32px; }
+.lta-road-table-scroll { overflow-x: auto; }
+.post-content .lta-road-table table { margin: 8px 0 0; font-variant-numeric: tabular-nums; }
+.lta-road-marked td { color: var(--lr-accent); font-weight: 600; }
+
+/* ---- What I sent, changelog ---- */
+.decision-sent { margin: 28px 0 0; }
+.decision-sent h2 { font-size: 20px; margin: 0 0 8px; }
+.decision-changelog { margin: 16px 0 0; font-size: 13px; color: var(--secondary); }
+.decision-changelog-label { font-weight: 600; }

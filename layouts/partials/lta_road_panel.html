@@ -1,0 +1,62 @@
+{{- /* One "fork" panel of the LTA road figure: a single lane for all cars
+       splitting into bands. Band order only (EDGE_C 3.2 option b): LTA
+       publishes no OMV by model, so there is no value axis and no claim
+       about where a model sits inside its band.
+
+       Called by lta_road.html with a dict:
+         id     unique prefix for title/desc ids
+         n      number of bands (3 or 5)
+         h, s   lane height and lane pitch, in viewBox units
+         amts   signed amount per band, as display text
+         forks  LTA's percentile at each fork, as display text (n-1 items)
+         dyn    0-based band of the BYD Sealion 7 Dynamic
+         perf   0-based band of the BYD Sealion 7 Performance
+         gap    the two trims' difference, as display text
+       The viewBox is 360 wide, close to the 362 px content column at a
+       390 px phone, so 12 px type renders at about 12 px. */}}
+{{- $n := .n }}
+{{- $h := .h }}
+{{- $s := .s }}
+{{- $top := 8.0 }}
+{{- $W := 360.0 }}
+{{- $cy := slice }}
+{{- range $i := seq 0 (sub $n 1) }}
+  {{- $cy = $cy | append (add (add $top (div $h 2.0)) (mul $i $s)) }}
+{{- end }}
+{{- $first := index $cy 0 }}
+{{- $last := index $cy (sub $n 1) }}
+{{- $ym := div (add $first $last) 2.0 }}
+{{- $H := add (add $last (div $h 2.0)) $top }}
+{{- $x1 := 58.0 }}{{ $x2 := 126.0 }}{{ $tx := 134.0 }}{{ $dx := 240.0 }}
+{{- $paths := slice }}
+{{- range $cy }}
+  {{- $paths = $paths | append (printf "M0,%.1f L%.1f,%.1f C%.1f,%.1f %.1f,%.1f %.1f,%.1f L%.1f,%.1f" $ym $x1 $ym (add $x1 34.0) $ym (sub $x2 34.0) . $x2 . $W .) }}
+{{- end }}
+{{- $words := dict "3" "three" "5" "five" }}
+{{- $word := index $words (string $n) }}
+{{- $forkList := delimit .forks ", " " and " }}
+<svg class="lta-road-svg" viewBox="0 0 {{ $W }} {{ printf "%.0f" $H }}" role="img" aria-labelledby="{{ .id }}-t {{ .id }}-d">
+  <title id="{{ .id }}-t">One category for all cars, forked into {{ $word }} bands</title>
+  <desc id="{{ .id }}-d">One lane for all cars forks into {{ $word }} bands at the {{ $forkList }} percentiles of 2025 registrations, from a $15,000 rebate to a $15,000 surcharge. The BYD Sealion 7 Dynamic is in Band {{ add .dyn 1 }} and the Performance trim in Band {{ add .perf 1 }}, {{ .gap }} apart.</desc>
+  {{- range $paths }}
+  <path d="{{ . }}" class="lr-edge" stroke-width="{{ add $h 2.0 }}"/>
+  {{- end }}
+  {{- range $paths }}
+  <path d="{{ . }}" class="lr-road" stroke-width="{{ $h }}"/>
+  {{- end }}
+  <text x="6" y="{{ printf "%.1f" (add $ym 4.0) }}" class="lr-label">All cars</text>
+  {{- range $i, $y := $cy }}
+  <text x="{{ $tx }}" y="{{ printf "%.1f" (sub $y 1.0) }}" class="lr-amt">{{ index $.amts $i | safeHTML }}</text>
+  <text x="{{ $tx }}" y="{{ printf "%.1f" (add $y 13.0) }}" class="lr-band">Band {{ add $i 1 }} of {{ $n }}</text>
+  {{- end }}
+  {{- range $i, $f := .forks }}
+  <text x="{{ $tx }}" y="{{ printf "%.1f" (add (add (index $cy $i) (div $s 2.0)) 4.0) }}" class="lr-fork">{{ $f }} percentile</text>
+  {{- end }}
+  {{- $yd := index $cy .dyn }}
+  {{- $yp := index $cy .perf }}
+  <line x1="{{ $dx }}" y1="{{ printf "%.1f" (add $yd 7.0) }}" x2="{{ $dx }}" y2="{{ printf "%.1f" (sub $yp 7.0) }}" class="lr-link"/>
+  <circle cx="{{ $dx }}" cy="{{ printf "%.1f" $yd }}" r="5" class="lr-dot"/>
+  <circle cx="{{ $dx }}" cy="{{ printf "%.1f" $yp }}" r="5" class="lr-dot"/>
+  <text x="{{ add $dx 10.0 }}" y="{{ printf "%.1f" (add $yd 4.0) }}" class="lr-trim">Dynamic</text>
+  <text x="{{ add $dx 10.0 }}" y="{{ printf "%.1f" (add $yp 4.0) }}" class="lr-trim">Performance</text>
+</svg>

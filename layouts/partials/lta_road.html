@@ -1,0 +1,103 @@
+{{- /* Figure 1 of the LTA COE one-pager: the mechanism road.
+       Panel A: Categories A and B merge into one lane.
+       Panel B: that lane forks into bands, three or five (LTA's two options),
+       with the two BYD Sealion 7 trims marked on either side of a fork.
+
+       Band order only: LTA publishes no OMV by model, so there is no value
+       axis. Every model LTA names, and its band under both options, is in
+       the table below the figure, read from assets/decisions/lta_coe_bands.csv
+       (model, band_three, band_five).
+
+       Without JavaScript both Panel B options stack, each with its own
+       heading. With JavaScript a two-button control shows one at a time;
+       nothing animates. Inline SVG, role="img" with title and desc.
+       Colours: navy ink and one accent (#c2410c), the accent only for the
+       Sealion pair; the sign of each amount carries the meaning. */}}
+{{- $minus := "&#8722;" }}
+{{- $three := dict
+      "id" "lta-road-b3" "n" 3 "h" 40.0 "s" 60.0
+      "amts" (slice (printf "%s$15,000" $minus) "$0" "+$15,000")
+      "forks" (slice "35th" "50th")
+      "dyn" 1 "perf" 2 "gap" "$15,000" }}
+{{- $five := dict
+      "id" "lta-road-b5" "n" 5 "h" 34.0 "s" 50.0
+      "amts" (slice (printf "%s$15,000" $minus) (printf "%s$7,500" $minus) "$0" "+$7,500" "+$15,000")
+      "forks" (slice "10th" "35th" "50th" "75th")
+      "dyn" 2 "perf" 3 "gap" "$7,500" }}
+{{- $csv := "https://github.com/jacobbuildmodel/coe-analysis/blob/main/lta-ab/out/bands.csv" }}
+<figure class="lta-road" id="figure-1">
+  <figcaption class="lta-road-caption">Figure 1. One category for all cars, forked into bands by the car's value (as proposed)</figcaption>
+
+  <p class="lta-road-panel-title">A. Two categories become one</p>
+  <svg class="lta-road-svg" viewBox="0 0 360 108" role="img" aria-labelledby="lta-road-a-t lta-road-a-d">
+    <title id="lta-road-a-t">Two categories become one</title>
+    <desc id="lta-road-a-d">Two lanes, Category A and Category B, merge into one category for all cars, as LTA proposes.</desc>
+    <path d="M0,28 L100,28 C140,28 140,54 180,54 L360,54" class="lr-edge" stroke-width="36"/>
+    <path d="M0,80 L100,80 C140,80 140,54 180,54 L360,54" class="lr-edge" stroke-width="36"/>
+    <path d="M0,28 L100,28 C140,28 140,54 180,54 L360,54" class="lr-road" stroke-width="34"/>
+    <path d="M0,80 L100,80 C140,80 140,54 180,54 L360,54" class="lr-road" stroke-width="34"/>
+    <text x="8" y="32.5" class="lr-label">Category A</text>
+    <text x="8" y="84.5" class="lr-label">Category B</text>
+    <text x="190" y="58.5" class="lr-label">One category (proposed)</text>
+  </svg>
+
+  <p class="lta-road-panel-title">B. One category, forked into bands</p>
+  <div class="lta-road-switch" role="group" aria-label="Number of bands" hidden>
+    <button type="button" data-show="three" aria-pressed="true">Three bands</button>
+    <button type="button" data-show="five" aria-pressed="false">Five bands</button>
+  </div>
+  <p class="lta-road-callout">BYD Sealion 7, two trims: $15,000 apart under three bands, $7,500 under five</p>
+  <div class="lta-road-option" data-option="three">
+    <p class="lta-road-option-title">Three bands</p>
+    {{- partial "lta_road_panel.html" $three }}
+  </div>
+  <div class="lta-road-option" data-option="five">
+    <p class="lta-road-option-title">Five bands</p>
+    {{- partial "lta_road_panel.html" $five }}
+  </div>
+
+  <p class="lta-road-note">Notes: LTA sets the bands by percentile of 2025 registrations, ranking each model by its median open market value (OMV), roughly the car's price before taxes. LTA publishes no dollar cut-offs and no OMV by model, so each fork is labelled by its percentile, and lanes show band order only, not where a model sits inside its band. Amounts are as proposed, not final.</p>
+  <p class="lta-road-note">Sources: LTA, Public Consultation on COE Categorisation for Cars, 8 October 2026, paragraphs 2.15 to 2.18 and Tables 1 and 2. Data: <a href="{{ $csv }}">bands.csv</a> (every model LTA names, with its band under both options).</p>
+
+  {{- $rows := slice }}
+  {{- with resources.Get "decisions/lta_coe_bands.csv" }}{{ $rows = . | transform.Unmarshal }}{{ end }}
+  {{- with $rows }}
+  {{- $amt3 := slice (printf "%s$15,000" $minus) "$0" "+$15,000" }}
+  {{- $amt5 := slice (printf "%s$15,000" $minus) (printf "%s$7,500" $minus) "$0" "+$7,500" "+$15,000" }}
+  <details class="lta-road-table">
+    <summary>Table: every model LTA names, and its band under both options ({{ sub (len .) 1 }} models)</summary>
+    <div class="lta-road-table-scroll">
+    <table>
+      <thead><tr><th scope="col">Model</th><th scope="col">Three bands</th><th scope="col">Five bands</th></tr></thead>
+      <tbody>
+      {{- range after 1 . }}
+        {{- $m := index . 0 }}{{ $b3 := int (index . 1) }}{{ $b5 := int (index . 2) }}
+        <tr{{ if in $m "Sealion 7" }} class="lta-road-marked"{{ end }}>
+          <td>{{ $m }}</td>
+          <td>Band {{ $b3 }}, {{ index $amt3 (sub $b3 1) | safeHTML }}</td>
+          <td>Band {{ $b5 }}, {{ index $amt5 (sub $b5 1) | safeHTML }}</td>
+        </tr>
+      {{- end }}
+      </tbody>
+    </table>
+    </div>
+  </details>
+  {{- end }}
+</figure>
+<script>
+(function () {
+  var fig = document.getElementById("figure-1");
+  if (!fig) return;
+  var sw = fig.querySelector(".lta-road-switch");
+  var opts = fig.querySelectorAll(".lta-road-option");
+  var btns = sw.querySelectorAll("button");
+  function show(which) {
+    opts.forEach(function (o) { o.hidden = o.getAttribute("data-option") !== which; });
+    btns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-show") === which)); });
+  }
+  btns.forEach(function (b) { b.addEventListener("click", function () { show(b.getAttribute("data-show")); }); });
+  fig.classList.add("lta-road-js");
+  sw.hidden = false;
+  show("three");
+})();
+</script>

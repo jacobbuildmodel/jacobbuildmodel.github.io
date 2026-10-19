@@ -1,0 +1,30 @@
+{{- /* Decision strip: one line of text across the top of a page in the
+       decisions section, fed by front matter, so the reader knows within a
+       glance whose decision it is and whether it is still open.
+
+         decider     "LTA"
+         decision    "COE categories for cars"
+         opened      "8 Oct 2026"
+         closes      "2 Nov 2026, 23:59"
+         status      one word: Open, Closed, Decided, In force, Scored
+         reply_sent  "15 Oct 2026, 00:44"
+
+       Text only. Status is a word, never a colour, so the strip reads the
+       same in print and for colour-blind readers. Missing fields are left
+       out rather than rendered empty. */}}
+{{- $p := .Params }}
+{{- $items := slice }}
+{{- with $p.decider }}{{ $items = $items | append (dict "text" .) }}{{ end }}
+{{- with $p.decision }}{{ $items = $items | append (dict "text" .) }}{{ end }}
+{{- with $p.opened }}{{ $items = $items | append (dict "text" (printf "Opened %s" .)) }}{{ end }}
+{{- with $p.closes }}{{ $items = $items | append (dict "text" (printf "Closes %s" .)) }}{{ end }}
+{{- with $p.status }}{{ $items = $items | append (dict "label" "Status:" "text" .) }}{{ end }}
+{{- with $p.reply_sent }}{{ $items = $items | append (dict "text" (printf "Reply sent %s" .)) }}{{ end }}
+{{- with $items }}
+<p class="decision-strip" aria-label="Decision">
+  {{- range $i, $it := . }}
+  {{- if $i }}<span class="decision-strip-sep" aria-hidden="true"> &middot; </span>{{ end }}
+  <span class="decision-strip-item">{{ with $it.label }}{{ . }} <b class="decision-strip-status">{{ $it.text }}</b>{{ else }}{{ $it.text }}{{ end }}</span>
+  {{- end }}
+</p>
+{{- end }}
