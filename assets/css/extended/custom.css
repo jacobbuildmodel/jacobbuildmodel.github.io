@@ -597,6 +597,7 @@ main .post-content > p { margin-bottom: 1em; }
 }
 /* Start-here box (layouts/partials/start_here.html): three pieces for a
    first-time reader, above the Track record band, in the same box. */
+.start-here .open-strip-title { color: var(--accent); }
 .start-here-list { margin: 4px 0 0; padding: 0; list-style: none; }
 .start-here-list li { margin: 8px 0 0; line-height: 1.4; }
 .start-here-list a { color: var(--primary); font-weight: 500; }
