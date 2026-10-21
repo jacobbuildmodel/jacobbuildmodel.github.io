@@ -74,8 +74,9 @@ home band). Ideas page goes live 17 Oct.
 - Windows core.autocrlf: working copies are CRLF, so md5s, the open-pages seal
   check and Vale's front-matter parsing all fail falsely. Run checks in
   `git -c core.autocrlf=false clone`; compare committed blobs (`git cat-file -p HEAD:path | md5sum`).
-- Hugo edits go.mod and creates go.sum: `git checkout -- go.mod; rm go.sum`
-  before commit. Never commit public/, resources/, .hugo_build.lock.
+- The PaperMod theme is pinned in go.mod and go.sum (v0.0.0-20260802175912-d3768854d00a,
+  since 21 Oct); upgrading it means upgrading Hugo too, in its own PR. Never
+  commit public/, resources/, .hugo_build.lock.
 - Scheduled deploys (00:30 and 01:30 UTC) start about 5-6 hours late. If a
   page must be up at 08:30 Singapore, Jacob runs the workflow by hand.
 - SingStat TableBuilder serves at most 5,000 points per request: page with `&offset=5000, 10000, ...`.
