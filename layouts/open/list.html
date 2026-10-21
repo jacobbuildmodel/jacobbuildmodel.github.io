@@ -1,0 +1,64 @@
+{{- define "main" }}
+{{- /* /open/: the open questions, split in two by the same test the home
+       page strip uses (partials/answered_verdict.html): a page counts as
+       answered once its front matter has `answered` AND the verdict page it
+       points to is built. Until then it stays under "Still open", so a
+       verdict merged ahead of its date never shows early.
+
+         Still open  the default cards, as before (title and summary)
+         Answered    title, the date the verdict went live, and a link to it.
+                     The page's own summary ("The answer is due ...") is not
+                     shown here: it was written before the answer existed.
+
+       The pages themselves are untouched: sealed bodies, front matter and
+       summaries stay exactly as published. */}}
+
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">
+    {{ .Description | markdownify }}
+  </div>
+  {{- end }}
+</header>
+
+{{- if .Content }}
+<div class="post-content md-content">
+  {{- if not (.Param "disableAnchoredHeadings") }}
+  {{- partial "anchored_headings.html" .Content -}}
+  {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }}
+
+{{- $open := slice }}
+{{- $answered := slice }}
+{{- range $p := .RegularPages }}
+  {{- with partial "answered_verdict.html" $p }}
+    {{- $answered = $answered | append (dict "page" $p "verdict" .) }}
+  {{- else }}
+    {{- $open = $open | append $p }}
+  {{- end }}
+{{- end }}
+
+{{- with $open }}
+<h2 class="open-index-group" id="still-open">Still open</h2>
+{{- range sort . "Date" "desc" }}
+{{- partial "entry_card.html" (dict "page" . "class" "post-entry") }}
+{{- end }}
+{{- end }}
+
+{{- with $answered }}
+<h2 class="open-index-group" id="answered">Answered</h2>
+<ul class="open-index-answered">
+  {{- range sort . "verdict.Date" "desc" }}
+  <li>
+    <a class="open-index-q" href="{{ .page.RelPermalink }}">{{ .page.Title }}</a>
+    <span class="open-index-when">Answered {{ .verdict.Date | time.Format site.Params.DateFormat }}</span>
+    <a class="open-index-verdict" href="{{ .verdict.RelPermalink }}">Read the verdict: {{ .verdict.Title }}</a>
+  </li>
+  {{- end }}
+</ul>
+{{- end }}
+
+{{- end }}{{- /* end main */ -}}
