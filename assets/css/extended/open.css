@@ -1,0 +1,25 @@
+/* /open/ index (layouts/open/list.html): the "Still open" and "Answered"
+   groups. Group headings follow the home page's open-strip title: small
+   uppercase, accent colour. */
+.open-index-group {
+  margin: 28px 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.open-index-answered { margin: 0; padding: 0; list-style: none; }
+.open-index-answered li {
+  margin: 0 0 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--entry);
+  display: grid;
+  gap: 4px;
+  line-height: 1.4;
+}
+.open-index-q { color: var(--primary); font-weight: 600; font-size: 17px; box-shadow: none; }
+.open-index-when { font-size: 13px; color: var(--secondary); }
+.open-index-verdict { color: var(--accent); font-weight: 600; font-size: 15px; }
