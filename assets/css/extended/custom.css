@@ -376,6 +376,19 @@ main .post-content > p { margin-bottom: 1em; }
   gap: 1px;
   padding-top: 6px;
 }
+/* The site title ("Jacob Ong: Economics with a Scorecard", 22 Oct 2026)
+   wraps to two lines on a phone. PaperMod sets the header's line height to
+   its 60px height, sized for a one-line title, so a wrapped title showed a
+   60px gap between its lines and pushed the theme toggle onto a row of its
+   own. On narrow screens only: normal line height for the title, and the
+   toggle kept beside it. Desktop, where the title fits on one line, is
+   unchanged. */
+@media screen and (max-width: 768px) {
+  .logo { flex-wrap: nowrap; align-items: flex-start; }
+  .logo-title-group { min-width: 0; }
+  .logo a { line-height: 1.25; }
+  .logo-switches { flex-shrink: 0; margin-top: 8px; }
+}
 .masthead-byline {
   font-size: 0.8em;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
