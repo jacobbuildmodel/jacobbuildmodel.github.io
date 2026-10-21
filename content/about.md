@@ -57,9 +57,8 @@ wrong. The rules are what's left after that.
 
 ## Where this goes
 
-I'm working toward the FMVA certification and the rest of the CFI programme now,
-economics at university after that, and the CFA charter somewhere further down the
-road.
+Next comes economics at university. I completed the FMVA certification in October
+2026, and the CFA charter is somewhere further down the road.
 
 ## Away from the screen
 

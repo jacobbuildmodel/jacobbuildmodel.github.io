@@ -557,6 +557,7 @@ main .post-content > p { margin-bottom: 1em; }
    Same box as the open-questions strip, so the three read as one column of
    the same kind of thing. Held and failed are set identically: no colour
    tells the reader which outcome is the good one. */
+.start-here,
 .track-band,
 .answered-strip {
   margin: 0 0 var(--gap);
@@ -594,6 +595,12 @@ main .post-content > p { margin-bottom: 1em; }
   color: var(--primary);
   font-variant-numeric: tabular-nums;
 }
+/* Start-here box (layouts/partials/start_here.html): three pieces for a
+   first-time reader, above the Track record band, in the same box. */
+.start-here-list { margin: 4px 0 0; padding: 0; list-style: none; }
+.start-here-list li { margin: 8px 0 0; line-height: 1.4; }
+.start-here-list a { color: var(--primary); font-weight: 500; }
+.start-here-when { font-size: 0.85rem; color: var(--secondary); white-space: nowrap; }
 .track-band-more { margin: 8px 0 0; font-size: 0.9rem; }
 .track-band-more a {
   color: var(--accent);
