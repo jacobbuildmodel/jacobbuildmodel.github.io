@@ -140,11 +140,9 @@ when that instruction was drafted and isn't anymore.
   forward (Go is now installed) since it costs nothing and matches CI
   exactly  -  just don't assume a discrepancy means the modules path is
   broken.
-- **`hugo mod get` / any `hugo` command that resolves modules rewrites
-  `go.mod` and creates `go.sum`.** Neither should ever be committed  -  CI's
-  own `hugo mod get` step regenerates them fresh every run. If `git status`
-  shows them dirty, `git checkout -- go.mod && rm -f go.sum` before
-  committing anything.
+- **`go.mod` and `go.sum` pin the theme** (since PR #42, 21 Oct 2026): both
+  are tracked on purpose, and CI checks that a build leaves them unchanged.
+  If a build changes them, stop and report; do not commit the change.
 - **`partialCached` in the theme's `baseof.html` can serve a stale render**
   across a `hugo server` session when only the cached partial's *template*
   changes (header.html edits didn't show up until the server was

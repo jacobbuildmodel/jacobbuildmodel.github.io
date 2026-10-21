@@ -57,8 +57,9 @@ hand-back, never fixed by rewording the sealed text.
 13. Screenshots with Playwright at 390px and 1280px wide, light and dark
     (emulated colorScheme): the new page, /open/, and the home page's open
     questions strip. No clipped or overlapping text. Attach to the PR body.
-14. Strip Hugo build artifacts before committing: `git checkout -- go.mod`,
-    remove go.sum, public/, resources/, .hugo_build.lock.
+14. Strip Hugo build artifacts before committing: remove public/,
+    resources/, .hugo_build.lock. go.mod and go.sum pin the theme: if a
+    build changes them, stop and report; do not commit the change.
 15. Commit the page, push, and open the PR against main. Never merge.
 16. On the same branch, add the page's entry to data/open_seals.yaml: `path`,
     `body_md5` (md5 of everything after the closing `---`; the "no entry"
