@@ -5,7 +5,7 @@
 
 baseURL        = "https://jacobbuildmodel.github.io/"
 languageCode   = "en-us"
-title          = "Jacob | Market Research"          # EDIT — your public site name
+title          = "Jacob Ong: Economics with a Scorecard"          # EDIT — your public site name
 enableRobotsTXT = true
 buildDrafts    = false
 buildFuture    = false
