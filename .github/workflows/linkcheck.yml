@@ -65,13 +65,20 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Fetch theme
-        run: hugo mod get github.com/adityatelange/hugo-PaperMod
+      - name: Fetch theme (pinned in go.mod and go.sum, never the latest)
+        # A bare "hugo mod get <module>" here moved to PaperMod's newest
+        # release on every run; its 18 Oct 2026 release needs Hugo 0.158+, so
+        # every build failed from 19 Oct. The version now lives in go.mod and
+        # go.sum. Upgrading the theme means upgrading Hugo too, in its own PR.
+        run: |
+          hugo mod verify
+          hugo mod graph | grep -F "hugo-PaperMod@v0.0.0-20260802175912-d3768854d00a"
 
       - name: Build, as live today and with future pages
         run: |
           hugo --gc --minify -d public
           hugo --gc --minify --buildFuture -d public-future
+          git diff --exit-code -- go.mod go.sum
 
       - name: Check links
         env:
