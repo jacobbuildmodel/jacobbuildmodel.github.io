@@ -1,0 +1,29 @@
+{{- /* layouts/partials/start_here.html
+   Home page, page 1 only: three pieces for a first-time reader, then a link
+   to the scorecard. Sits directly above the Track record band and uses the
+   same box as the home strips.
+
+   Each piece is found with site.GetPage, so a moved or renamed page stops the
+   build here instead of leaving a broken link. The failure count is read from
+   content/scorecard.md's front matter ("failed"), never typed, so it follows
+   the scorecard on every publication day. The line texts are fixed, as
+   written for this box (22 October 2026). */ -}}
+{{- $picks := slice
+      (dict "path" "/economics/2026-08-22" "text" "The COE quota went up 62%. Prices tripled anyway." "when" "22 Aug")
+      (dict "path" "/economics/2026-09-08" "text" "You can only see the GST rise in your water bill." "when" "8 Sep")
+      (dict "path" "/economics/2026-10-17" "text" "COE or ERP: roads got about a quarter more crowded; speeds held." "when" "17 Oct") }}
+<section class="start-here" aria-labelledby="start-here-title">
+  <h2 id="start-here-title" class="open-strip-title">New here? Start with these three.</h2>
+  <ul class="start-here-list">
+    {{- range $picks }}
+    {{- $p := site.GetPage .path }}
+    {{- if not $p }}{{ errorf "start_here.html: no page at %s; update the start-here box" .path }}{{ end }}
+    <li><a href="{{ $p.RelPermalink }}">{{ .text }}</a> <span class="start-here-when">({{ .when }})</span></li>
+    {{- end }}
+  </ul>
+  {{- with site.GetPage "/scorecard" }}
+  {{- $failed := .Param "failed" }}
+  {{- if not (isset .Params "failed") }}{{ errorf "start_here.html: content/scorecard.md has no failed: in its front matter" }}{{ end }}
+  <p class="track-band-more"><a href="{{ .RelPermalink }}">Every sealed prediction, including the {{ $failed }} that failed.</a></p>
+  {{- end }}
+</section>

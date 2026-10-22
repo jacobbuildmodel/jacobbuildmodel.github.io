@@ -63,8 +63,8 @@ been fully removed  -  nothing to clean up later.
 
 **Identity copy.** `hugo.toml` description/keywords and
 `static/img/social-preview.png` no longer describe deleted sections (NEWS,
-SECTOR, STANDOUTS, "weekly market analysis"). Site title stays
-"Jacob | Market Research"  -  Jacob said not to rebrand yet. New description
+SECTOR, STANDOUTS, "weekly market analysis"). Site title is
+"Jacob Ong: Economics with a Scorecard"  -  Jacob's pick, 22 October 2026. New description
 is "Singapore policy, measured with public data.", reused verbatim from the
 live homepage rather than composed fresh.
 

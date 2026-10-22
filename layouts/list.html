@@ -59,6 +59,7 @@
        twice. */}}
 {{- $answeredCount := 3 }}
 {{- if and .IsHome (eq $paginator.PageNumber 1) }}
+{{- partial "start_here.html" . }}
 {{- partial "track_record.html" . }}
 {{- partial "open_questions_strip.html" . }}
 {{- partial "answered_strip.html" (dict "pages" (first $answeredCount $paginator.Pages)) }}

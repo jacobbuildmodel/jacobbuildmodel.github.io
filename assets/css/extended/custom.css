@@ -376,6 +376,19 @@ main .post-content > p { margin-bottom: 1em; }
   gap: 1px;
   padding-top: 6px;
 }
+/* The site title ("Jacob Ong: Economics with a Scorecard", 22 Oct 2026)
+   wraps to two lines on a phone. PaperMod sets the header's line height to
+   its 60px height, sized for a one-line title, so a wrapped title showed a
+   60px gap between its lines and pushed the theme toggle onto a row of its
+   own. On narrow screens only: normal line height for the title, and the
+   toggle kept beside it. Desktop, where the title fits on one line, is
+   unchanged. */
+@media screen and (max-width: 768px) {
+  .logo { flex-wrap: nowrap; align-items: flex-start; }
+  .logo-title-group { min-width: 0; }
+  .logo a { line-height: 1.25; }
+  .logo-switches { flex-shrink: 0; margin-top: 8px; }
+}
 .masthead-byline {
   font-size: 0.8em;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -557,6 +570,7 @@ main .post-content > p { margin-bottom: 1em; }
    Same box as the open-questions strip, so the three read as one column of
    the same kind of thing. Held and failed are set identically: no colour
    tells the reader which outcome is the good one. */
+.start-here,
 .track-band,
 .answered-strip {
   margin: 0 0 var(--gap);
@@ -594,6 +608,13 @@ main .post-content > p { margin-bottom: 1em; }
   color: var(--primary);
   font-variant-numeric: tabular-nums;
 }
+/* Start-here box (layouts/partials/start_here.html): three pieces for a
+   first-time reader, above the Track record band, in the same box. */
+.start-here .open-strip-title { color: var(--accent); }
+.start-here-list { margin: 4px 0 0; padding: 0; list-style: none; }
+.start-here-list li { margin: 8px 0 0; line-height: 1.4; }
+.start-here-list a { color: var(--primary); font-weight: 500; }
+.start-here-when { font-size: 0.85rem; color: var(--secondary); white-space: nowrap; }
 .track-band-more { margin: 8px 0 0; font-size: 0.9rem; }
 .track-band-more a {
   color: var(--accent);
