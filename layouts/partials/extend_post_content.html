@@ -33,12 +33,13 @@
 {{- end }}
 {{- /* Decisions section: components fed by front matter, after the body, so
        the body can stay a byte-for-byte copy of its source text.
-         figure      "lta-road": Figure 1, unless the body already placed it
-                     with {{< lta-road >}}
+         figure      "lta-road": Figure 1, unless the body already placed it,
+                     with {{< lta-road >}} or before the heading named in
+                     figure_before_heading (_markup/render-heading.html)
          sent        date, time, url: the reply as submitted
          changelog   list of one-line entries, newest first */ -}}
 {{- if and (eq .Section "decisions") (not .IsSection) }}
-  {{- if and (eq .Params.figure "lta-road") (not (.HasShortcode "lta-road")) }}
+  {{- if and (eq .Params.figure "lta-road") (not (strings.Contains .Content `id="figure-1"`)) }}
   {{- partial "lta_road.html" . }}
   {{- end }}
   {{- with .Params.sent }}

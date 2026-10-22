@@ -5,15 +5,18 @@
 
        Band order only: LTA publishes no OMV by model, so there is no value
        axis. Every model LTA names, and its band under both options, is in
-       the table below the figure, read from assets/decisions/lta_coe_bands.csv
-       (model, band_three, band_five).
+       the table below the figure, read from assets/decisions/lta_coe_bands.csv,
+       an md5-identical copy of coe-analysis lta-ab/out/bands.csv (model,
+       option_A_band, option_A_amount, option_B_band, option_B_amount, source).
+       The build stops if a row's amount does not match its band's amount.
+       Amounts are written with an ASCII hyphen, as the page text writes them.
 
        Without JavaScript both Panel B options stack, each with its own
        heading. With JavaScript a two-button control shows one at a time;
        nothing animates. Inline SVG, role="img" with title and desc.
        Colours: navy ink and one accent (#c2410c), the accent only for the
        Sealion pair; the sign of each amount carries the meaning. */}}
-{{- $minus := "&#8722;" }}
+{{- $minus := "-" }}
 {{- $three := dict
       "id" "lta-road-b3" "n" 3 "h" 40.0 "s" 60.0
       "amts" (slice (printf "%s$15,000" $minus) "$0" "+$15,000")
@@ -24,7 +27,7 @@
       "amts" (slice (printf "%s$15,000" $minus) (printf "%s$7,500" $minus) "$0" "+$7,500" "+$15,000")
       "forks" (slice "10th" "35th" "50th" "75th")
       "dyn" 2 "perf" 3 "gap" "$7,500" }}
-{{- $csv := "https://github.com/jacobbuildmodel/coe-analysis/blob/main/lta-ab/out/bands.csv" }}
+{{- $csv := .Params.data_url | default "https://github.com/jacobbuildmodel/coe-analysis/blob/main/lta-ab/out/bands.csv" }}
 <figure class="lta-road" id="figure-1">
   <figcaption class="lta-road-caption">Figure 1. One category for all cars, forked into bands by the car's value (as proposed)</figcaption>
 
@@ -64,6 +67,8 @@
   {{- with $rows }}
   {{- $amt3 := slice (printf "%s$15,000" $minus) "$0" "+$15,000" }}
   {{- $amt5 := slice (printf "%s$15,000" $minus) (printf "%s$7,500" $minus) "$0" "+$7,500" "+$15,000" }}
+  {{- $raw3 := slice "-15000" "0" "15000" }}
+  {{- $raw5 := slice "-15000" "-7500" "0" "7500" "15000" }}
   <details class="lta-road-table">
     <summary>Table: every model LTA names, and its band under both options ({{ sub (len .) 1 }} models)</summary>
     <div class="lta-road-table-scroll">
@@ -71,7 +76,10 @@
       <thead><tr><th scope="col">Model</th><th scope="col">Three bands</th><th scope="col">Five bands</th></tr></thead>
       <tbody>
       {{- range after 1 . }}
-        {{- $m := index . 0 }}{{ $b3 := int (index . 1) }}{{ $b5 := int (index . 2) }}
+        {{- $m := index . 0 }}{{ $b3 := int (index . 1) }}{{ $b5 := int (index . 3) }}
+        {{- if or (ne (index . 2) (index $raw3 (sub $b3 1))) (ne (index . 4) (index $raw5 (sub $b5 1))) }}
+        {{- errorf "lta_road.html: %s: amount does not match its band in lta_coe_bands.csv" $m }}
+        {{- end }}
         <tr{{ if in $m "Sealion 7" }} class="lta-road-marked"{{ end }}>
           <td>{{ $m }}</td>
           <td>Band {{ $b3 }}, {{ index $amt3 (sub $b3 1) | safeHTML }}</td>

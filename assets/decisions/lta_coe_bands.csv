@@ -1,31 +1,31 @@
-model,band_three,band_five
-"BYD E6",1,1
-"Honda Jazz",1,1
-"Mazda 3",1,1
-"MG S5",1,1
-"Nissan Note",1,1
-"Suzuki Swift",1,1
-"BYD Atto 3",1,2
-"Honda Freed",1,2
-"Hyundai Kona 1.6 HEV",1,2
-"Toyota Noah",1,2
-"Toyota Sienta",1,2
-"Volvo EX30 110kW",1,2
-"Audi A3",2,3
-"BYD Sealion 7 Dynamic",2,3
-"Honda Civic 1.5 Turbo",2,3
-"Nissan Serena",2,3
-"Toyota Corolla Altis",2,3
-"Xpeng G6 RWD (STD Range)",2,3
-"Audi Q3",3,4
-"BMW 216",3,4
-"BYD Sealion 7 Performance",3,4
-"Honda Odyssey",3,4
-"Mercedes-Benz A180",3,4
-"Tesla Model 3 RWD 110",3,4
-"BMW iX2",3,5
-"Denza D9",3,5
-"Honda Civic Type R",3,5
-"Mercedes-Benz GLC",3,5
-"Tesla Model Y RWD",3,5
-"Toyota Alphard",3,5
+model,option_A_band,option_A_amount,option_B_band,option_B_amount,source
+BYD E6,1,-15000,1,-15000,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Honda Jazz,1,-15000,1,-15000,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+MG S5,1,-15000,1,-15000,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Mazda 3,1,-15000,1,-15000,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Nissan Note,1,-15000,1,-15000,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Suzuki Swift,1,-15000,1,-15000,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+BYD Atto 3,1,-15000,2,-7500,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Honda Freed,1,-15000,2,-7500,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Hyundai Kona 1.6 HEV,1,-15000,2,-7500,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Toyota Noah,1,-15000,2,-7500,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Toyota Sienta,1,-15000,2,-7500,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Volvo EX30 110kW,1,-15000,2,-7500,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Audi A3,2,0,3,0,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+BYD Sealion 7 Dynamic,2,0,3,0,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Honda Civic 1.5 Turbo,2,0,3,0,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Nissan Serena,2,0,3,0,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Toyota Corolla Altis,2,0,3,0,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Xpeng G6 RWD (STD Range),2,0,3,0,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Audi Q3,3,15000,4,7500,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+B.M.W. 216,3,15000,4,7500,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+BYD Sealion 7 Performance,3,15000,4,7500,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Honda Odyssey,3,15000,4,7500,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Mercedes Benz A180,3,15000,4,7500,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Tesla Model 3 RWD 110,3,15000,4,7500,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+B.M.W. iX2,3,15000,5,15000,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Denza D9,3,15000,5,15000,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Honda Civic Type R,3,15000,5,15000,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Mercedes Benz GLC,3,15000,5,15000,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Tesla Model Y RWD,3,15000,5,15000,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
+Toyota Alphard,3,15000,5,15000,"raw/coe-public-consult.pdf p.11, Table 1; raw/coe-public-consult.pdf p.12, Table 2"
