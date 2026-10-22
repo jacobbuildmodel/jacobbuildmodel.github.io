@@ -47,8 +47,9 @@ office/QUESTION_RULES.md and office/STORY_CRAFT.md.
     from the home page's open questions strip.
 11. Screenshots with Playwright at 390px and 1280px wide, light and dark: the
     scorecard, the answered open page, and the home page band.
-12. Strip Hugo build artifacts: `git checkout -- go.mod`, remove go.sum,
-    public/, resources/, .hugo_build.lock.
+12. Strip Hugo build artifacts: remove public/, resources/,
+    .hugo_build.lock. go.mod and go.sum pin the theme: if a build changes
+    them, stop and report; do not commit the change.
 13. Commit, push, open the PR against main. Never merge.
 14. Hand back in office/REPLY_FORMAT.md format, 12 lines max, no diffs.
     CHECKS lines: hugo, vale, aitell, check_open_pages.py.

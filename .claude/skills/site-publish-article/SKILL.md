@@ -46,8 +46,9 @@ is reported, not edited around.
 12. Screenshots with Playwright at 390px and 1280px wide, light and dark,
     built with `--clock <date>T00:30:00Z`: the article, its charts, and the
     home page. No clipped text, no overlapping labels. Attach to the PR body.
-13. Strip Hugo build artifacts: `git checkout -- go.mod`, remove go.sum,
-    public/, resources/, .hugo_build.lock.
+13. Strip Hugo build artifacts: remove public/, resources/,
+    .hugo_build.lock. go.mod and go.sum pin the theme: if a build changes
+    them, stop and report; do not commit the change.
 14. `git diff --name-only origin/main...HEAD` lists only the article, its
     static assets, and a one-file .vale.ini section if Jacob approved one.
     The scorecard and the open page are not touched here.

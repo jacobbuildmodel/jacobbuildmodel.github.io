@@ -5,9 +5,18 @@
    next to that statement so the two cannot drift apart unnoticed.
 
    site.GetPage finds nothing for a draft or future-dated page, so until the
-   scorecard is published the band renders nothing at all. The calibration
-   line renders only when both brier and brierN are set. Held and failed get
-   the same weight and colour, as in method_strip.html. */ -}}
+   scorecard is published the band renders nothing at all. Held and failed
+   get the same weight and colour, as in method_strip.html.
+
+   The calibration line follows brierN, the number of scored confidences:
+     brierN below 16   "Calibration: N forecasts scored so far; shown once
+                       there are enough to judge." The Brier score itself is
+                       not shown: on a handful of forecasts it is too small a
+                       sample to headline (Jacob, 22 October 2026).
+     brierN 16 or more the Brier line, "Calibration: Brier B over N of my
+                       confidences", once brier is also set. Automatic: the
+                       template needs no edit when the count crosses 16.
+     brierN not set    no line. */ -}}
 {{- with site.GetPage "/scorecard" }}
 {{- $sealed := .Param "sealed" }}
 {{- if $sealed }}
@@ -21,8 +30,12 @@
   </dl>
   {{- $brier := .Param "brier" }}
   {{- $n := .Param "brierN" }}
-  {{- if and $brier $n }}
+  {{- if $n }}
+  {{- if lt (int $n) 16 }}
+  <p class="track-band-cal">Calibration: {{ $n }} forecasts scored so far; shown once there are enough to judge.</p>
+  {{- else if $brier }}
   <p class="track-band-cal">Calibration: Brier {{ $brier }} over {{ $n }} of my confidences</p>
+  {{- end }}
   {{- end }}
   <p class="track-band-more"><a href="{{ .RelPermalink }}">Every prediction and what happened to it</a></p>
 </section>
