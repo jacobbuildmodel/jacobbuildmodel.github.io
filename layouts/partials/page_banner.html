@@ -1,4 +1,6 @@
-{{- /* Banner at the very top of a page, for two sections only.
+{{- /* Banner at the very top of a page, for three sections only.
+       decisions: the decision strip (layouts/partials/decision_strip.html),
+               fed by front matter, on every page in the section but its list.
        open:   once the question is answered, front matter `answered` holds the
                verdict's path and this banner links there -- but only once that
                page is built (see answered_verdict.html). Nothing else on an
@@ -9,6 +11,8 @@
   {{- with partial "answered_verdict.html" . }}
 <p class="page-banner page-banner-answered"><a href="{{ .RelPermalink }}">Answered: read the verdict</a></p>
   {{- end }}
+{{- else if and (eq .Section "decisions") (not .IsSection) }}
+  {{- partial "decision_strip.html" . }}
 {{- else if eq .Section "stocks" }}
   {{- $last := time.AsTime (.Params.lastReviewed | default .Date) }}
   {{- if .IsSection }}

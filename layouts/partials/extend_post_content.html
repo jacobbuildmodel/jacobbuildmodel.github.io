@@ -31,3 +31,24 @@
   </nav>
   {{- end }}
 {{- end }}
+{{- /* Decisions section: components fed by front matter, after the body, so
+       the body can stay a byte-for-byte copy of its source text.
+         figure      "lta-road": Figure 1, unless the body already placed it,
+                     with {{< lta-road >}} or before the heading named in
+                     figure_before_heading (_markup/render-heading.html)
+         sent        date, time, url: the reply as submitted
+         changelog   list of one-line entries, newest first */ -}}
+{{- if and (eq .Section "decisions") (not .IsSection) }}
+  {{- if and (eq .Params.figure "lta-road") (not (strings.Contains .Content `id="figure-1"`)) }}
+  {{- partial "lta_road.html" . }}
+  {{- end }}
+  {{- with .Params.sent }}
+  <section class="decision-sent" aria-labelledby="what-i-sent">
+    <h2 id="what-i-sent">What I sent</h2>
+    <p>My reply to the consultation, sent {{ .date }} at {{ .time }} through {{ .channel }}. <a href="{{ .url }}">Read it as sent</a>.</p>
+  </section>
+  {{- end }}
+  {{- with .Params.changelog }}
+  <p class="decision-changelog"><span class="decision-changelog-label">Changelog:</span> {{ delimit . "; " }}</p>
+  {{- end }}
+{{- end }}
