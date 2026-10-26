@@ -26,8 +26,12 @@ pagination.pagerSize = 10
 # /sectors/... and /tags/stocks/ exist only because of the archived stocks
 # pages: kept at their URLs, but out of the sitemap and noindex, like the
 # stocks pages themselves (whose cascade lives in content/stocks/_index.md).
+# Out of RSS as well: no feed of their own (outputs html only), and not
+# listed in the /tags/ feed (hiddenInRss).
 [[cascade]]
   robotsNoIndex = true
+  hiddenInRss   = true
+  outputs       = ["html"]
   [cascade.sitemap]
     disable = true
   [cascade.target]

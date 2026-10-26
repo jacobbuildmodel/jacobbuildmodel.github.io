@@ -363,13 +363,10 @@ main .post-content > p { margin-bottom: 1em; }
 .related-reads .stock-grid { margin: 0; }
 .stock-card:hover { border-color: var(--accent); }
 
-/* ---- masthead byline ----
-   "Jacob Ong" now appears once, here, instead of on every card/article
-   meta line (hideAuthor: true in hugo.toml suppresses the repeats).
-   font-size bumped and margin-top added after review: 0.68em (12.24px)
-   measured over the 11px floor but a monospace face reads visually smaller
-   than its font-size at a glance, and the byline sat flush against the very
-   top of the viewport with no clearance -- both fixed here. */
+/* ---- masthead ----
+   The separate "Jacob Ong" byline above the title is gone (Jacob, 22 Oct
+   2026): the site title carries the name. The wrapper stays for the
+   phone-header rules below. */
 .logo-title-group {
   display: flex;
   flex-direction: column;
@@ -388,13 +385,6 @@ main .post-content > p { margin-bottom: 1em; }
   .logo-title-group { min-width: 0; }
   .logo a { line-height: 1.25; }
   .logo-switches { flex-shrink: 0; margin-top: 8px; }
-}
-.masthead-byline {
-  font-size: 0.8em;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  letter-spacing: 0.04em;
-  color: var(--secondary);
-  line-height: 1.3;
 }
 
 /* ---- reading serif ----
@@ -622,7 +612,9 @@ main .post-content > p { margin-bottom: 1em; }
   text-decoration-color: var(--accent-quiet);
   box-shadow: none;
 }
-.track-band-more a::after { content: " \2192"; }
+/* A no-break space before the arrow, so on a phone the arrow never wraps
+   onto a line of its own: it stays with the link's last word. */
+.track-band-more a::after { content: "\00a0\2192"; }
 .answered-strip-list { margin: 0; padding: 0; list-style: none; }
 .answered-strip-list li { margin: 10px 0 0; line-height: 1.35; }
 .answered-strip-list a { display: block; box-shadow: none; }

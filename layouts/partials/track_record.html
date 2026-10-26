@@ -9,10 +9,11 @@
    get the same weight and colour, as in method_strip.html.
 
    The calibration line follows brierN, the number of scored confidences:
-     brierN below 16   "Calibration: N forecasts scored so far; shown once
-                       there are enough to judge." The Brier score itself is
-                       not shown: on a handful of forecasts it is too small a
-                       sample to headline (Jacob, 22 October 2026).
+     brierN below 16   "Calibration: N predictions with a confidence so far;
+                       shown once there are enough to judge." The Brier score
+                       itself is not shown: on a handful of forecasts it is
+                       too small a sample to headline (Jacob, 22 October
+                       2026; wording revised 22 October for the close-out).
      brierN 16 or more the Brier line, "Calibration: Brier B over N of my
                        confidences", once brier is also set. Automatic: the
                        template needs no edit when the count crosses 16.
@@ -32,7 +33,7 @@
   {{- $n := .Param "brierN" }}
   {{- if $n }}
   {{- if lt (int $n) 16 }}
-  <p class="track-band-cal">Calibration: {{ $n }} forecasts scored so far; shown once there are enough to judge.</p>
+  <p class="track-band-cal">Calibration: {{ $n }} predictions with a confidence so far; shown once there are enough to judge.</p>
   {{- else if $brier }}
   <p class="track-band-cal">Calibration: Brier {{ $brier }} over {{ $n }} of my confidences</p>
   {{- end }}

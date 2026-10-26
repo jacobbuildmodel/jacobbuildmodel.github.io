@@ -9,9 +9,9 @@ I'm Jacob Ong, {{< age >}}, writing from Singapore.
 
 ## What this is
 
-A public record of my own reasoning about companies and economies. Reasoning that
-stays in your head never gets tested. Reasoning published under your own name, with
-the falsifier attached, does.
+A public record of my own reasoning about economics. Reasoning that stays in your
+head never gets tested. Reasoning published under your own name, with the falsifier
+attached, does.
 
 Every piece publishes its data and its code, so anyone can rebuild the figures and
 check whether I got it right.
@@ -36,16 +36,17 @@ about it.
 
 A polytechnic graduate in banking and finance, recently out of National Service,
 currently on a traineeship at a bank and applying to read economics at university.
-I'm not an analyst, I hold no professional credential in this field, and I'm not
-licensed by the Monetary Authority of Singapore. If anything here reads as
-authority, that's a failure in the writing rather than a claim I'm making.
+I'm not an analyst, and I'm not licensed by the Monetary Authority of Singapore. If
+anything here reads as authority, that's a failure in the writing rather than a
+claim I'm making.
 
-What I do have is two years of building the models behind this in my own time, and
-the habit of writing down what would prove me wrong.
+What I do have is the habit of writing down what would prove me wrong and, since
+September 2026, of sealing each prediction before I open the data.
 
 ## How I work
 
-Most of what's here is produced with AI systems I built and maintain. I write the
+I designed and run the research workflow behind this site. Inside it, Claude, an AI
+model made by Anthropic, does the research, coding and drafting. I write the
 specifications, decide what counts as evidence, and do the editorial pass. That came
 out of a view I formed early: AI is going to change how this kind of research gets
 done, and I would rather learn to direct it well than learn the old way and adapt
@@ -64,8 +65,8 @@ Next comes economics at university. I completed the FMVA certification in Octobe
 
 Badminton, Texas hold'em, and American mahjong. All three reward the same thing:
 reading a situation with incomplete information, staying calm when it turns, and
-thinking a few moves ahead. I got better at markets partly by getting better at
-those.
+thinking a few moves ahead. I got better at reasoning with incomplete information
+partly by getting better at those.
 
 > "Wealth gained hastily will dwindle, but whoever gathers little by little will
 > increase it."

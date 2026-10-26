@@ -36,9 +36,9 @@ and if it isn't, a number wouldn't have saved it.
 
 ## Where the AI fits
 
-Most pages here are produced with substantial help from AI systems I built and maintain. I write the
-specifications, decide what counts as evidence, and do the editorial pass. The models do research and
-drafting inside rules I set.
+Most pages here are produced inside a research workflow I designed and run. Claude, an AI model made by
+Anthropic, does the research, coding and drafting under rules I set; I write the specifications, decide
+what counts as evidence, and do the editorial pass.
 
 Saying so plainly matters more than it might seem. Nearly every rule on this site exists because an
 early version produced something fluent and wrong, and I had to write a rule to stop it. That history

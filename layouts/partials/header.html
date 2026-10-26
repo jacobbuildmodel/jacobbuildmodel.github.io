@@ -4,12 +4,10 @@
             {{- $label_text := (site.Params.label.text | default site.Title) }}
             {{- if site.Title }}
             <div class="logo-title-group">
-            {{/* "Jacob Ong" appears once, here, reading the same site.Params.author
-                 value the (now-suppressed) per-card byline used to read. See
-                 hideAuthor in hugo.toml. */}}
-            {{- with site.Params.author }}
-            <div class="masthead-byline">{{ . }}</div>
-            {{- end }}
+            {{/* No separate "Jacob Ong" byline here any more: the site title
+                 ("Jacob Ong: Economics with a Scorecard") carries the name, and
+                 the two together read as a duplicate (Jacob, 22 October 2026).
+                 The title stays the link home. */}}
             <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
                 {{- if site.Params.label.icon }}
                 {{- $img := resources.Get site.Params.label.icon }}
