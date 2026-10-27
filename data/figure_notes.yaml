@@ -1,0 +1,51 @@
+# Notes and Sources under every figure (27 October 2026).
+#
+# One line per figure, shown directly under it by layouts/single.html, and one
+# changelog line per article, shown at its end by layouts/partials/page_changelog.html.
+# Keyed by section, then the article's file name, then the figure's src.
+# Kept here, not in the articles, so every article body stays byte for byte
+# the copy its research repository holds.
+#
+# Every word is taken from the article itself or its repository's README; the
+# line each fact came from is listed in the pull request that added this file.
+# A fact not stated anywhere is left out, not supplied. Pure ASCII.
+
+economics:
+  "2026-08-22":
+    changelog: "28 October 2026: Notes and Sources added under the figures; no number changed."
+    figures:
+      "/figs/indexed.svg": "Source: LTA, COE bidding results, via data.gov.sg, January 2010 to August 2026. Note: premiums in Singapore dollars, not adjusted for inflation; annual figures are means across the year's bidding exercises."
+      "/figs/decomposition.svg": "Source: LTA, COE bidding results, via data.gov.sg, Category A, 2010 to 2026. Note: premiums in Singapore dollars, not adjusted for inflation."
+  "2026-08-29":
+    changelog: "28 October 2026: Notes and Sources added under the figures; no number changed."
+    figures:
+      "/figs/gap_distribution.svg": "Source: LTA, COE bidding results, via data.gov.sg, January 2010 to July 2026. Note: premiums in Singapore dollars, not adjusted for inflation."
+  "2026-09-05":
+    changelog: "28 October 2026: Notes and Sources added under the figures; no number changed."
+    figures:
+      "/figs/winrate.svg": "Source: LTA, COE bidding results, via data.gov.sg, January 2010 to August 2026. Note: win rate is successful bids divided by bids received in each exercise; annual figures are means across that year's exercises, 15 in 2026 to August."
+  "2026-09-08":
+    changelog: "28 October 2026: Notes and Sources added under the figures; no number changed."
+    figures:
+      "/figs/fig1-signal-vs-noise.svg": "Source: Department of Statistics Singapore, Consumer Price Index (CPI), 2024 As Base Year, Monthly, via data.gov.sg, 2010 to 2026."
+      "/figs/fig2-water-supply.svg": "Source: Department of Statistics Singapore, Consumer Price Index (CPI), 2024 As Base Year, Monthly, via data.gov.sg, 2016 to 2026."
+      "/figs/fig3-still-prices.svg": "Source: Department of Statistics Singapore, Consumer Price Index (CPI), 2024 As Base Year, Monthly, via data.gov.sg, 2010 to 2026."
+  "2026-09-12":
+    changelog: "28 October 2026: Notes and Sources added under the figures; no number changed."
+    figures:
+      "/figs/moto_vs_car.svg": "Source: LTA, COE Bidding Results / Prices, via data.gov.sg, 2019 to August 2026. Note: premiums in Singapore dollars, not adjusted for inflation."
+  "2026-09-19":
+    changelog: "28 October 2026: Notes and Sources added under the figures; no number changed."
+    figures:
+      "/figs/fig3_binding_constraint.svg": "Source: HDB, Resale Flat Prices and Enhanced CPF Housing Grant table; MND and HDB, Further support for First-time Homebuyers, and MOF, Budget 2023 Annex E-1, for the CPF Housing Grant; SingStat, Monthly Household Employment Income at selected percentiles; MOF and MAS loan-to-value limits; 2019 to 2025. Note: for a buyer at the 20th percentile of household income."
+      "/figs/fig2_ehg_crossing.svg": "Source: SingStat, Monthly Household Employment Income excluding employer CPF contributions, via data.gov.sg; HDB, Enhanced CPF Housing Grant table; 2013 to 2025."
+  "2026-10-03":
+    changelog: "28 October 2026: Notes and Sources added under the figures; no number changed."
+    figures:
+      "/figs/chart1_hdb_vs_sora.svg": "Source: MAS, SORA and SGS yields, monthly, via data.gov.sg; CPF Board, CPF Interest Rates history, and HDB, Interest Rate for HDB Housing Loan; 2010 to 2026."
+      "/figs/chart2_breakeven_by_start_year.svg": "Source: MAS, SORA and SGS yields, monthly, via data.gov.sg; CPF Board, CPF Interest Rates history, and HDB, Interest Rate for HDB Housing Loan; loan start years 2010 to 2025. Note: a fixed S$400,000 principal over 25 years."
+  "2026-10-17":
+    changelog: "28 October 2026: Notes and Sources added under the figures; no number changed."
+    figures:
+      "/figs/chart1_speed_vs_band.svg": "Source: LTA, Average Speed During Peak Hours, 2004-2025, and Annual Motor Vehicle Population by Vehicle Type and Length of Roads (Lane-Kilometres), 2005-2017, via data.gov.sg; target bands from the Ministry of Transport."
+      "/figs/chart2_door_fee.svg": "Source: LTA, Average Annual Kilometres Travelled Per Vehicle, via data.gov.sg, 2005-2018; SingStat, Motor Vehicle Quota, Quota Premium And Prevailing Quota Premium, Monthly."
