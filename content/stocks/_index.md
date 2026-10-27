@@ -3,11 +3,16 @@ title: "Stocks"
 description: "What each company actually does, how it makes money, and what kind of business it is."
 # Archived: kept at their URLs but out of search. PaperMod turns robotsNoIndex
 # into <meta name="robots" content="noindex, nofollow"> in place of its default.
+# Out of every RSS feed too: hiddenInRss drops each page from the home feed
+# and any tag or sector feed (PaperMod's rss.xml filters on it), and outputs
+# html only removes this section's own feed, /stocks/index.xml.
 robotsNoIndex: true
 sitemap:
   disable: true
+outputs: ["html"]
 cascade:
   robotsNoIndex: true
+  hiddenInRss: true
   sitemap:
     disable: true
 ---
