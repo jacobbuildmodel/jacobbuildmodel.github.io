@@ -1,0 +1,13 @@
+{{- /* Headings on decisions pages. Renders every heading as Hugo's default
+       does, and places Figure 1 (layouts/partials/lta_road.html) just before
+       the heading named in front matter figure_before_heading, so the body
+       can stay a byte-for-byte copy of its source text. If no heading
+       matches, extend_post_content.html adds the figure after the body
+       instead, so it is never lost and never shown twice. */ -}}
+{{- with .Page.Params.figure_before_heading }}
+  {{- if and (eq $.Page.Params.figure "lta-road") (eq $.PlainText .) }}
+    {{- partial "lta_road.html" $.Page }}
+  {{- end }}
+{{- end }}
+<h{{ .Level }} id="{{ .Anchor }}"{{ range $k, $v := .Attributes }}{{ if ne $k "id" }} {{ $k }}="{{ $v }}"{{ end }}{{ end }}>{{ .Text }}</h{{ .Level }}>
+{{- /* */ -}}
