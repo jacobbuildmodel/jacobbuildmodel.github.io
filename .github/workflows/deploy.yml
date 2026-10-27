@@ -15,14 +15,20 @@ on:
   schedule:
     - cron: "30 0 * * *"
     - cron: "30 1 * * *"
+  # Pull requests run lint and build exactly as production does (same Hugo,
+  # same checksum, same actions) and upload the artifact, but the deploy job
+  # is skipped, so a workflow change can be shown green before it is merged.
+  pull_request:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Production runs share one group and never cancel each other; a pull request
+# build gets its own group, so it can never hold up a deploy.
 concurrency:
-  group: "pages"
+  group: ${{ github.event_name == 'pull_request' && format('pages-pr-{0}', github.ref) || 'pages' }}
   cancel-in-progress: false
 
 defaults:
@@ -34,10 +40,12 @@ jobs:
   # jobs in one file. A separate lint.yml workflow cannot gate this one; it would
   # go red while the site deployed anyway.
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: '3.11'
       - name: Check prose and encoding
@@ -64,29 +72,34 @@ jobs:
 
   build:
     needs: lint
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     env:
       HUGO_VERSION: 0.147.9
+      # sha256 of hugo_extended_0.147.9_linux-amd64.deb, from the release's
+      # hugo_0.147.9_checksums.txt (the same value and check as linkcheck.yml)
+      HUGO_SHA256: e9695dab766128bf0240a48d27face6c399f715d7389ef42f8a18a966b1c8843
     steps:
-      - name: Install Hugo
+      - name: Install Hugo (pinned, checksum-verified)
         run: |
-          wget -O ${{ runner.temp }}/hugo.deb \
-            https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
-          sudo dpkg -i ${{ runner.temp }}/hugo.deb
+          wget -q -O "${{ runner.temp }}/hugo.deb" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          echo "${HUGO_SHA256}  ${{ runner.temp }}/hugo.deb" | sha256sum -c -
+          sudo dpkg -i "${{ runner.temp }}/hugo.deb"
 
       - name: Set up Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
         with:
           go-version: '1.22'
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Configure Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
 
       - name: Fetch theme (pinned in go.mod and go.sum, never the latest)
         # A bare "hugo mod get <module>" here moved to PaperMod's newest
@@ -106,17 +119,18 @@ jobs:
         run: git diff --exit-code -- go.mod go.sum
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: ./public
 
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     needs: build
     steps:
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

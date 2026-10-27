@@ -22,10 +22,12 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: '3.11'
 
@@ -46,13 +48,14 @@ jobs:
   # for the checker and does not. Pull requests only, like the job above;
   # deploy.yml's gate is unchanged.
   vale:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     env:
       VALE_VERSION: "3.24.0"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           fetch-depth: 0
+          persist-credentials: false
       - name: Install Vale
         run: |
           wget -q -O "${{ runner.temp }}/vale.tar.gz" \

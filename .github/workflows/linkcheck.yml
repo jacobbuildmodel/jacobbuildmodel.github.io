@@ -41,14 +41,16 @@ permissions:
 
 jobs:
   linkcheck:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     env:
       HUGO_VERSION: 0.147.9
       # sha256 of hugo_extended_0.147.9_linux-amd64.deb, from the release's
       # hugo_0.147.9_checksums.txt
       HUGO_SHA256: e9695dab766128bf0240a48d27face6c399f715d7389ef42f8a18a966b1c8843
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
 
       - name: Install Hugo (pinned, checksum-verified)
         run: |
@@ -57,11 +59,11 @@ jobs:
           echo "${HUGO_SHA256}  ${{ runner.temp }}/hugo.deb" | sha256sum -c -
           sudo dpkg -i "${{ runner.temp }}/hugo.deb"
 
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
         with:
           go-version: '1.22'
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: '3.11'
 
