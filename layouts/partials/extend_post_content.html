@@ -52,3 +52,10 @@
   <p class="decision-changelog"><span class="decision-changelog-label">Changelog:</span> {{ delimit . "; " }}</p>
   {{- end }}
 {{- end }}
+{{- /* The question page, one line at the end of every economics article and
+       decision page (the footer carries the same link on every page). */ -}}
+{{- if and (in (slice "economics" "decisions") .Section) (not .IsSection) }}
+{{- with site.GetPage "/connect" }}
+<p class="post-ask">Questions or a counter-argument? <a href="{{ .RelPermalink }}">Ask here.</a></p>
+{{- end }}
+{{- end }}

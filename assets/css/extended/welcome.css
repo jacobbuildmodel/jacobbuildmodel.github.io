@@ -1,0 +1,145 @@
+/* The welcome home page (layouts/partials/welcome_home.html), the question
+   page (layouts/_default/connect.html), the "Ask here" lines, and the
+   27 October 2026 audit fixes: link cues, focus rings, the theme toggle.
+   One narrow column; no icons, cards, gradients or animation. */
+
+/* ---- welcome ---- */
+.welcome { margin: 4px 0 18px; }
+.welcome-title {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--primary);
+}
+.welcome-byline { margin: 6px 0 0; font-size: 0.95rem; color: var(--secondary); }
+.welcome-promise {
+  margin: 14px 0 0;
+  font-family: 'Source Serif 4', Georgia, 'Iowan Old Style', serif;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--primary);
+}
+
+/* the three doors: a plain list of links, one line each */
+.welcome-doors ul { margin: 0 0 var(--gap); padding: 0; list-style: none; }
+.welcome-doors li { margin: 0; border-top: 1px solid var(--border); }
+.welcome-doors li:last-child { border-bottom: 1px solid var(--border); }
+.welcome-doors a {
+  display: block;
+  padding: 11px 0;
+  color: var(--primary);
+  font-weight: 500;
+  line-height: 1.35;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-quiet);
+  text-underline-offset: 0.18em;
+  box-shadow: none;
+}
+.welcome-doors a:hover { text-decoration-color: var(--accent); }
+
+.welcome-more { margin: 0 0 var(--gap); font-size: 0.95rem; color: var(--secondary); }
+.welcome-more a { color: var(--accent); text-decoration: underline; box-shadow: none; }
+
+/* ---- link cues (audit, 27 Oct): titles that are links look like links ---- */
+.post-entry:hover .entry-header h2,
+.post-entry:focus-within .entry-header h2 {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.15em;
+}
+.start-here-list a:hover,
+.start-here-list a:focus-visible,
+.open-strip-list a:hover,
+.open-strip-list a:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.15em;
+}
+
+/* ---- focus rings (audit, 27 Oct) ----
+   One visible ring for every link, button, field and summary, in both
+   themes: --accent is 5.6:1 on the light page and 6.9:1 on the dark one,
+   well over the 3:1 a focus indicator needs. PaperMod's reset removes the
+   outline from inputs and textareas, so they are named here too. The
+   card-wide link on list pages (.entry-link) rings the whole card. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.entry-link:focus-visible { outline-offset: -2px; border-radius: var(--radius); }
+
+/* ---- theme toggle (audit, 27 Oct): a 44 x 44 px target in the same place ---- */
+#theme-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: -6px -13px;
+}
+
+/* ---- "Ask here" lines ---- */
+.post-ask { margin: 28px 0 0; font-size: 0.95rem; color: var(--secondary); }
+.post-ask a,
+.footer-ask a { color: var(--accent); text-decoration: underline; box-shadow: none; }
+.footer-ask {
+  margin: 32px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--secondary);
+}
+
+/* ---- the question page ---- */
+.ask-form { margin: 24px 0 0; }
+.ask-fields { margin: 0; padding: 0; border: 0; display: grid; gap: 6px; }
+.ask-fields[disabled] { opacity: 0.6; }
+.ask-legend { font-weight: 600; color: var(--primary); margin: 0 0 6px; padding: 0; }
+.ask-fields label { margin: 10px 0 0; font-size: 0.95rem; color: var(--primary); }
+.ask-fields input[type="text"],
+.ask-fields textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--primary);
+  background: var(--theme);
+  border: 1px solid var(--secondary);
+  border-radius: var(--radius);
+}
+.ask-fields textarea { min-height: 10rem; resize: vertical; }
+.ask-hint { margin: 0; font-size: 0.85rem; color: var(--secondary); }
+.ask-hp { display: none; }
+.ask-send {
+  justify-self: start;
+  min-height: 44px;
+  margin: 12px 0 0;
+  padding: 0 22px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--theme);
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.ask-send[disabled] { cursor: not-allowed; opacity: 0.6; }
+.ask-closed {
+  margin: 0 0 12px;
+  padding: 10px 14px;
+  border-inline-start: 3px solid var(--accent);
+  background: var(--code-bg);
+  color: var(--primary);
+}
+.ask-status { margin: 4px 0 0; min-height: 1.4em; color: var(--primary); }
+.ask-privacy { margin: 18px 0 0; font-size: 0.9rem; color: var(--secondary); }
+.ask-keep { margin: 28px 0 0; }
+.ask-keep h2 { font-size: 1.2rem; margin: 0 0 8px; }
+.ask-keep ul { margin: 0; padding-inline-start: 20px; }
+.ask-keep a { color: var(--accent); text-decoration: underline; box-shadow: none; }

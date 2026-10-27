@@ -4,10 +4,10 @@
             {{- $label_text := (site.Params.label.text | default site.Title) }}
             {{- if site.Title }}
             <div class="logo-title-group">
-            {{/* No separate "Jacob Ong" byline here any more: the site title
-                 ("Jacob Ong: Economics with a Scorecard") carries the name, and
-                 the two together read as a duplicate (Jacob, 22 October 2026).
-                 The title stays the link home. */}}
+            {{/* No separate "Jacob Ong" byline in the header (removed 22 October
+                 2026). The site title, "The New Void Deck" since 27 October, is
+                 the link home; the home page names the author under its H1
+                 (layouts/partials/welcome_home.html). */}}
             <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
                 {{- if site.Params.label.icon }}
                 {{- $img := resources.Get site.Params.label.icon }}
@@ -42,7 +42,7 @@
             {{- if $lsenabled }}
             <div class="logo-switches">
                 {{- if (not site.Params.disableThemeToggle) }}
-                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="Dark theme (Alt + T)" aria-label="Dark theme" aria-pressed="false">
                     <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">

@@ -5,7 +5,7 @@
 
 baseURL        = "https://jacobbuildmodel.github.io/"
 languageCode   = "en-us"
-title          = "Jacob Ong: Economics with a Scorecard"          # EDIT - your public site name
+title          = "The New Void Deck"          # EDIT - your public site name
 enableRobotsTXT = true
 buildDrafts    = false
 buildFuture    = false
@@ -78,6 +78,19 @@ pagination.pagerSize = 10
   hideAuthor        = true
 
   # Homepage intro block
+  # Home page welcome (layouts/partials/welcome_home.html). The promise is a
+  # placeholder until the wording pass (27 Oct 2026); the byline names the
+  # author under the H1, on the home page only.
+  [params.welcome]
+    byline  = "Jacob Ong: economics with a scorecard"
+    promise = "Singapore's favourite arguments, tested with public data. Before I open the data, I write down what would prove me wrong."
+
+  # The question form on /connect/ posts to Web3Forms. The access key is public
+  # by design (it only routes a message to Jacob's inbox). Empty = the form is
+  # shown disabled with "The form opens soon."
+  [params.web3forms]
+    accessKey = ""
+
   [params.homeInfoParams]
     Title   = "Singapore's favourite arguments, tested with public data."
     Content = """
@@ -126,3 +139,9 @@ failure is published too.
   name       = "About"
   url        = "/about/"
   weight     = 50
+# Ask: the question page. Fits on one menu line at 360px (checked 27 Oct 2026).
+[[menu.main]]
+  identifier = "ask"
+  name       = "Ask"
+  url        = "/connect/"
+  weight     = 60

@@ -1,0 +1,47 @@
+{{- /* layouts/partials/welcome_home.html
+   The home page (27 October 2026): a welcome, not a splash screen. One
+   narrow column, in this order:
+     the H1, the author line and the promise (site.Params.welcome)
+     three doors, one line each:
+       the latest economics piece, its title and date, computed
+       the track record, read from content/scorecard.md front matter
+       the question page, /connect/
+     the start-here box (start_here.html, unchanged)
+     the open questions strip (at most three)
+     one line: All articles, How it works
+   The full list of pieces stays on /economics/; the home page has no
+   paginated list. At 390 x 812 the H1, the promise and all three doors fit
+   on the first screen. Every count is read from front matter, never typed,
+   and a missing page or field stops the build. */ -}}
+{{- $latest := index (where site.RegularPages "Section" "economics").ByDate.Reverse 0 }}
+{{- if not $latest }}{{ errorf "welcome_home.html: no published economics page" }}{{ end }}
+{{- $score := site.GetPage "/scorecard" }}
+{{- if not $score }}{{ errorf "welcome_home.html: no /scorecard page" }}{{ end }}
+{{- if not (and (isset $score.Params "sealed") (isset $score.Params "failed")) }}
+  {{- errorf "welcome_home.html: content/scorecard.md needs sealed: and failed: in its front matter" }}
+{{- end }}
+{{- $connect := site.GetPage "/connect" }}
+{{- if not $connect }}{{ errorf "welcome_home.html: no /connect page" }}{{ end }}
+<header class="welcome">
+  <h1 class="welcome-title">Welcome to {{ site.Title }}</h1>
+  {{- with site.Params.welcome.byline }}
+  <p class="welcome-byline">{{ . }}</p>
+  {{- end }}
+  {{- with site.Params.welcome.promise }}
+  <p class="welcome-promise">{{ . }}</p>
+  {{- end }}
+</header>
+<nav class="welcome-doors" aria-label="Where to start">
+  <ul>
+    <li><a href="{{ $latest.RelPermalink }}">Latest finding: {{ $latest.Title }} ({{ $latest.Date | time.Format site.Params.DateFormat }})</a></li>
+    <li><a href="{{ $score.RelPermalink }}">Track record: {{ $score.Params.sealed }} sealed predictions, {{ $score.Params.failed }} failed</a></li>
+    <li><a href="{{ $connect.RelPermalink }}">Ask a question or send a counter-argument</a></li>
+  </ul>
+</nav>
+{{- partial "start_here.html" . }}
+{{- partial "open_questions_strip.html" . }}
+<p class="welcome-more">
+  {{- with site.GetPage "/economics" }}<a href="{{ .RelPermalink }}">All articles</a>{{ end }}
+  <span aria-hidden="true"> &middot; </span>
+  {{- with site.GetPage "/process" }}<a href="{{ .RelPermalink }}">How it works</a>{{ end }}
+</p>

@@ -1,0 +1,103 @@
+{{- define "main" }}
+{{- /* /connect/: the question page (content/connect.md, layout "connect").
+       The form posts to Web3Forms (https://api.web3forms.com/submit): no
+       third-party script, no cookies, no captcha; spam is caught by the
+       service's own honeypot field (botcheck).
+
+       site.Params.web3forms.accessKey routes messages to Jacob's inbox and is
+       public by design. While it is empty, the form is shown disabled with
+       "The form opens soon." and nothing can be sent.
+
+       Without JavaScript the form posts normally and Web3Forms redirects to
+       /connect/thanks/. With JavaScript it is sent with fetch: the button is
+       disabled while sending, and the result is announced in a live region
+       ("Sent. Thank you." or a plain error, with the text kept for a retry). */}}
+{{- $key := site.Params.web3forms.accessKey }}
+<article class="post-single connect-page">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title">{{ .Title }}</h1>
+  </header>
+
+  {{- with .Content }}
+  <div class="post-content md-content">{{ . }}</div>
+  {{- end }}
+
+  <form class="ask-form" id="ask-form" action="https://api.web3forms.com/submit" method="post" accept-charset="UTF-8">
+    {{- if not $key }}
+    <p class="ask-closed" id="ask-closed">The form opens soon.</p>
+    {{- end }}
+    <fieldset class="ask-fields"{{ if not $key }} disabled aria-describedby="ask-closed"{{ end }}>
+      <legend class="ask-legend">Your message</legend>
+      <input type="hidden" name="access_key" value="{{ $key }}">
+      <input type="hidden" name="subject" value="New Void Deck: a question">
+      <input type="hidden" name="from_name" value="The New Void Deck">
+      <input type="hidden" name="redirect" value="{{ "connect/thanks/" | absURL }}">
+
+      <label for="ask-nickname">Nickname (optional)</label>
+      <input id="ask-nickname" name="nickname" type="text" maxlength="80" autocomplete="nickname">
+
+      <label for="ask-reach">How to reach you, only if you want a reply (optional): email, Telegram or LinkedIn</label>
+      <input id="ask-reach" name="reply_to" type="text" maxlength="200">
+
+      <label for="ask-message">Your question or counter-argument</label>
+      <textarea id="ask-message" name="message" rows="8" maxlength="2000" required aria-describedby="ask-limit"></textarea>
+      <p class="ask-hint" id="ask-limit">Up to 2,000 characters.</p>
+
+      {{- /* Web3Forms honeypot: hidden from people and from assistive tech;
+             a bot that ticks it is dropped by the service. */}}
+      <input type="checkbox" name="botcheck" class="ask-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <button type="submit" class="ask-send">Send</button>
+      <p class="ask-status" id="ask-status" role="status" aria-live="polite"></p>
+    </fieldset>
+  </form>
+
+  {{- with .Params.privacy }}
+  <p class="ask-privacy">{{ . }}</p>
+  {{- end }}
+
+  <section class="ask-keep" aria-labelledby="stay-in-touch">
+    <h2 id="stay-in-touch">Stay in touch</h2>
+    <ul>
+      <li><a href="{{ "index.xml" | relURL }}">RSS</a>: every new piece.</li>
+      <li><a href="https://github.com/jacobbuildmodel">GitHub</a>: the code and data behind each piece.</li>
+      {{- /* LinkedIn: add once Jacob gives the URL.
+      <li><a href="https://www.linkedin.com/in/...">LinkedIn</a></li> */}}
+    </ul>
+  </section>
+</article>
+
+{{- if $key }}
+<script>
+(function () {
+  var form = document.getElementById("ask-form");
+  if (!form || !window.fetch || !window.FormData) return;
+  var button = form.querySelector(".ask-send");
+  var status = document.getElementById("ask-status");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    var data = new FormData(form);
+    data.delete("redirect");
+    button.disabled = true;
+    status.textContent = "Sending...";
+    fetch(form.action, { method: "POST", body: data, headers: { Accept: "application/json" } })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok && j.success, msg: j.message }; }); })
+      .then(function (res) {
+        if (res.ok) {
+          form.reset();
+          status.textContent = "Sent. Thank you.";
+        } else {
+          status.textContent = "Not sent" + (res.msg ? ": " + res.msg : "") + ". Your text is still here; press Send to try again.";
+        }
+      })
+      .catch(function () {
+        status.textContent = "Not sent: the connection failed. Your text is still here; press Send to try again.";
+      })
+      .then(function () { button.disabled = false; });
+  });
+})();
+</script>
+{{- end }}
+{{- end }}{{/* end main */}}

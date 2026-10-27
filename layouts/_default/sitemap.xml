@@ -1,0 +1,36 @@
+{{- /* Hugo's own sitemap, with one change (27 October 2026): a list page's
+       lastmod is the newest lastmod among the pages it actually publishes.
+       Hugo's .Lastmod for a list also counts future-dated pages that are not
+       built (buildFuture = false), so the home page and /economics/ showed the
+       date of a piece still hidden. A regular page keeps its own lastmod. */ -}}
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {{- range where .Pages "Sitemap.Disable" "ne" true }}
+    {{- if .Permalink }}
+    {{- $lastmod := .Lastmod }}
+    {{- if ne .Kind "page" }}
+      {{- $built := cond .IsHome site.RegularPages .RegularPagesRecursive }}
+      {{- with $built }}
+        {{- $lastmod = (index .ByLastmod.Reverse 0).Lastmod }}
+      {{- end }}
+    {{- end }}
+  <url>
+    <loc>{{ .Permalink }}</loc>{{ if not $lastmod.IsZero }}
+    <lastmod>{{ safeHTML ($lastmod.Format "2006-01-02T15:04:05-07:00") }}</lastmod>{{ end }}{{ with .Sitemap.ChangeFreq }}
+    <changefreq>{{ . }}</changefreq>{{ end }}{{ if ge .Sitemap.Priority 0.0 }}
+    <priority>{{ .Sitemap.Priority }}</priority>{{ end }}{{ if .IsTranslated }}{{ range .Translations }}
+    <xhtml:link
+                rel="alternate"
+                hreflang="{{ .Language.LanguageCode }}"
+                href="{{ .Permalink }}"
+                />{{ end }}
+    <xhtml:link
+                rel="alternate"
+                hreflang="{{ .Language.LanguageCode }}"
+                href="{{ .Permalink }}"
+                />{{ end }}
+  </url>
+    {{- end }}
+  {{- end }}
+</urlset>

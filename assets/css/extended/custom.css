@@ -373,8 +373,8 @@ main .post-content > p { margin-bottom: 1em; }
   gap: 1px;
   padding-top: 6px;
 }
-/* The site title ("Jacob Ong: Economics with a Scorecard", 22 Oct 2026)
-   wraps to two lines on a phone. PaperMod sets the header's line height to
+/* A site title can wrap to two lines on a phone (the 22 Oct 2026 title did;
+   "The New Void Deck", 27 Oct, fits on one at 360px). PaperMod sets the header's line height to
    its 60px height, sized for a one-line title, so a wrapped title showed a
    60px gap between its lines and pushed the theme toggle onto a row of its
    own. On narrow screens only: normal line height for the title, and the
