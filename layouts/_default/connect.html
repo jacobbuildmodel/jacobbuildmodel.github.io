@@ -1,0 +1,127 @@
+{{- define "main" }}
+{{- /* /connect/: the question page (content/connect.md, layout "connect").
+       Words approved by Jacob on 28 October 2026.
+
+       The form posts to Web3Forms (https://api.web3forms.com/submit): no
+       third-party script, no cookies, no captcha; spam is caught by the
+       service's own honeypot field (botcheck). Messages reach Jacob's inbox;
+       his address is never on the site.
+
+       site.Params.web3forms.accessKey routes messages to that inbox. While it
+       is empty, the form is shown disabled with "The form opens soon." and
+       nothing can be sent.
+
+       Without JavaScript the form posts normally and Web3Forms redirects to
+       /connect/thanks/. With JavaScript it is sent with fetch: the button is
+       disabled while sending, and the result is announced in a live region
+       ("Sent. Thank you." or a plain error, with the text kept for a retry).
+
+       "from": when a reader arrives from an article's link
+       (/connect/?from=/economics/...), the page's path is copied into a hidden
+       field so the message says which page it is about. Only a site path is
+       accepted; otherwise the field stays empty. */}}
+{{- $key := site.Params.web3forms.accessKey }}
+<article class="post-single connect-page">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title">{{ .Title }}</h1>
+  </header>
+
+  {{- with .Content }}
+  <div class="post-content md-content">{{ . }}</div>
+  {{- end }}
+
+  <form class="ask-form" id="ask-form" action="https://api.web3forms.com/submit" method="post" accept-charset="UTF-8">
+    {{- if not $key }}
+    <p class="ask-closed" id="ask-closed">The form opens soon.</p>
+    {{- end }}
+    <fieldset class="ask-fields"{{ if not $key }} disabled aria-describedby="ask-closed"{{ end }}>
+      <legend class="ask-legend">Message</legend>
+      <input type="hidden" name="access_key" value="{{ $key }}">
+      <input type="hidden" name="subject" value="New Void Deck: a question">
+      <input type="hidden" name="from_name" value="The New Void Deck">
+      <input type="hidden" name="redirect" value="{{ "connect/thanks/" | absURL }}">
+      <input type="hidden" name="from" id="ask-from" value="">
+
+      <label for="ask-nickname">Nickname (optional)</label>
+      <input id="ask-nickname" name="nickname" type="text" maxlength="80" autocomplete="nickname">
+
+      <label for="ask-reach">Contact, only if a reply is wanted (optional): email, Telegram or LinkedIn</label>
+      <input id="ask-reach" name="contact" type="text" maxlength="200">
+
+      <label for="ask-message">Question or counter-argument</label>
+      <textarea id="ask-message" name="message" rows="8" maxlength="2000" required></textarea>
+
+      <div class="ask-check">
+        <input type="checkbox" id="ask-updates" name="updates" value="yes">
+        <label for="ask-updates">Also send an update when a new piece is out (needs a contact above)</label>
+      </div>
+
+      {{- /* Web3Forms honeypot: hidden from people and from assistive tech;
+             a bot that ticks it is dropped by the service. */}}
+      <input type="checkbox" name="botcheck" class="ask-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <button type="submit" class="ask-send">Send</button>
+      <p class="ask-status" id="ask-status" role="status" aria-live="polite"></p>
+    </fieldset>
+    {{- /* After the fieldset, not inside it: while the form is closed the
+           fieldset is dimmed, and dimmed small grey text fails AA contrast.
+           Rendered as markdown so its apostrophes match the article text. */}}
+    {{- with .Params.privacy }}
+    <p class="ask-privacy">{{ $.RenderString . }}</p>
+    {{- end }}
+  </form>
+
+  <section class="ask-keep" aria-labelledby="stay-in-touch">
+    <h2 id="stay-in-touch">Stay in touch</h2>
+    <ul>
+      <li>New pieces: <a href="{{ "index.xml" | relURL }}">the RSS feed</a>.</li>
+      <li>Code and data: <a href="https://github.com/jacobbuildmodel">GitHub</a>.</li>
+      {{- /* LinkedIn: add once Jacob gives the URL.
+      <li><a href="https://www.linkedin.com/in/...">LinkedIn</a></li> */}}
+    </ul>
+  </section>
+</article>
+
+<script>
+(function () {
+  var from = document.getElementById("ask-from");
+  if (from) {
+    var p = new URLSearchParams(window.location.search).get("from") || "";
+    if (/^\/[A-Za-z0-9\/_.-]{0,200}$/.test(p)) from.value = p;
+  }
+})();
+</script>
+{{- if $key }}
+<script>
+(function () {
+  var form = document.getElementById("ask-form");
+  if (!form || !window.fetch || !window.FormData) return;
+  var button = form.querySelector(".ask-send");
+  var status = document.getElementById("ask-status");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    var data = new FormData(form);
+    data.delete("redirect");
+    button.disabled = true;
+    status.textContent = "Sending...";
+    fetch(form.action, { method: "POST", body: data, headers: { Accept: "application/json" } })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok && j.success, msg: j.message }; }); })
+      .then(function (res) {
+        if (res.ok) {
+          form.reset();
+          status.textContent = "Sent. Thank you.";
+        } else {
+          status.textContent = "Not sent" + (res.msg ? ": " + res.msg : "") + ". The text is still here; press Send to try again.";
+        }
+      })
+      .catch(function () {
+        status.textContent = "Not sent: the connection failed. The text is still here; press Send to try again.";
+      })
+      .then(function () { button.disabled = false; });
+  });
+})();
+</script>
+{{- end }}
+{{- end }}{{/* end main */}}

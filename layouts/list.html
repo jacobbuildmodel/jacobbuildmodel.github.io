@@ -1,10 +1,14 @@
 {{- define "main" }}
 
-{{- if (and site.Params.profileMode.enabled .IsHome) }}
-{{- partial "index_profile.html" . }}
-{{- else }} {{/* if not profileMode */}}
+{{- /* The home page is the welcome (layouts/partials/welcome_home.html,
+       27 October 2026): no paginated list, no answered strip, no track record
+       band and no home_info block here any more. Every other list page is
+       PaperMod's list, as before. */}}
+{{- if .IsHome }}
+{{- partial "welcome_home.html" . }}
+{{- else }} {{/* not the home page */}}
 
-{{- if not .IsHome | and .Title }}
+{{- if .Title }}
 <header class="page-header">
   {{- partial "breadcrumbs.html" . }}
   <h1>
@@ -40,44 +44,14 @@
 
 {{- $pages := union .RegularPages .Sections }}
 
-{{- if .IsHome }}
-{{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
-{{- end }}
-
 {{- $paginator := .Paginate $pages }}
 
 {{- $term := .Data.Term }}
-{{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
-
-{{- /* Home, page 1, as a track record: the scorecard band first, then the
-       open questions, then the three latest pieces as question + headline
-       with the Ideas link, and only then the intro about the site. The
-       finding stays above the fold on a phone, as the featured card this
-       replaces did. The three listed pieces are the first three of the
-       paginator; range's "continue" skips them below so none is rendered
-       twice. */}}
-{{- $answeredCount := 3 }}
-{{- if and .IsHome (eq $paginator.PageNumber 1) }}
-{{- partial "start_here.html" . }}
-{{- partial "track_record.html" . }}
-{{- partial "open_questions_strip.html" . }}
-{{- partial "answered_strip.html" (dict "pages" (first $answeredCount $paginator.Pages)) }}
-{{- end }}
-
-{{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
-{{- partial "home_info.html" . }}
-{{- end }}
 
 {{- range $index, $page := $paginator.Pages }}
-{{- if and $.IsHome (eq $paginator.PageNumber 1) (lt $index $answeredCount) }}
-{{- continue }}
-{{- end }}
 
 {{- $class := "post-entry" }}
-{{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
-{{- $class = "first-entry" }}
-{{- else if $term }}
+{{- if $term }}
 {{- $class = "post-entry tag-entry" }}
 {{- end }}
 
@@ -107,6 +81,7 @@
 </footer>
 {{- end }}
 
-{{- end }}{{/* end profileMode */}}
+{{- end }}{{/* end not the home page */}}
+{{- partial "site_ask.html" . }}
 
 {{- end }}{{- /* end main */ -}}

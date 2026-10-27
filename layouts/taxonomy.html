@@ -1,0 +1,32 @@
+{{- /* PaperMod's taxonomy.html (the /tags/ page), copied unchanged except
+       for the question link at the end of main (layouts/partials/site_ask.html),
+       28 October 2026. */ -}}
+{{- define "main" }}
+
+{{- if .Title }}
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+</header>
+{{- end }}
+
+<ul class="terms-tags">
+    {{- $type := .Type }}
+        {{- range $key, $value := .Data.Terms.Alphabetical }}
+            {{- $name := .Name }}
+            {{- $count := .Count }}
+            {{- with site.GetPage (printf "/%s/%s" $type $name) }}
+            <li>
+                <a href="{{ .Permalink }}">{{ .LinkTitle }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
+            </li>
+        {{- end }}
+    {{- end }}
+</ul>
+
+{{- partial "site_ask.html" . }}
+
+{{- end }}{{/* end main */ -}}

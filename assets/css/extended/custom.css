@@ -264,6 +264,11 @@ main .post-content > p { margin-bottom: 1em; }
   --accent-quiet:  #a3c0d6;
   --pos:           #6FBF9A;   /* 7.62:1 */
   --neg:           #D6A544;   /* 7.41:1 */
+  /* PaperMod's dark --secondary, rgb(155, 156, 157), is 4.25:1 on the
+     tinted panels (--code-bg, rgb(55, 56, 62)) where the small grey text
+     sits: start-here dates, "Answer due", method-strip labels. Raised just
+     enough for 4.51:1 there (6.45:1 on the page background). 28 Oct 2026. */
+  --secondary:     rgb(160, 161, 162);
 }
 
 /* ---- measure ----
@@ -373,8 +378,8 @@ main .post-content > p { margin-bottom: 1em; }
   gap: 1px;
   padding-top: 6px;
 }
-/* The site title ("Jacob Ong: Economics with a Scorecard", 22 Oct 2026)
-   wraps to two lines on a phone. PaperMod sets the header's line height to
+/* A site title can wrap to two lines on a phone (the 22 Oct 2026 title did;
+   "The New Void Deck", 27 Oct, fits on one at 360px). PaperMod sets the header's line height to
    its 60px height, sized for a one-line title, so a wrapped title showed a
    60px gap between its lines and pushed the theme toggle onto a row of its
    own. On narrow screens only: normal line height for the title, and the

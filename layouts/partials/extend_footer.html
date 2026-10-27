@@ -17,3 +17,15 @@
   <a href="/disclaimer/">Full disclaimer</a>.
 </p>
 {{- end }}
+{{- /* The theme toggle states whether dark is on (aria-pressed), kept in step
+       with html[data-theme], which PaperMod's own toggle script sets. */}}
+<script>
+(function () {
+  var b = document.getElementById("theme-toggle");
+  if (!b) return;
+  var html = document.documentElement;
+  function sync() { b.setAttribute("aria-pressed", html.dataset.theme === "dark" ? "true" : "false"); }
+  sync();
+  new MutationObserver(sync).observe(html, { attributes: true, attributeFilter: ["data-theme"] });
+})();
+</script>

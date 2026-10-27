@@ -1,0 +1,16 @@
+{{- /* layouts/partials/site_ask.html
+   "Questions and counter-arguments", a link to the question page at the foot
+   of every page, called at the end of "main" by layouts/single.html,
+   layouts/list.html, layouts/open/list.html, layouts/taxonomy.html (/tags/)
+   and layouts/404.html. Not in the footer partial:
+   PaperMod caches footer.html per layout and page kind (baseof.html,
+   partialCached), so the footer cannot tell one section from another.
+   Left out on the archived stocks pages and their sector and tag lists, and
+   on the question pages themselves. Words approved by Jacob, 28 Oct 2026. */ -}}
+{{- $archived := or (eq .Section "stocks") (eq .Section "sectors") (eq .RelPermalink "/tags/stocks/") }}
+{{- $asking := or (eq .RelPermalink "/connect/") (eq .RelPermalink "/connect/thanks/") }}
+{{- if not (or $archived $asking) }}
+{{- with site.GetPage "/connect" }}
+<p class="footer-ask"><a href="{{ .RelPermalink }}">Questions and counter-arguments</a></p>
+{{- end }}
+{{- end }}
