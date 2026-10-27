@@ -10,8 +10,13 @@ Revised 26 September 2026: checker independence rules (section at the end).
 Revised 28 September 2026: story-craft boxes from office/STORY_CRAFT.md (S1-S9, R1-R7).
 Revised 29 September 2026: data feasibility first; HOOK rules and Editor review;
 merge commits for sealed branches (lessons from the PWM piece).
+Revised 15 October 2026: the purpose gate (office/PURPOSE_PRINCIPLES.md) comes before
+Checkpoint 0's other boxes and again at the seal; enforced by checker_tools/purpose_gate.py.
 
 ## Checkpoint 0 -- the question (before any brief is handed to a researcher)
+- [ ] PURPOSE GATE FIRST: a Purpose Reviewer file in reviews/purpose/ (stage cp0) with verdict
+      GO or PAPER TRACK, valid under `purpose_gate.py check`, and the piece listed in
+      office/PORTFOLIO.csv. No brief is written before this box is ticked.
 Goal: the piece is built on a fight or belief people already have. See office/QUESTION_RULES.md.
 - [ ] Rule 0 answered in one line each: what people already believe or argue; the
       sides or the belief and its rival explanation; what the reader or country
@@ -29,6 +34,9 @@ Goal: the piece is built on a fight or belief people already have. See office/QU
 
 ## Checkpoint S -- the seal (before any outcome value is opened)
 Goal: the bet is fixed, dated and public.
+- [ ] Purpose gate at the seal: a review (stage seal) whose reviewed_md5 equals THESIS.md as
+      sealed (`purpose_gate.py check <review> --md5-of <THESIS>`), verdict GO or PAPER TRACK, and
+      G3 tested with two cold readers on BOTH result headlines (PURPOSE_PRINCIPLES G3).
 - [ ] Coverage known (00_coverage.py output in RETRIEVED.txt); year ranges written
       as numbers in every test.
 - [ ] Every scored prediction has a confidence set by Jacob alone. The researcher
