@@ -49,7 +49,7 @@
       <label for="ask-reach">Contact, only if a reply is wanted (optional): email, Telegram or LinkedIn</label>
       <input id="ask-reach" name="contact" type="text" maxlength="200">
 
-      <label for="ask-message">Question or counter-argument (required)</label>
+      <label for="ask-message">Question or counter-argument</label>
       <textarea id="ask-message" name="message" rows="8" maxlength="2000" required></textarea>
 
       <div class="ask-check">
@@ -63,10 +63,13 @@
 
       <button type="submit" class="ask-send">Send</button>
       <p class="ask-status" id="ask-status" role="status" aria-live="polite"></p>
-      {{- with .Params.privacy }}
-      <p class="ask-privacy">{{ . }}</p>
-      {{- end }}
     </fieldset>
+    {{- /* After the fieldset, not inside it: while the form is closed the
+           fieldset is dimmed, and dimmed small grey text fails AA contrast.
+           Rendered as markdown so its apostrophes match the article text. */}}
+    {{- with .Params.privacy }}
+    <p class="ask-privacy">{{ $.RenderString . }}</p>
+    {{- end }}
   </form>
 
   <section class="ask-keep" aria-labelledby="stay-in-touch">

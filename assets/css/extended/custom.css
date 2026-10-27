@@ -264,6 +264,11 @@ main .post-content > p { margin-bottom: 1em; }
   --accent-quiet:  #a3c0d6;
   --pos:           #6FBF9A;   /* 7.62:1 */
   --neg:           #D6A544;   /* 7.41:1 */
+  /* PaperMod's dark --secondary, rgb(155, 156, 157), is 4.25:1 on the
+     tinted panels (--code-bg, rgb(55, 56, 62)) where the small grey text
+     sits: start-here dates, "Answer due", method-strip labels. Raised just
+     enough for 4.51:1 there (6.45:1 on the page background). 28 Oct 2026. */
+  --secondary:     rgb(160, 161, 162);
 }
 
 /* ---- measure ----
