@@ -1,14 +1,12 @@
 ---
-title: "Ask a question"
+title: "Questions and counter-arguments"
 layout: "connect"
 showToc: false
 hidemeta: true
-description: "Ask about a piece, point out an error, or send a counter-argument."
-# PLACEHOLDER wording (27 Oct 2026): the intro below and this privacy line
-# follow after the wording pass. Read by layouts/_default/connect.html.
-privacy: "What you send reaches my inbox through Web3Forms, a form service. Leave the contact field empty if you do not want a reply. This page sets no cookies and loads no third-party script."
+description: "Questions and counter-arguments come straight to Jacob's inbox. Some become the next question tested here."
+# Final words, approved by Jacob on 28 Oct 2026 (WELCOME_words review). The
+# form, its labels and the privacy line are in layouts/_default/connect.html.
+privacy: "Messages go to Jacob's inbox through the Web3Forms service. A contact detail is used to reply, and for updates only if the box is ticked. Nothing is published without permission. Messages are deleted on request."
 ---
 
-Ask about a piece, point out an error, or send a counter-argument. I read every
-message. I can't comment on anyone's own finances or investments: I'm not a
-licensed financial adviser.
+Questions and counter-arguments come straight to Jacob's inbox. Some become the next question tested here.

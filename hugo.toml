@@ -78,12 +78,12 @@ pagination.pagerSize = 10
   hideAuthor        = true
 
   # Homepage intro block
-  # Home page welcome (layouts/partials/welcome_home.html). The promise is a
-  # placeholder until the wording pass (27 Oct 2026); the byline names the
-  # author under the H1, on the home page only.
+  # Home page welcome (layouts/partials/welcome_home.html). Final words,
+  # approved by Jacob on 28 Oct 2026; the byline names the author under the
+  # H1, on the home page only.
   [params.welcome]
     byline  = "Jacob Ong: economics with a scorecard"
-    promise = "Singapore's favourite arguments, tested with public data. Before I open the data, I write down what would prove me wrong."
+    promise = "Singapore's favourite arguments, tested with public data. Before I open the data, I write down my prediction and seal it."
 
   # The question form on /connect/ posts to Web3Forms. The access key is public
   # by design (it only routes a message to Jacob's inbox). Empty = the form is
@@ -139,9 +139,7 @@ failure is published too.
   name       = "About"
   url        = "/about/"
   weight     = 50
-# Ask: the question page. Fits on one menu line at 360px (checked 27 Oct 2026).
-[[menu.main]]
-  identifier = "ask"
-  name       = "Ask"
-  url        = "/connect/"
-  weight     = 60
+# No menu item for the question page: "Questions" does not fit on one menu
+# line at 360px (the menu scrolls sideways; checked 28 Oct 2026). It is
+# reached from the home page's third door, the line at the end of every
+# article, and the "Questions and counter-arguments" link on every page.

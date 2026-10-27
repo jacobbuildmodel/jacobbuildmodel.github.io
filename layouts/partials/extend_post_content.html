@@ -53,9 +53,12 @@
   {{- end }}
 {{- end }}
 {{- /* The question page, one line at the end of every economics article and
-       decision page (the footer carries the same link on every page). */ -}}
+       decision page, the whole sentence linked. ?from= carries this page's
+       path into the form's hidden "from" field, so the message says which
+       page it is about. Words approved by Jacob, 28 October 2026. */ -}}
 {{- if and (in (slice "economics" "decisions") .Section) (not .IsSection) }}
+{{- $here := .RelPermalink }}
 {{- with site.GetPage "/connect" }}
-<p class="post-ask">Questions or a counter-argument? <a href="{{ .RelPermalink }}">Ask here.</a></p>
+<p class="post-ask"><a href="{{ .RelPermalink }}?from={{ $here | urlquery }}">Questions and counter-arguments on this article go to Jacob's inbox.</a></p>
 {{- end }}
 {{- end }}

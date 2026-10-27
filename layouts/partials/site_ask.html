@@ -1,17 +1,15 @@
 {{- /* layouts/partials/site_ask.html
-   "Questions or a counter-argument? Ask here." at the foot of every page,
-   called at the end of "main" by layouts/single.html and layouts/list.html.
-   Not here but in those templates because PaperMod caches footer.html per
-   layout and page kind (baseof.html, partialCached), so the footer cannot
-   tell one section from another.
-   Left out on: the archived stocks pages and their sector and tag lists;
-   the question pages themselves; and economics articles and decision pages,
-   which carry the same line at the end of the text (extend_post_content.html). */ -}}
+   "Questions and counter-arguments", a link to the question page at the foot
+   of every page, called at the end of "main" by layouts/single.html,
+   layouts/list.html and layouts/open/list.html. Not in the footer partial:
+   PaperMod caches footer.html per layout and page kind (baseof.html,
+   partialCached), so the footer cannot tell one section from another.
+   Left out on the archived stocks pages and their sector and tag lists, and
+   on the question pages themselves. Words approved by Jacob, 28 Oct 2026. */ -}}
 {{- $archived := or (eq .Section "stocks") (eq .Section "sectors") (eq .RelPermalink "/tags/stocks/") }}
 {{- $asking := or (eq .RelPermalink "/connect/") (eq .RelPermalink "/connect/thanks/") }}
-{{- $hasLine := and (in (slice "economics" "decisions") .Section) (not .IsSection) }}
-{{- if not (or $archived $asking $hasLine) }}
+{{- if not (or $archived $asking) }}
 {{- with site.GetPage "/connect" }}
-<p class="footer-ask">Questions or a counter-argument? <a href="{{ .RelPermalink }}">Ask here.</a></p>
+<p class="footer-ask"><a href="{{ .RelPermalink }}">Questions and counter-arguments</a></p>
 {{- end }}
 {{- end }}

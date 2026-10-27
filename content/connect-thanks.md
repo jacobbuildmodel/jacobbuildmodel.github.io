@@ -1,15 +1,15 @@
 ---
-title: "Thank you"
+title: "Sent"
 url: "/connect/thanks/"
 showToc: false
 hidemeta: true
 robotsNoIndex: true
 sitemap:
   disable: true
-# PLACEHOLDER wording (27 Oct 2026). The page the question form returns to when
-# it is sent without JavaScript (Web3Forms "redirect").
+# The page the question form returns to when it is sent without JavaScript
+# (Web3Forms "redirect"). Final words, approved by Jacob on 28 Oct 2026.
 ---
 
-Your message was sent. Thank you.
+Sent. Thank you.
 
-[Back to the articles](/economics/)
+[Back to the home page](/)

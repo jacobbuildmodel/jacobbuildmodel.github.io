@@ -3,8 +3,10 @@
    narrow column, in this order:
      the H1, the author line and the promise (site.Params.welcome)
      three doors, one line each:
-       the latest economics piece, its title and date, computed
-       the track record, read from content/scorecard.md front matter
+       the latest page in /economics/ only (not /open/ or /decisions/), its
+       title and date, computed
+       the track record: sealed, held and failed, read from
+       content/scorecard.md front matter
        the question page, /connect/
      the start-here box (start_here.html, unchanged)
      the open questions strip (at most three)
@@ -17,8 +19,8 @@
 {{- if not $latest }}{{ errorf "welcome_home.html: no published economics page" }}{{ end }}
 {{- $score := site.GetPage "/scorecard" }}
 {{- if not $score }}{{ errorf "welcome_home.html: no /scorecard page" }}{{ end }}
-{{- if not (and (isset $score.Params "sealed") (isset $score.Params "failed")) }}
-  {{- errorf "welcome_home.html: content/scorecard.md needs sealed: and failed: in its front matter" }}
+{{- if not (and (isset $score.Params "sealed") (isset $score.Params "held") (isset $score.Params "failed")) }}
+  {{- errorf "welcome_home.html: content/scorecard.md needs sealed:, held: and failed: in its front matter" }}
 {{- end }}
 {{- $connect := site.GetPage "/connect" }}
 {{- if not $connect }}{{ errorf "welcome_home.html: no /connect page" }}{{ end }}
@@ -34,8 +36,8 @@
 <nav class="welcome-doors" aria-label="Where to start">
   <ul>
     <li><a href="{{ $latest.RelPermalink }}">Latest finding: {{ $latest.Title }} ({{ $latest.Date | time.Format site.Params.DateFormat }})</a></li>
-    <li><a href="{{ $score.RelPermalink }}">Track record: {{ $score.Params.sealed }} sealed predictions, {{ $score.Params.failed }} failed</a></li>
-    <li><a href="{{ $connect.RelPermalink }}">Ask a question or send a counter-argument</a></li>
+    <li><a href="{{ $score.RelPermalink }}">Track record: {{ $score.Params.sealed }} sealed predictions, {{ $score.Params.held }} held, {{ $score.Params.failed }} failed</a></li>
+    <li><a href="{{ $connect.RelPermalink }}">Questions and counter-arguments for Jacob</a></li>
   </ul>
 </nav>
 {{- partial "start_here.html" . }}
