@@ -89,7 +89,7 @@ pagination.pagerSize = 10
   # by design (it only routes a message to Jacob's inbox). Empty = the form is
   # shown disabled with "The form opens soon."
   [params.web3forms]
-    accessKey = ""
+    accessKey = "ffcb89cd-89b8-4d1c-a407-005bf58ea8ac"
 
   [params.homeInfoParams]
     Title   = "Singapore's favourite arguments, tested with public data."
