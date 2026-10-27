@@ -52,14 +52,3 @@
   <p class="decision-changelog"><span class="decision-changelog-label">Changelog:</span> {{ delimit . "; " }}</p>
   {{- end }}
 {{- end }}
-{{- /* Economics articles: the changelog line from data/figure_notes.yaml, at
-       the end of the article (the article body itself is never edited). */ -}}
-{{- if and (eq .Section "economics") (not .IsSection) }}
-{{- with .File }}
-{{- with index (index site.Data.figure_notes "economics" | default dict) .ContentBaseName }}
-{{- with .changelog }}
-<p class="page-changelog"><span class="page-changelog-label">Changelog:</span> {{ . }}</p>
-{{- end }}
-{{- end }}
-{{- end }}
-{{- end }}
