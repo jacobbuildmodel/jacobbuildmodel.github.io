@@ -1,0 +1,106 @@
+# "For economists: data, method and code" (28 October 2026).
+#
+# One entry per page, read by layouts/partials/for_economists.html and shown as
+# a closed <details> block at the end of the page, above its changelog.
+# Keyed like figure_notes.yaml: section, then the page's file name.
+#
+# Every value is copied from the article, its THESIS, README, seal record or
+# manifest; the pull request that added this file lists the file and line of
+# each. A value not stated anywhere is left out, not supplied (a runtime is
+# stated for no piece, so none is shown). Pure ASCII.
+#
+#   data     text          method   text
+#   sealed   text, url, label (the seal commit or THESIS.md)
+#   code     url, label    rerun    command (list, shown as code)
+#   check    list of url, label
+
+economics:
+  "2026-08-22":
+    data: "LTA COE bidding results, via data.gov.sg, dataset d_69b3380ad7e51aff3a7dcc84eba52b8a. 1,965 records, January 2010 to August 2026. Retrieved 18 August 2026."
+    method: "The estimate is a regression of the log premium on the log quota with year fixed effects, which means the comparison runs between bidding exercises inside the same year."
+    sealed: { text: "Written before this site sealed predictions in advance." }
+    code: { url: "https://github.com/jacobbuildmodel/coe-analysis", label: "coe-analysis" }
+    rerun: { command: ["pip install -r requirements.txt", "bash run_all.sh"] }
+    check:
+      - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/README.md#checking-your-reproduction", label: "Checking your reproduction (README.md)" }
+      - { url: "https://github.com/jacobbuildmodel/coe-analysis/actions/workflows/research-checks.yml", label: "GitHub Actions" }
+  "2026-08-29":
+    data: "LTA COE bidding results, via data.gov.sg, dataset d_69b3380ad7e51aff3a7dcc84eba52b8a. 1,965 records, January 2010 to August 2026. Retrieved 18 August 2026."
+    method: "The test is to split the month's drift into two fortnights: the one inside the month, and the one that crosses into the next month."
+    sealed: { text: "Written before this site sealed predictions in advance." }
+    code: { url: "https://github.com/jacobbuildmodel/coe-analysis", label: "coe-analysis" }
+    rerun: { command: ["pip install -r requirements.txt", "bash run_all.sh"] }
+    check:
+      - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/README.md#checking-your-reproduction", label: "Checking your reproduction (README.md)" }
+      - { url: "https://github.com/jacobbuildmodel/coe-analysis/actions/workflows/research-checks.yml", label: "GitHub Actions" }
+  "2026-09-05":
+    data: "LTA COE bidding results, via data.gov.sg, dataset d_69b3380ad7e51aff3a7dcc84eba52b8a. 1,965 records, January 2010 to August 2026. Retrieved 18 August 2026."
+    method: "Win rate is successful bids divided by bids received in each exercise. Win rates by category and year, how much price moves against how much the win rate moves, the correlation between the two, and the extreme exercises."
+    sealed: { text: "Written before this site sealed predictions in advance." }
+    code: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/main/win-rate", label: "coe-analysis/win-rate" }
+    rerun: { command: ["bash run_all.sh", "cd win-rate && python3 11_winrate.py && python3 12_figures.py"] }
+    check:
+      - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/win-rate/README.md#checking-your-reproduction", label: "Checking your reproduction (win-rate/README.md)" }
+  "2026-09-08":
+    data: "Department of Statistics Singapore, Consumer Price Index (CPI), 2024 As Base Year, Monthly, via data.gov.sg, 2010 to 2026."
+    method: "The headline design was a difference-in-differences using GST-exempt categories as a control group. It failed its parallel trends test, with a pre-trend of plus 0.159 log points per month and p below 0.0001."
+    sealed: { text: "4 September 2026. Seal date from the header of THESIS.md; the public repository was created after it.", url: "https://github.com/jacobbuildmodel/gst-passthrough/blob/main/THESIS.md", label: "THESIS.md" }
+    code: { url: "https://github.com/jacobbuildmodel/gst-passthrough", label: "gst-passthrough" }
+    rerun: { command: ["pip install -r requirements.txt", "./run_all.sh"] }
+    check:
+      - { url: "https://github.com/jacobbuildmodel/gst-passthrough/blob/main/CHECKSUMS.md5", label: "CHECKSUMS.md5" }
+      - { url: "https://github.com/jacobbuildmodel/gst-passthrough/actions/workflows/research-checks.yml", label: "GitHub Actions" }
+  "2026-09-12":
+    data: "COE Bidding Results / Prices, Land Transport Authority, via data.gov.sg, dataset d_69b3380ad7e51aff3a7dcc84eba52b8a. 1,965 records, January 2010 to August 2026. Retrieved 18 August 2026."
+    method: "Each category against its own peak, a test of whether the motorcycle fall is noise, what quota and bids did in each category, and one mechanism that failed."
+    sealed: { text: "Written before this site sealed predictions in advance." }
+    code: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/main/motorcycles", label: "coe-analysis/motorcycles" }
+    rerun: { command: ["python3 13_motorcycles.py", "python3 14_figures.py"] }
+    check:
+      - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/motorcycles/README.md#checking-your-reproduction", label: "Checking your reproduction (motorcycles/README.md)" }
+  "2026-09-19":
+    data: "HDB, Resale Flat Prices, Mar 2012 to Dec 2014 and Jan 2015 to Dec 2016, and Resale Flat Prices based on registration date, Jan 2017 onwards, data.gov.sg; SingStat, Monthly Household Employment Income excluding employer CPF contributions, via data.gov.sg. Complete calendar years 2013 to 2025."
+    method: "Method A, hedonic with time dummies. Regress log resale price on year dummies, town fixed effects, floor area, storey range, flat model and remaining lease."
+    sealed: { text: "11 September 2026. Seal date from the header of THESIS.md; the public repository was created after it.", url: "https://github.com/jacobbuildmodel/hdb-affordability/blob/main/THESIS.md", label: "THESIS.md" }
+    code: { url: "https://github.com/jacobbuildmodel/hdb-affordability", label: "hdb-affordability" }
+    rerun: { command: ["rm -rf out figs && ./run_all.sh"] }
+    check:
+      - { url: "https://github.com/jacobbuildmodel/hdb-affordability/blob/main/CHECKSUMS.md5", label: "CHECKSUMS.md5" }
+      - { url: "https://github.com/jacobbuildmodel/hdb-affordability/actions/workflows/standards.yml", label: "GitHub Actions" }
+  "2026-10-03":
+    data: "MAS, SORA and SGS yields, monthly, via data.gov.sg; CPF Board, CPF Interest Rates history, and HDB, Interest Rate for HDB Housing Loan; loan start years 2010 to 2025."
+    method: "Design: solve for the break-even spread. The headline output is the REALISED break-even spread, not an assumed one and not a full-tenure one."
+    sealed: { text: "17 September 2026.", url: "https://github.com/jacobbuildmodel/hdb-affordability/commit/ac1687d7e15daaff721080592ab09bc15c88dab3", label: "ac1687d (financing: SEAL THESIS.md)" }
+    code: { url: "https://github.com/jacobbuildmodel/hdb-affordability/tree/main/financing", label: "hdb-affordability/financing" }
+    rerun: { command: ["rm -rf out figs && ./run_all.sh"] }
+    check:
+      - { url: "https://github.com/jacobbuildmodel/hdb-affordability/blob/main/financing/CHECKSUMS.md5", label: "financing/CHECKSUMS.md5" }
+      - { url: "https://github.com/jacobbuildmodel/hdb-affordability/actions/workflows/standards.yml", label: "GitHub Actions" }
+  "2026-10-17":
+    data: "LTA, Average Speed During Peak Hours, 2004-2025, and Annual Motor Vehicle Population by Vehicle Type and Length of Roads (Lane-Kilometres), 2005-2017, via data.gov.sg; target bands from the Ministry of Transport. LTA, Average Annual Kilometres Travelled Per Vehicle, via data.gov.sg, 2005-2018; SingStat, Motor Vehicle Quota, Quota Premium And Prevailing Quota Premium, Monthly."
+    method: "For each road class separately, OLS of log(annual peak speed) on log(cars per lane-km of that road class), over 2005-2017. OLS of log(speed) on log(car population), then again with log(annual premium) added."
+    sealed: { text: "26 September 2026.", url: "https://github.com/jacobbuildmodel/coe-analysis/commit/6d2a345d90015b8911e3be5ccfc76730a9d57206", label: "6d2a345 (erp: SEAL THESIS.md)" }
+    code: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/main/erp", label: "coe-analysis/erp" }
+    rerun: { command: ["rm -rf erp/out erp/figs && bash erp/run_all.sh"] }
+    check:
+      - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/erp/CHECKSUMS.md5", label: "erp/CHECKSUMS.md5" }
+      - { url: "https://github.com/jacobbuildmodel/coe-analysis/actions/workflows/research-checks.yml", label: "GitHub Actions" }
+  "2026-10-31":
+    data: "Ministry of Manpower, Occupational Wage Survey, June tables 2009-2025, stats.mom.gov.sg; Ministry of Manpower, median gross monthly income from work of full-time employed residents, data.gov.sg, d_9cd9c40f22a4e45cac8f8b9d895fd5ce."
+    method: "The later-covered jobs are the comparison: low-paid, in services, and judged by the government itself in 2021 to need a ladder, but without one until then. No already-covered job is ever used as a comparison, which avoids the known trap of staggered designs (Goodman-Bacon 2021)."
+    sealed: { text: "28 September 2026.", url: "https://github.com/jacobbuildmodel/coe-analysis/commit/e5f877b70f60f38a99248e6bd90a3e4063c45a65", label: "e5f877b (pwm: SEAL)" }
+    code: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/main/pwm", label: "coe-analysis/pwm" }
+    rerun: { command: ["bash pwm/run_all.sh"] }
+    check:
+      - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/pwm/CHECKSUMS.md5", label: "pwm/CHECKSUMS.md5" }
+      - { url: "https://github.com/jacobbuildmodel/coe-analysis/actions/workflows/research-checks.yml", label: "GitHub Actions" }
+
+decisions:
+  "lta-coe-categories":
+    data: "Bidding results: LTA via data.gov.sg (dataset d_69b3380ad7e51aff3a7dcc84eba52b8a), retrieved 11 October 2026; January 2010, exercise 1, to October 2026, exercise 1. PQP: SingStat table M651121 via data.gov.sg (dataset d_22094bf608253d36c0c63b52d852dd6e) and LTA, M11 COE Results 2025-2026."
+    method: "A short, descriptive evidence note for LTA's public consultation on merging COE Categories A and B into one passenger car category with a feebate (8 October to 2 November 2026). It sets out what the published bidding record showed on four points the consultation paper raised."
+    code: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/main/lta-ab", label: "coe-analysis/lta-ab" }
+    rerun: { command: ["bash lta-ab/run_all.sh"] }
+    check:
+      - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/lta-ab/CHECKSUMS.md5", label: "lta-ab/CHECKSUMS.md5" }
+      - { url: "https://github.com/jacobbuildmodel/coe-analysis/actions/workflows/research-checks.yml", label: "GitHub Actions" }

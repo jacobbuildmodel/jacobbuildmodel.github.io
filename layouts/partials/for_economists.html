@@ -1,0 +1,55 @@
+{{- /* layouts/partials/for_economists.html
+   "For economists: data, method and code": one native <details> block, closed
+   by default, no script, at the end of an economics article (called by
+   layouts/single.html just before page_changelog.html) and of a decision page
+   (called by extend_post_content.html just before its changelog). 28 October
+   2026.
+
+   Every value comes from data/for_economists.yaml (section, then the page's
+   file name), copied from the article, its THESIS, README, seal record or
+   manifest; the pull request that added it lists the file and line of each.
+   A row whose value is not stated anywhere is left out of the file, so it is
+   not shown. Pages without an entry render nothing.
+
+     data      text
+     method    text
+     sealed    text, optional url and label (the seal record's file or commit)
+     code      url and label (the piece's folder)
+     rerun     command, a list of lines shown as code; optional runtime
+     check     list of url and label (checksum file, GitHub Actions)
+
+   On paper the block prints open (economics.css, @media print). */ -}}
+{{- with .File }}
+{{- with index (index site.Data.for_economists $.Section | default dict) .ContentBaseName }}
+<details class="for-economists">
+  <summary>For economists: data, method and code</summary>
+  <dl class="for-economists-list">
+    {{- with .data }}
+    <dt>Data</dt>
+    <dd>{{ . }}</dd>
+    {{- end }}
+    {{- with .method }}
+    <dt>Method</dt>
+    <dd>{{ . }}</dd>
+    {{- end }}
+    {{- with .sealed }}
+    <dt>Sealed</dt>
+    {{- $s := . }}
+    <dd>{{ .text }}{{ with .url }} <a href="{{ . }}">{{ $s.label }}</a>{{ end }}</dd>
+    {{- end }}
+    {{- with .code }}
+    <dt>Code</dt>
+    <dd><a href="{{ .url }}">{{ .label }}</a></dd>
+    {{- end }}
+    {{- with .rerun }}
+    <dt>Rerun</dt>
+    <dd>{{ range $i, $c := .command }}{{ if $i }}<br>{{ end }}<code>{{ $c }}</code>{{ end }}{{ with .runtime }} {{ . }}{{ end }}</dd>
+    {{- end }}
+    {{- with .check }}
+    <dt>Check</dt>
+    <dd>{{ range $i, $c := . }}{{ if $i }}; {{ end }}<a href="{{ $c.url }}">{{ $c.label }}</a>{{ end }}</dd>
+    {{- end }}
+  </dl>
+</details>
+{{- end }}
+{{- end }}

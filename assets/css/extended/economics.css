@@ -133,3 +133,51 @@ details.aside .aside-body > :first-child { margin-top: 0; }
 .lead-figure .fig-source { margin: 6px 4px 4px; }
 .page-changelog { margin: 16px 0 0; font-size: 0.85rem; color: var(--secondary); }
 .page-changelog-label { font-weight: 600; }
+
+/* "For economists: data, method and code" (layouts/partials/for_economists.html),
+   28 October 2026. A closed <details> at the end of the article, in the small
+   sans of the figure Sources lines, on the page background: --secondary is
+   5.25:1 light and 6.45:1 dark there, --primary well above. The summary takes
+   the site's focus ring (welcome.css). On paper it prints open: Chromium 131+
+   lays out a closed block's content through ::details-content. */
+.for-economists {
+  margin: 28px 0 0;
+  padding: 10px 0 0;
+  border-top: 1px solid var(--border);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--secondary);
+}
+.for-economists summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: list-item;
+  padding: 10px 0;
+  font-weight: 600;
+  color: var(--primary);
+}
+.for-economists-list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 14px;
+  margin: 4px 0 6px;
+}
+.for-economists-list dt { font-weight: 600; color: var(--primary); }
+.for-economists-list dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.for-economists-list a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-quiet); }
+.for-economists-list code {
+  font-size: 0.95em;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: var(--code-bg);
+  color: var(--primary);
+}
+@media (max-width: 480px) {
+  .for-economists-list { grid-template-columns: 1fr; gap: 0; }
+  .for-economists-list dd { margin: 0 0 8px; }
+}
+@media print {
+  .for-economists::details-content { content-visibility: visible; display: block; height: auto; opacity: 1; transition: none; }
+  .for-economists summary { list-style: none; }
+}
