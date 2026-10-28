@@ -6,9 +6,8 @@ TocOpen: false
 draft: false
 ---
 
-This covers the [Economics](/economics/) pieces specifically. The two rules on the
-[Method page](/process/) apply here as everywhere: every number traces to a source, and every claim
-carries what would prove it wrong. Causal claims need more than that, and this page covers that more.
+This covers the [Economics](/economics/) pieces specifically. The rules on
+[How the scorecard works](/process/) apply here as everywhere. Causal claims need more than that, and this page covers that more.
 
 Opinions about markets are easy to form and hard to test. Everything on this site starts
 from a question people already have a strong view about, puts primary data next to the

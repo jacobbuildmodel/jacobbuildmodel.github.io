@@ -9,25 +9,28 @@ ShowRssButtonInSectionTermList: false
 Singapore's favourite arguments, tested with public data. Before I open the data, I write down my
 prediction and seal it.
 
-## The cycle
+## The six steps
 
-Since September 2026, every scored piece has followed these steps:
+Since mid-September 2026, every scored piece has followed these steps:
 
 1. Pick a question.
-2. Write the prediction and, from October, its confidence.
-3. Seal it (a dated commit with md5 fingerprints of every sealed file) before the data is opened.
+2. Write the prediction and, from the COE or ERP piece on, its confidence.
+3. Seal it before the data is opened.
 4. Open the data and run the test.
 5. Score it on the [scorecard](/scorecard/): held, failed, or neither.
 6. Publish, failures included.
+
+The first two scored pieces, GST and HDB affordability, were sealed before their public repositories
+existed; their seal dates rest on the header of THESIS.md.
 
 ## Who does what
 
 | Step | Who |
 |---|---|
 | Picks the question | Jacob |
-| Writes the prediction and sets its confidence | Jacob |
-| Seals the prediction before the data is opened | Jacob |
-| Research, code and first drafts | Claude (an AI model by Anthropic), under rules Jacob sets |
+| Decides the prediction and sets its confidence | Jacob |
+| Approves the seal before the data is opened | Jacob |
+| Research, code, first drafts and the seal commit | Claude (an AI model by Anthropic), under rules Jacob sets |
 | Recomputes every number from a fresh copy | a separate AI checker |
 | Reads some drafts before publication | outside readers, not named |
 | Edits, approves and publishes every page | Jacob |
@@ -48,28 +51,31 @@ Mistakes that reach publication are mine.
 
 ## What is sealed
 
-Each seal fixes THESIS.md, the predictions with their pass and fail lines, in the piece's public
+A seal is a dated commit with md5 fingerprints of every sealed file. Each seal records the md5
+fingerprint of THESIS.md, the predictions with their pass and fail lines, in the piece's public
 repository: [coe-analysis](https://github.com/jacobbuildmodel/coe-analysis),
 [hdb-affordability](https://github.com/jacobbuildmodel/hdb-affordability) or
 [gst-passthrough](https://github.com/jacobbuildmodel/gst-passthrough).
-[research-checks](https://github.com/jacobbuildmodel/research-checks) re-checks every seal on every
-change there.
+A checking tool, [research-checks](https://github.com/jacobbuildmodel/research-checks), re-checks
+every seal on the main branch on every change there.
 
-## How the scorecard counts
+## Held, failed or neither
 
 In the scorecard's words: "**Held** means the sealed prediction survived. **Failed** means it did
 not, and the article says so. **Neither** means the result landed between the pass and fail lines
 written in advance, or no verdict was recorded, and it is not rounded to either side." A prediction
 that could not be scored stays on the scorecard with its reason.
 
-Predictions with a confidence count toward the calibration line. Its Brier score, where 0 is
-perfect and a flat 50 per cent on everything scores 0.25, appears on the home page once 16 are
-scored.
+Predictions with a confidence count toward the calibration line, a check of how well those
+confidences matched the results (a prediction that landed in neither counts as not held). Its Brier
+score, where 0 is perfect and a flat 50 per cent on everything scores 0.25, appears on the home page
+once 16 predictions with a confidence are scored.
 
 ## Limits
 
-Economics only, tested with Singapore public data. A prediction can be wrong for reasons the test
-cannot see.
+The scorecard covers economics only, tested with Singapore public data. A test sees only what its
+data measures: a prediction that held is not proof, and one that failed may have failed for reasons
+the data does not show.
 
 ## Replies and corrections
 
