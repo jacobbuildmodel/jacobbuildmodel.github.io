@@ -18,7 +18,7 @@ economics:
   "2026-08-22":
     data: "LTA COE bidding results, via data.gov.sg, dataset d_69b3380ad7e51aff3a7dcc84eba52b8a. 1,965 records, January 2010 to August 2026. Retrieved 18 August 2026."
     method: "The estimate is a regression of the log premium on the log quota with year fixed effects, which means the comparison runs between bidding exercises inside the same year."
-    sealed: { text: "Published before sealing began (September 2026)." }
+    sealed: { text: "Written before this site sealed predictions in advance." }
     code: { url: "https://github.com/jacobbuildmodel/coe-analysis", label: "coe-analysis" }
     rerun: { command: ["pip install -r requirements.txt", "bash run_all.sh"] }
     check:
@@ -27,7 +27,7 @@ economics:
   "2026-08-29":
     data: "LTA COE bidding results, via data.gov.sg, dataset d_69b3380ad7e51aff3a7dcc84eba52b8a. 1,965 records, January 2010 to August 2026. Retrieved 18 August 2026."
     method: "The test is to split the month's drift into two fortnights: the one inside the month, and the one that crosses into the next month."
-    sealed: { text: "Published before sealing began (September 2026)." }
+    sealed: { text: "Written before this site sealed predictions in advance." }
     code: { url: "https://github.com/jacobbuildmodel/coe-analysis", label: "coe-analysis" }
     rerun: { command: ["pip install -r requirements.txt", "bash run_all.sh"] }
     check:
@@ -36,7 +36,7 @@ economics:
   "2026-09-05":
     data: "LTA COE bidding results, via data.gov.sg, dataset d_69b3380ad7e51aff3a7dcc84eba52b8a. 1,965 records, January 2010 to August 2026. Retrieved 18 August 2026."
     method: "Win rate is successful bids divided by bids received in each exercise. Win rates by category and year, how much price moves against how much the win rate moves, the correlation between the two, and the extreme exercises."
-    sealed: { text: "Published before sealing began (September 2026)." }
+    sealed: { text: "Written before this site sealed predictions in advance." }
     code: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/main/win-rate", label: "coe-analysis/win-rate" }
     rerun: { command: ["bash run_all.sh", "cd win-rate && python3 11_winrate.py && python3 12_figures.py"] }
     check:
@@ -53,13 +53,13 @@ economics:
   "2026-09-12":
     data: "COE Bidding Results / Prices, Land Transport Authority, via data.gov.sg, dataset d_69b3380ad7e51aff3a7dcc84eba52b8a. 1,965 records, January 2010 to August 2026. Retrieved 18 August 2026."
     method: "Each category against its own peak, a test of whether the motorcycle fall is noise, what quota and bids did in each category, and one mechanism that failed."
-    sealed: { text: "Published before sealing began (September 2026)." }
+    sealed: { text: "Written before this site sealed predictions in advance." }
     code: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/main/motorcycles", label: "coe-analysis/motorcycles" }
     rerun: { command: ["python3 13_motorcycles.py", "python3 14_figures.py"] }
     check:
       - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/motorcycles/README.md#checking-your-reproduction", label: "Checking your reproduction (motorcycles/README.md)" }
   "2026-09-19":
-    data: "HDB, Resale Flat Prices based on registration date, data.gov.sg; SingStat, Monthly Household Employment Income excluding employer CPF contributions, via data.gov.sg. Complete calendar years 2013 to 2025."
+    data: "HDB, Resale Flat Prices based on registration date, Jan 2017 onwards, data.gov.sg; SingStat, Monthly Household Employment Income excluding employer CPF contributions, via data.gov.sg. Complete calendar years 2013 to 2025."
     method: "Method A, hedonic with time dummies. Regress log resale price on year dummies, town fixed effects, floor area, storey range, flat model and remaining lease."
     sealed: { text: "11 September 2026. Seal date from the header of THESIS.md; the public repository was created after it.", url: "https://github.com/jacobbuildmodel/hdb-affordability/blob/main/THESIS.md", label: "THESIS.md" }
     code: { url: "https://github.com/jacobbuildmodel/hdb-affordability", label: "hdb-affordability" }

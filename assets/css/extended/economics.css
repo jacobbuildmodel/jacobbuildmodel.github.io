@@ -137,7 +137,7 @@ details.aside .aside-body > :first-child { margin-top: 0; }
 /* "For economists: data, method and code" (layouts/partials/for_economists.html),
    28 October 2026. A closed <details> at the end of the article, in the small
    sans of the figure Sources lines, on the page background: --secondary is
-   4.88:1 light and 6.45:1 dark there, --primary well above. The summary takes
+   5.25:1 light and 6.45:1 dark there, --primary well above. The summary takes
    the site's focus ring (welcome.css). On paper it prints open: Chromium 131+
    lays out a closed block's content through ::details-content. */
 .for-economists {
