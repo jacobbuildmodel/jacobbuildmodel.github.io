@@ -1,38 +1,41 @@
 ---
-title: "Method"
-description: "How this site works, and what it will and won't tell you."
+title: "How the scorecard works"
+description: "How each prediction is sealed, tested and scored, and who does each step."
 ShowRssButtonInSectionTermList: false
 ---
 
-Anyone can put numbers on a website. This page is here so you can decide whether to believe these
-ones.
+## The promise
 
-## Two rules cover almost everything
+Singapore's favourite arguments, tested with public data. Before I open the data, I write down my
+prediction and seal it.
 
-**Every number comes from a document you can check.** Company filings, government data, published
-statistics. Where a figure comes from somewhere weaker, the page says so. Where a figure couldn't be
-found at all, the page says that too, rather than reaching for an estimate that looks close enough.
+## The six steps
 
-**Every claim comes with what would prove it wrong.** Not a disclaimer, a specific observation: if
-this number does that by this date, the argument was wrong. It's easy to write something that sounds
-convincing and can never be checked. Naming what would break it makes that harder, which is the
-point.
+Since mid-September 2026, every scored piece has followed these steps:
 
-If a page here breaks either rule, it's a mistake rather than a style choice.
+1. Pick a question.
+2. Write the prediction and, from the COE or ERP piece on, its confidence.
+3. Seal it before the data is opened.
+4. Open the data and run the test.
+5. Score it on the [scorecard](/scorecard/): held, failed, or neither.
+6. Publish, failures included.
 
-## What you'll find, and what you won't
+The first two scored pieces, GST and HDB affordability, were sealed before their public repositories
+existed; their seal dates rest on the header of THESIS.md.
 
-Economics pieces take a question people have opinions about and check it against data. The stock
-pages, which explained what a company does and how it makes money, are archived: they are
-descriptive only and no longer updated.
+## Who does what
 
-**None of it tells you what to buy.** There's no overall score on any company, no ranking of one
-against another, no price targets, and no buy or sell calls. That's a deliberate limit, not a gap
-waiting to be filled.
+| Step | Who |
+|---|---|
+| Picks the question | Jacob |
+| Decides the prediction and sets its confidence | Jacob |
+| Approves the seal before the data is opened | Jacob |
+| Research, code, first drafts and the seal commit | Claude (an AI model by Anthropic), under rules Jacob sets |
+| Recomputes every number from a fresh copy | a separate AI checker |
+| Reads some drafts before publication | outside readers, not named |
+| Edits, approves and publishes every page | Jacob |
 
-The reason is partly legal, below, and partly that the useful part is the reasoning. A score is a
-conclusion with the argument removed. If the reasoning is any good you can reach your own conclusion,
-and if it isn't, a number wouldn't have saved it.
+No one pays for this work, and no one but Jacob approves it before it is published.
 
 ## Where the AI fits
 
@@ -45,6 +48,41 @@ early version produced something fluent and wrong, and I had to write a rule to 
 is the reason to trust the current version, not a reason to hide it.
 
 Mistakes that reach publication are mine.
+
+## What is sealed
+
+A seal is a dated commit with md5 fingerprints of every sealed file. Each seal records the md5
+fingerprint of THESIS.md, the predictions with their pass and fail lines, in the piece's public
+repository: [coe-analysis](https://github.com/jacobbuildmodel/coe-analysis),
+[hdb-affordability](https://github.com/jacobbuildmodel/hdb-affordability) or
+[gst-passthrough](https://github.com/jacobbuildmodel/gst-passthrough).
+A checking tool, [research-checks](https://github.com/jacobbuildmodel/research-checks), re-checks
+every seal on the main branch on every change there.
+
+## Held, failed or neither
+
+In the scorecard's words: "**Held** means the sealed prediction survived. **Failed** means it did
+not, and the article says so. **Neither** means the result landed between the pass and fail lines
+written in advance, or no verdict was recorded, and it is not rounded to either side." A prediction
+that could not be scored stays on the scorecard with its reason.
+
+Predictions with a confidence count toward the calibration line, a check of how well those
+confidences matched the results (a prediction that landed in neither counts as not held). Its Brier
+score, where 0 is perfect and a flat 50 per cent on everything scores 0.25, appears on the home page
+once 16 predictions with a confidence are scored.
+
+## Limits
+
+The scorecard covers economics only, tested with Singapore public data. A test sees only what its
+data measures: a prediction that held is not proof, and one that failed may have failed for reasons
+the data does not show.
+
+## Replies and corrections
+
+Replies to public consultations are published too: the
+[reply to LTA on COE categories](https://github.com/jacobbuildmodel/coe-analysis/blob/main/lta-ab/SUBMITTED_REPLY.md)
+and its [one-page summary](/decisions/lta-coe-categories/). Every change to a published page is
+listed on the [corrections page](/corrections/).
 
 ## Why this isn't financial advice
 
@@ -69,19 +107,3 @@ service:
 
 I'm not licensed by the Monetary Authority of Singapore. See the [disclaimer](/disclaimer/) for the
 full statement.
-
-## The detail, if you want it
-
-The two rules above apply everywhere. How they're applied to the economics research is set out on its
-own method page, because running a regression carries rules a short summary would blur.
-
-- **[How the economics research works](/process/economics/)** — what licenses a causal claim, how the
-  data is handled, and what gets published when a result doesn't work.
-- **[How the weekly brief works](/process/brief/)** — the oldest method on the site, and where the
-  source-tier system came from.
-
-Every change to a published page is listed on the [corrections page](/corrections/).
-
-None of it is required reading. It exists so that if you want to check the work, nothing is hidden.
-
-This site counts page views with Umami, which sets no cookies and, by its own account, collects no personal data.

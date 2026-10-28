@@ -52,7 +52,7 @@ out of a view I formed early: AI is going to change how this kind of research ge
 done, and I would rather learn to direct it well than learn the old way and adapt
 later.
 
-It also came with a lesson. Nearly every rule on the [Method page](/process/) exists
+It also came with a lesson. Nearly every rule on the [How the scorecard works page](/process/) exists
 because an early version of one of these systems produced something fluent and
 wrong. The rules are what's left after that.
 
