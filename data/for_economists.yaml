@@ -59,7 +59,7 @@ economics:
     check:
       - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/motorcycles/README.md#checking-your-reproduction", label: "Checking your reproduction (motorcycles/README.md)" }
   "2026-09-19":
-    data: "HDB, Resale Flat Prices based on registration date, Jan 2017 onwards, data.gov.sg; SingStat, Monthly Household Employment Income excluding employer CPF contributions, via data.gov.sg. Complete calendar years 2013 to 2025."
+    data: "HDB, Resale Flat Prices, Mar 2012 to Dec 2014 and Jan 2015 to Dec 2016, and Resale Flat Prices based on registration date, Jan 2017 onwards, data.gov.sg; SingStat, Monthly Household Employment Income excluding employer CPF contributions, via data.gov.sg. Complete calendar years 2013 to 2025."
     method: "Method A, hedonic with time dummies. Regress log resale price on year dummies, town fixed effects, floor area, storey range, flat model and remaining lease."
     sealed: { text: "11 September 2026. Seal date from the header of THESIS.md; the public repository was created after it.", url: "https://github.com/jacobbuildmodel/hdb-affordability/blob/main/THESIS.md", label: "THESIS.md" }
     code: { url: "https://github.com/jacobbuildmodel/hdb-affordability", label: "hdb-affordability" }
