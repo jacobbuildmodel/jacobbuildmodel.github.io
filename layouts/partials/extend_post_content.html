@@ -37,7 +37,8 @@
                      with {{< lta-road >}} or before the heading named in
                      figure_before_heading (_markup/render-heading.html)
          sent        date, time, url: the reply as submitted
-         changelog   list of one-line entries, newest first */ -}}
+         changelog   list of one-line entries, newest first; the "For
+                     economists" block (for_economists.html) sits above it */ -}}
 {{- if and (eq .Section "decisions") (not .IsSection) }}
   {{- if and (eq .Params.figure "lta-road") (not (strings.Contains .Content `id="figure-1"`)) }}
   {{- partial "lta_road.html" . }}
@@ -48,6 +49,7 @@
     <p>My reply to the consultation, sent {{ .date }} at {{ .time }} through {{ .channel }}. <a href="{{ .url }}">Read it as sent</a>.</p>
   </section>
   {{- end }}
+  {{- partial "for_economists.html" . }}
   {{- with .Params.changelog }}
   <p class="decision-changelog"><span class="decision-changelog-label">Changelog:</span> {{ delimit . "; " }}</p>
   {{- end }}
