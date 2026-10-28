@@ -5,6 +5,10 @@ showToc: false
 hidemeta: true
 ---
 
+<!-- The legal text below predates the site's Vale rules and uses "should" in its
+     standard sense ("should be construed", "you should assume"). Directives are
+     off for it only; the paragraph after it is checked. 28 Oct 2026. -->
+<!-- vale Site.Directives = NO -->
 **This site is not financial advice.**
 
 Everything published here is written for educational purposes and as a record of my own research and
@@ -37,5 +41,12 @@ opinion at the time of writing. Markets change. Nothing here is a forecast you s
 **Your decisions are yours.** If you are considering an investment, consult a licensed financial
 adviser who can account for your specific circumstances. I accept no liability for any loss arising
 from use of the information on this site.
+<!-- vale Site.Directives = YES -->
 
-*Last updated: 17 August 2026*
+**What this site collects.** This site counts page views with Umami, which sets no cookies and, by
+its own account, collects no personal data. It is Umami's hosted service, loaded from
+cloud.umami.is. The [question form](/connect/) sends what is typed into it: messages go to Jacob's
+inbox through the Web3Forms service. A contact detail is used to reply, and for updates only if the
+box is ticked. Nothing is published without permission. Messages are deleted on request.
+
+*Last updated: 28 October 2026*
