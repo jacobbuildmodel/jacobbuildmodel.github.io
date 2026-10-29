@@ -74,7 +74,7 @@ unchanged.
   changed from "Is an HDB flat really harder to afford than a decade ago?" to "Is
   an HDB flat really harder to afford than it used to be?" "A decade ago" read as
   a yes: a four-room flat took 4.51 years of income in 2015 and 5.04 in 2025.
-  Numbers changed: none.
+  The same change was made in the scorecard's heading. Numbers changed: none.
 
 - **26 September 2026.** [COE or ERP open question](/open/2026-09-26-coe-or-erp/).
   In each of the four bets, "Why:" moved onto its own line; it previously ran on

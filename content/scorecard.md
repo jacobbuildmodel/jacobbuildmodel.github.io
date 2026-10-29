@@ -93,7 +93,7 @@ Sealed 17 September 2026. Revisit 3 October 2027.
 - **Held.** The finance-company housing rate stayed above 2.6 per cent in every
   published month. Result: 150 of 150 months.
 
-## Is an HDB flat really harder to afford than a decade ago?
+## Is an HDB flat really harder to afford than it used to be? {#is-an-hdb-flat-really-harder-to-afford-than-a-decade-ago}
 
 [A four-room flat takes fewer years of income than in 2013](/economics/2026-09-19/).
 Sealed 11 September 2026. Revisit 19 September 2027.
