@@ -18,3 +18,10 @@ temperature looks the same whether the heater did the work or the weather was
 mild.
 
 From: [Roads got about a quarter more crowded. Speeds held.](/economics/2026-10-17/)
+
+## The floor becomes the wage
+
+A required minimum can stop being a floor under pay and become the pay itself:
+the lowest-paid earn exactly the rung, no more.
+
+From: [For low-paid gardeners, the floor became the pay](/economics/2026-10-31/)

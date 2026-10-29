@@ -3,6 +3,7 @@ title: "Minimum wage or the Progressive Wage Model: which actually lifts Singapo
 date: 2026-09-28
 draft: false
 answerDue: "December 2026"
+answered: "/economics/2026-10-31/"
 showToc: false
 summary: "Four predictions, each with a confidence, sealed before the data was opened. The answer is due in December 2026."
 repo: "https://github.com/jacobbuildmodel/coe-analysis"
