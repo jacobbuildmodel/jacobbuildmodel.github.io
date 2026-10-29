@@ -13,11 +13,46 @@ changed silently.
 
 A fact, number or verdict was wrong.
 
-None so far.
+- **29 October 2026.** [COE quota](/economics/2026-08-22/). Headline changed from
+  "The COE quota went up 62%. Prices tripled anyway." to "The COE quota went up
+  62%. Prices nearly quadrupled anyway." The average Category A premium rose
+  287 per cent, to 3.87 times its 2010 level. The same change was made in the
+  home page's start-here box. Numbers changed: none.
+- **29 October 2026.** [COE quota](/economics/2026-08-22/). The opening quote
+  said a Category A certificate cost about S$30,000 "in January 2010". January
+  2010's two exercises cleared at $18,502 and $20,501; S$30,000 is the 2010
+  average ($30,405, in the article's own table). The quote now reads "In 2010 a
+  Category A Certificate of Entitlement cost about S$30,000 on average."
+  Numbers changed: none.
+- **29 October 2026.** [COE lottery](/economics/2026-09-05/). Headline changed
+  from "Two in three COE bidders win. It is not a lottery." to "Two in three COE
+  bids win. It is not a lottery." The 67.1 per cent is a share of bids. Numbers
+  changed: none.
+- **29 October 2026.** [GST rises](/economics/2026-09-08/). Headline
+  changed from "You can only see the GST rise in your water bill" to "Water bills
+  show about the full GST rise. The national price index cannot see it." The
+  same change was made in the home page's start-here box and on the
+  [scorecard](/scorecard/). Numbers changed: none.
+- **29 October 2026.** [GST rises](/economics/2026-09-08/). The summary
+  said that in the prices that hold still, both rises were "close to full"; it
+  now says both are visible there, and close to full in water. One sentence near
+  the end, "at roughly the full statutory amount", is limited to water in the
+  same way. Numbers changed: none.
 
 ## Clarifications
 
 Wording made more accurate, meaning unchanged.
+
+- **29 October 2026.** [COE bidding rounds](/economics/2026-08-29/). A sentence
+  that read as advice to bidders was replaced with "Choosing between the month's
+  two exercises is worth about 1% of the premium, and perfect timing at most
+  about 2%; over six months the premium moves about 15% on average." A clause
+  saying that waiting "is what actually costs money in a market that trends
+  upward" was removed: it was not tested, and premiums fell from 2014 to 2019.
+  Numbers changed: none.
+- **29 October 2026.** [COE lottery](/economics/2026-09-05/). One section heading
+  and two sentences said "bidders" where the figure counts bids; they now say
+  "bids". Numbers changed: none.
 
 - **25 September 2026.** [HDB affordability](/economics/2026-09-19/). In the
   repository's RESULTS.md, the paragraph on the grants test (T3) said the test
@@ -34,6 +69,12 @@ Wording made more accurate, meaning unchanged.
 
 Layout, charts redrawn, or headline and question wording, with the data
 unchanged.
+
+- **29 October 2026.** [HDB affordability](/economics/2026-09-19/). Question line
+  changed from "Is an HDB flat really harder to afford than a decade ago?" to "Is
+  an HDB flat really harder to afford than it used to be?" "A decade ago" read as
+  a yes: a four-room flat took 4.51 years of income in 2015 and 5.04 in 2025.
+  The same change was made in the scorecard's heading. Numbers changed: none.
 
 - **26 September 2026.** [COE or ERP open question](/open/2026-09-26-coe-or-erp/).
   In each of the four bets, "Why:" moved onto its own line; it previously ran on

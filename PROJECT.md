@@ -37,10 +37,10 @@ editorial and judgement work. That is stated openly on the About page.
 
 | Date | Title |
 |---|---|
-| 2026-08-22 | The COE quota went up 62%. Prices tripled anyway. |
+| 2026-08-22 | The COE quota went up 62%. Prices nearly quadrupled anyway. |
 | 2026-08-29 | Perfect COE timing is worth $1,840. Nobody has it. |
-| 2026-09-05 | Two in three COE bidders win. It is not a lottery. |
-| 2026-09-08 | You can only see the GST rise in your water bill |
+| 2026-09-05 | Two in three COE bids win. It is not a lottery. |
+| 2026-09-08 | Water bills show about the full GST rise. The national price index cannot see it. |
 | 2026-09-12 | Motorcycle COEs fell 17%. Car COEs rose 43%. |
 | 2026-09-19 | A four-room flat costs less income than in 2013 |
 

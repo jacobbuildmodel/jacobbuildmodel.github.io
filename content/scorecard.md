@@ -93,7 +93,7 @@ Sealed 17 September 2026. Revisit 3 October 2027.
 - **Held.** The finance-company housing rate stayed above 2.6 per cent in every
   published month. Result: 150 of 150 months.
 
-## Is an HDB flat really harder to afford than a decade ago?
+## Is an HDB flat really harder to afford than it used to be? {#is-an-hdb-flat-really-harder-to-afford-than-a-decade-ago}
 
 [A four-room flat takes fewer years of income than in 2013](/economics/2026-09-19/).
 Sealed 11 September 2026. Revisit 19 September 2027.
@@ -119,7 +119,7 @@ Sealed 11 September 2026. Revisit 19 September 2027.
 
 ## Where did the GST rises actually show up in prices?
 
-[You can only see the GST rise in your water bill](/economics/2026-09-08/).
+[Water bills show about the full GST rise. The national price index cannot see it](/economics/2026-09-08/).
 Sealed 4 September 2026. Revisit 8 September 2027.
 
 - **Failed.** Taxed and untaxed prices moved in parallel before the rises, so they
