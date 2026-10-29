@@ -119,7 +119,7 @@ Sealed 11 September 2026. Revisit 19 September 2027.
 
 ## Where did the GST rises actually show up in prices?
 
-[You can only see the GST rise in your water bill](/economics/2026-09-08/).
+[Water bills show about the full GST rise. The national price index cannot see it](/economics/2026-09-08/).
 Sealed 4 September 2026. Revisit 8 September 2027.
 
 - **Failed.** Taxed and untaxed prices moved in parallel before the rises, so they

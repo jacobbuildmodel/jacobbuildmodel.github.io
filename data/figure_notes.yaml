@@ -1,10 +1,10 @@
 # Notes and Sources under every figure (27 October 2026).
 #
-# One line per figure, shown directly under it by layouts/single.html, and one
-# changelog line per article, shown at its end by layouts/partials/page_changelog.html.
+# One line per figure, shown directly under it by layouts/single.html, and the
+# article's changelog, shown at its end by layouts/partials/page_changelog.html:
+# one line, or a list of lines, newest first (29 October 2026).
 # Keyed by section, then the article's file name, then the figure's src.
-# Kept here, not in the articles, so every article body stays byte for byte
-# the copy its research repository holds.
+# Kept here, not in the articles, so no article body is edited to carry them.
 #
 # Every word is taken from the article itself or its repository's README; the
 # line each fact came from is listed in the pull request that added this file.
@@ -12,20 +12,28 @@
 
 economics:
   "2026-08-22":
-    changelog: "28 October 2026: Notes and Sources added under the figures; no number changed."
+    changelog:
+      - "29 October 2026: headline and opening quote corrected; no number changed."
+      - "28 October 2026: Notes and Sources added under the figures; no number changed."
     figures:
       "/figs/indexed.svg": "Source: LTA, COE bidding results, via data.gov.sg, January 2010 to August 2026. Note: premiums in Singapore dollars, not adjusted for inflation; annual figures are means across the year's bidding exercises."
       "/figs/decomposition.svg": "Source: LTA, COE bidding results, via data.gov.sg, Category A, 2010 to 2026. Note: premiums in Singapore dollars, not adjusted for inflation."
   "2026-08-29":
-    changelog: "28 October 2026: Notes and Sources added under the figures; no number changed."
+    changelog:
+      - "29 October 2026: two sentences on timing reworded; no number changed."
+      - "28 October 2026: Notes and Sources added under the figures; no number changed."
     figures:
       "/figs/gap_distribution.svg": "Source: LTA, COE bidding results, via data.gov.sg, January 2010 to July 2026. Note: premiums in Singapore dollars, not adjusted for inflation."
   "2026-09-05":
-    changelog: "28 October 2026: Notes and Sources added under the figures; no number changed."
+    changelog:
+      - "29 October 2026: headline, one section heading and two sentences now say bids, not bidders; no number changed."
+      - "28 October 2026: Notes and Sources added under the figures; no number changed."
     figures:
       "/figs/winrate.svg": "Source: LTA, COE bidding results, via data.gov.sg, January 2010 to August 2026. Note: win rate is successful bids divided by bids received in each exercise; annual figures are means across that year's exercises, 15 in 2026 to August."
   "2026-09-08":
-    changelog: "28 October 2026: Notes and Sources added under the figures; no number changed."
+    changelog:
+      - "29 October 2026: headline and summary corrected, and one sentence limited to water; no number changed."
+      - "28 October 2026: Notes and Sources added under the figures; no number changed."
     figures:
       "/figs/fig1-signal-vs-noise.svg": "Source: Department of Statistics Singapore, Consumer Price Index (CPI), 2024 As Base Year, Monthly, via data.gov.sg, 2010 to 2026."
       "/figs/fig2-water-supply.svg": "Source: Department of Statistics Singapore, Consumer Price Index (CPI), 2024 As Base Year, Monthly, via data.gov.sg, 2016 to 2026."
@@ -35,7 +43,9 @@ economics:
     figures:
       "/figs/moto_vs_car.svg": "Source: LTA, COE Bidding Results / Prices, via data.gov.sg, 2019 to August 2026. Note: premiums in Singapore dollars, not adjusted for inflation."
   "2026-09-19":
-    changelog: "28 October 2026: Notes and Sources added under the figures; no number changed."
+    changelog:
+      - "29 October 2026: question line reworded; no number changed."
+      - "28 October 2026: Notes and Sources added under the figures; no number changed."
     figures:
       "/figs/fig3_binding_constraint.svg": "Source: HDB, Resale Flat Prices and Enhanced CPF Housing Grant table; MND and HDB, Further support for First-time Homebuyers, and MOF, Budget 2023 Annex E-1, for the CPF Housing Grant; SingStat, Monthly Household Employment Income at selected percentiles; MOF and MAS loan-to-value limits; 2019 to 2025. Note: for a buyer at the 20th percentile of household income."
       "/figs/fig2_ehg_crossing.svg": "Source: SingStat, Monthly Household Employment Income excluding employer CPF contributions, via data.gov.sg; HDB, Enhanced CPF Housing Grant table; 2013 to 2025."
