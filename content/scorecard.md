@@ -1,5 +1,5 @@
 ---
-title: "27 sealed predictions: 10 held, 11 failed"
+title: "31 sealed predictions: 13 held, 12 failed"
 question: "How often has this site been wrong?"
 date: 2026-10-03
 draft: false
@@ -9,12 +9,12 @@ summary: "Every prediction this site wrote down and sealed before opening the da
 # Read by the home page band (layouts/partials/track_record.html). Keep these
 # equal to the counts this page states. brier and brierN stay empty until the
 # page states a Brier score; the band then adds its calibration line.
-sealed: 27
-held: 10
-failed: 11
+sealed: 31
+held: 13
+failed: 12
 neither: 6
-brier: 0.194
-brierN: 4
+brier: 0.205
+brierN: 8
 menu:
   main:
     name: "Scorecard"
@@ -23,7 +23,7 @@ menu:
 
 > Before any data is opened, each piece writes its predictions into a file called
 > `THESIS.md` and seals it in a dated commit. This page is what happened next.
-> Of 27 sealed predictions, 10 held, 11 failed, and 6 landed in between.
+> Of 31 sealed predictions, 13 held, 12 failed, and 6 landed in between.
 
 A method that never fails is not being tested. This page exists so that anyone can
 check how often this one does, without reading a single article first.
@@ -32,11 +32,12 @@ check how often this one does, without reading a single article first.
 
 | Piece | Held | Failed | Neither |
 |---|---|---|---|
+| [Minimum wage or PWM](/economics/2026-10-31/) | 3 | 1 | 0 |
 | [COE or ERP](/economics/2026-10-17/) | 1 | 2 | 1 |
 | [HDB loan vs bank loan](/economics/2026-10-03/) | 5 | 3 | 0 |
 | [HDB affordability](/economics/2026-09-19/) | 3 | 2 | 4 |
 | [GST rises](/economics/2026-09-08/) | 1 | 4 | 1 |
-| **Total** | **10** | **11** | **6** |
+| **Total** | **13** | **12** | **6** |
 
 **Held** means the sealed prediction survived. **Failed** means it did not, and the
 article says so. **Neither** means the result landed between the pass and fail lines
@@ -44,9 +45,34 @@ written in advance, or no verdict was recorded, and it is not rounded to either 
 Each piece is scored again against newer data twelve months after it is published.
 
 **Calibration.** From the COE or ERP piece on, each sealed prediction also carries
-a confidence, written before the data was opened. The first four: 1 of 4 held,
-against 1.9 expected from those confidences. Brier score 0.194, where 0 is perfect
+a confidence, written before the data was opened. The first eight: 4 of 8 held,
+against 3.66 expected from those confidences. Brier score 0.205, where 0 is perfect
 and a flat 50 per cent on everything scores 0.25.
+
+## Minimum wage or the Progressive Wage Model: which actually lifts Singapore's lowest pay?
+
+[For low-paid gardeners, the floor became the pay](/economics/2026-10-31/).
+Sealed 28 September 2026. Revisit 31 October 2027.
+
+- **Failed.** Before the ladders, bottom pay in each covered job would track
+  comparison jobs, drifting by less than 0.010 a year on the log scale in either
+  direction. Confidence 28%. Result: cleaners drifted -0.0308 a year and security
+  officers 0.0244, so both were dropped from the pay tests; landscape workers
+  drifted 0.0010 and passed.
+- **Held.** Bottom pay in covered jobs would rise at least 0.10 on the log scale
+  (about 10.5 per cent) more than in comparison jobs, and by more than zero in
+  every group scored. Confidence 40%. Result: 0.2201 for landscape workers, the
+  only group scored (90% interval 0.1579 to 0.2822).
+- **Held.** Low-paid jobs without a ladder would keep pace, their pay growth
+  falling short of the middle's by less than 0.05 on the log scale. Confidence
+  58%. Result: a shortfall of 0.0450, growth of 0.2466 against the middle's
+  0.2916.
+- **Held.** In every year after the ladder, pay at the one-in-four mark would be
+  at least 0.97 of the ladder's first rung. Confidence 50%. Result: landscape
+  workers' lowest ratio was 1.000 (2017 1.000, 2018 1.000, 2019 1.038, 2022
+  1.000).
+- **Not scored.** The fourth bet, that employment in the covered industries held
+  up: no public series qualifies (THESIS section 4), so it is not counted above.
 
 ## COE or ERP: which one actually keeps Singapore's roads moving?
 
