@@ -10,7 +10,7 @@ decider: "LTA"
 decision: "COE categories for cars"
 opened: "8 Oct 2026"
 closes: "2 Nov 2026, 23:59"
-status: "Open"
+status: "Closed"
 reply_sent: "15 Oct 2026, 00:44"
 # Figure 1 (layouts/partials/lta_road.html), placed just before this heading
 # by layouts/decisions/_markup/render-heading.html; the body below is
@@ -22,6 +22,7 @@ figure_before_heading: "What the bidding record shows"
 data_url: "https://github.com/jacobbuildmodel/coe-analysis/blob/a3ca1ed8a5bd4817d3bebcce10c5caec3cf0edc7/lta-ab/out/bands.csv"
 changelog:
   - "27 Oct 2026: first version, six days before the consultation closes."
+  - "3 Nov 2026: comments closed on 2 November; findings are expected in the first half of 2027."
 ---
 **Jacob Ong**, 22 October 2026. The question and choices here are mine; the text was drafted by AI under my direction; a separate AI checker recomputed every number.
 

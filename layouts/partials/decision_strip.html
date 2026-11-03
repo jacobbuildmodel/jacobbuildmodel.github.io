@@ -5,7 +5,9 @@
          decider     "LTA"
          decision    "COE categories for cars"
          opened      "8 Oct 2026"
-         closes      "2 Nov 2026, 23:59"
+         closes      "2 Nov 2026, 23:59": printed "Closes <date>" while
+                     status is "Open", and "Closed <date>" for any other
+                     status (the field keeps its name)
          status      one word: Open, Closed, Decided, In force, Scored
          reply_sent  "15 Oct 2026, 00:44"
 
@@ -17,7 +19,7 @@
 {{- with $p.decider }}{{ $items = $items | append (dict "text" .) }}{{ end }}
 {{- with $p.decision }}{{ $items = $items | append (dict "text" .) }}{{ end }}
 {{- with $p.opened }}{{ $items = $items | append (dict "text" (printf "Opened %s" .)) }}{{ end }}
-{{- with $p.closes }}{{ $items = $items | append (dict "text" (printf "Closes %s" .)) }}{{ end }}
+{{- with $p.closes }}{{ $items = $items | append (dict "text" (printf "%s %s" (cond (eq $p.status "Open") "Closes" "Closed") .)) }}{{ end }}
 {{- with $p.status }}{{ $items = $items | append (dict "label" "Status:" "text" .) }}{{ end }}
 {{- with $p.reply_sent }}{{ $items = $items | append (dict "text" (printf "Reply sent %s" .)) }}{{ end }}
 {{- with $items }}
