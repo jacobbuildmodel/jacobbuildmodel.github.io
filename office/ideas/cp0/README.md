@@ -60,7 +60,8 @@ news and answers, none repeated in the notes:
   RTS Link (seen as a Telescope summary only).
 - Whether BCRS Ltd will publish the year-one rate with its denominator.
 - Quotes marked "as cited by the scout" were not re-read here: Business Times 10 Apr 2026,
-  Singapore Business Review 24 Sep 2026, ST Forum 31 Jul 2026, The Independent Singapore
-  28 Oct 2026, HardwareZone 1 Apr 2026, MOE 6 Apr 2026, CNA 7 Sep 2026, the Stanford paper and
-  Reloop's Global Deposit Book.
+  Singapore Business Review 24 Sep 2026, ST Forum 31 Jul and 30 Sep 2026 (the letter's wording),
+  The Independent Singapore 28 Oct 2026, HardwareZone 1 Apr 2026, MOE 6 Apr 2026, CNA 7 Sep 2026,
+  the Stanford paper and Reloop's Global Deposit Book. Gruber, Milligan and Wise, Baggs, Fung and
+  Lapham, and Eloundou et al. are also taken from the scout's references, not re-read.
 - The O*NET-SOC to SSOC crosswalk; ministry unit names.
