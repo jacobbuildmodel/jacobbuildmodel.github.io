@@ -15,7 +15,7 @@
 .welcome-byline { margin: 6px 0 0; font-size: 0.95rem; color: var(--secondary); }
 .welcome-promise {
   margin: 14px 0 0;
-  font-family: 'Source Serif 4', Georgia, 'Iowan Old Style', serif;
+  font-family: var(--font-serif);
   font-size: 1.15rem;
   line-height: 1.5;
   color: var(--primary);

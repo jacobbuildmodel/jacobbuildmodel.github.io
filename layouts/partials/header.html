@@ -1,56 +1,65 @@
+{{- /* layouts/partials/header.html
+   The masthead band (front page PR A, 4 November 2026; spec of 28 October,
+   section 5). A navy band, full width on every page, over a 1px rule; the
+   content inside it is held to --front-max (1180px), even over a narrow
+   article, as a paper's masthead is. Styles: assets/css/extended/masthead.css.
+
+   In the band, in this order:
+     the skip link, the first focusable element, shown only on focus; its
+       target is <main id="main"> (layouts/baseof.html);
+     the logo slot: static/logo.svg, inlined so it takes the band's text
+       colour, aria-hidden. There is no logo yet, so for now the wordmark
+       stands alone. The link's name is always the site title;
+     the wordmark, site.Title. On the home page it is the page's <h1
+       class="brand-h1">, elsewhere a <div>, styled the same;
+     the tagline, site.Params.welcome.byline, on every page's band: beside
+       the wordmark where there is room, under it otherwise;
+     the theme toggle, in its old place right after the title, same 44 x 44
+       px target, same title and aria-pressed (kept in step by
+       extend_footer.html);
+     the menu, site.Menus.main. It may wrap, never scrolls sideways, and
+       there is no hamburger. The current page's item is marked
+       aria-current="page".
+
+   PaperMod caches this partial per page (baseof.html: partialCached
+   "header.html" . .Page), so .IsHome and the current-page test are per page.
+   PaperMod's label.icon / label.iconSVG options are not read any more: the
+   logo slot above replaces them (neither was set in hugo.toml). */ -}}
+{{- $title := site.Title }}
 <header class="header">
+    <a class="skip" href="#main">Skip to content</a>
     <nav class="header-nav">
         <div class="logo">
-            {{- $label_text := (site.Params.label.text | default site.Title) }}
-            {{- if site.Title }}
-            <div class="logo-title-group">
-            {{/* No separate "Jacob Ong" byline in the header (removed 22 October
-                 2026). The site title, "The New Void Deck" since 27 October, is
-                 the link home; the home page names the author under its H1
-                 (layouts/partials/welcome_home.html). */}}
-            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
-                {{- if site.Params.label.icon }}
-                {{- $img := resources.Get site.Params.label.icon }}
-                {{- if $img }}
-                    {{- $processableFormats := (slice "jpg" "jpeg" "png" "tif" "bmp" "gif") -}}
-                    {{- if hugo.IsExtended -}}
-                        {{- $processableFormats = $processableFormats | append "webp" -}}
-                    {{- end -}}
-                    {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
-                    {{- if and (in $processableFormats $img.MediaType.SubType) (eq $prod true)}}
-                        {{- if site.Params.label.iconHeight }}
-                            {{- $img = $img.Resize (printf "x%d" site.Params.label.iconHeight) }}
-                        {{ else }}
-                            {{- $img = $img.Resize "x30" }}
-                        {{- end }}
-                    {{- end }}
-                    <img src="{{ $img.Permalink }}" alt="" aria-label="logo"
-                        height="{{- site.Params.label.iconHeight | default "30" -}}">
+            <div class="masthead-id">
+                {{- $mark := "" }}
+                {{- if fileExists "static/logo.svg" }}
+                {{- $mark = printf `<span class="brand-mark" aria-hidden="true">%s</span>` (os.ReadFile "static/logo.svg") }}
+                {{- end }}
+                {{- if .IsHome }}
+                <h1 class="brand brand-h1">
+                    <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $title }} (Alt + H)">{{ $mark | safeHTML }}<span class="brand-word">{{ $title }}</span></a>
+                </h1>
                 {{- else }}
-                <img src="{{- site.Params.label.icon | absURL -}}" alt="" aria-label="logo"
-                    height="{{- site.Params.label.iconHeight | default "30" -}}">
-                {{- end -}}
-                {{- else if hasPrefix site.Params.label.iconSVG "<svg" }}
-                    {{ site.Params.label.iconSVG | safeHTML }}
-                {{- end -}}
-                {{- $label_text -}}
-            </a>
+                <div class="brand">
+                    <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $title }} (Alt + H)">{{ $mark | safeHTML }}<span class="brand-word">{{ $title }}</span></a>
+                </div>
+                {{- end }}
+                {{- with site.Params.welcome.byline }}
+                <p class="masthead-tagline">{{ . }}</p>
+                {{- end }}
             </div>
-            {{- end }}
 
-            {{- $lsenabled := (or (not site.Params.disableThemeToggle) (and (not site.Params.disableLangToggle) (hugo.IsMultilingual))) }}
-            {{- if $lsenabled }}
+            {{- if not site.Params.disableThemeToggle }}
             <div class="logo-switches">
-                {{- if (not site.Params.disableThemeToggle) }}
                 <button id="theme-toggle" class="theme-toggle" accesskey="t" title="Dark theme (Alt + T)" aria-label="Dark theme" aria-pressed="false">
                     <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
+                        stroke-linejoin="round" aria-hidden="true" focusable="false">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                     <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
+                        stroke-linejoin="round" aria-hidden="true" focusable="false">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
                         <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -62,31 +71,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                {{- end }}
-                
-                {{- if (not site.Params.disableLangToggle) }}
-                    {{- $lang := .Lang}}
-                    {{- with site.Home.Translations }}
-                    {{- $separator := or $label_text (not site.Params.disableThemeToggle)}}
-                    {{- if $separator }}<span class="nav-sep">|</span>{{ end }}
-                    <ul class="lang-menu">
-                        {{- range . -}}
-                        {{- if ne $lang .Lang }}
-                        <li>
-                            <a href="{{- .Permalink -}}" title="{{ .Language.Params.languageAltTitle | default (.Language.LanguageName | emojify) | default (.Lang | title) }}"
-                                aria-label="{{ .Language.LanguageName | default (.Lang | title) }}">
-                                {{- if (and site.Params.displayFullLangName (.Language.LanguageName)) }}
-                                {{- .Language.LanguageName | emojify -}}
-                                {{- else }}
-                                {{- .Lang | title -}}
-                                {{- end -}}
-                            </a>
-                        </li>
-                        {{- end -}}
-                        {{- end}}
-                    </ul>
-                    {{- end }}
-                {{- end }}
             </div>
             {{- end }}
         </div>
@@ -94,24 +78,15 @@
         <ul id="menu" class="menu">
             {{- range site.Menus.main }}
             {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
-            {{- $page_url:= $currentPage.Permalink | absLangURL }}
-            {{- $is_search := eq (site.GetPage .KeyName).Layout `search` }}
+            {{- $page_url := $currentPage.Permalink | absLangURL }}
+            {{- $active := eq $menu_item_url $page_url }}
             <li>
-                <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
-                {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
-                    <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
+                <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }}"{{ if $active }} aria-current="page"{{ end }}>
+                    <span{{ if $active }} class="active"{{ end }}>
                         {{- .Pre }}
                         {{- .Name -}}
                         {{ .Post -}}
                     </span>
-                    {{- if (findRE "://" .URL) }}&nbsp;
-                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
-                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
-                        <path d="M15 3h6v6"></path>
-                        <path d="M10 14L21 3"></path>
-                    </svg>
-                    {{- end }}
                 </a>
             </li>
             {{- end }}

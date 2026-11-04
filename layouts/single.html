@@ -1,6 +1,15 @@
 {{- define "main" }}
 
-<article class="post-single">
+{{- /* Front page PR A (4 November 2026):
+     toc-side       a long page whose table of contents moves to a sticky
+                    side column at 1280px and wider (masthead.css, A3): the
+                    sections in params.tocSideSections, researchers first.
+     scorecard-page the scorecard, whose figures are set tabular (A1). */}}
+{{- $tocSide := and (.Param "ShowToc") (in (site.Params.tocSideSections | default slice) .Section) }}
+{{- $classes := slice "post-single" }}
+{{- if $tocSide }}{{ $classes = $classes | append "toc-side" }}{{ end }}
+{{- if eq .RelPermalink "/scorecard/" }}{{ $classes = $classes | append "scorecard-page" }}{{ end }}
+<article class="{{ delimit $classes " " }}">
   {{- partial "page_banner.html" . }}
   <header class="post-header">
     {{ partial "breadcrumbs.html" . }}
@@ -132,6 +141,16 @@
 
   {{- if (.Param "ShowToc") }}
   {{- partial "toc.html" . }}
+  {{- if $tocSide }}
+  {{- /* In the side column the contents are open; in normal flow (below
+         1280px) they stay as the reader left them, closed by default. */}}
+  <script>
+  (function () {
+    var toc = document.querySelector(".toc-side details.toc");
+    if (toc && window.matchMedia("(min-width: 1280px)").matches) toc.open = true;
+  })();
+  </script>
+  {{- end }}
   {{- end }}
 
   {{- if .Content }}

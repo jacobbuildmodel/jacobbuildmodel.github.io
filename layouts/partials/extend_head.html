@@ -9,10 +9,10 @@
      per-page card from share_card.html. The old site-wide og:image here
      would have been a second, conflicting image tag. -->
 
-<!-- Reading serif for .post-content prose only -- nav, meta and labels stay in
-     the theme's system sans so UI chrome and reading type stay visually
-     distinct. Source Serif 4, a Google Fonts variable face designed for long
-     text; two static weights only, subsetted to latin. -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap&subset=latin" rel="stylesheet">
+<!-- Fonts are self-hosted (static/fonts/, @font-face in
+     assets/css/extended/00-tokens.css); no request goes to Google Fonts.
+     Only the two Regular faces are preloaded: they carry the reading text
+     and the interface on every page. The URLs match the @font-face src
+     exactly, so each file is fetched once. -->
+<link rel="preload" href="/fonts/SourceSerif4-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/SourceSans3-Regular.woff2" as="font" type="font/woff2" crossorigin>
