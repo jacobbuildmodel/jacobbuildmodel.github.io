@@ -1,18 +1,14 @@
-{{- /* Banner at the very top of a page, for three sections only.
+{{- /* Banner at the very top of a page, for two sections only.
        decisions: the decision strip (layouts/partials/decision_strip.html),
                fed by front matter, on every page in the section but its list.
        open:   once the question is answered, front matter `answered` holds the
                verdict's path and this banner links there -- but only once that
                page is built (see answered_verdict.html). Nothing else on an
-               open page changes after publication.
-       stocks: archived, one fixed line on the section page and on every
-               page in it. */}}
+               open page changes after publication. */}}
 {{- if eq .Section "open" }}
   {{- with partial "answered_verdict.html" . }}
 <p class="page-banner page-banner-answered"><a href="{{ .RelPermalink }}">Answered: read the verdict</a></p>
   {{- end }}
 {{- else if and (eq .Section "decisions") (not .IsSection) }}
   {{- partial "decision_strip.html" . }}
-{{- else if eq .Section "stocks" }}
-<p class="page-banner page-banner-archived">Archived. Descriptive only, no longer updated.</p>
 {{- end }}
