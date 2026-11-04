@@ -22,7 +22,7 @@ improve the scheme" (ST Forum, 9 Oct 2026). A miss: raise the deposit, as Oregon
 points, whichever costs less per extra container. A hit: the design stands. Stakes Low-Medium.
 
 **Rivals.**
-- Mr Raymond Lim (ST Forum, 30 Sep 2026) asks "whether the scheme has resulted in a meaningful
+- Mr Raymond Lim (ST Forum, 30 Sep 2026, as cited by the scout) asks "whether the scheme has resulted in a meaningful
   increase in recycling rates"; Mr Cheong Wing Kiat (ST Forum, 31 Jul 2026, as cited by the
   scout): it "may be more trouble than it's worth".
 - NEA and BCRS Ltd (ST Forum, 9 Oct 2026): "The early results are encouraging", with no rate.

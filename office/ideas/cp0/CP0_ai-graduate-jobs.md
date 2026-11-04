@@ -28,8 +28,8 @@ Neither: the hiring cycle, as MOE holds. Stakes High.
   resilient".
 - On (b): an academic warns that funded traineeships can be a "free ride" for firms (CNA, 21 Aug
   2026). Card, Kluve and Weber (Journal of the European Economic Association, 2018), a
-  meta-analysis: training and subsidised jobs show gains two or more years on; youth programmes
-  gain less.
+  meta-analysis of over 200 studies: effects are near zero at first and turn positive two to three
+  years on, most for programmes that build skills.
 - Already stated? Partly. United States: Brynjolfsson, Chandar and Chen (Stanford Digital Economy
   Lab, Aug 2025, updated Aug 2026, as cited by the scout) find the youngest workers in the most
   exposed jobs lost ground. Singapore: cohort outcomes are public, and a 2025 fall in one course
