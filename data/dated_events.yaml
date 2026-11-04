@@ -1,0 +1,39 @@
+# Dated events for scripts/dated_alerts.py, run daily by
+# .github/workflows/dated-alerts.yml. Each event opens one GitHub issue,
+# "[Due YYYY-MM-DD] <title>", labelled dated-event and assigned to the
+# repository owner, so GitHub emails the owner. The issue opens lead_days
+# before the date and is closed automatically once the date is more than
+# 2 days past.
+#
+#   date       YYYY-MM-DD, Singapore time (required)
+#   title      short name, double-quoted (required)
+#   what       one plain line of what must happen, double-quoted (required)
+#   lead_days  days before the date to start alerting (optional, default 2)
+#   link       a URL (optional)
+#
+# This file is public, like the rest of the repo. Public site events only:
+# nothing private, nothing from the CLAUDE.md never-publish list.
+# Values are always double-quoted except date and lead_days; the reader in
+# scripts/dated_alerts.py is strict and stops on anything it does not expect.
+
+- date: 2026-11-12
+  title: "Merge day: coe-analysis SGD results PR"
+  what: "Review and merge the SGD results pull request in coe-analysis."
+  lead_days: 2
+  link: "https://github.com/jacobbuildmodel/coe-analysis/pulls"
+
+- date: 2026-11-14
+  title: "Publication day: the Singapore dollar results note (merge the site PR after 08:00)"
+  what: "Merge the SGD publication-day site PR after 08:00 Singapore time; if the page is not live by 08:30, run the deploy workflow by hand."
+  lead_days: 2
+  link: "https://github.com/jacobbuildmodel/jacobbuildmodel.github.io/pulls"
+
+- date: 2026-12-01
+  title: "Monthly source check of the research repositories"
+  what: "Check that the sources in coe-analysis, gst-passthrough and hdb-affordability still resolve, and note any that moved."
+  lead_days: 2
+
+- date: 2026-12-02
+  title: "Pre-Budget 2027 window opens for the next piece"
+  what: "Start the next piece in the pre-Budget 2027 window."
+  lead_days: 2
