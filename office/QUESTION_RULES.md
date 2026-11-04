@@ -10,6 +10,15 @@ THESIS.md, the "question" line above each headline, headlines, section intros,
 the home header, roadmap items. Every brief and every checkpoint checks against
 this list.
 
+REVISED 4 November 2026 (Jacob): every question and header follows the exam
+framing in office/QUESTION_CRAFT.md: header = the topic as a plain noun phrase;
+a factual stem; (a) "Explain ..." naming one economic concept; (b) "Discuss
+whether A or B is more effective to [criterion]"; plus Method and Decision
+lines. This overrides H4 ("no term the reader would not say to a friend") and
+the "never carries jargon" line for titles: name the concept, then gloss it
+once in plain words. H1 (a lived moment) now lives in the stem, not in a teaser
+title. Rules 1-9 still govern the sealed THESIS question.
+
 ## Two layers, two jobs
 
 | Layer | Job | Governed by |
