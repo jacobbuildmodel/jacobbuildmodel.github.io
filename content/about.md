@@ -14,8 +14,11 @@ aliases:
   - /stocks/shop/
   - /sectors/
   - /sectors/semiconductors/
+  - /sectors/semiconductors/page/1/
   - /sectors/software/
+  - /sectors/software/page/1/
   - /tags/stocks/
+  - /tags/stocks/page/1/
 ---
 
 I'm Jacob Ong, {{< age >}}, writing from Singapore.
@@ -35,39 +38,39 @@ Every piece published so far, newest first.
 
 - **[For low-paid gardeners, the floor became the pay](/economics/2026-10-31/)**\
   *Minimum wage or the Progressive Wage Model: which actually lifts Singapore's lowest pay?*\
-  Published 31 October 2026. Predictions sealed 28 September 2026. Scorecard: 3 held, 1 failed.
+  Published 31 October 2026. Of 4 predictions sealed on 28 September 2026, 3 held and 1 failed.
   [Code](https://github.com/jacobbuildmodel/coe-analysis/tree/main/pwm)
 - **[Roads got about a quarter more crowded. Speeds held.](/economics/2026-10-17/)**\
   *COE or ERP: which one actually keeps Singapore's roads moving?*\
-  Published 17 October 2026. Predictions sealed 26 September 2026. Scorecard: 1 held, 2 failed, 1 in between.
+  Published 17 October 2026. Of 4 predictions sealed on 26 September 2026, 1 held, 2 failed, and 1 landed in between.
   [Code](https://github.com/jacobbuildmodel/coe-analysis/tree/main/erp)
 - **[Early HDB loans lost to any bank charging under 1.4 points](/economics/2026-10-03/)**\
   *Was the HDB loan really cheaper than a bank's?*\
-  Published 3 October 2026. Predictions sealed 17 September 2026. Scorecard: 5 held, 3 failed.
+  Published 3 October 2026. Of 8 predictions sealed on 17 September 2026, 5 held and 3 failed.
   [Code](https://github.com/jacobbuildmodel/hdb-affordability)
 - **[A four-room flat takes fewer years of income than in 2013](/economics/2026-09-19/)**\
   *Is an HDB flat really harder to afford than it used to be?*\
-  Published 19 September 2026. Predictions sealed 11 September 2026. Scorecard: 3 held, 2 failed, 4 in between.
+  Published 19 September 2026. Of 9 predictions sealed on 11 September 2026, 3 held, 2 failed, and 4 landed in between.
   [Code](https://github.com/jacobbuildmodel/hdb-affordability)
 - **[Motorcycle COEs fell 17%. Car COEs rose 43%.](/economics/2026-09-12/)**\
   *Why did motorcycle COEs fall while car COEs hit records?*\
-  Published 12 September 2026. Written before predictions were sealed; not scored.
+  Published 12 September 2026. No predictions were sealed for this piece, so it is not scored.
   [Code](https://github.com/jacobbuildmodel/coe-analysis)
 - **[Water bills show about the full GST rise. The national price index cannot see it.](/economics/2026-09-08/)**\
   *Where did the GST rises actually show up in prices?*\
-  Published 8 September 2026. Predictions sealed 4 September 2026. Scorecard: 1 held, 4 failed, 1 in between.
+  Published 8 September 2026. Of 6 predictions sealed on 4 September 2026, 1 held, 4 failed, and 1 landed in between.
   [Code](https://github.com/jacobbuildmodel/gst-passthrough)
 - **[Two in three COE bids win. It is not a lottery.](/economics/2026-09-05/)**\
   *Is getting a COE just a lottery?*\
-  Published 5 September 2026. Written before predictions were sealed; not scored.
+  Published 5 September 2026. No predictions were sealed for this piece, so it is not scored.
   [Code](https://github.com/jacobbuildmodel/coe-analysis)
 - **[Perfect COE timing is worth $1,840. Nobody has it.](/economics/2026-08-29/)**\
   *Is one of the two monthly COE bidding rounds reliably cheaper?*\
-  Published 29 August 2026. Written before predictions were sealed; not scored.
+  Published 29 August 2026. No predictions were sealed for this piece, so it is not scored.
   [Code](https://github.com/jacobbuildmodel/coe-analysis)
 - **[The COE quota went up 62%. Prices nearly quadrupled anyway.](/economics/2026-08-22/)**\
   *Are COE prices high because the government keeps cutting the quota?*\
-  Published 22 August 2026. Written before predictions were sealed; not scored.
+  Published 22 August 2026. No predictions were sealed for this piece, so it is not scored.
   [Code](https://github.com/jacobbuildmodel/coe-analysis)
 
 ## Track record
@@ -75,10 +78,10 @@ Every piece published so far, newest first.
 [The scorecard](/scorecard/) lists every prediction sealed before the data was opened,
 and what happened to it, failures included.
 
-## How the work is checked
+## Method
 
-The rules every piece follows, from sealing its predictions to reporting the ones that
-failed, are set out in [How the economics research works](/process/economics/).
+The rules for sealing predictions and reporting the ones that failed are set out in
+[How the economics research works](/process/economics/).
 
 ## Background
 
@@ -134,7 +137,7 @@ partly by getting better at those.
 
 ## Contact
 
-My email is [EMAIL_TO_CONFIRM](mailto:EMAIL_TO_CONFIRM). Questions and counter-arguments
+My email is [jacobong999@gmail.com](mailto:jacobong999@gmail.com). Questions and counter-arguments
 can also go through [the question form](/connect/).
 
 [This page as a one-page PDF](/portfolio/Jacob-Ong-portfolio-2026-11.pdf), dated November 2026.
