@@ -1,7 +1,9 @@
 # Front page PR A: screenshots
 
-Screenshots only, for the draft pull request on branch front-page-pr-a (head 65b4d0e). Never merged.
-Taken 4 November 2026 with Playwright and Chromium at deviceScaleFactor 2, viewport height 800 (phones) or 900 (768 and up), from a local build of 65b4d0e (hugo --gc --minify).
+Screenshots only, for the draft pull request on branch front-page-pr-a. Never merged.
+
+Updated 5 November 2026 for fix round 1 (head 1aec115): NVD Serif / NVD Sans subsets, wordmark 600, menu 400 with the current page at 600, the home's welcome heading an h2. The first set (head 65b4d0e) is in this branch's history.
+Taken 4 November 2026 with Playwright and Chromium at deviceScaleFactor 2, viewport height 800 (phones) or 900 (768 and up), from a local build of the head named above (hugo --gc --minify).
 Dark shots use the system dark setting (the theme follows it when nothing is stored).
 
 ## Home (still the old home; PR B replaces it)
