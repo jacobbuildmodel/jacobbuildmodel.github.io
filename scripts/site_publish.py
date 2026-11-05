@@ -29,7 +29,9 @@ import re
 import sys
 from pathlib import Path
 
-SECTIONS = ("economics", "stocks")
+# "stocks" was removed on 4 Nov 2026 with content/stocks/; economics is the only
+# section this gate writes to.
+SECTIONS = ("economics",)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # REFUSAL PATTERNS — a hit means nothing gets written.
@@ -284,10 +286,9 @@ def coverage_date(text, section, override=None):
     return d
 
 
-# Both sections are about a specific finding, so the headline has to be written
+# A piece is about a specific finding, so the headline has to be written
 # by a human. A date is not a headline.
-TITLES = {"economics": "TODO: the finding, in a sentence",
-          "stocks": "TODO: Company Name (TICKER)"}
+TITLES = {"economics": "TODO: the finding, in a sentence"}
 
 
 def fmt_date(date):
@@ -295,7 +296,7 @@ def fmt_date(date):
 
 
 def build_front_matter(date, section):
-    # Economics and stocks pieces are longer-form and genuinely benefit from a
+    # Economics pieces are longer-form and genuinely benefit from a
     # table of contents between the title and the hook.
     show_toc = "true"
     return (
