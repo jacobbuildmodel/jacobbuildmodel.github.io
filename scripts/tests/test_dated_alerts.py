@@ -111,6 +111,11 @@ class Duplicates(unittest.TestCase):
         with self.assertRaises(da.EventsError):
             da.parse_events(text)
 
+    def test_body_states_the_lead(self):
+        body = da.event_body(ev(D(2026, 11, 12), lead=2), D(2026, 11, 12))
+        self.assertIn("(alerts start 2 day(s) before the date)", body)
+        self.assertNotIn("ahead", body)
+
     def test_title_format(self):
         self.assertEqual(da.issue_title(ev(D(2026, 11, 12), "Merge day")),
                          "[Due 2026-11-12] Merge day")
@@ -187,12 +192,15 @@ class DeployAlert(unittest.TestCase):
 class EventsReader(unittest.TestCase):
 
     def test_real_file_parses(self):
+        # Only what holds for any valid file, so adding or removing an event
+        # never fails the tests (the daily job runs them before acting).
         events = da.parse_events((ROOT / "data" / "dated_events.yaml").read_text("utf-8"))
-        self.assertEqual([e["date"] for e in events],
-                         [D(2026, 11, 12), D(2026, 11, 14), D(2026, 12, 1), D(2026, 12, 2)])
+        self.assertGreaterEqual(len(events), 1)
         for e in events:
-            self.assertTrue(e["title"] and e["what"])
-            self.assertEqual(e["lead_days"], 2)
+            self.assertIsInstance(e["date"], dt.date)
+            self.assertTrue(0 <= e["lead_days"] <= da.MAX_LEAD_DAYS)
+            self.assertTrue(e["title"].strip())
+            self.assertTrue(e["what"].strip())
 
     def test_real_file_matches_a_full_yaml_parser(self):
         # Hugo also parses data/*.yaml, so the file must be standard YAML and
@@ -246,11 +254,15 @@ class EventsReader(unittest.TestCase):
 class FakeGitHub(da.GitHub):
     """Records write calls instead of sending them; serves canned reads."""
 
-    def __init__(self, issues, runs, dry_run=False):
+    def __init__(self, issues, runs, dry_run=False, comments=None):
         super().__init__("o/r", "t", dry_run)
         self._issues, self._runs, self.calls = issues, runs, []
+        self._comments = comments or {}
 
     def request(self, method, path, data=None, query=None):
+        if method == "GET" and path.endswith("/comments"):
+            n = int(path.split("/")[2])
+            return self._comments.get(n, []) if query["page"] == 1 else []
         if method == "GET" and path == "/issues":
             st, lab = query["state"], query["labels"]
             return [i for i in self._issues if lab in i["labels"]
@@ -272,9 +284,10 @@ class WholeRun(unittest.TestCase):
     OK = [{"id": 7, "status": "completed", "conclusion": "success", "event": "push",
            "head_branch": "main", "created_at": "2026-11-11T00:30:00Z", "html_url": "u"}]
 
-    def go(self, today, issues, runs=None, dry_run=False):
+    def go(self, today, issues, runs=None, dry_run=False, comments=None):
         import contextlib, io
-        gh = FakeGitHub(issues, runs if runs is not None else self.OK, dry_run)
+        gh = FakeGitHub(issues, runs if runs is not None else self.OK, dry_run,
+                        comments)
         with contextlib.redirect_stdout(io.StringIO()):
             da.run(self.EVENTS, today, gh, "jacobbuildmodel")
         return gh.calls
@@ -302,6 +315,38 @@ class WholeRun(unittest.TestCase):
         self.assertEqual([(m, p) for m, p, _ in calls],
                          [("POST", "/issues/3/comments"), ("PATCH", "/issues/3")])
         self.assertEqual(calls[1][2], {"state": "closed"})
+        body = calls[0][2]["body"]
+        self.assertIn(da.CLOSE_MARK, body)
+        self.assertIn("If it still needs doing, reopen it; the daily check will "
+                      "leave it open.", body)
+
+    def test_reopened_after_auto_close_is_left_open(self):
+        # Run 1 closes #3 with the auto-close comment; Jacob reopens it; run 2
+        # (and every later run) must leave it open.
+        issue = {"number": 3, "title": "[Due 2026-11-12] Merge day",
+                 "state": "open", "labels": "dated-event"}
+        first = self.go(D(2026, 11, 15), [issue])
+        comment = first[0][2]["body"]
+        later = self.go(D(2026, 11, 16), [issue],
+                        comments={3: [{"body": "done?"}, {"body": comment}]})
+        self.assertEqual(later, [])
+
+    def test_other_comments_do_not_block_closing(self):
+        issue = {"number": 3, "title": "[Due 2026-11-12] Merge day",
+                 "state": "open", "labels": "dated-event"}
+        calls = self.go(D(2026, 11, 15), [issue],
+                        comments={3: [{"body": "Closed automatically? not yet"}]})
+        self.assertEqual(calls[-1], ("PATCH", "/issues/3", {"state": "closed"}))
+
+    def test_reopened_deploy_alert_is_left_open(self):
+        alert = {"number": 5, "title": da.ALERT_TITLE, "state": "open",
+                 "labels": "deploy-alert", "body": da.RUN_MARK.format(8)}
+        mark = da.close_comment("Closed automatically by dated-alerts: x.")
+        self.assertEqual(self.go(D(2026, 11, 4), [alert],
+                                 comments={5: [{"body": mark}]}), [])
+        # without the earlier auto-close comment it is closed as usual
+        self.assertEqual(self.go(D(2026, 11, 4), [alert])[-1],
+                         ("PATCH", "/issues/5", {"state": "closed"}))
 
     def test_failed_deploy_opens_alert(self):
         runs = [dict(self.OK[0], id=8, conclusion="failure")]

@@ -18,10 +18,15 @@
 # ahead rather than on the morning. A schedule only runs from the default
 # branch, so this does nothing on its own until it is on main.
 #
-# Pull requests that touch the script, its tests, the events file or this
-# workflow run the unit tests and a dry run (reads only, writes nothing).
-# This is its own workflow and job: nothing here gates or changes deploy,
-# lint, linkcheck or open-pages. GITHUB_TOKEN only; no secrets.
+# Two jobs, least privilege each:
+#   test    pull requests that touch the script, its tests, the events file
+#           or this workflow: unit tests and a dry run. contents: read only;
+#           the dry run's issue and run reads may be refused under that
+#           token, and a dry run reports a refused read and carries on.
+#   alerts  schedule and workflow_dispatch only: unit tests, then the script
+#           (or a dry run, if dispatched with dry_run). issues: write.
+# This is its own workflow: nothing here gates or changes deploy, lint,
+# linkcheck or open-pages. GITHUB_TOKEN only; no secrets.
 
 name: dated-alerts
 
@@ -41,9 +46,8 @@ on:
       - 'data/dated_events.yaml'
       - '.github/workflows/dated-alerts.yml'
 
+# Default for every job; each job sets its own below.
 permissions:
-  issues: write
-  actions: read
   contents: read
 
 # One live run at a time, so two runs on one day cannot both open the same
@@ -53,9 +57,12 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  alerts:
+  test:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-26.04
     timeout-minutes: 10
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
@@ -68,13 +75,37 @@ jobs:
         run: python -m unittest discover -s scripts/tests -v
 
       - name: Dry run
-        if: github.event_name == 'pull_request' || inputs.dry_run
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/dated_alerts.py --dry-run
+
+  alerts:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+    permissions:
+      issues: write
+      actions: read
+      contents: read
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.11'
+
+      - name: Unit tests
+        run: python -m unittest discover -s scripts/tests -v
+
+      - name: Dry run
+        if: inputs.dry_run
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/dated_alerts.py --dry-run
 
       - name: Open and close issues
-        if: github.event_name != 'pull_request' && !inputs.dry_run
+        if: ${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/dated_alerts.py

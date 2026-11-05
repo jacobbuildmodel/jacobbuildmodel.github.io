@@ -22,13 +22,16 @@ What one run does, with "today" as the calendar date in Singapore (UTC+8):
    one issue per event, and closing it early means "done", not "remind me
    again tomorrow".
 2. Past events. Every open dated-event issue whose title date is more than
-   2 days before today is closed with a comment.
+   2 days before today is closed with a comment, unless it already carries
+   this script's auto-close comment: that means it was closed once and Jacob
+   reopened it on purpose, so it is left open from then on.
 3. Deploy alert. If the most recent completed run of the "Deploy site to
    GitHub Pages" workflow on main (pull request runs left out) concluded
    "failure", open "[Alert] Latest deploy on main failed" (label deploy-alert)
    unless one is open, or one, open or closed, already names that run. If the
-   most recent completed run succeeded, close any open alert with a comment.
-   Any other conclusion (cancelled, skipped) changes nothing.
+   most recent completed run succeeded, close any open alert with a comment
+   (again, not one that was auto-closed before and reopened). Any other
+   conclusion (cancelled, skipped) changes nothing.
 
 --dry-run makes no write calls. It still reads issues and runs from the API
 (unauthenticated works for a public repo); if a read fails it says so and
@@ -66,6 +69,8 @@ KEYS = ("date", "title", "what", "lead_days", "link")
 REQUIRED = ("date", "title", "what")
 TITLE_RE = re.compile(r"^\[Due (\d{4}-\d{2}-\d{2})\] ")
 RUN_MARK = "<!-- dated-alerts deploy run_id: {} -->"
+CLOSE_MARK = "<!-- dated-alerts auto-close -->"
+REOPEN_LINE = "If it still needs doing, reopen it; the daily check will leave it open."
 
 
 class EventsError(ValueError):
@@ -208,6 +213,18 @@ def plan_closes(open_issues, today):
     return [i for i in open_issues if is_past(i["title"], today)]
 
 
+def was_auto_closed(comments):
+    """True if any comment is this script's auto-close comment. An open issue
+    carrying one was reopened by hand after an auto-close; never close it
+    again."""
+    return any(CLOSE_MARK in (c.get("body") or "") for c in comments)
+
+
+def close_comment(text):
+    """An auto-close comment: the reason, the reopen line, the hidden mark."""
+    return f"{text} {REOPEN_LINE}\n\n{CLOSE_MARK}"
+
+
 def latest_deploy_run(runs, branch=DEPLOY_BRANCH):
     """The most recent completed, non-pull-request run on `branch`."""
     done = [r for r in runs
@@ -257,7 +274,8 @@ def event_body(event, today):
         "---",
         f"Opened {today.isoformat()} by `.github/workflows/dated-alerts.yml` from "
         "`data/dated_events.yaml` "
-        f"({event['lead_days']} day(s) ahead). Close it when done; it will not "
+        f"(alerts start {event['lead_days']} day(s) before the date). Close it "
+        "when done; it will not "
         f"be reopened. Still open {CLOSE_AFTER_DAYS} days after the date, it is "
         "closed automatically.",
     ]
@@ -349,6 +367,16 @@ class GitHub:
             data.pop("assignees")
             return self.request("POST", "/issues", data)
 
+    def comments(self, number):
+        out = []
+        for page in range(1, 11):
+            batch = self.request("GET", f"/issues/{number}/comments",
+                                 query={"per_page": 100, "page": page})
+            out += batch
+            if len(batch) < 100:
+                break
+        return out
+
     def close_issue(self, issue, comment):
         n = issue["number"]
         self.write("POST", f"/issues/{n}/comments", {"body": comment},
@@ -384,6 +412,17 @@ def read_or_empty(gh, what, fn):
         return None
 
 
+def reopened(gh, issue):
+    """Print and return True if `issue` was auto-closed before and reopened."""
+    comments = read_or_empty(gh, f"comments on #{issue['number']}",
+                             lambda: gh.comments(issue["number"])) or []
+    if was_auto_closed(comments):
+        print(f"  keep  #{issue['number']}  {issue['title']}  "
+              "(reopened after an auto-close; left open)")
+        return True
+    return False
+
+
 def run(events, today, gh, owner):
     mode = "DRY RUN, no changes" if gh.dry_run else "live"
     print(f"dated-alerts: {gh.repo}, today {today.isoformat()} (Singapore), {mode}")
@@ -411,12 +450,13 @@ def run(events, today, gh, owner):
     open_issues = [i for i in all_issues if i.get("state") == "open"]
     closes = plan_closes(open_issues, today)
     for i in closes:
+        if reopened(gh, i):
+            continue
         due = due_from_title(i["title"])
-        gh.close_issue(i, (
+        gh.close_issue(i, close_comment(
             f"Closed automatically by dated-alerts: the due date {due.isoformat()} "
             f"passed more than {CLOSE_AFTER_DAYS} days ago (today is "
-            f"{today.isoformat()}, Singapore time). Reopen it if it still needs "
-            "doing."))
+            f"{today.isoformat()}, Singapore time)."))
     if not closes:
         print("  nothing to close")
 
@@ -437,7 +477,9 @@ def run(events, today, gh, owner):
         gh.open_issue(ALERT_TITLE, deploy_body(latest), ALERT_LABEL, owner)
     elif action == "close":
         for i in info:
-            gh.close_issue(i, (
+            if reopened(gh, i):
+                continue
+            gh.close_issue(i, close_comment(
                 f"Closed automatically by dated-alerts: a later deploy run on "
                 f"{DEPLOY_BRANCH} succeeded ({latest.get('html_url')})."))
     else:

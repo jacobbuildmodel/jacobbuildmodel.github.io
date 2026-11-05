@@ -18,7 +18,7 @@
 
 - date: 2026-11-12
   title: "Merge day: coe-analysis SGD results PR"
-  what: "Review and merge the SGD results pull request in coe-analysis."
+  what: "Review and merge the SGD results pull request in coe-analysis (merge commit)."
   lead_days: 2
   link: "https://github.com/jacobbuildmodel/coe-analysis/pulls"
 
