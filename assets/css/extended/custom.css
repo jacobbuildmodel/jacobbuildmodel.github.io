@@ -363,7 +363,7 @@ main .post-content > p { margin-bottom: 1em; }
 
 /* ---- reading serif ----
    .post-content prose only. Nav, meta, labels and the method strip are in
-   Source Sans 3 (00-tokens.css), so structured facts stay visually distinct
+   NVD Sans (00-tokens.css), so structured facts stay visually distinct
    from running prose. Self-hosted since front page PR A (4 Nov 2026). */
 .post-content,
 .entry-lead {
@@ -523,7 +523,7 @@ main .post-content > p { margin-bottom: 1em; }
 .open-strip-title a { color: var(--accent); box-shadow: none; }
 .open-strip-list { margin: 0; padding: 0; list-style: none; }
 .open-strip-list li { margin: 6px 0 0; line-height: 1.4; }
-.open-strip-list a { color: var(--primary); font-weight: 500; }
+.open-strip-list a { color: var(--primary); font-weight: 400; }  /* was 500; no 500 file ships (fix round 1) */
 .open-strip-due {
   display: block;
   font-size: 0.85rem;
@@ -577,7 +577,7 @@ main .post-content > p { margin-bottom: 1em; }
 .start-here .open-strip-title { color: var(--accent); }
 .start-here-list { margin: 4px 0 0; padding: 0; list-style: none; }
 .start-here-list li { margin: 8px 0 0; line-height: 1.4; }
-.start-here-list a { color: var(--primary); font-weight: 500; }
+.start-here-list a { color: var(--primary); font-weight: 400; }  /* was 500; no 500 file ships (fix round 1) */
 .start-here-when { font-size: 0.85rem; color: var(--secondary); white-space: nowrap; }
 .track-band-more { margin: 8px 0 0; font-size: 0.9rem; }
 .track-band-more a {

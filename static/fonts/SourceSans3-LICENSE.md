@@ -1,3 +1,5 @@
+The font files NVDSans-Regular.woff2 and NVDSans-Semibold.woff2 in this folder are modified subsets of Source Sans 3 by Adobe, renamed "NVD Sans" because, under the licence below, a Modified Version may not use the Reserved Font Name "Source". The licence below applies to them unchanged.
+
 Copyright 2010-2024 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe in the United States and/or other countries.
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.

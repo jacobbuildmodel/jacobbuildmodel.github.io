@@ -1,3 +1,5 @@
+The font files NVDSerif-Regular.woff2, NVDSerif-It.woff2 and NVDSerif-Semibold.woff2 in this folder are modified subsets of Source Serif 4 by Adobe, renamed "NVD Serif" because, under the licence below, a Modified Version may not use the Reserved Font Name "Source". The licence below applies to them unchanged.
+
 Copyright 2014 - 2023 Adobe (http://www.adobe.com/), with Reserved Font Name ‘Source’. All Rights Reserved. Source is a trademark of Adobe in the United States and/or other countries.
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.

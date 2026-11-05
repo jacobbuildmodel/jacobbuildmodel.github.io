@@ -11,8 +11,24 @@
 
 <!-- Fonts are self-hosted (static/fonts/, @font-face in
      assets/css/extended/00-tokens.css); no request goes to Google Fonts.
-     Only the two Regular faces are preloaded: they carry the reading text
-     and the interface on every page. The URLs match the @font-face src
-     exactly, so each file is fetched once. -->
-<link rel="preload" href="/fonts/SourceSerif4-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/SourceSans3-Regular.woff2" as="font" type="font/woff2" crossorigin>
+     Preloaded: the two Regular faces, which carry the reading text and the
+     interface on every page, and the sans Semibold, which carries the
+     masthead wordmark on every page (fix round 1, 5 November 2026). Without
+     it the wordmark swapped in after first paint and moved the tagline and
+     the theme toggle: layout shift 0.0007 at 1280px, 0 with it. About 59 KB
+     for the three. On single pages also the serif Semibold, which carries the
+     headline, and, where layouts/single.html shows the dek (.Params.summary,
+     not on the connect layout), the serif Italic: both are above the fold
+     there, and swapping in late they moved the text under them (0.013 on
+     /scorecard/ at 1280px, 0 with them). Each face is preloaded only where
+     the page uses it. The URLs match the @font-face src exactly, so each
+     file is fetched once. -->
+<link rel="preload" href="/fonts/NVDSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/NVDSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/NVDSans-Semibold.woff2" as="font" type="font/woff2" crossorigin>
+{{- if eq .Kind "page" }}
+<link rel="preload" href="/fonts/NVDSerif-Semibold.woff2" as="font" type="font/woff2" crossorigin>
+{{- if and .Params.summary (ne .Layout "connect") }}
+<link rel="preload" href="/fonts/NVDSerif-It.woff2" as="font" type="font/woff2" crossorigin>
+{{- end }}
+{{- end }}
