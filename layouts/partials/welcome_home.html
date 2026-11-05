@@ -25,7 +25,11 @@
 {{- $connect := site.GetPage "/connect" }}
 {{- if not $connect }}{{ errorf "welcome_home.html: no /connect page" }}{{ end }}
 <header class="welcome">
-  <h1 class="welcome-title">Welcome to {{ site.Title }}</h1>
+  {{- /* An h2 since front page PR A (fix round 1, 5 November 2026): the
+         masthead's wordmark is the home page's one h1 (header.html). Same
+         words and the same look (.welcome-title in welcome.css). PR B
+         replaces this block. */}}
+  <h2 class="welcome-title">Welcome to {{ site.Title }}</h2>
   {{- with site.Params.welcome.byline }}
   <p class="welcome-byline">{{ . }}</p>
   {{- end }}

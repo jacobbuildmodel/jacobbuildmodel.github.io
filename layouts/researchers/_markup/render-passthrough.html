@@ -1,0 +1,8 @@
+{{- /* layouts/researchers/_markup/render-passthrough.html
+   Formulas on the researchers pages (/researchers/...), addition A2, front
+   page PR A, 4 November 2026. Delimiters (hugo.toml, goldmark passthrough):
+   \( ... \) inline; \[ ... \] or $$ ... $$ on their own lines for a block.
+   A single $ is never a delimiter, so prices stay text. Rendered to MathML
+   by layouts/partials/math.html. Everywhere else the guard in
+   layouts/_default/_markup/render-passthrough.html stops the build. */ -}}
+{{- partial "math.html" (dict "tex" .Inner "display" (eq .Type "block")) -}}

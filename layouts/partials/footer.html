@@ -1,0 +1,170 @@
+{{- /* layouts/partials/footer.html
+   Overrides PaperMod's footer.html (pinned theme d3768854d00a; MIT licence,
+   copyright and permission notice in layouts/LICENSE-PaperMod.txt; its
+   scripts below are the theme's). Front page PR A, 4 November 2026; spec
+   of 28 October, section 7.4.
+
+   The footer itself: one line of small sans links separated by middle dots,
+   in --ink-3, the accent on hover. No year, no "Powered by", no icons. Each
+   page link is looked up with site.GetPage, so a moved or deleted page stops
+   the build instead of leaving a dead link. The dots are aria-hidden and
+   joined to the link before them with a no-break space, so a wrapped line
+   never starts with a dot.
+
+   The scripts below are the theme's, kept because overriding the file drops
+   them: the in-page anchor scrolling, the go-to-top button and the theme
+   toggle. Two changes: the menu scroll-position script is gone (the menu no
+   longer scrolls), and the skip link is left out of the anchor scrolling and
+   instead moves focus to <main> (the GOV.UK Design System's skip link
+   pattern: a temporary tabindex="-1", removed on blur), so the next Tab
+   continues from the content, not from the masthead.
+
+   PaperMod caches this partial per layout and page kind (baseof.html), so
+   nothing here may depend on the section; it does not. */ -}}
+{{- if not (.Param "hideFooter") }}
+{{- $links := slice (dict "label" site.Title "url" site.Home.RelPermalink) }}
+{{- range slice (slice "About" "/about") (slice "How it works" "/process") (slice "Scorecard" "/scorecard") (slice "Open questions" "/open") (slice "Corrections" "/corrections") (slice "Disclaimer" "/disclaimer") (slice "Questions and counter-arguments" "/connect") }}
+  {{- $p := site.GetPage (index . 1) }}
+  {{- if not $p }}{{ errorf "footer.html: no page at %s" (index . 1) }}{{ end }}
+  {{- $links = $links | append (dict "label" (index . 0) "url" $p.RelPermalink) }}
+{{- end }}
+{{- with site.Home.OutputFormats.Get "rss" }}
+  {{- $links = $links | append (dict "label" "RSS" "url" .RelPermalink) }}
+{{- end }}
+{{- range site.Params.socialIcons }}
+  {{- if eq .name "github" }}{{ $links = $links | append (dict "label" "GitHub" "url" .url) }}{{ end }}
+{{- end }}
+<footer class="footer">
+    <p class="footer-links">
+        {{- range $i, $l := $links }}
+        {{- if $i }}<span class="footer-sep" aria-hidden="true">&nbsp;&middot; </span>{{ end }}
+        <a href="{{ $l.url }}">{{ $l.label }}</a>
+        {{- end }}
+    </p>
+</footer>
+{{- end }}
+
+{{- if (not site.Params.disableScrollToTop) }}
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+{{- end }}
+
+{{- partial "extend_footer.html" . }}
+
+<script>
+    document.querySelectorAll('a[href^="#"]:not(.skip)').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+    document.querySelectorAll('a.skip').forEach(skip => {
+        skip.addEventListener("click", function () {
+            var target = document.getElementById(this.getAttribute("href").substr(1));
+            if (!target) return;
+            target.setAttribute("tabindex", "-1");
+            target.addEventListener("blur", function () { target.removeAttribute("tabindex"); }, { once: true });
+            target.focus();
+        });
+    });
+
+</script>
+
+{{- if (not site.Params.disableScrollToTop) }}
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+{{- end }}
+
+{{- if (not site.Params.disableThemeToggle) }}
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+{{- end }}
+
+{{- if (and (eq .Kind "page") (ne .Layout "archives") (ne .Layout "search") (.Param "ShowCodeCopyButtons")) }}
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '{{- i18n "code_copy" | default "copy" }}';
+
+        function copyingDone() {
+            copybutton.innerHTML = '{{- i18n "code_copied" | default "copied!" }}';
+            setTimeout(() => {
+                copybutton.innerHTML = '{{- i18n "code_copy" | default "copy" }}';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            // td containing LineNos
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            // table containing LineNos and code
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            // code blocks not having highlight as parent class
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+{{- end }}

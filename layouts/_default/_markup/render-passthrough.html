@@ -1,0 +1,8 @@
+{{- /* layouts/_default/_markup/render-passthrough.html
+   The guard for addition A2 (front page PR A, 4 November 2026): formulas are
+   rendered only on the researchers pages (layouts/researchers/_markup/) and
+   in the "For economists" block (layouts/partials/for_economists.html),
+   never in an article body. A formula delimiter anywhere else, \( \), \[ \]
+   or $$ $$, stops the build here and names the page, instead of printing the
+   raw LaTeX. */ -}}
+{{- errorf "formula delimiter in %s (line %d): formulas are allowed only on /researchers/ pages and in the For economists block" .Page.File.Path .Position.LineNumber -}}

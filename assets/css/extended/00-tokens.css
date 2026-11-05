@@ -1,0 +1,193 @@
+/* assets/css/extended/00-tokens.css
+   Front page PR A (4 November 2026): the design tokens and the two embedded
+   faces, from the front-page spec of 28 October 2026, sections 4 and 4.2.
+   PaperMod concatenates css/extended/*.css in path order, so the "00-"
+   prefix loads this file before every other extended file; the theme's own
+   core CSS still comes before all of them.
+
+   Cascade, read this before adding a token:
+   - PaperMod sets its dark values on :root[data-theme="dark"], which outranks
+     a plain :root. The dark block below uses the same selector, so it wins by
+     coming later. Dark mode on this site is always the data-theme attribute
+     on <html>, never a .dark class (see custom.css).
+   - The PaperMod aliases (--theme, --entry, --primary, --secondary,
+     --border) sit on :root[data-theme] so they apply in both themes and
+     outrank the theme's own dark block. The attribute is always present:
+     the theme's head script stamps "light" or "dark" before first paint,
+     and "auto" is only left in place when JavaScript is off.
+   - --pos, --neg (custom.css), --fig-* (economics.css) and --lr-*
+     (decisions.css) are not defined here and are unchanged.
+   - --main-width is not set here: the reading measure stays where it is,
+     660px in custom.css. The spec's "720px, unchanged" means unchanged.
+   - PaperMod's own --radius (8px) is left alone for old components; new
+     components use the three radii below.
+
+   WCAG ratios computed 4 November 2026 from these hex values; the pull
+   request carries the full table. */
+
+/* ---- the faces ----
+   NVD Serif (headlines, standfirst, prose) and NVD Sans (everything else).
+   Both are modified subsets of Adobe's Source Serif 4 (4.005) and Source
+   Sans 3 (3.052), made from the TTFs in research/paper-template/fonts/ with
+   fontTools (fix round 1, 5 November 2026). Under the SIL Open Font License
+   1.1 a subset is a Modified Version, which may not use the Reserved Font
+   Name "Source", so the families are renamed, here and inside the files.
+   Licences, with that note, in static/fonts/.
+   Kept: Latin-1 and the punctuation the site uses (U+0000-00FF, U+0131,
+   U+0152-0153, U+2000-206F, U+2074, U+20AC, U+2122, U+2190-2193, U+2212,
+   U+2215, U+25CF, U+FEFF, U+FFFD) and the kern, liga, lnum, onum, pnum and
+   tnum features. Both families default to tabular lining figures.
+   Five files: serif 400, 400 italic, 600; sans 400, 600. No 500 and no
+   700: text asking for 700 (bold, strong) is matched to the 600 file by the
+   CSS font-matching rules. The two Regular files are preloaded in
+   extend_head.html. */
+@font-face {
+  font-family: "NVD Serif";
+  src: url(/fonts/NVDSerif-Regular.woff2) format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "NVD Serif";
+  src: url(/fonts/NVDSerif-It.woff2) format("woff2");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "NVD Serif";
+  src: url(/fonts/NVDSerif-Semibold.woff2) format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "NVD Sans";
+  src: url(/fonts/NVDSans-Regular.woff2) format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "NVD Sans";
+  src: url(/fonts/NVDSans-Semibold.woff2) format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+
+/* Fallback faces sized to the web faces, so the swap does not move text.
+   Computed with the Capsize method (github.com/seek-oss/capsize, MIT):
+   size-adjust = web face's average width / fallback's (xWidthAvg per em,
+   from @capsizecss/metrics 3.7.0: 0.479 for the serif design, 0.418 for the
+   sans, Georgia and Arial 913/2048); ascent, descent and line gap are the
+   shipped files' hhea values (1036/335/0 serif, 1000/326/0 sans per 1000,
+   unchanged by subsetting) divided by size-adjust. Where Georgia or Arial
+   is not installed (Android, most Linux) the local() source fails and the
+   next family in the stack is used. */
+@font-face {
+  font-family: "NVD Serif Fallback";
+  src: local("Georgia");
+  size-adjust: 107.45%;
+  ascent-override: 96.42%;
+  descent-override: 31.18%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "NVD Sans Fallback";
+  src: local("Arial");
+  size-adjust: 93.76%;
+  ascent-override: 106.65%;
+  descent-override: 34.77%;
+  line-gap-override: 0%;
+}
+
+/* ---- light (the default) ---- */
+:root {
+  /* paper and ink */
+  --paper: #ffffff;            /* page */
+  --surface: #ffffff;          /* card and picture box */
+  --ink: #15191e;              /* text, 17.7:1 on paper */
+  --ink-2: #3f4852;            /* deks, 9.3:1 */
+  --ink-3: #5f6873;            /* meta, credits, 5.7:1 (5.3:1 on --code-bg) */
+  --line: #c5ccd4;             /* hairline borders, 1.6:1 (decorative) */
+  --navy: #1f3a5f;             /* masthead band, both themes */
+  --navy-text: #1f3a5f;        /* topic labels on paper, 11.5:1 */
+  --on-navy: #ffffff;          /* wordmark on the band, 11.5:1 */
+  --on-navy-2: #dbe4ee;        /* nav items on the band, 8.9:1 */
+  --accent: #3d6c8c;           /* links, focus, active nav, 5.6:1 */
+  --accent-quiet: #6f93ad;
+  --code-bg: #f4f7f9;          /* tinted panels */
+
+  /* type */
+  --font-serif: "NVD Serif", "NVD Serif Fallback", Georgia, "Iowan Old Style", serif;
+  --font-sans: "NVD Sans", "NVD Sans Fallback", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* space (4-based) */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px;
+  --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px;
+
+  /* shape */
+  --radius-card: 4px; --radius-img: 2px; --radius-btn: 4px;
+  --rule: 1px solid var(--line);
+  --rule-strong: 2px solid var(--ink);
+
+  /* widths */
+  --front-max: 1180px;         /* index pages and the masthead band */
+  --band-h: 64px;
+}
+
+/* ---- dark ---- */
+:root[data-theme="dark"] {
+  --paper: #1d1e20;
+  --surface: #26282c;
+  --ink: #e6e6e7;              /* 13.4:1 on paper, 11.8:1 on surface */
+  --ink-2: #b4b8be;            /* 8.4:1 */
+  --ink-3: #9a9fa6;            /* 6.3:1 on paper, 5.5:1 on surface, 5.2:1 on --code-bg */
+  --line: #454951;
+  --navy: #1f3a5f;             /* same band in both themes */
+  --navy-text: #9dbbe0;        /* 8.4:1 */
+  --on-navy: #ffffff;
+  --on-navy-2: #dbe4ee;
+  --accent: #85acc9;           /* 6.9:1 on paper, 5.7:1 on --code-bg */
+  --accent-quiet: #a3c0d6;
+  --code-bg: #2b2d32;
+}
+/* No JavaScript: data-theme stays "auto", so follow the system setting. */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] {
+    --paper: #1d1e20;
+    --surface: #26282c;
+    --ink: #e6e6e7;
+    --ink-2: #b4b8be;
+    --ink-3: #9a9fa6;
+    --line: #454951;
+    --navy: #1f3a5f;
+    --navy-text: #9dbbe0;
+    --on-navy: #ffffff;
+    --on-navy-2: #dbe4ee;
+    --accent: #85acc9;
+    --accent-quiet: #a3c0d6;
+    --code-bg: #2b2d32;
+  }
+}
+
+/* ---- PaperMod aliases, both themes ---- */
+:root,
+:root[data-theme] {
+  --theme: var(--paper);
+  --entry: var(--surface);
+  --primary: var(--ink);
+  --secondary: var(--ink-3);
+  --border: var(--line);
+}
+
+/* White paper with borders on every page: PaperMod tints list pages with
+   --code-bg in light mode (.list) and --theme in dark. */
+.list,
+[data-theme] .list { background: var(--paper); }
+
+/* ---- type ----
+   NVD Sans for everything but reading text; the serif is set on
+   .post-content, the dek and the standfirst (custom.css, welcome.css) and on
+   article headlines (masthead.css). Mono only for code and file names. */
+body { font-family: var(--font-sans); }
+code, kbd, pre, samp { font-family: var(--font-mono); }
+/* No 500 file ships. PaperMod sets 500 on the table-of-contents title, the
+   /tags/ list and heading anchors; the browser already drew them with the
+   Regular file, so 400 says what is shown. */
+details .title,
+.terms-tags li,
+.md-content :is(h1, h2, h3, h4, h5, h6):hover .anchor { font-weight: 400; }

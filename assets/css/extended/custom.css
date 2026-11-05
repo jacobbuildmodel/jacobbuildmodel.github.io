@@ -1,7 +1,7 @@
 /* ---- source-tier badges ---- */
 .src-tag {
   display: inline-block;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--font-sans);  /* was mono; A1, 4 Nov 2026: mono only for code and file names */
   font-size: 0.72em;
   letter-spacing: 0.02em;
   line-height: 1.5;
@@ -39,7 +39,7 @@
 .layer-badge {
   display: inline-block;
   margin-top: 10px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--font-sans);  /* was mono; A1, 4 Nov 2026: mono only for code and file names */
   font-size: 0.72em;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -132,7 +132,7 @@
 .attr-stars .star.off { color: var(--border); }
 
 .attr-num {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--font-sans);  /* was mono; A1, 4 Nov 2026: mono only for code and file names */
   font-size: 0.74em;
   color: var(--secondary);
   margin-inline-start: 8px;
@@ -141,7 +141,7 @@
 /* word-valued attributes (margin trend, statement integrity) */
 .attr-word,
 .attr-fact {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--font-sans);  /* was mono; A1, 4 Nov 2026: mono only for code and file names */
   font-size: 0.76em;
   letter-spacing: 0.02em;
   padding: 2px 8px;
@@ -203,7 +203,7 @@
 }
 .stock-card:hover { border-color: var(--secondary); }
 .stock-ticker {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--font-sans);  /* was mono; A1, 4 Nov 2026: mono only for code and file names */
   font-weight: 700;
   font-size: 1.05em;
   color: var(--primary);
@@ -232,22 +232,13 @@ main .post-content > p { margin-bottom: 1em; }
 
 :root {
   /* Morning palette (chosen from three options after Phase 1/2 review):
-     a fresher, cooler steel blue than the original #446485, on a cooler
-     blue-grey code-bg/border instead of neutral grey. 5.64:1 on white. */
-  --accent:        #3d6c8c;
-  --accent-quiet:  #6f93ad;
+     a fresher, cooler steel blue than the original #446485. Since front
+     page PR A (4 Nov 2026) --accent, --accent-quiet, --code-bg and the
+     border colour are set in 00-tokens.css with the other tokens; only the
+     two status colours stay here, unchanged. */
   --pos:           #2E7D5B;   /* 5.00:1 on white */
   --neg:           #8A6116;   /* 5.52:1 on white. Amber, not red: these
                                  mark "look closer", not "bad news". */
-  /* The dull-background complaint: PaperMod's own --code-bg default is
-     rgb(245,245,245), numerically neutral grey (not literally beige) but
-     flat against white cards. Morning's replacement is a cool blue-grey
-     instead -- every list page, every tinted component (method strip, lead
-     figure, aside, src-tag) inherits this since they're all built on
-     --code-bg/--border already. Dark mode is untouched: only the accent
-     hue changed above, per "dark mode must stay as good as it is". */
-  --code-bg: #f4f7f9;
-  --border:  #e0e6ea;
 }
 /* Was ".dark" -- this site's own theme-init script (in the PaperMod partial
    this project inherits) always stamps data-theme="dark"/"light" on <html>
@@ -260,15 +251,12 @@ main .post-content > p { margin-bottom: 1em; }
    "blue enough" to not look obviously broken in a screenshot. Found and
    fixed alongside the same bug in economics.css. */
 :root[data-theme="dark"] {
-  --accent:        #85acc9;   /* Morning's dark-mode accent, 6.94:1 */
-  --accent-quiet:  #a3c0d6;
   --pos:           #6FBF9A;   /* 7.62:1 */
   --neg:           #D6A544;   /* 7.41:1 */
-  /* PaperMod's dark --secondary, rgb(155, 156, 157), is 4.25:1 on the
-     tinted panels (--code-bg, rgb(55, 56, 62)) where the small grey text
-     sits: start-here dates, "Answer due", method-strip labels. Raised just
-     enough for 4.51:1 there (6.45:1 on the page background). 28 Oct 2026. */
-  --secondary:     rgb(160, 161, 162);
+  /* The dark accent and --secondary moved to 00-tokens.css in front page
+     PR A (4 Nov 2026). The 28 Oct fix that raised --secondary to 4.51:1 on
+     the old tinted panels is kept in spirit: --ink-3 (#9a9fa6) is 5.2:1 on
+     the new, darker --code-bg (#2b2d32) and 6.3:1 on the page. */
 }
 
 /* ---- measure ----
@@ -369,37 +357,17 @@ main .post-content > p { margin-bottom: 1em; }
 .stock-card:hover { border-color: var(--accent); }
 
 /* ---- masthead ----
-   The separate "Jacob Ong" byline above the title is gone (Jacob, 22 Oct
-   2026): the site title carries the name. The wrapper stays for the
-   phone-header rules below. */
-.logo-title-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding-top: 6px;
-}
-/* A site title can wrap to two lines on a phone (the 22 Oct 2026 title did;
-   "The New Void Deck", 27 Oct, fits on one at 360px). PaperMod sets the header's line height to
-   its 60px height, sized for a one-line title, so a wrapped title showed a
-   60px gap between its lines and pushed the theme toggle onto a row of its
-   own. On narrow screens only: normal line height for the title, and the
-   toggle kept beside it. Desktop, where the title fits on one line, is
-   unchanged. */
-@media screen and (max-width: 768px) {
-  .logo { flex-wrap: nowrap; align-items: flex-start; }
-  .logo-title-group { min-width: 0; }
-  .logo a { line-height: 1.25; }
-  .logo-switches { flex-shrink: 0; margin-top: 8px; }
-}
+   The band, wordmark, tagline and menu are in masthead.css since front page
+   PR A (4 Nov 2026); the old phone-header rules that lived here went with
+   the old header. */
 
 /* ---- reading serif ----
-   .post-content prose only. Nav, meta, labels, the method strip and every
-   mono-tagged component stay in the theme's system sans so structured facts
-   stay visually distinct from running prose -- the same split the site
-   already draws between .src-tag/.layer-badge (mono) and body text. */
+   .post-content prose only. Nav, meta, labels and the method strip are in
+   NVD Sans (00-tokens.css), so structured facts stay visually distinct
+   from running prose. Self-hosted since front page PR A (4 Nov 2026). */
 .post-content,
 .entry-lead {
-  font-family: 'Source Serif 4', Georgia, 'Iowan Old Style', serif;
+  font-family: var(--font-serif);
 }
 .post-content { font-size: 1.05em; }
 .post-content h2, .post-content h3 { font-weight: 600; }
@@ -439,10 +407,11 @@ main .post-content > p { margin-bottom: 1em; }
 
 /* ---- method strip ----
    Transcribed facts only (seal date, pass/fail counts, repo link) -- see
-   layouts/partials/method_strip.html for what populates it and why. Stays in
-   mono, same visual family as .src-tag/.layer-badge: a structured fact, not
-   a headline and not a score. Failures get no different treatment from
-   passes -- same weight, same row. */
+   layouts/partials/method_strip.html for what populates it and why. Small
+   sans with tabular figures (mono until front page PR A, 4 Nov 2026), same
+   visual family as .src-tag/.layer-badge: a structured fact, not a headline
+   and not a score. Failures get no different treatment from passes -- same
+   weight, same row. */
 .method-strip {
   margin-top: 14px;
   padding: 10px 14px;
@@ -457,7 +426,7 @@ main .post-content > p { margin-bottom: 1em; }
   align-items: baseline;
 }
 .method-strip-item {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--font-sans);  /* was mono; A1, 4 Nov 2026: mono only for code and file names */
   font-size: 0.78em;
   line-height: 1.6;
   color: var(--secondary);
@@ -554,7 +523,7 @@ main .post-content > p { margin-bottom: 1em; }
 .open-strip-title a { color: var(--accent); box-shadow: none; }
 .open-strip-list { margin: 0; padding: 0; list-style: none; }
 .open-strip-list li { margin: 6px 0 0; line-height: 1.4; }
-.open-strip-list a { color: var(--primary); font-weight: 500; }
+.open-strip-list a { color: var(--primary); font-weight: 400; }  /* was 500; no 500 file ships (fix round 1) */
 .open-strip-due {
   display: block;
   font-size: 0.85rem;
@@ -608,7 +577,7 @@ main .post-content > p { margin-bottom: 1em; }
 .start-here .open-strip-title { color: var(--accent); }
 .start-here-list { margin: 4px 0 0; padding: 0; list-style: none; }
 .start-here-list li { margin: 8px 0 0; line-height: 1.4; }
-.start-here-list a { color: var(--primary); font-weight: 500; }
+.start-here-list a { color: var(--primary); font-weight: 400; }  /* was 500; no 500 file ships (fix round 1) */
 .start-here-when { font-size: 0.85rem; color: var(--secondary); white-space: nowrap; }
 .track-band-more { margin: 8px 0 0; font-size: 0.9rem; }
 .track-band-more a {
@@ -670,7 +639,7 @@ main .post-content > p { margin-bottom: 1em; }
 }
 .post-content .verdict-card dt {
   margin: 0 0 2px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-sans);
   font-size: max(12px, 0.72rem);
   font-weight: 600;
   letter-spacing: 0.06em;

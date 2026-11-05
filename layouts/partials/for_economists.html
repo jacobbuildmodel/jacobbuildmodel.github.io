@@ -30,7 +30,21 @@
     {{- end }}
     {{- with .method }}
     <dt>Method</dt>
+    {{- /* A2 (front page PR A, 4 November 2026): an inline formula written
+           \( ... \) in the method text is rendered to MathML at build time
+           (partials/math.html); the rest of the text is escaped as before.
+           Text without a formula takes the old branch, byte for byte. */}}
+    {{- $formulas := findRE `\\\(.+?\\\)` . }}
+    {{- if $formulas }}
+    {{- $html := htmlEscape . }}
+    {{- range $formulas }}
+    {{- $tex := strings.TrimSuffix `\)` (strings.TrimPrefix `\(` .) }}
+    {{- $html = replace $html (htmlEscape .) (partial "math.html" (dict "tex" $tex "display" false)) 1 }}
+    {{- end }}
+    <dd>{{ $html | safeHTML }}</dd>
+    {{- else }}
     <dd>{{ . }}</dd>
+    {{- end }}
     {{- end }}
     {{- with .sealed }}
     <dt>Sealed</dt>
