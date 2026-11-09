@@ -12,9 +12,6 @@ surprised me.
 
 ## On the roadmap
 
-**Next:** Was the HDB loan really cheaper than a bank's? Publishes
-3 October.
-
 **Open questions:** Does MAS's exchange-rate policy actually reach the
 price of imports? Who really gains from the COE quota? Is Singapore's
 productivity slowdown real, or an artefact of how it is measured?

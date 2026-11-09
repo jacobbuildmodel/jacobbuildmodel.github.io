@@ -141,7 +141,7 @@ Sealed 11 September 2026. Revisit 19 September 2027.
 - **Neither.** Two correction methods would agree within 2 points. Result: 2.5
   points apart.
 - **Held.** Median income would cross the frozen grant ceiling within the window.
-  Result: it crossed in 2022.
+  Result: it crossed between 2022 and 2023 (8,904 then 9,646 dollars a month).
 
 ## Where did the GST rises actually show up in prices?
 

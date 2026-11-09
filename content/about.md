@@ -75,8 +75,8 @@ Every piece published so far, newest first.
 
 ## Track record
 
-[The scorecard](/scorecard/) lists every prediction sealed before the data was opened and answered so far,
-and what happened to it, failures included.
+[The scorecard](/scorecard/) lists every prediction answered so far that was sealed
+before the data was opened, and what happened to it, failures included.
 
 ## Method
 

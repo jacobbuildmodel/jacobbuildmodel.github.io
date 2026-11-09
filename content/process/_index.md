@@ -56,7 +56,8 @@ Mistakes that reach publication are mine.
 
 ## What is sealed
 
-From the Progressive Wage Model piece on, a seal is a dated commit with md5 fingerprints of every sealed file; earlier seals fix THESIS.md alone. Each seal records the md5
+From the Progressive Wage Model piece on, a seal is a dated commit with md5 fingerprints of every
+sealed file; earlier seals cover THESIS.md alone. Each seal records the md5
 fingerprint of THESIS.md, the predictions with their pass and fail lines, in the piece's public
 repository: [coe-analysis](https://github.com/jacobbuildmodel/coe-analysis),
 [hdb-affordability](https://github.com/jacobbuildmodel/hdb-affordability) or
