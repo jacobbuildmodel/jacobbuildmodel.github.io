@@ -17,7 +17,9 @@ Each finding is printed and marked:
     old line       the line was already there
 Exit 1 when an error sits on a changed line. Warnings (the causal verbs) and
 suggestions never fail, on any line, as before. Exit 2 when an input cannot be
-read as what it should be, so a broken Vale run is not taken for a clean one.
+read as what it should be, or when Vale reports a file that is not in the diff
+(the two name files differently, so no finding could ever match a changed
+line): a broken run is not taken for a clean one.
 
 A changed line is a "+" line of the unified diff: the new side of each hunk
 ("@@ -a,b +c,d @@" gives lines c to c+d-1; d is 1 when left out, and 0 for a
@@ -93,7 +95,12 @@ def judge(vale, diff_text):
     changed = changed_lines(diff_text)
     rows = findings(vale)
     for f in rows:
-        f["changed"] = f["line"] in changed.get(f["path"], ())
+        # Fail closed: if Vale and git spell a path differently, every finding
+        # would read "old line" and errors on new lines would pass unseen.
+        if f["path"] not in changed:
+            raise InputError("Vale reported %s, which is not in the diff; "
+                             "the two name files differently" % f["path"])
+        f["changed"] = f["line"] in changed[f["path"]]
     blocking = [f for f in rows if f["changed"] and f["severity"] == "error"]
     return rows, blocking
 

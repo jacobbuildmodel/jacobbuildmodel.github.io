@@ -11,7 +11,8 @@ content/a.md, adds lines 20 to 22, deletes two lines (a hunk with no new
 lines) and adds content/new.md whole. Covers: an error on a changed line fails;
 errors on old lines only pass; a warning never fails; a new file is all
 changed lines; a hunk that only deletes changes no line; Windows paths; and a
-Vale run that failed is exit 2, never a pass.
+Vale run that failed, or a Vale path that is not in the diff, is exit 2, never
+a pass.
 """
 import io
 import sys
@@ -95,6 +96,15 @@ class BrokenInputs(unittest.TestCase):
         code, text = run("vale_failed.json")
         self.assertEqual(code, 2)
         self.assertIn("not a list of alerts", text)
+
+    def test_a_vale_path_that_is_not_in_the_diff_fails_closed(self):
+        # Vale naming a file differently from git (here an absolute path) would
+        # make every finding an "old line"; that must stop the job, not pass it.
+        code, text = run("path_not_in_diff.json")
+        self.assertEqual(code, 2)
+        self.assertIn("vale_changed_lines.py: Vale reported /home/runner/work/site/content/a.md, "
+                      "which is not in the diff; the two name files differently", text)
+        self.assertNotIn("PASS", text)
 
     def test_missing_file(self):
         code, _ = run("no_such_file.json")
