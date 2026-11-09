@@ -75,7 +75,7 @@ Every piece published so far, newest first.
 
 ## Track record
 
-[The scorecard](/scorecard/) lists every prediction sealed before the data was opened,
+[The scorecard](/scorecard/) lists every prediction sealed before the data was opened and answered so far,
 and what happened to it, failures included.
 
 ## Method
@@ -92,7 +92,7 @@ anything here reads as authority, that's a failure in the writing rather than a
 claim I'm making.
 
 What I do have is the habit of writing down what would prove me wrong and, since
-September 2026, of sealing each prediction before I open the data.
+the GST piece on 4 September 2026, of sealing each prediction before I open the data.
 
 ## Working with AI
 

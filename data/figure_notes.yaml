@@ -55,7 +55,11 @@ economics:
       "/figs/chart1_hdb_vs_sora.svg": "Source: MAS, SORA and SGS yields, monthly, via data.gov.sg; CPF Board, CPF Interest Rates history, and HDB, Interest Rate for HDB Housing Loan; 2010 to 2026."
       "/figs/chart2_breakeven_by_start_year.svg": "Source: MAS, SORA and SGS yields, monthly, via data.gov.sg; CPF Board, CPF Interest Rates history, and HDB, Interest Rate for HDB Housing Loan; loan start years 2010 to 2025. Note: a fixed S$400,000 principal over 25 years."
   "2026-10-17":
-    changelog: "28 October 2026: Notes and Sources added under the figures; no number changed."
+    changelog:
+      - "9 November 2026: closing line reworded; no number changed."
+      - "28 October 2026: Notes and Sources added under the figures; no number changed."
     figures:
       "/figs/chart1_speed_vs_band.svg": "Source: LTA, Average Speed During Peak Hours, 2004-2025, and Annual Motor Vehicle Population by Vehicle Type and Length of Roads (Lane-Kilometres), 2005-2017, via data.gov.sg; target bands from the Ministry of Transport."
       "/figs/chart2_door_fee.svg": "Source: LTA, Average Annual Kilometres Travelled Per Vehicle, via data.gov.sg, 2005-2018; SingStat, Motor Vehicle Quota, Quota Premium And Prevailing Quota Premium, Monthly."
+  "2026-10-31":
+    changelog: "9 November 2026: closing line reworded; no number changed."

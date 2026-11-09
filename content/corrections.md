@@ -6,7 +6,7 @@ draft: false
 showToc: false
 ---
 
-Every change to a published page is listed here with its date. Numbers are never
+Every correction to a published page is listed here with its date, and every change to an article's words; changes to the pages about the site are not. Numbers are never
 changed silently.
 
 ## Corrections
@@ -43,6 +43,9 @@ A fact, number or verdict was wrong.
 
 Wording made more accurate, meaning unchanged.
 
+- **9 November 2026.** [COE or ERP](/economics/2026-10-17/) and [Minimum wage or
+  PWM](/economics/2026-10-31/). In the closing line, "in past tense throughout"
+  changed to "about what happened, not a forecast". Numbers changed: none.
 - **29 October 2026.** [COE bidding rounds](/economics/2026-08-29/). A sentence
   that read as advice to bidders was replaced with "Choosing between the month's
   two exercises is worth about 1% of the premium, and perfect timing at most
@@ -70,11 +73,13 @@ Wording made more accurate, meaning unchanged.
 Layout, charts redrawn, or headline and question wording, with the data
 unchanged.
 
+- **3 November 2026.** [LTA COE categories](/decisions/lta-coe-categories/). Status changed from "Open" to "Closed" and a changelog line added. Numbers changed: none.
 - **29 October 2026.** [HDB affordability](/economics/2026-09-19/). Question line
   changed from "Is an HDB flat really harder to afford than a decade ago?" to "Is
   an HDB flat really harder to afford than it used to be?" "A decade ago" read as
   a yes: a four-room flat took 4.51 years of income in 2015 and 5.04 in 2025.
   The same change was made in the scorecard's heading. Numbers changed: none.
+- **28 October 2026.** All eight published pieces in [Economics](/economics/). A Notes and Sources line added under every figure, and a changelog line at the end of each article. Numbers changed: none.
 
 - **26 September 2026.** [COE or ERP open question](/open/2026-09-26-coe-or-erp/).
   In each of the four bets, "Why:" moved onto its own line; it previously ran on

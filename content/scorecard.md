@@ -5,7 +5,7 @@ date: 2026-10-03
 draft: false
 showToc: false
 hidemeta: true
-summary: "Every prediction this site wrote down and sealed before opening the data, and what happened to it. Failures included, and never removed."
+summary: "Every answered prediction this site wrote down and sealed before opening the data, and what happened to it. Failures included, and never removed."
 # Read by the home page band (layouts/partials/track_record.html). Keep these
 # equal to the counts this page states. brier and brierN stay empty until the
 # page states a Brier score; the band then adds its calibration line.
@@ -22,7 +22,7 @@ menu:
 ---
 
 > Before any data is opened, each piece writes its predictions into a file called
-> `THESIS.md` and seals it in a dated commit. This page is what happened next.
+> `THESIS.md` and seals it in a dated commit (for the first two pieces, the file's own dated header). This page is what happened next.
 > Of 31 sealed predictions, 13 held, 12 failed, and 6 landed in between.
 
 A method that never fails is not being tested. This page exists so that anyone can
