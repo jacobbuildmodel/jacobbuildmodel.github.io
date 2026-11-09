@@ -33,6 +33,18 @@ pagination.pagerSize = 10
   [markup.tableOfContents]
     startLevel = 2
     endLevel   = 3
+  # Formulas (front page PR A, addition A2, 4 November 2026): the
+  # delimiters below are handed to a render hook untouched, rendered to
+  # MathML at build time on /researchers/ pages only
+  # (layouts/researchers/_markup/render-passthrough.html); anywhere else the
+  # guard hook (layouts/_default/_markup/render-passthrough.html) stops the
+  # build. No single-$ delimiter, so prices stay text. No page used any of
+  # these delimiters when this was switched on.
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block  = [['\[', '\]'], ['$$', '$$']]
+      inline = [['\(', '\)']]
 
 # --- site parameters ---
 [params]
@@ -51,6 +63,10 @@ pagination.pagerSize = 10
   ShowReadingTime   = true
   ShowToc           = true
   TocOpen           = false
+  # Long pages whose table of contents sits in a sticky side column at
+  # 1280px and wider (front page PR A, addition A3; layouts/single.html,
+  # assets/css/extended/masthead.css). Researchers pages first.
+  tocSideSections   = ["researchers"]
   ShowBreadCrumbs   = true
   ShowPostNavLinks  = true
   ShowWordCount     = false
@@ -67,7 +83,8 @@ pagination.pagerSize = 10
   # Homepage intro block
   # Home page welcome (layouts/partials/welcome_home.html). Final words,
   # approved by Jacob on 28 Oct 2026; the byline names the author under the
-  # H1, on the home page only.
+  # H1 on the home page, and since front page PR A (4 Nov 2026) it is also
+  # the tagline in the masthead band on every page (layouts/partials/header.html).
   [params.welcome]
     byline  = "Jacob Ong: economics with a scorecard"
     promise = "Singapore's favourite arguments, tested with public data. Before I open the data, I write down my prediction and seal it."

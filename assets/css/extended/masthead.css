@@ -1,0 +1,241 @@
+/* assets/css/extended/masthead.css
+   Front page PR A (4 November 2026; spec of 28 October, sections 4.1, 5 and
+   7.4, plus additions A1 and A3 of 3 November): the masthead band, the
+   footer, article headline type, tabular figures and the side table of
+   contents. Colours and faces come from 00-tokens.css. No shadow, gradient,
+   blur, animation or radius over 4px. */
+
+/* ---- the band ----
+   Navy in both themes, over a 1px rule. Full width; the content inside is
+   held to --front-max. Phones (< 768px): two rows, identity 72px and menu
+   44px. From 768px: one row, 64px. Not sticky. */
+.header {
+  position: relative;
+  background: var(--navy);
+  border-bottom: 1px solid var(--line);
+}
+.header-nav {
+  max-width: var(--front-max);
+  padding: 0 16px;
+  line-height: normal;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 24px;
+}
+.header-nav a { color: var(--on-navy-2); }
+
+/* identity row: wordmark, tagline, theme toggle */
+.logo {
+  flex: 1 1 100%;
+  min-height: 72px;
+  flex-wrap: nowrap;
+  align-items: center;
+  column-gap: 8px;
+}
+.masthead-id {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.brand,
+.brand-h1 {
+  margin: 0;
+  font: inherit;
+  line-height: inherit;
+}
+.logo .brand a {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;            /* the Semibold file; no Bold ships */
+  color: var(--on-navy);
+}
+.brand-mark { display: inline-flex; }
+.brand-mark svg { display: block; height: 28px; width: auto; fill: currentColor; }
+.masthead-tagline {
+  margin: 2px 0 0;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--on-navy-2);
+}
+
+/* theme toggle: same place and 44 x 44 px target (welcome.css), white icon */
+.header #theme-toggle { color: var(--on-navy); margin: 0 -10px 0 0; }
+.logo-switches { flex-shrink: 0; min-height: 44px; }
+
+/* menu row: may wrap, never scrolls sideways */
+.header .menu {
+  flex: 1 1 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: visible;
+  flex-wrap: wrap;
+  row-gap: 4px;
+  column-gap: 16px;
+  align-items: center;
+}
+.header .menu a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--on-navy-2);
+}
+/* Hover and the current page: white with a 2px underline. The current page
+   is also the menu's one emphasis, at 600; there is no 500 file. */
+.header .menu a:hover,
+.header .menu a[aria-current="page"] { color: var(--on-navy); }
+.header .menu a:hover span,
+.header .menu .active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+.header .menu .active { font-weight: 600; }
+
+/* focus in the band: white ring (the accent is 2.0:1 on navy) */
+.header a:focus-visible,
+.header button:focus-visible { outline: 2px solid var(--on-navy); outline-offset: 2px; }
+
+@media screen and (max-width: 374px) {
+  .header .menu { column-gap: 14px; }
+  .header .menu a { font-size: 15px; }
+}
+
+@media screen and (min-width: 768px) {
+  .header-nav {
+    padding: 0 var(--gap);
+    flex-wrap: nowrap;
+    min-height: var(--band-h);
+  }
+  .logo { flex: 0 1 auto; min-height: var(--band-h); }
+  .logo .brand a { font-size: 24px; line-height: 28px; }
+  .masthead-tagline { font-size: 14px; line-height: 16px; }
+  .header .menu {
+    flex: 0 0 auto;
+    margin-inline-start: auto;
+    column-gap: 20px;
+    justify-content: flex-end;
+  }
+  .header .menu a { font-size: 17px; min-height: var(--band-h); }
+}
+/* Where the row is wide enough, the tagline moves beside the wordmark,
+   16px after it. Measured in the sans (4 Nov 2026): wordmark 199px,
+   tagline 230px, toggle 44px and menu 343px need about 864px of the row
+   plus its 48px of padding, so below 960px the tagline stays under the
+   wordmark, inside the same 64px row, rather than push the menu onto a
+   second row. */
+@media screen and (min-width: 960px) {
+  .masthead-id { flex-direction: row; align-items: baseline; column-gap: 16px; }
+  .masthead-tagline { margin: 0; }
+}
+
+/* ---- skip link: first in the band, shown only on focus ---- */
+.skip {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+  z-index: 100;
+  padding: 8px 12px;
+  border-radius: var(--radius-btn);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: underline;
+}
+.skip:not(:focus) {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+/* the target is focused by script only (footer.html); no ring on <main> */
+.main[tabindex="-1"]:focus { outline: none; }
+
+/* ---- footer ----
+   As wide as the band, so the ten links fit on one line from about 860px;
+   on a phone the line wraps, never inside a link. */
+.footer {
+  max-width: var(--front-max);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--ink-3);
+}
+.footer-links { margin: 0; }
+.footer-links a {
+  color: var(--ink-3);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.footer-links a:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
+/* ---- article headline ----
+   NVD Serif 600, 28/34 at 390px rising to 38/44 at 1280px (was the
+   system sans at 40px). Article h2 and h3 keep their sizes and are already
+   serif 600 inside .post-content (custom.css). */
+.post-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(28px, calc(28px + 10 * (100vw - 390px) / 890), 38px);
+  line-height: clamp(34px, calc(34px + 10 * (100vw - 390px) / 890), 44px);
+}
+
+/* ---- A1: tabular lining figures ----
+   Every number in tables, the method and decision strips and the scorecard
+   lines up in columns. (The track-record band gets the same rule in PR B,
+   which adds the band; no page has one now.) Both faces already default to
+   tabular lining figures; this states it, so a fallback face follows too.
+   Prose figures are not touched. */
+.post-content table,
+.table-scroll,
+.method-strip,
+.decision-strip,
+.scorecard-page {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* ---- A2: formulas ----
+   Rendered at build time to MathML by transform.ToMath (layouts/researchers/
+   _markup/render-passthrough.html and partials/math.html), no script. The
+   browser draws MathML with its own math font. */
+math { font-family: "STIX Two Math", "Cambria Math", "Latin Modern Math", math; }
+math[display="block"] { margin: 1.2em 0; overflow-x: auto; overflow-y: hidden; }
+
+/* ---- A3: table of contents in a side column ----
+   On long pages (layouts/single.html marks them: the sections in
+   params.tocSideSections, researchers first) and only at 1280px and wider,
+   the table of contents leaves the flow and sits in the left margin, sticky
+   as the page scrolls, opened by a few lines of script in single.html.
+   Below 1280px it stays where it was, in normal flow. The header is not
+   sticky. The right margin is kept for the asides (economics.css). */
+@media screen and (min-width: 1280px) {
+  .toc-side details.toc {
+    float: left;
+    position: sticky;
+    top: var(--s5);
+    width: 240px;
+    margin: 0 0 0 -272px;
+    max-height: calc(100vh - 2 * var(--s5));
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .toc-side details.toc .inner { padding: 0 var(--s3) var(--s3); }
+  .toc-side details.toc ul { padding-inline-start: var(--s3); }
+}

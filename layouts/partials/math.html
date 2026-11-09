@@ -1,0 +1,16 @@
+{{- /* layouts/partials/math.html
+   One formula, LaTeX in, MathML out, rendered at build time by Hugo's
+   transform.ToMath (an embedded KaTeX; no script in the browser, no style
+   sheet, no font file). Addition A2, front page PR A, 4 November 2026.
+   Called by layouts/researchers/_markup/render-passthrough.html and by
+   layouts/partials/for_economists.html, the only two places formulas are
+   allowed.
+
+     dict "tex" <LaTeX source> "display" <true for a block formula>
+
+   A formula KaTeX cannot parse stops the build with its error, so a broken
+   formula is never published. */ -}}
+{{- $opts := dict "output" "mathml" "displayMode" (.display | default false) "throwOnError" true }}
+{{- with try (transform.ToMath .tex $opts) }}
+  {{- with .Err }}{{ errorf "math.html: %s" . }}{{ else }}{{ .Value }}{{ end }}
+{{- end -}}

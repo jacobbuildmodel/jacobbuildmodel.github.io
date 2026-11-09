@@ -47,7 +47,6 @@ its own account, collects no personal data. The counter is Umami's hosted servic
 cloud.umami.is. The [question form](/connect/) sends what is typed into it, and the page it was opened
 from. Messages go to Jacob's inbox through the Web3Forms service. A contact detail is used to reply,
 and for updates only if the box is ticked. Nothing is published without permission. Messages are
-deleted on request. Pages also load the Source Serif 4 font from Google Fonts, so the browser
-contacts Google's font servers.
+deleted on request.
 
-*Last updated: 28 October 2026*
+*Last updated: 9 November 2026*
