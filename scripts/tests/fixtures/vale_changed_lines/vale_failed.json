@@ -1,0 +1,7 @@
+{
+  "Line": 1,
+  "Path": ".vale.ini",
+  "Text": "The StylesPath 'nowhere' doesn't exist.",
+  "Code": "E201",
+  "Span": 14
+}

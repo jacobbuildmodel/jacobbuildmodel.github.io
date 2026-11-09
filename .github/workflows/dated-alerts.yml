@@ -20,7 +20,9 @@
 #
 # Two jobs, least privilege each:
 #   test    pull requests that touch the script, its tests, the events file
-#           or this workflow: unit tests and a dry run. contents: read only;
+#           or this workflow: unit tests and a dry run. The unit tests are
+#           everything in scripts/tests/, so scripts/vale_changed_lines.py
+#           (lint.yml's Vale filter) is tested here too. contents: read only;
 #           the dry run's issue and run reads may be refused under that
 #           token, and a dry run reports a refused read and carries on.
 #   alerts  schedule and workflow_dispatch only: unit tests, then the script
@@ -42,6 +44,7 @@ on:
   pull_request:
     paths:
       - 'scripts/dated_alerts.py'
+      - 'scripts/vale_changed_lines.py'   # its unit tests run in the test job below
       - 'scripts/tests/**'
       - 'data/dated_events.yaml'
       - '.github/workflows/dated-alerts.yml'

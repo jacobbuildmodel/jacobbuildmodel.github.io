@@ -1,0 +1,21 @@
+{
+  "content/a.md": [
+    {
+      "Action": {
+        "Name": "",
+        "Params": null
+      },
+      "Span": [
+        3,
+        8
+      ],
+      "Check": "Site.Causal",
+      "Description": "",
+      "Link": "",
+      "Message": "'lifted' claims a cause.",
+      "Severity": "warning",
+      "Match": "x",
+      "Line": 9
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "content\\a.md": [
+    {
+      "Action": {
+        "Name": "",
+        "Params": null
+      },
+      "Span": [
+        3,
+        8
+      ],
+      "Check": "Site.Directives",
+      "Description": "",
+      "Link": "",
+      "Message": "'should' tells the reader what to do or which is better.",
+      "Severity": "error",
+      "Match": "x",
+      "Line": 21
+    }
+  ]
+}

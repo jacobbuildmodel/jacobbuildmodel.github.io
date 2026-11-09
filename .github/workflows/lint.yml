@@ -44,9 +44,13 @@ jobs:
   # over the content/**/*.md files this pull request adds or changes. Only
   # those: the older articles still carry hits, listed in the PR that added
   # this job for a separate cleanup, and checking them here would keep every
-  # PR red. An error fails the job; a warning (the causal verbs) is printed
-  # for the checker and does not. Pull requests only, like the job above;
-  # deploy.yml's gate is unchanged.
+  # PR red. Vale reads each of those files whole and every finding is
+  # printed, marked "changed line" or "old line". Only an error on a line
+  # this pull request adds or changes fails the job
+  # (scripts/vale_changed_lines.py, 9 November 2026): before that, editing
+  # one line of a page with old hits turned the whole PR red. A warning (the
+  # causal verbs) is printed for the checker and never fails. Pull requests
+  # only, like the job above; deploy.yml's gate is unchanged.
   vale:
     runs-on: ubuntu-26.04
     env:
@@ -56,6 +60,9 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.11'
       - name: Install Vale
         run: |
           wget -q -O "${{ runner.temp }}/vale.tar.gz" \
@@ -71,4 +78,9 @@ jobs:
             echo "no changed content files"; exit 0
           fi
           printf 'checking %s\n' "${files[@]}"
-          vale --no-wrap "${files[@]}"
+          # --no-exit: findings alone do not stop the step (the script below
+          # decides); a Vale that cannot run still exits 2 and fails it.
+          vale --no-exit --output=JSON "${files[@]}" > "$RUNNER_TEMP/vale.json"
+          git diff -U0 "$BASE"...HEAD -- "${files[@]}" > "$RUNNER_TEMP/changed.diff"
+          python scripts/vale_changed_lines.py \
+            --vale-json "$RUNNER_TEMP/vale.json" --diff "$RUNNER_TEMP/changed.diff"

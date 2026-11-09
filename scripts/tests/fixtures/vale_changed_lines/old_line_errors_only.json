@@ -1,0 +1,55 @@
+{
+  "content/a.md": [
+    {
+      "Action": {
+        "Name": "",
+        "Params": null
+      },
+      "Span": [
+        3,
+        8
+      ],
+      "Check": "Site.Acronyms",
+      "Description": "",
+      "Link": "",
+      "Message": "'T3' is jargon for this audience.",
+      "Severity": "error",
+      "Match": "x",
+      "Line": 5
+    },
+    {
+      "Action": {
+        "Name": "",
+        "Params": null
+      },
+      "Span": [
+        3,
+        8
+      ],
+      "Check": "Site.Jargon",
+      "Description": "",
+      "Link": "",
+      "Message": "'pass-through' is jargon for this audience.",
+      "Severity": "error",
+      "Match": "x",
+      "Line": 32
+    },
+    {
+      "Action": {
+        "Name": "",
+        "Params": null
+      },
+      "Span": [
+        3,
+        8
+      ],
+      "Check": "Site.Causal",
+      "Description": "",
+      "Link": "",
+      "Message": "'lifted' claims a cause.",
+      "Severity": "warning",
+      "Match": "x",
+      "Line": 9
+    }
+  ]
+}
