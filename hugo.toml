@@ -17,25 +17,12 @@ pagination.pagerSize = 10
     path = "github.com/adityatelange/hugo-PaperMod"
 
 # --- taxonomies ---
-# Sector lets a reader who came for one company find the next one. "tag" is kept
-# because existing content already uses it.
+# "tag" is kept because existing content already uses it. The "sectors"
+# taxonomy served only the stocks pages, removed on 4 Nov 2026; their old
+# URLs (/stocks/..., /sectors/..., /tags/stocks/) are aliases of /about/,
+# listed in content/about.md.
 [taxonomies]
   tag    = "tags"
-  sector = "sectors"
-
-# /sectors/... and /tags/stocks/ exist only because of the archived stocks
-# pages: kept at their URLs, but out of the sitemap and noindex, like the
-# stocks pages themselves (whose cascade lives in content/stocks/_index.md).
-# Out of RSS as well: no feed of their own (outputs html only), and not
-# listed in the /tags/ feed (hiddenInRss).
-[[cascade]]
-  robotsNoIndex = true
-  hiddenInRss   = true
-  outputs       = ["html"]
-  [cascade.sitemap]
-    disable = true
-  [cascade.target]
-    path = "{/sectors,/sectors/**,/tags/stocks}"
 
 # --- markdown rendering ---
 [markup]
@@ -140,7 +127,6 @@ failure is published too.
     buttondownUsername = ""                           # EDIT LATER
 
 # --- navigation ---
-# Stocks is archived: off the menu, pages kept at their URLs (noindex, banner).
 [[menu.main]]
   identifier = "economics"
   name       = "Economics"

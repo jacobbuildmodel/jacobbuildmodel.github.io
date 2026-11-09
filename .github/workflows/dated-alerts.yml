@@ -1,0 +1,111 @@
+# .github/workflows/dated-alerts.yml
+#
+# Dated events reach Jacob's inbox even when no chat is running. Once a day
+# scripts/dated_alerts.py reads data/dated_events.yaml and:
+#   - opens "[Due YYYY-MM-DD] <title>" (label dated-event, assigned to the
+#     repository owner, so GitHub emails them) from lead_days before the date;
+#     one issue per event, never a duplicate;
+#   - closes dated-event issues more than 2 days past their date, with a
+#     comment;
+#   - opens "[Alert] Latest deploy on main failed" when the most recent
+#     completed "Deploy site to GitHub Pages" run on main failed, and closes
+#     it once a later run succeeds.
+# If the script itself fails, GitHub's failed-workflow email to the owner is
+# the fallback alert.
+#
+# Schedule: 00:05 UTC = 08:05 Singapore. GitHub starts scheduled runs late
+# under load (deploy.yml notes 5-6 hours), which is why events alert days
+# ahead rather than on the morning. A schedule only runs from the default
+# branch, so this does nothing on its own until it is on main.
+#
+# Two jobs, least privilege each:
+#   test    pull requests that touch the script, its tests, the events file
+#           or this workflow: unit tests and a dry run. contents: read only;
+#           the dry run's issue and run reads may be refused under that
+#           token, and a dry run reports a refused read and carries on.
+#   alerts  schedule and workflow_dispatch only: unit tests, then the script
+#           (or a dry run, if dispatched with dry_run). issues: write.
+# This is its own workflow: nothing here gates or changes deploy, lint,
+# linkcheck or open-pages. GITHUB_TOKEN only; no secrets.
+
+name: dated-alerts
+
+on:
+  schedule:
+    - cron: "5 0 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run: print what would happen, change nothing"
+        type: boolean
+        default: false
+  pull_request:
+    paths:
+      - 'scripts/dated_alerts.py'
+      - 'scripts/tests/**'
+      - 'data/dated_events.yaml'
+      - '.github/workflows/dated-alerts.yml'
+
+# Default for every job; each job sets its own below.
+permissions:
+  contents: read
+
+# One live run at a time, so two runs on one day cannot both open the same
+# issue. A pull request run gets its own group and never holds up the daily one.
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && format('dated-alerts-pr-{0}', github.ref) || 'dated-alerts' }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.11'
+
+      - name: Unit tests
+        run: python -m unittest discover -s scripts/tests -v
+
+      - name: Dry run
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/dated_alerts.py --dry-run
+
+  alerts:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+    permissions:
+      issues: write
+      actions: read
+      contents: read
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.11'
+
+      - name: Unit tests
+        run: python -m unittest discover -s scripts/tests -v
+
+      - name: Dry run
+        if: inputs.dry_run
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/dated_alerts.py --dry-run
+
+      - name: Open and close issues
+        if: ${{ !inputs.dry_run }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/dated_alerts.py

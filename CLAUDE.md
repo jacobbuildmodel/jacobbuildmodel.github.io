@@ -15,7 +15,7 @@ up; that tradeoff was accepted deliberately because no narrower hook point exist
 `extend_post_content.html` for adding content, but it only fires *after* the article body — no
 use for anything that needs to be seen in the first three seconds of a skim.
 
-**What the override adds:** a small layer badge (ECONOMICS / STOCKS), derived automatically from
+**What the override adds:** a small layer badge (ECONOMICS), derived automatically from
 `.Section` — no per-post authoring, so it can't drift out of sync the way a manually-typed tag
 could. It renders right after the date/reading-time line, before the table of contents.
 
@@ -23,11 +23,10 @@ could. It renders right after the date/reading-time line, before the table of co
 section they've clicked into before committing to read it. That's invisible without this —
 previously only the nav bar carried that information, not the article itself.
 
-Every section keeps `showToc: true` — economics pieces and stock pages are both long-form enough
-to benefit from a table of contents between the title and the hook. Set in two places:
-`scripts/site_publish.py`'s `build_front_matter` (the pipeline path for economics) and
-`content/stocks/TEMPLATE.md` (the hand-authoring path for stock pages). Both need to agree, or
-the two paths silently diverge.
+Economics pieces keep `showToc: true`: they are long-form enough to benefit from a table of
+contents between the title and the hook. Set in `scripts/site_publish.py`'s `build_front_matter`.
+(The stock pages' `content/stocks/TEMPLATE.md` set it too; it went with the stocks section on
+4 November 2026.)
 
 **Tested with real browser screenshots at 390px width (iPhone-class), not just by reading the
 CSS:** the hook blockquote has a tinted background, not just a left border. First attempt used
@@ -99,7 +98,7 @@ Content is staged, gated, then committed. Never write directly from a model outp
 <staging folder>/*.md
         │
         ▼
-python scripts/site_publish.py "<staged file>" --section economics   # or --section stocks
+python scripts/site_publish.py "<staged file>" --section economics
         │
         ▼
 content/<section>/YYYY-MM-DD.md                     # human edit pass happens HERE
@@ -108,10 +107,9 @@ content/<section>/YYYY-MM-DD.md                     # human edit pass happens HE
 commit + push                                       # only after the human pass
 ```
 
-In practice `stocks` pages don't flow through this dated staging path — they're evergreen
-(`content/stocks/<ticker>.md`), copied by hand from `content/stocks/TEMPLATE.md` and updated in
-place, per the Repo conventions below. `--section stocks` exists in the gate but is rarely
-exercised; `economics` is the active pipeline.
+The stocks section was removed from the site on 4 November 2026 (its history stays in git, and
+its old URLs redirect to `/about/` through aliases in `content/about.md`), so `economics` is the
+only section the gate accepts.
 
 **The human edit pass is not optional and you do not perform it alone.** After staging, ask Jacob to
 review before you commit. He is publishing under his own name; a figure you could not verify is his
@@ -128,8 +126,8 @@ The same error published under Jacob's name is not recoverable in the same way.
 
 ## Compliance — Singapore Financial Advisers Act
 
-This site publishes two kinds of content: Singapore economics research and stock explainer
-pages. Stock-level content is the part that matters most here, not because naming a company is
+This site publishes Singapore economics research (it also carried stock explainer pages until
+4 November 2026). Stock-level content is the part that matters most here, not because naming a company is
 itself risky, but because a communication can become "financial advice" under Singapore law when
 it's tailored to an individual and/or the provider holds themselves out as a professional — see
 the full reasoning on `content/process/_index.md#why-this-isnt-financial-advice`. Two rules follow
@@ -169,10 +167,6 @@ rest of what `aitell.py` reports (opener monotony, sentence-rhythm clustering, A
 hedge language, tidy three-item lists) is advisory and does not block, but should be read and
 acted on before a draft goes to Jacob for review.
 
-`content/stocks/*.md` is **not** currently in the lint job's file list. If stock pages start
-seeing heavier machine-assisted drafting, that's worth revisiting; until then, run
-`scripts/aitell.py` on a stock draft by hand rather than assuming CI caught it.
-
 ## Repo conventions
 
 - `hugo.toml` — config. Site title, menu, Umami ID, Buttondown username.
@@ -182,9 +176,10 @@ seeing heavier machine-assisted drafting, that's worth revisiting; until then, r
   repository behind it — currently `coe-analysis`, `gst-passthrough`, and `hdb-affordability`,
   all under `github.com/jacobbuildmodel`. Link a new finding's repo the same way rather than
   inlining code in the post.
-- `content/stocks/` — evergreen company explainer pages, one file per ticker (`nvda.md`,
-  `pltr.md`, `shop.md`), copied from `content/stocks/TEMPLATE.md` and updated in place rather
-  than dated and re-staged. `definitions.md` documents every score shown on a stock page.
+- `content/about.md` is the portfolio page (Jacob, 4 Nov 2026). `tools/portfolio_pdf.py` turns
+  its text into the one-page PDF in `static/portfolio/`; rerun it whenever the page changes.
+  The stock pages (`content/stocks/`) were removed the same day; their old URLs are aliases of
+  `/about/`.
 - `content/process/` — the Method pages. `_index.md` is the hub at `/process/`, written for a retail
   reader and carrying the compliance section. Annexes: `economics.md`, `brief.md`. Revise the hub
   deliberately; it is the most-linked page and the compliance text lives there. `brief.md`
@@ -193,11 +188,11 @@ seeing heavier machine-assisted drafting, that's worth revisiting; until then, r
   everywhere else, so the page stays linked from the hub.
 - `staging/` — raw model output before the gate. Gitignored, never committed. Meant to be pruned by
   `scripts/staging_prune.py`, never by hand — but see the gotcha below before relying on that script.
-- `scripts/site_publish.py` — the gate. `SECTIONS = ("economics", "stocks")`; passing any other
+- `scripts/site_publish.py` — the gate. `SECTIONS = ("economics",)`; passing any other
   `--section` value is a hard argparse error, by design.
 - `scripts/staging_prune.py` — retention for `staging/` only. **Its own `SECTIONS` tuple is
   `("news", "sector", "standouts", "briefs")` — none of which match `site_publish.py`'s current
-  sections.** `--section economics` or `--section stocks` will fail with an invalid-choice error.
+  sections.** `--section economics` will fail with an invalid-choice error.
   Fix the tuple before relying on `--section` with this script; running it with no `--section` at
   all still works (it just iterates its own stale list, most of which are empty directories now).
 - `scripts/aitell.py` — the prose/AI-tell linter, described above.
