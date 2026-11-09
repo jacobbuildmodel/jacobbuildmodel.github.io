@@ -43,7 +43,7 @@
          See CLAUDE.md "Layer badge override" for why this file exists as a
          full single.html override rather than a narrower extend_ partial:
          PaperMod has no hook point before the ToC, only after all content. -->
-    {{- $layerNames := dict "briefs" "WEEKLY BRIEF" "stocks" "STOCKS" "earnings" "EARNINGS" "economics" "ECONOMICS" "sector" "SECTOR" "standouts" "STANDOUTS" }}
+    {{- $layerNames := dict "briefs" "WEEKLY BRIEF" "earnings" "EARNINGS" "economics" "ECONOMICS" "sector" "SECTOR" "standouts" "STANDOUTS" }}
     {{- with index $layerNames .Section }}
     <div class="layer-badge">{{ . }}</div>
     {{- end }}
@@ -64,7 +64,7 @@
          Must be .Params.summary, the raw front matter value, never .Summary
          -- Hugo falls .Summary back to an auto-generated excerpt (headings
          stripped, run together) for any page without an explicit summary,
-         which is every non-article page (About, Method, Stocks index). That
+         which is every non-article page (About, Method, section indexes). That
          auto text rendered as a dek on /about/ until this fix. Pages that
          set description but not summary already get it rendered above, in
          the theme's own .post-description block -- not duplicated here. */}}
