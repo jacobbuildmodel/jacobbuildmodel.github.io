@@ -14,7 +14,7 @@ listed. Numbers are never changed silently.
 
 A fact, number or verdict was wrong.
 
-- **9 November 2026.** [HDB affordability](/economics/2026-09-19/) and the
+- **10 November 2026.** [HDB affordability](/economics/2026-09-19/) and the
   [scorecard](/scorecard/). Both said median household income crossed 9,000
   dollars a month in 2022. The two yearly readings are 8,904 in 2022 and 9,646 in
   2023, so it crossed between them; 2022 came from a straight line drawn between
@@ -50,9 +50,9 @@ A fact, number or verdict was wrong.
 
 Wording made more accurate, meaning unchanged.
 
-- **9 November 2026.** [HDB loan](/economics/2026-10-03/). The first source now
+- **10 November 2026.** [HDB loan](/economics/2026-10-03/). The first source now
   carries the dataset's own name. Numbers changed: none.
-- **9 November 2026.** [COE or ERP](/economics/2026-10-17/) and [Minimum wage or
+- **10 November 2026.** [COE or ERP](/economics/2026-10-17/) and [Minimum wage or
   PWM](/economics/2026-10-31/). In the closing line, "in past tense throughout"
   changed to "about what happened, not a forecast". The method strip on [HDB
   affordability](/economics/2026-09-19/) and [COE or ERP](/economics/2026-10-17/)

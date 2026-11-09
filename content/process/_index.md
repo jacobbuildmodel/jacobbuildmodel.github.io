@@ -3,7 +3,7 @@ title: "How the scorecard works"
 description: "How each prediction is sealed, tested and scored, and who does each step."
 ShowRssButtonInSectionTermList: false
 # The weekly-brief method page (content/process/brief.md) was removed on
-# 9 November 2026: the brief it described was deleted on 7 September. Its
+# 10 November 2026: the brief it described was deleted on 7 September. Its
 # address redirects here.
 aliases:
   - /process/brief/
