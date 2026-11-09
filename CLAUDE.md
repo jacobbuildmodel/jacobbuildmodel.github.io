@@ -181,11 +181,10 @@ acted on before a draft goes to Jacob for review.
   The stock pages (`content/stocks/`) were removed the same day; their old URLs are aliases of
   `/about/`.
 - `content/process/` — the Method pages. `_index.md` is the hub at `/process/`, written for a retail
-  reader and carrying the compliance section. Annexes: `economics.md`, `brief.md`. Revise the hub
-  deliberately; it is the most-linked page and the compliance text lives there. `brief.md`
-  documents the weekly-brief method for historical/reference purposes — the pipeline that used to
-  produce that content is retired, but the source-tier system it introduced is still used
-  everywhere else, so the page stays linked from the hub.
+  reader and carrying the compliance section. Annex: `economics.md`. Revise the hub
+  deliberately; it is the most-linked page and the compliance text lives there. The weekly-brief
+  page (`brief.md`) was removed on 10 November 2026 (PR #60); `/process/brief/` is an alias of
+  `/process/`. The brief itself was deleted on 7 September 2026.
 - `staging/` — raw model output before the gate. Gitignored, never committed. Meant to be pruned by
   `scripts/staging_prune.py`, never by hand — but see the gotcha below before relying on that script.
 - `scripts/site_publish.py` — the gate. `SECTIONS = ("economics",)`; passing any other
