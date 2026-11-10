@@ -2,6 +2,11 @@
 title: "How the scorecard works"
 description: "How each prediction is sealed, tested and scored, and who does each step."
 ShowRssButtonInSectionTermList: false
+# The weekly-brief method page (content/process/brief.md) was removed on
+# 10 November 2026: the brief it described was deleted on 7 September. Its
+# address redirects here.
+aliases:
+  - /process/brief/
 ---
 
 ## The promise
@@ -11,7 +16,7 @@ prediction and seal it.
 
 ## The six steps
 
-Since mid-September 2026, every scored piece has followed these steps:
+Since September 2026, every scored piece has followed these steps:
 
 1. Pick a question.
 2. Write the prediction and, from the COE or ERP piece on, its confidence.
@@ -51,7 +56,8 @@ Mistakes that reach publication are mine.
 
 ## What is sealed
 
-A seal is a dated commit with md5 fingerprints of every sealed file. Each seal records the md5
+From the Progressive Wage Model piece on, a seal is a dated commit with md5 fingerprints of every
+sealed file; earlier seals cover THESIS.md alone. Each seal records the md5
 fingerprint of THESIS.md, the predictions with their pass and fail lines, in the piece's public
 repository: [coe-analysis](https://github.com/jacobbuildmodel/coe-analysis),
 [hdb-affordability](https://github.com/jacobbuildmodel/hdb-affordability) or
@@ -68,12 +74,11 @@ that could not be scored stays on the scorecard with its reason.
 
 Predictions with a confidence count toward the calibration line, a check of how well those
 confidences matched the results (a prediction that landed in neither counts as not held). Its Brier
-score, where 0 is perfect and a flat 50 per cent on everything scores 0.25, appears on the home page
-once 16 predictions with a confidence are scored.
+score, where 0 is perfect and a flat 50 per cent on everything scores 0.25, is on the scorecard.
 
 ## Limits
 
-The scorecard covers economics only, tested with Singapore public data. A test sees only what its
+The scorecard covers economics only, tested with public data. A test sees only what its
 data measures: a prediction that held is not proof, and one that failed may have failed for reasons
 the data does not show.
 
@@ -81,7 +86,7 @@ the data does not show.
 
 Replies to public consultations are published too: the
 [reply to LTA on COE categories](https://github.com/jacobbuildmodel/coe-analysis/blob/main/lta-ab/SUBMITTED_REPLY.md)
-and its [one-page summary](/decisions/lta-coe-categories/). Every change to a published page is
+and its [one-page summary](/decisions/lta-coe-categories/). Every correction to a published page, and every change to an article's words, is
 listed on the [corrections page](/corrections/).
 
 ## Why this isn't financial advice

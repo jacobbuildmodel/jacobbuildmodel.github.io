@@ -6,13 +6,20 @@ draft: false
 showToc: false
 ---
 
-Every change to a published page is listed here with its date. Numbers are never
-changed silently.
+Every correction to a published page is listed here with its date, and so is
+every change to an article's words. Changes to the pages about the site are not
+listed. Numbers are never changed silently.
 
 ## Corrections
 
 A fact, number or verdict was wrong.
 
+- **10 November 2026.** [HDB affordability](/economics/2026-09-19/) and the
+  [scorecard](/scorecard/). Both said median household income crossed 9,000
+  dollars a month in 2022. The two yearly readings are 8,904 in 2022 and 9,646 in
+  2023, so it crossed between them; 2022 came from a straight line drawn between
+  the two. The sealed test asked only whether a crossing happened inside the
+  window, so its verdict, held, is unchanged. Numbers changed: the crossing year.
 - **29 October 2026.** [COE quota](/economics/2026-08-22/). Headline changed from
   "The COE quota went up 62%. Prices tripled anyway." to "The COE quota went up
   62%. Prices nearly quadrupled anyway." The average Category A premium rose
@@ -43,6 +50,14 @@ A fact, number or verdict was wrong.
 
 Wording made more accurate, meaning unchanged.
 
+- **10 November 2026.** [HDB loan](/economics/2026-10-03/). The first source now
+  carries the dataset's own name. Numbers changed: none.
+- **10 November 2026.** [COE or ERP](/economics/2026-10-17/) and [Minimum wage or
+  PWM](/economics/2026-10-31/). In the closing line, "in past tense throughout"
+  changed to "about what happened, not a forecast". The method strip on [HDB
+  affordability](/economics/2026-09-19/) and [COE or ERP](/economics/2026-10-17/)
+  now says "neither" instead of "inconclusive", the scorecard's word. Numbers
+  changed: none.
 - **29 October 2026.** [COE bidding rounds](/economics/2026-08-29/). A sentence
   that read as advice to bidders was replaced with "Choosing between the month's
   two exercises is worth about 1% of the premium, and perfect timing at most
@@ -70,11 +85,15 @@ Wording made more accurate, meaning unchanged.
 Layout, charts redrawn, or headline and question wording, with the data
 unchanged.
 
+- **3 November 2026.** [LTA COE categories](/decisions/lta-coe-categories/). Status changed from "Open" to "Closed" and a changelog line added. Numbers changed: none.
 - **29 October 2026.** [HDB affordability](/economics/2026-09-19/). Question line
   changed from "Is an HDB flat really harder to afford than a decade ago?" to "Is
   an HDB flat really harder to afford than it used to be?" "A decade ago" read as
   a yes: a four-room flat took 4.51 years of income in 2015 and 5.04 in 2025.
   The same change was made in the scorecard's heading. Numbers changed: none.
+- **28 October 2026.** All eight published pieces in [Economics](/economics/). A
+  Notes and Sources line added under 14 of their 16 figures, and a changelog line
+  at the end of each article. Numbers changed: none.
 
 - **26 September 2026.** [COE or ERP open question](/open/2026-09-26-coe-or-erp/).
   In each of the four bets, "Why:" moved onto its own line; it previously ran on

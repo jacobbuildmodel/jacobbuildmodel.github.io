@@ -5,6 +5,6 @@ description: "Predictions sealed before the data is opened. The answers are stil
 ---
 
 Each page here is a prediction I wrote down and sealed in a dated commit before
-opening the data that will test it. Nothing on the page changes after that. When
+opening the data that will test it. No words on the page change after that. When
 the answer is in, the page gets a link to the verdict at the top, and the result
 is counted with the rest, whether it held or not.

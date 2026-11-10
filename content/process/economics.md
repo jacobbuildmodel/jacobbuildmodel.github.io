@@ -47,9 +47,11 @@ on record). Earlier pieces sealed a thesis before opening the data, without all
 of these steps.
 
 A commit date on its own can be faked. The open question page is one outside
-record of when a bet was made. From the next piece on, each sealed thesis is
-also registered on OSF, an independent research archive whose time stamp I
-cannot edit.
+record of when a bet was made. The car-gradient thesis is also registered on
+OSF, an independent research archive whose time stamp I cannot edit
+([osf.io/rntsk](https://osf.io/rntsk), 12 October 2026, 21 minutes after its
+data key). From the next piece on, the registration comes before the data is
+opened.
 
 ## Confidence, and keeping score
 
@@ -57,7 +59,8 @@ A prediction without a confidence cannot be graded. "The yen fell" and "I am 90
 per cent sure the yen fell" are different claims, and only the second can be
 shown to be overconfident.
 
-So every prediction carries a number, set before the seal. I set those numbers
+So, from the COE or ERP piece (sealed 26 September 2026) on, every scored
+prediction carries a number, set before the seal. I set those numbers
 alone. The researcher may propose a number with a reason, and it is printed
 beside mine, so anyone can see where the two numbers differed. The checker may raise
 considerations but never suggests a number. If a debate moves one of my numbers
@@ -130,8 +133,9 @@ Then sources, with retrieval dates and links to the primary file.
 
 ## Two depths for two readers
 
-Each article is written for anyone: about 1,800 words, one argument, readable on
-a phone. Next to it sits a page for researchers with everything the article
+Each article is written for anyone: usually about 2,000 words, one argument, readable on
+a phone. From the Singapore dollar piece (14 November 2026) on, next to each article sits
+a page for researchers with everything it
 leaves out: the derivation step by step, each test in its sealed wording, every
 robustness check and where the result turns over, where each series came from,
 and the commands that rerun the whole thing from a fresh copy.
@@ -146,8 +150,9 @@ Statistics, LTA, HDB, MAS and MOM, and for exchange rates the Bank for Internati
 Settlements. News reporting is used to find out that something happened, never as the
 source of a figure.
 
-Every figure in a piece is listed in a manifest alongside the draft, with the source and
-the retrieval date, and each line is ticked against the original before the draft flag
+Every figure in a piece is listed in a manifest alongside the draft, and every raw file's
+source and retrieval date are listed in RETRIEVED.txt (for the four COE pieces, in the
+repository's README); each line is ticked against the original before the draft flag
 comes off. A number that cannot be sourced is reported as unavailable rather than
 estimated. Saying a figure could not be obtained is a real finding and it gets written
 that way.
@@ -165,9 +170,9 @@ an independently published figure for the same day, both corrections are stated 
 piece that uses them, and the cleaning script asserts the original wrong value so it will
 fail loudly if the source is ever fixed.
 
-**In something I published.** A correction note goes at the top of the piece, dated, saying
+**In something I published.** A correction note goes at the end of the piece and on the corrections page, dated, saying
 what the figure was, what the correct figure is, and how the error happened. The original
-wording stays visible. Nothing gets quietly edited, because a site whose whole claim is
+wording stays visible on the corrections page. Nothing gets quietly edited, because a site whose whole claim is
 that the numbers were checked cannot also be a site where numbers change without notice.
 
 ## Results that did not work still get published
@@ -222,7 +227,7 @@ opening alone, then the whole, against written rules. It cannot change a number
 or how strongly a claim is made, and anything it rewrites goes back to the
 checker.
 
-**Real readers.** Titles go to friends who are not economists before they ship,
+**Real readers.** Since October 2026, titles go to friends who are not economists before they ship,
 and when they disagree with the editor, they win. For the Singapore dollar
 question, the editor's favourite was "Japan felt cheap. Was it our dollar, or
 their yen?" My friends said it felt weird. They chose "Tokyo got cheaper. Did

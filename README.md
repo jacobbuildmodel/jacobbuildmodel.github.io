@@ -10,12 +10,7 @@ No software to install — everything can be done in the browser.
 3. Repo → **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 4. Wait ~2 min. Site is live at `https://jacobbuildmodel.github.io`.
 
-## Publishing a brief
-
-1. Go to `content/briefs/` in the repo → open `TEMPLATE.md` → **Copy raw file**.
-2. **Add file → Create new file**, name it `content/briefs/2026-08-24.md`, paste, edit.
-3. Set `draft: false` and the correct `date:`. Commit.
-4. Actions builds and publishes automatically.
+The weekly brief (content/briefs/) was retired on 7 September 2026.
 
 ## Where to edit what
 
