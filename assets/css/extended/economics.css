@@ -120,8 +120,8 @@ details.aside .aside-body > :first-child { margin-top: 0; }
 
 /* ---- Notes and Sources (27 Oct 2026) ----
    One small sans line directly under each figure (data/figure_notes.yaml,
-   placed by layouts/single.html), in the apparatus face (NVD Sans since
-   front page PR A), not the reading serif. Inside the lifted lead figure it
+   placed by layouts/single.html), in the apparatus face (the interface sans,
+   Inter since 12 November 2026), not the reading serif. Inside the lifted lead figure it
    sits under the caption. */
 .post-content .fig-source,
 .lead-figure .fig-source {

@@ -282,7 +282,7 @@ main .post-content > p { margin-bottom: 1em; }
 
 /* ---- reading serif ----
    .post-content prose only. Nav, meta, labels and the method strip are in
-   NVD Sans (00-tokens.css), so structured facts stay visually distinct
+   Inter (00-tokens.css), so structured facts stay visually distinct
    from running prose. Self-hosted since front page PR A (4 Nov 2026). */
 .post-content,
 .entry-lead {
@@ -329,7 +329,8 @@ main .post-content > p { margin-bottom: 1em; }
 /* ---- method strip ----
    Transcribed facts only (seal date, pass/fail counts, repo link) -- see
    layouts/partials/method_strip.html for what populates it and why. Small
-   sans with tabular figures (mono until front page PR A, 4 Nov 2026), same
+   sans, its digits from JetBrains Mono since 12 Nov 2026 (--font-figures in
+   00-tokens.css; the whole strip was mono until 4 Nov 2026), same
    visual family as .src-tag/.layer-badge: a structured fact, not a headline
    and not a score. Failures get no different treatment from passes -- same
    weight, same row. */
@@ -347,7 +348,7 @@ main .post-content > p { margin-bottom: 1em; }
   align-items: baseline;
 }
 .method-strip-item {
-  font-family: var(--font-sans);  /* was mono; A1, 4 Nov 2026: mono only for code and file names */
+  font-family: var(--font-figures);  /* Inter, its digits from JetBrains Mono (00-tokens.css) */
   font-size: 0.78em;
   line-height: 1.6;
   color: var(--secondary);

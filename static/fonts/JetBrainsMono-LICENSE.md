@@ -1,3 +1,5 @@
+The font files jetbrains-mono-digits-400.woff2 and jetbrains-mono-digits-700.woff2 in this folder hold only the digits 0 to 9 of JetBrains Mono (version 2.211) by The JetBrains Mono Project Authors, cut by tools/type_tools.py from the Latin subsets published by Fontsource (package @fontsource/jetbrains-mono 5.3.0). A subset is a Modified Version under the licence below. The licence declares no Reserved Font Name, so the files keep the family's name. Sources and sha256 of the files: office/type-lab/FONTS.csv.
+
 Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.

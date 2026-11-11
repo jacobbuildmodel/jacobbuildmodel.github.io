@@ -26,70 +26,103 @@
    request carries the full table. */
 
 /* ---- the faces ----
-   NVD Serif (headlines, standfirst, prose) and NVD Sans (everything else).
-   Both are modified subsets of Adobe's Source Serif 4 (4.005) and Source
-   Sans 3 (3.052), made from the TTFs in research/paper-template/fonts/ with
-   fontTools (fix round 1, 5 November 2026). Under the SIL Open Font License
-   1.1 a subset is a Modified Version, which may not use the Reserved Font
-   Name "Source", so the families are renamed, here and inside the files.
-   Licences, with that note, in static/fonts/.
-   Kept: Latin-1 and the punctuation the site uses (U+0000-00FF, U+0131,
-   U+0152-0153, U+2000-206F, U+2074, U+20AC, U+2122, U+2190-2193, U+2212,
-   U+2215, U+25CF, U+FEFF, U+FFFD) and the kern, liga, lnum, onum, pnum and
-   tnum features. Both families default to tabular lining figures.
-   Five files: serif 400, 400 italic, 600; sans 400, 600. No 500 and no
-   700: text asking for 700 (bold, strong) is matched to the 600 file by the
-   CSS font-matching rules. The two Regular files are preloaded in
-   extend_head.html. */
+   Newsreader (headlines, standfirst, prose), Inter (everything else) and
+   the digits of JetBrains Mono (numbers in tables, the strips and the
+   scorecard counts). Jacob's choice of 12 November 2026: option B of the
+   type lab, office/type-lab/DESIGN_NOTE.md. Until then the site used own
+   subsets of Source Serif 4 and Source Sans 3 ("NVD Serif", "NVD Sans").
+   Files, in static/fonts/: the Latin subsets published by Fontsource
+   (version 5.3.0 of each package), unchanged: Newsreader 1.003 (its 16pt
+   optical size) in 400, 400 italic and 600; Inter 4.001 in 400 and 600.
+   The two digit files hold only 0 to 9, cut from Fontsource's JetBrains
+   Mono 2.211 files by tools/type_tools.py. Source addresses and sha256 are
+   in office/type-lab/FONTS.csv.
+   Licence: all three are under the SIL Open Font License 1.1 and none
+   declares a Reserved Font Name, so a subset may keep the family's name
+   (the Source subsets had to be renamed). The licence texts are beside the
+   files.
+   No 500 and no 700 text file: text asking for 700 (bold, strong) is
+   matched to the 600 file by the CSS font-matching rules.
+   size-adjust brings each face close to the x-height of the face it
+   replaced (Newsreader 0.426 x 1.08 = 0.460 against 0.475; Inter 0.546 x
+   0.90 = 0.491 against 0.486), and the ascent and descent overrides give
+   every line the metrics it had before the change (1.036 and 0.335 per em
+   in the serif, 1.000 and 0.326 in the sans), so the sizes and line boxes
+   set elsewhere in the stylesheets hold. A browser without size-adjust
+   (Safari before 17) draws the faces at their natural size: Newsreader
+   about 7 per cent smaller, Inter about 11 per cent larger.
+   Preloads are in layouts/partials/extend_head.html. */
 @font-face {
-  font-family: "NVD Serif";
-  src: url(/fonts/NVDSerif-Regular.woff2) format("woff2");
+  font-family: "Newsreader";
+  src: url(/fonts/newsreader-latin-400-normal.woff2) format("woff2");
   font-weight: 400; font-style: normal; font-display: swap;
+  size-adjust: 108%; ascent-override: 95.93%; descent-override: 31.02%; line-gap-override: 0%;
 }
 @font-face {
-  font-family: "NVD Serif";
-  src: url(/fonts/NVDSerif-It.woff2) format("woff2");
+  font-family: "Newsreader";
+  src: url(/fonts/newsreader-latin-400-italic.woff2) format("woff2");
   font-weight: 400; font-style: italic; font-display: swap;
+  size-adjust: 108%; ascent-override: 95.93%; descent-override: 31.02%; line-gap-override: 0%;
 }
 @font-face {
-  font-family: "NVD Serif";
-  src: url(/fonts/NVDSerif-Semibold.woff2) format("woff2");
+  font-family: "Newsreader";
+  src: url(/fonts/newsreader-latin-600-normal.woff2) format("woff2");
   font-weight: 600; font-style: normal; font-display: swap;
+  size-adjust: 108%; ascent-override: 95.93%; descent-override: 31.02%; line-gap-override: 0%;
 }
 @font-face {
-  font-family: "NVD Sans";
-  src: url(/fonts/NVDSans-Regular.woff2) format("woff2");
+  font-family: "Inter";
+  src: url(/fonts/inter-latin-400-normal.woff2) format("woff2");
   font-weight: 400; font-style: normal; font-display: swap;
+  size-adjust: 90%; ascent-override: 111.11%; descent-override: 36.22%; line-gap-override: 0%;
 }
 @font-face {
-  font-family: "NVD Sans";
-  src: url(/fonts/NVDSans-Semibold.woff2) format("woff2");
+  font-family: "Inter";
+  src: url(/fonts/inter-latin-600-normal.woff2) format("woff2");
   font-weight: 600; font-style: normal; font-display: swap;
+  size-adjust: 90%; ascent-override: 111.11%; descent-override: 36.22%; line-gap-override: 0%;
+}
+/* Digits only: every other character falls through to the next family. */
+@font-face {
+  font-family: "JetBrains Mono Digits";
+  src: url(/fonts/jetbrains-mono-digits-400.woff2) format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+  unicode-range: U+0030-0039;
+  size-adjust: 90%; ascent-override: 111.11%; descent-override: 36.22%; line-gap-override: 0%;
+}
+@font-face {
+  font-family: "JetBrains Mono Digits";
+  src: url(/fonts/jetbrains-mono-digits-700.woff2) format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+  unicode-range: U+0030-0039;
+  size-adjust: 90%; ascent-override: 111.11%; descent-override: 36.22%; line-gap-override: 0%;
 }
 
 /* Fallback faces sized to the web faces, so the swap does not move text.
-   Computed with the Capsize method (github.com/seek-oss/capsize, MIT):
-   size-adjust = web face's average width / fallback's (xWidthAvg per em,
-   from @capsizecss/metrics 3.7.0: 0.479 for the serif design, 0.418 for the
-   sans, Georgia and Arial 913/2048); ascent, descent and line gap are the
-   shipped files' hhea values (1036/335/0 serif, 1000/326/0 sans per 1000,
-   unchanged by subsetting) divided by size-adjust. Where Georgia or Arial
-   is not installed (Android, most Linux) the local() source fails and the
-   next family in the stack is used. */
+   The Capsize method (github.com/seek-oss/capsize, MIT), recomputed on 12
+   November 2026 by "python tools/type_tools.py metrics <built site>" from
+   the shipped Regular files and the Georgia and Arial of Windows 11:
+   size-adjust = the web face's average letter width, times its own
+   size-adjust, over the fallback's average width. The widths are weighted
+   by the visible text of the built site (per em: Newsreader 0.4263 against
+   Georgia 0.4427; Inter 0.4773 against Arial 0.4469). Ascent and descent are
+   the line metrics above divided by that size-adjust; line gap 0. Where
+   Georgia or Arial is not installed (Android, most Linux) the local()
+   source fails and the next family in the stack is used. */
 @font-face {
-  font-family: "NVD Serif Fallback";
+  font-family: "Newsreader Fallback";
   src: local("Georgia");
-  size-adjust: 107.45%;
-  ascent-override: 96.42%;
-  descent-override: 31.18%;
+  size-adjust: 104.00%;
+  ascent-override: 99.61%;
+  descent-override: 32.21%;
   line-gap-override: 0%;
 }
 @font-face {
-  font-family: "NVD Sans Fallback";
+  font-family: "Inter Fallback";
   src: local("Arial");
-  size-adjust: 93.76%;
-  ascent-override: 106.65%;
-  descent-override: 34.77%;
+  size-adjust: 96.14%;
+  ascent-override: 104.01%;
+  descent-override: 33.91%;
   line-gap-override: 0%;
 }
 
@@ -111,8 +144,9 @@
   --code-bg: #f4f7f9;          /* tinted panels */
 
   /* type */
-  --font-serif: "NVD Serif", "NVD Serif Fallback", Georgia, "Iowan Old Style", serif;
-  --font-sans: "NVD Sans", "NVD Sans Fallback", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "Newsreader", "Newsreader Fallback", Georgia, "Iowan Old Style", serif;
+  --font-sans: "Inter", "Inter Fallback", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-figures: "JetBrains Mono Digits", var(--font-sans);  /* numbers in tables and strips */
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   /* space (4-based) */
@@ -180,11 +214,20 @@
 [data-theme] .list { background: var(--paper); }
 
 /* ---- type ----
-   NVD Sans for everything but reading text; the serif is set on
+   Inter for everything but reading text; the serif is set on
    .post-content, the dek and the standfirst (custom.css, welcome.css) and on
-   article headlines (masthead.css). Mono only for code and file names. */
+   article headlines (masthead.css). Mono only for code and file names, and
+   for the digits below. */
 body { font-family: var(--font-sans); }
 code, kbd, pre, samp { font-family: var(--font-mono); }
+/* Numbers in tables, the decision strip and the scorecard counts: the digits
+   0 to 9 come from JetBrains Mono through a unicode-range face, and every
+   other character falls through to Inter, so table text is in the sans, not
+   the serif. The method strip takes the same token in custom.css. Prose
+   figures are not touched. */
+:is(.post-content table, .table-scroll, .decision-strip, .track-band-counts dd, .track-band-cal) {
+  font-family: var(--font-figures);
+}
 /* No 500 file ships. PaperMod sets 500 on the table-of-contents title, the
    /tags/ list and heading anchors; the browser already drew them with the
    Regular file, so 400 says what is shown. */

@@ -1,8 +1,10 @@
-Copyright 2020 The Newsreader Project Authors (http://github.com/productiontype/Newsreader)
+The font files inter-latin-400-normal.woff2 and inter-latin-600-normal.woff2 in this folder are Latin subsets of Inter (version 4.001) by The Inter Project Authors, as published by Fontsource (package @fontsource/inter 5.3.0), unchanged. A subset is a Modified Version under the licence below. The licence declares no Reserved Font Name, so the files keep the family's name. Sources and sha256 of the files: office/type-lab/FONTS.csv.
+
+Copyright 2020 The Inter Project Authors (https://github.com/rsms/inter)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
-http://scripts.sil.org/OFL
+https://scripts.sil.org/OFL
 
 
 -----------------------------------------------------------

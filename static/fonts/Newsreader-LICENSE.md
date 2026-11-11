@@ -1,8 +1,10 @@
-Copyright 2020 The Inter Project Authors (https://github.com/rsms/inter)
+The font files newsreader-latin-400-normal.woff2, newsreader-latin-400-italic.woff2 and newsreader-latin-600-normal.woff2 in this folder are Latin subsets of Newsreader (version 1.003, the 16pt optical size) by The Newsreader Project Authors, as published by Fontsource (package @fontsource/newsreader 5.3.0), unchanged. A subset is a Modified Version under the licence below. The licence declares no Reserved Font Name, so the files keep the family's name. Sources and sha256 of the files: office/type-lab/FONTS.csv.
+
+Copyright 2020 The Newsreader Project Authors (http://github.com/productiontype/Newsreader)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
-https://scripts.sil.org/OFL
+http://scripts.sil.org/OFL
 
 
 -----------------------------------------------------------

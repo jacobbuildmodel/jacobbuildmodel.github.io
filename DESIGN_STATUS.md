@@ -46,9 +46,11 @@ nothing there rather than something half-true.
 `hideAuthor: true` in `hugo.toml` stops it repeating on every card/article
 meta line.
 
-**Reading type.** Source Serif 4 for `.post-content` prose only (loaded in
-`layouts/partials/extend_head.html`). Nav, meta, labels, the method strip
-stay in the theme's system sans/mono.
+**Reading type.** Since 12 November 2026: Newsreader for headlines, the
+standfirst and `.post-content` prose; Inter for nav, meta, labels and strips;
+the digits of JetBrains Mono for numbers in tables and strips. Self-hosted:
+files in `static/fonts/`, declared in `assets/css/extended/00-tokens.css`,
+preloaded in `layouts/partials/extend_head.html`.
 
 **Asides.** Extended the *existing* `details.aside` component in
 `assets/css/extended/economics.css` (tint, border, desktop margin-float)

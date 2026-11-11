@@ -186,7 +186,7 @@
 }
 
 /* ---- article headline ----
-   NVD Serif 600, 30/36 at 390px rising to 40/46 at 1280px (28/34 to 38/44
+   Newsreader 600, 30/36 at 390px rising to 40/46 at 1280px (28/34 to 38/44
    until 11 November 2026; raised by 2px with the section headings, which
    went to 25px on a phone, so the title stays a clear step above them: see
    "Heading scale" in custom.css). Article h2 and h3 are serif 600 inside
@@ -206,8 +206,10 @@
 /* ---- A1: tabular lining figures ----
    Every number in tables, the method and decision strips and the scorecard
    lines up in columns. (The track-record band gets the same rule in PR B,
-   which adds the band; no page has one now.) Both faces already default to
-   tabular lining figures; this states it, so a fallback face follows too.
+   which adds the band; no page has one now.) Newsreader's figures
+   are tabular as drawn and the JetBrains Mono digits are fixed-width; Inter's
+   are made tabular by this rule (its tnum feature), and a fallback face
+   follows too.
    Prose figures are not touched. */
 .post-content table,
 .table-scroll,
