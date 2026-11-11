@@ -1,0 +1,88 @@
+{{- /* layouts/shortcodes/ichart.html: an interactive chart (prototype, Nov 2026).
+
+       Usage:  {{< ichart "hdb_years_of_income" >}}
+
+       The argument names a file in data/charts/ built by tools/build_chart_data.py from the piece's own
+       pipeline output. Everything a reader needs without JavaScript is printed here by Hugo: the static
+       chart, the title, the "how to read this" text, the numbers as a table and the source line.
+       assets/js/ichart.js then draws the interactive plot into the stage, whose height is fixed in CSS
+       from the first paint, so nothing moves when it loads (layout shift 0). The script and the style
+       sheet are loaded only on pages that use this shortcode, once per page. */ -}}
+{{- $id := .Get 0 -}}
+{{- $c := index site.Data.charts $id -}}
+{{- if not $c }}{{ errorf "ichart: no data/charts/%s.json (%s)" $id .Position }}{{ end -}}
+{{- if not (.Page.Store.Get "ichart") -}}
+  {{- .Page.Store.Set "ichart" true -}}
+  {{- $css := resources.Get "css/ichart.css" | minify | fingerprint -}}
+  {{- $js := resources.Get "js/ichart.js" | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+<script type="module" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+<noscript><style>.ichart-ui{display:none}.ichart-stage{height:auto}</style></noscript>
+{{- end }}
+{{- $panels := len (default (slice) $c.panels) -}}
+<figure class="ichart ichart-{{ $c.type }}" id="chart-{{ $c.id }}" data-panels="{{ $panels }}">
+  <figcaption class="ichart-head">
+    <strong class="ichart-title">{{ $c.title }}</strong>
+    <span class="ichart-sub">{{ $c.subtitle }}</span>
+  </figcaption>
+  {{- if eq $c.type "switch" }}
+  <div class="ichart-ui ichart-yardsticks" role="group" aria-label="Yardstick">
+    {{- range $i, $s := $c.states }}
+    <button type="button" data-state="{{ $i }}" aria-pressed="{{ if eq $i 0 }}true{{ else }}false{{ end }}">{{ $s.label }}</button>
+    {{- end }}
+  </div>
+  {{- end }}
+  <div class="ichart-stage" role="img" aria-label="{{ $c.title }}. {{ $c.subtitle }}. The numbers are in the table below the chart.">
+    <img src="{{ $c.fallback.src }}" alt="" loading="lazy" decoding="async">
+  </div>
+  {{- if eq $c.type "timeline" }}
+  <div class="ichart-ui ichart-controls">
+    <button type="button" class="ichart-play" aria-pressed="false">Play</button>
+    <label class="ichart-scrub"><span class="ichart-vh">Year</span>
+      <input type="range" min="0" max="{{ sub (len $c.x) 1 }}" value="{{ sub (len $c.x) 1 }}" step="1">
+    </label>
+    <output class="ichart-year">{{ index $c.x (sub (len $c.x) 1) }}</output>
+  </div>
+  <p class="ichart-ui ichart-readout" aria-live="polite">{{ index $c.notes (string (index $c.x (sub (len $c.x) 1))) }}</p>
+  <div class="ichart-ui ichart-steps" role="group" aria-label="The story in {{ len $c.steps }} steps">
+    <span class="ichart-steps-label">The story:</span>
+    {{- range $i, $s := $c.steps }}
+    <button type="button" data-step="{{ $i }}" aria-label="Step {{ add $i 1 }}: {{ $s.at }}">{{ add $i 1 }}</button>
+    {{- end }}
+  </div>
+  {{- else }}
+  <p class="ichart-ui ichart-readout" aria-live="polite">{{ (index $c.states 0).explain }}</p>
+  <p class="ichart-summary">{{ $c.summary }}</p>
+  {{- end }}
+  <details class="ichart-how">
+    <summary>How to read this</summary>
+    {{- range $c.howto }}<p>{{ . }}</p>{{ end }}
+  </details>
+  <details class="ichart-table">
+    <summary>See the numbers</summary>
+    <div class="table-scroll" tabindex="0">
+    {{- if eq $c.type "timeline" }}
+    <table>
+      <thead><tr><th>Year</th>{{ range $c.panels }}{{ $u := .unit }}{{ range .series }}<th>{{ .label }} ({{ $u }})</th>{{ end }}{{ end }}</tr></thead>
+      <tbody>
+      {{- range $i, $x := $c.x }}
+        <tr><td>{{ $x }}</td>{{ range $c.panels }}{{ range .series }}<td>{{ index .values $i }}</td>{{ end }}{{ end }}</tr>
+      {{- end }}
+      </tbody>
+    </table>
+    {{- else }}
+    <table>
+      <thead><tr><th>Yardstick</th><th>Move</th><th>Per cent</th></tr></thead>
+      <tbody>
+      {{- range $c.states }}{{ $s := . }}
+        {{- range .bars }}<tr><td>{{ $s.label }}</td><td>{{ index . 0 }}</td><td>{{ index . 1 }}</td></tr>{{ end }}
+        <tr><td>{{ $s.label }}</td><td>Share of the move: {{ $c.partner }} / {{ $c.subject }} / remainder</td><td>{{ mul 100 $s.shares.sgd | math.Round }} / {{ mul 100 $s.shares.other | math.Round }} / {{ mul 100 $s.shares.remainder | math.Round }}</td></tr>
+      {{- end }}
+      </tbody>
+    </table>
+    {{- end }}
+    </div>
+  </details>
+  <p class="ichart-source">{{ $c.source_line }} <a href="{{ $c.source.repository }}/tree/{{ $c.source.commit }}">Data and code at commit {{ substr $c.source.commit 0 7 }}</a>.</p>
+  <script type="application/json" class="ichart-data">{{ $c | jsonify | safeJS }}</script>
+</figure>

@@ -1,0 +1,129 @@
+{
+ "id": "sgd-yardstick",
+ "type": "switch",
+ "title": "Whichever yardstick is used, the yen's own fall was the larger part",
+ "subtitle": "The Singapore dollar's rise against the yen, average of January to March 2021 to average of October to December 2025, split three ways",
+ "domain": [
+  -40,
+  60
+ ],
+ "ticks": [
+  -40,
+  -20,
+  0,
+  20,
+  40,
+  60
+ ],
+ "subject": "Yen's own fall",
+ "partner": "Singapore dollar's own rise",
+ "states": [
+  {
+   "key": "broad",
+   "label": "All trading partners",
+   "explain": "Each currency against all its trading partners (BIS broad nominal index).",
+   "bars": [
+    [
+     "Singapore dollar against all partners",
+     13.1
+    ],
+    [
+     "Yen against all partners",
+     -25.5
+    ],
+    [
+     "Singapore dollar against the yen",
+     49.5
+    ]
+   ],
+   "shares": {
+    "sgd": 0.307,
+    "other": 0.732,
+    "remainder": -0.039
+   }
+  },
+  {
+   "key": "usd",
+   "label": "US dollar",
+   "explain": "Each currency against the US dollar alone.",
+   "bars": [
+    [
+     "Singapore dollar against the US dollar",
+     2.7
+    ],
+    [
+     "Yen against the US dollar",
+     -31.3
+    ],
+    [
+     "Singapore dollar against the yen",
+     49.5
+    ]
+   ],
+   "shares": {
+    "sgd": 0.067,
+    "other": 0.933,
+    "remainder": 0.0
+   }
+  },
+  {
+   "key": "real",
+   "label": "After prices",
+   "explain": "Each currency against all its trading partners, after consumer prices (BIS broad real index).",
+   "bars": [
+    [
+     "Singapore dollar against all partners, real",
+     14.7
+    ],
+    [
+     "Yen against all partners, real",
+     -26.6
+    ],
+    [
+     "Singapore dollar against the yen, real",
+     54.8
+    ]
+   ],
+   "shares": {
+    "sgd": 0.315,
+    "other": 0.707,
+    "remainder": -0.021
+   }
+  }
+ ],
+ "summary": "The yen's own fall is between 71 and 93 per cent of the move, depending on the yardstick.",
+ "howto": [
+  "Each bar is a move in per cent over the same period. Right of the line is a rise, left a fall.",
+  "The buttons change the yardstick: what each currency is measured against. The first two bars are each currency's own move; the third is the Singapore dollar against the yen.",
+  "The strip below shows how much of the move each side accounts for, as shares of the change in logs. Where the shares do not sum to 100 the remainder is printed."
+ ],
+ "source_line": "Source: Bank for International Settlements and MAS, through the piece's own pipeline.",
+ "source": {
+  "repository": "https://github.com/jacobbuildmodel/coe-analysis",
+  "commit": "af930a24db8c33e7af6518a152a281d31e6596f2",
+  "files": [
+   {
+    "path": "sgd/out/tests.csv",
+    "keys": [
+     "T2_s",
+     "T2_nx",
+     "T2_b",
+     "T2_S",
+     "T2_P",
+     "T2_R"
+    ]
+   },
+   {
+    "path": "sgd/out/review_a1_usd.csv",
+    "keys": "A1_scored_JPY_*"
+   },
+   {
+    "path": "sgd/out/review_a3_real.csv",
+    "keys": "A3_scored_JPY_*"
+   }
+  ]
+ },
+ "fallback": {
+  "src": "/figs/sgd_chart1_split.svg"
+ }
+}

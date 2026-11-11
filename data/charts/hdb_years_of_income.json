@@ -1,0 +1,173 @@
+{
+ "id": "hdb-years-of-income",
+ "type": "timeline",
+ "title": "A four-room flat took fewer years of income in 2025 than in 2013",
+ "subtitle": "Price of a constant-quality four-room resale flat, in years of median household income, 2013 to 2025",
+ "x": [
+  2013,
+  2014,
+  2015,
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "panels": [
+  {
+   "title": "Years of median household income to pay the price",
+   "unit": "years",
+   "decimals": 2,
+   "domain": [
+    0,
+    7
+   ],
+   "ticks": [
+    0,
+    2,
+    4,
+    6
+   ],
+   "series": [
+    {
+     "key": "ratio",
+     "label": "years of income",
+     "role": "subject",
+     "values": [
+      5.43,
+      4.82,
+      4.51,
+      4.41,
+      4.28,
+      4.11,
+      4.04,
+      4.29,
+      4.57,
+      4.83,
+      4.8,
+      4.99,
+      5.04
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Why: income rose faster than the price (2013 = 100)",
+   "unit": "index",
+   "decimals": 0,
+   "domain": [
+    80,
+    160
+   ],
+   "ticks": [
+    80,
+    100,
+    120,
+    140,
+    160
+   ],
+   "baseline": 100,
+   "series": [
+    {
+     "key": "income",
+     "label": "income",
+     "role": "subject",
+     "values": [
+      100.0,
+      105.7,
+      108.9,
+      111.3,
+      113.7,
+      116.7,
+      119.0,
+      115.6,
+      120.3,
+      127.2,
+      137.8,
+      142.8,
+      151.3
+     ]
+    },
+    {
+     "key": "price",
+     "label": "flat price",
+     "role": "context",
+     "values": [
+      100.0,
+      93.9,
+      90.4,
+      90.5,
+      89.6,
+      88.4,
+      88.7,
+      91.3,
+      101.3,
+      113.1,
+      121.7,
+      131.3,
+      140.4
+     ]
+    }
+   ]
+  }
+ ],
+ "notes": {
+  "2013": "S$456,000 flat, S$7,000 a month: 5.43 years of income.",
+  "2014": "S$428,000 flat, S$7,400 a month: 4.82 years of income. Since 2013: price -6%, income +6%.",
+  "2015": "S$412,234 flat, S$7,624 a month: 4.51 years of income. Since 2013: price -10%, income +9%.",
+  "2016": "S$412,508 flat, S$7,791 a month: 4.41 years of income. Since 2013: price -10%, income +11%.",
+  "2017": "S$408,363 flat, S$7,956 a month: 4.28 years of income. Since 2013: price -10%, income +14%.",
+  "2018": "S$403,131 flat, S$8,169 a month: 4.11 years of income. Since 2013: price -12%, income +17%.",
+  "2019": "S$404,300 flat, S$8,333 a month: 4.04 years of income. Since 2013: price -11%, income +19%.",
+  "2020": "S$416,480 flat, S$8,092 a month: 4.29 years of income. Since 2013: price -9%, income +16%.",
+  "2021": "S$462,137 flat, S$8,421 a month: 4.57 years of income. Since 2013: price +1%, income +20%.",
+  "2022": "S$515,849 flat, S$8,904 a month: 4.83 years of income. Since 2013: price +13%, income +27%.",
+  "2023": "S$555,150 flat, S$9,646 a month: 4.80 years of income. Since 2013: price +22%, income +38%.",
+  "2024": "S$598,911 flat, S$9,999 a month: 4.99 years of income. Since 2013: price +31%, income +43%.",
+  "2025": "S$640,157 flat, S$10,591 a month: 5.04 years of income. Since 2013: price +40%, income +51%."
+ },
+ "steps": [
+  {
+   "at": 2013,
+   "text": "2013 was a price peak: the flat cost 5.43 years of median income."
+  },
+  {
+   "at": 2019,
+   "text": "2019 was the low: 4.04 years. Starting a comparison here makes everything after it look worse."
+  },
+  {
+   "at": 2025,
+   "text": "2025: 5.04 years. More than in 2019, fewer than in 2013."
+  }
+ ],
+ "howto": [
+  "Each point is one year: the price of the same kind of four-room resale flat, divided by what the median household earned in a year.",
+  "Lower means the flat took less income. Drag the slider, or press Play, to move through the years.",
+  "The second panel sets both the price and the income to 100 in the first year, so the two can be compared on one scale."
+ ],
+ "source_line": "Source: HDB resale transactions and SingStat household income, via the piece's own pipeline.",
+ "source": {
+  "repository": "https://github.com/jacobbuildmodel/hdb-affordability",
+  "commit": "2f5fcb0b1d218d1c27074f5883e87c716aa0e793",
+  "files": [
+   {
+    "path": "out/affordability.csv",
+    "rows": "buyer = p50",
+    "columns": [
+     "year",
+     "price",
+     "monthly_income",
+     "price_to_income_years"
+    ]
+   }
+  ]
+ },
+ "fallback": {
+  "src": "/figs/fig1_price_to_income.svg"
+ }
+}
