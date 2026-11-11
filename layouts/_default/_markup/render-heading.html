@@ -12,13 +12,17 @@
       (partials/anchored_headings.html matches the id straight after the
       tag name, on one line) and the table of contents are as they were;
     - only level 2, only when the label is 2 to 30 plain characters (no
-      tag, entity or second colon in it); every other heading is written out
-      exactly as Hugo would write it.
+      tag, entity or second colon in it), and only on article pages, the
+      sections economics and open, where that house style is written. On
+      the scorecard the entries are question titles, and one of them
+      ("COE or ERP: which one ...") was split while its neighbours were
+      not (found in the page check of 12 November 2026). Every other
+      heading is written out exactly as Hugo would write it.
   The whole heading is one line on purpose: PaperMod's anchor pattern does
   not cross a line break. */ -}}
 {{- $text := string .Text -}}
 {{- $m := slice -}}
-{{- if eq .Level 2 }}{{ $m = findRESubmatch `(?s)^([^<>&:]{2,30}): (.+)$` $text 1 }}{{ end -}}
+{{- if and (eq .Level 2) (in (slice "economics" "open") .Page.Section) }}{{ $m = findRESubmatch `(?s)^([^<>&:]{2,30}): (.+)$` $text 1 }}{{ end -}}
 {{- $class := .Attributes.class | default "" -}}
 {{- if $m }}{{ $class = strings.TrimSpace (printf "%s h2-split" $class) }}{{ end -}}
 <h{{ .Level }} id="{{ .Anchor }}"{{ with $class }} class="{{ . }}"{{ end }}>

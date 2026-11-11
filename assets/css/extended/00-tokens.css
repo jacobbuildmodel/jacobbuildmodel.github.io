@@ -106,7 +106,12 @@
    size-adjust, over the fallback's average width. The widths are weighted
    by the visible text of the built site (per em: Newsreader 0.4263 against
    Georgia 0.4427; Inter 0.4773 against Arial 0.4469). Ascent and descent are
-   the line metrics above divided by that size-adjust; line gap 0. Where
+   the line metrics above divided by that size-adjust; line gap 0. The
+   Italic and the Semibold have fallback faces of their own (Georgia
+   Italic, Georgia Bold, Arial Bold; a request for 600 is matched to the
+   face declared 700), sized the same way from their own files: with one
+   regular fallback for all of them, the title and the standfirst wrapped
+   differently before and after the swap and moved the text under them. Where
    Georgia or Arial is not installed (Android, most Linux) the local()
    source fails and the next family in the stack is used. */
 @font-face {
@@ -118,11 +123,38 @@
   line-gap-override: 0%;
 }
 @font-face {
+  font-family: "Newsreader Fallback";
+  src: local("Georgia Italic"), local("Georgia-Italic");
+  font-style: italic;
+  size-adjust: 95.87%;
+  ascent-override: 108.07%;
+  descent-override: 34.94%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Newsreader Fallback";
+  src: local("Georgia Bold"), local("Georgia-Bold");
+  font-weight: 700;
+  size-adjust: 94.01%;
+  ascent-override: 110.20%;
+  descent-override: 35.64%;
+  line-gap-override: 0%;
+}
+@font-face {
   font-family: "Inter Fallback";
   src: local("Arial");
   size-adjust: 96.14%;
-  ascent-override: 104.01%;
+  ascent-override: 104.02%;
   descent-override: 33.91%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT");
+  font-weight: 700;
+  size-adjust: 91.47%;
+  ascent-override: 109.32%;
+  descent-override: 35.64%;
   line-gap-override: 0%;
 }
 
@@ -234,6 +266,17 @@ code, kbd, pre, samp { font-family: var(--font-mono); }
    figures are not touched. */
 :is(.post-content table, .table-scroll, .decision-strip, .track-band-counts dd, .track-band-cal) {
   font-family: var(--font-figures);
+}
+/* Inter's tabular-figures feature (tnum, switched on for these blocks by
+   font-variant-numeric in masthead.css, custom.css, economics.css and
+   decisions.css) also sets the hyphen, the asterisk and the brackets on a
+   digit's width. In the lab pictures that pulled hyphenated words apart
+   ("RE - CHECK DUE" in the method strip). The digits here are fixed-width
+   by their own face, so the feature is switched off for these blocks:
+   font-feature-settings is applied after font-variant, and is inherited.
+   Arial, the fallback, has tabular digits as drawn. */
+:is(.post-content table, .table-scroll, .method-strip, .decision-strip, .track-band-counts dd, .track-band-cal) {
+  font-feature-settings: "tnum" 0;
 }
 /* No 500 file ships. PaperMod sets 500 on the table-of-contents title, the
    /tags/ list and heading anchors; the browser already drew them with the

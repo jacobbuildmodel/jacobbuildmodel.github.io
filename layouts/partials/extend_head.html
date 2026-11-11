@@ -17,22 +17,29 @@
      interface on every page, and the sans Semibold, which carries the
      masthead wordmark on every page (without it the wordmark swapped in
      after first paint and moved the tagline and the theme toggle; fix
-     round 1, 5 November 2026). About 71 KB for the three. On single pages
-     also the serif Semibold, which carries the headline, and, where
-     layouts/single.html shows the dek (.Params.summary, not on the connect
-     layout), the serif Italic: both are above the fold there, and swapping
-     in late they moved the text under them. Each face is preloaded only
-     where the page uses it. The two digit files (1.2 KB each) are not
-     preloaded: until they arrive the digits are drawn by Inter on the same
-     line. The URLs match the @font-face src exactly, so each file is
+     round 1, 5 November 2026). About 71 KB for the three. On single pages,
+     and on section and tag list pages (their title is in the serif since
+     11 November 2026), also the serif Semibold, which carries the page
+     title; and, where layouts/single.html shows the dek (.Params.summary,
+     not on the connect layout), the serif Italic. Both are above the fold
+     there, and swapping in late they moved the text under them. Each face is preloaded only
+     where the page uses it. The Regular digit file (1.2 KB) is
+     preloaded where a strip puts numbers above the fold: the method strip
+     (.Param thesisSealed, as in partials/method_strip.html) and the
+     decision strip (pages of the decisions section), so the digits do not
+     swap in after the rest of the strip. The bold digit file is not
+     preloaded anywhere. The URLs match the @font-face src exactly, so each file is
      fetched once. Layout shift measured after the change:
      office/type-lab/DESIGN_NOTE.md. -->
 <link rel="preload" href="/fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
-{{- if eq .Kind "page" }}
+{{- if or (eq .Kind "page") (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") }}
 <link rel="preload" href="/fonts/newsreader-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
-{{- if and .Params.summary (ne .Layout "connect") }}
+{{- end }}
+{{- if and (eq .Kind "page") .Params.summary (ne .Layout "connect") }}
 <link rel="preload" href="/fonts/newsreader-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
 {{- end }}
+{{- if and (eq .Kind "page") (or (.Param "thesisSealed") (eq .Section "decisions")) }}
+<link rel="preload" href="/fonts/jetbrains-mono-digits-400.woff2" as="font" type="font/woff2" crossorigin>
 {{- end }}

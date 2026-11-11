@@ -207,9 +207,10 @@
    Every number in tables, the method and decision strips and the scorecard
    lines up in columns. (The track-record band gets the same rule in PR B,
    which adds the band; no page has one now.) Newsreader's figures
-   are tabular as drawn and the JetBrains Mono digits are fixed-width; Inter's
-   are made tabular by this rule (its tnum feature), and a fallback face
-   follows too.
+   are tabular as drawn and the JetBrains Mono digits are fixed-width. Where
+   Inter itself draws digits this rule makes them tabular (its tnum feature);
+   in the blocks that take the mono digits that feature is switched off again
+   in 00-tokens.css, because it also widens Inter's hyphen.
    Prose figures are not touched. */
 .post-content table,
 .table-scroll,

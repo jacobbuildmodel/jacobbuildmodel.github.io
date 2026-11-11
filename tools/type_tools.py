@@ -54,11 +54,14 @@ FREQ = {" ": 18.3, "e": 10.2, "t": 7.5, "a": 6.5, "o": 6.2, "n": 5.7, "i": 5.7,
 SERIF = (1.036, 0.335)   # line metrics given to the serif: ascent, descent per em
 SANS = (1.000, 0.326)    # and to the sans
 # web face file, its size-adjust, its line metrics, the fallback's file
+# (each weight and style has a fallback face of its own: Georgia, Georgia
+# Italic, Georgia Bold, Arial, Arial Bold)
 FACES = [
     ("newsreader-latin-400-normal.woff2", 1.08, SERIF, "georgia.ttf"),
-    ("newsreader-latin-600-normal.woff2", 1.08, SERIF, "georgia.ttf"),
+    ("newsreader-latin-400-italic.woff2", 1.08, SERIF, "georgiai.ttf"),
+    ("newsreader-latin-600-normal.woff2", 1.08, SERIF, "georgiab.ttf"),
     ("inter-latin-400-normal.woff2", 0.90, SANS, "arial.ttf"),
-    ("inter-latin-600-normal.woff2", 0.90, SANS, "arial.ttf"),
+    ("inter-latin-600-normal.woff2", 0.90, SANS, "arialbd.ttf"),
     ("jetbrains-mono-digits-400.woff2", 0.90, SANS, None),
 ]
 PAGES = [("home", "/"), ("economics", "/economics/"), ("article", "/economics/2026-10-31/"),

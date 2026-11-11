@@ -195,7 +195,8 @@ main .post-content > p { margin-bottom: 1em; }
    masthead navy (the lighter blue in dark mode): 48 x 3px, 12px under the
    words. It is drawn by the heading itself, so it takes its space with the
    heading and nothing moves after first paint.
-   Headings written "Label: finding", the house style, are split by
+   Headings written "Label: finding", the house style of articles and open
+   questions, are split there by
    layouts/_default/_markup/render-heading.html into two spans inside the one
    H2. The label is set above the finding as a small capitals line in the
    sans, the way a newspaper sets a kicker; the colon stays in the text for
