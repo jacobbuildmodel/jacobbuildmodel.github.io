@@ -115,8 +115,8 @@ main .post-content > p { margin-bottom: 1em; }
      page PR A (4 Nov 2026) --accent, --accent-quiet, --code-bg and the
      border colour are set in 00-tokens.css with the other tokens; only the
      two status colours stay here, unchanged. */
-  --pos:           #2E7D5B;   /* 5.00:1 on white */
-  --neg:           #8A6116;   /* 5.52:1 on white. Amber, not red: these
+  --pos:           #2a7354;   /* 5.2:1 on the page, 5.7 on a card, 5.6 on a panel (#2E7D5B until 12 Nov 2026) */
+  --neg:           #8A6116;   /* 5.0:1 on the page, 5.5 on a card, 5.4 on a panel. Amber, not red: these
                                  mark "look closer", not "bad news". */
 }
 /* Was ".dark" -- this site's own theme-init script (in the PaperMod partial

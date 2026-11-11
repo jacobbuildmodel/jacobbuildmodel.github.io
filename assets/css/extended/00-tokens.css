@@ -126,22 +126,29 @@
   line-gap-override: 0%;
 }
 
-/* ---- light (the default) ---- */
+/* ---- light (the default) ----
+   Since 12 November 2026 the light page is a warm off-white with white
+   cards on it, slightly softer ink and borders that can be seen: the
+   structure the dark theme already had (office/type-lab/DESIGN_NOTE.md,
+   part 4). The change is one commit; reverting it brings the white page
+   back and touches nothing else. Seven values changed: --paper, --ink,
+   --ink-3, --line, --accent and --code-bg here, --pos in custom.css.
+   Ratios are WCAG 2, from "python tools/type_tools.py contrast". */
 :root {
   /* paper and ink */
-  --paper: #ffffff;            /* page */
-  --surface: #ffffff;          /* card and picture box */
-  --ink: #15191e;              /* text, 17.7:1 on paper */
-  --ink-2: #3f4852;            /* deks, 9.3:1 */
-  --ink-3: #5f6873;            /* meta, credits, 5.7:1 (5.3:1 on --code-bg) */
-  --line: #c5ccd4;             /* hairline borders, 1.6:1 (decorative) */
+  --paper: #f6f3ec;            /* page: warm off-white (#ffffff until 12 Nov 2026) */
+  --surface: #ffffff;          /* card and picture box: white, standing off the page */
+  --ink: #1b1f24;              /* text, 14.9:1 on the page, 16.6 on a card, 16.1 on a panel */
+  --ink-2: #3f4852;            /* deks, 8.4:1 on the page, 9.3 on a card, 9.1 on a panel */
+  --ink-3: #59616b;            /* meta, credits, 5.7:1 on the page, 6.3 on a card, 6.1 on a panel */
+  --line: #b3ab9b;             /* hairline borders, 2.1:1 on the page, 2.3 on a card (decorative) */
   --navy: #1f3a5f;             /* masthead band, both themes */
-  --navy-text: #1f3a5f;        /* topic labels on paper, 11.5:1 */
+  --navy-text: #1f3a5f;        /* topic labels, 10.4:1 on the page, 11.5 on a card, 11.2 on a panel */
   --on-navy: #ffffff;          /* wordmark on the band, 11.5:1 */
   --on-navy-2: #dbe4ee;        /* nav items on the band, 8.9:1 */
-  --accent: #3d6c8c;           /* links, focus, active nav, 5.6:1 */
+  --accent: #35627f;           /* links, focus, active nav, 5.9:1 on the page, 6.6 on a card, 6.4 on a panel */
   --accent-quiet: #6f93ad;
-  --code-bg: #f4f7f9;          /* tinted panels */
+  --code-bg: #fdfcf9;          /* panels: near-white, warm (#f4f7f9 until 12 Nov 2026) */
 
   /* type */
   --font-serif: "Newsreader", "Newsreader Fallback", Georgia, "Iowan Old Style", serif;
@@ -208,7 +215,7 @@
   --border: var(--line);
 }
 
-/* White paper with borders on every page: PaperMod tints list pages with
+/* The page colour, with borders, on every page: PaperMod tints list pages with
    --code-bg in light mode (.list) and --theme in dark. */
 .list,
 [data-theme] .list { background: var(--paper); }
