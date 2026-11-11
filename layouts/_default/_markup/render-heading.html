@@ -1,0 +1,30 @@
+{{- /* layouts/_default/_markup/render-heading.html (11 November 2026)
+
+  Section headings written "Label: finding" (the house style, for example
+  "The argument: one floor for everyone, or a ladder for each job") get two
+  spans inside the same H2, so the stylesheet can set the label above the
+  finding as a small capitals line (custom.css, "the section mark"). Nothing
+  else changes:
+    - the words are the same and in the same order; the colon and its space
+      stay in the text, in their own span, hidden only from the eye;
+    - it is still one H2, with the id Hugo gives it (.Anchor, which also
+      honours a {#custom-id}), so links, the "#" anchor that PaperMod adds
+      (partials/anchored_headings.html matches the id straight after the
+      tag name, on one line) and the table of contents are as they were;
+    - only level 2, only when the label is 2 to 30 plain characters (no
+      tag, entity or second colon in it); every other heading is written out
+      exactly as Hugo would write it.
+  The whole heading is one line on purpose: PaperMod's anchor pattern does
+  not cross a line break. */ -}}
+{{- $text := string .Text -}}
+{{- $m := slice -}}
+{{- if eq .Level 2 }}{{ $m = findRESubmatch `(?s)^([^<>&:]{2,30}): (.+)$` $text 1 }}{{ end -}}
+{{- $class := .Attributes.class | default "" -}}
+{{- if $m }}{{ $class = strings.TrimSpace (printf "%s h2-split" $class) }}{{ end -}}
+<h{{ .Level }} id="{{ .Anchor }}"{{ with $class }} class="{{ . }}"{{ end }}>
+{{- with $m -}}
+<span class="h2-label">{{ index (index . 0) 1 | safeHTML }}<span class="h2-colon">: </span></span><span class="h2-text">{{ index (index . 0) 2 | safeHTML }}</span>
+{{- else -}}
+{{ .Text }}
+{{- end -}}
+</h{{ .Level }}>
