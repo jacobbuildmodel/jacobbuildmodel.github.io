@@ -1,7 +1,9 @@
 {
- "id": "sgd-yardstick",
+ "id": "sgd-measure",
+ "icon": "currency",
+ "topic": "Singapore dollar and yen",
  "type": "switch",
- "title": "Whichever yardstick is used, the yen's own fall was the larger part",
+ "title": "Whichever measure is used, the yen's own fall was the larger part",
  "subtitle": "The Singapore dollar's rise against the yen, average of January to March 2021 to average of October to December 2025, split three ways",
  "domain": [
   -40,
@@ -91,10 +93,10 @@
    }
   }
  ],
- "summary": "The yen's own fall is between 71 and 93 per cent of the move, depending on the yardstick.",
+ "summary": "The yen's own fall is between 71 and 93 per cent of the move, depending on the measure.",
  "howto": [
   "Each bar is a move in per cent over the same period. Right of the line is a rise, left a fall.",
-  "The buttons change the yardstick: what each currency is measured against. The first two bars are each currency's own move; the third is the Singapore dollar against the yen.",
+  "The buttons change the measure: what each currency is measured against. The first two bars are each currency's own move; the third is the Singapore dollar against the yen.",
   "The strip below shows how much of the move each side accounts for, as shares of the change in logs. Where the shares do not sum to 100 the remainder is printed."
  ],
  "source_line": "Source: Bank for International Settlements and MAS, through the piece's own pipeline.",
