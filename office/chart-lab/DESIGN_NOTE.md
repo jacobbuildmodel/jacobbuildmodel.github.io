@@ -260,6 +260,8 @@ sentences (ERP 15.8 KB, HDB 12.2 KB as printed in the page, before compression).
   caught a percentage that had been rounded twice (2014: "+4%" where the exact figure rounds to "+5%"); the
   builder was fixed.
 - Sizes, from the files Hugo wrote.
+- A normal build (no drafts) contains no `/lab/` page and no chart script. Round two added a draft
+  `content/lab/_index.md` for this: without it, merging would have published an empty section page.
 
 ### What was not checked
 
