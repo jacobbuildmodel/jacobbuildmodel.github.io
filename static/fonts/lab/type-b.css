@@ -1,0 +1,72 @@
+/* static/fonts/lab/type-b.css -- type lab, option B (draft pull request 64).
+   Newsreader for headlines, standfirst and prose; Inter for the interface;
+   the digits of JetBrains Mono for numbers in tables and strips.
+   Loaded only when option B is switched on (layouts/partials/extend_head.html,
+   in a build with drafts), so a normal page never asks for it.
+   Files: Fontsource 5.3.0 Latin subsets, unchanged, except the two digit
+   files, cut by tools/make_type_lab_fonts.py. Sources and sha256 in
+   office/type-lab/FONTS.csv; licences beside this file (OFL-*.txt).
+   size-adjust brings the x-height of each face close to that of the current
+   one (Newsreader 0.426 x 1.08 = 0.460 against NVD Serif 0.475: at 1.10 the
+   x-heights matched to 1 per cent but the taller capitals of Newsreader made
+   the page read a size larger; Inter 0.546 x 0.90 = 0.491 against NVD Sans
+   0.486). The ascent and descent
+   overrides are the line metrics of the current faces divided by
+   size-adjust, so every line box is built as it is today. The fallback faces
+   are sized by average letter width, as in 00-tokens.css.
+   Numbers from: python tools/make_type_lab_fonts.py metrics */
+@font-face {
+  font-family: "Lab Newsreader";
+  src: url(/fonts/lab/newsreader-latin-400-normal.woff2) format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+  size-adjust: 108%; ascent-override: 95.93%; descent-override: 31.02%; line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Lab Newsreader";
+  src: url(/fonts/lab/newsreader-latin-400-italic.woff2) format("woff2");
+  font-weight: 400; font-style: italic; font-display: swap;
+  size-adjust: 108%; ascent-override: 95.93%; descent-override: 31.02%; line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Lab Newsreader";
+  src: url(/fonts/lab/newsreader-latin-600-normal.woff2) format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+  size-adjust: 108%; ascent-override: 95.93%; descent-override: 31.02%; line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Lab Inter";
+  src: url(/fonts/lab/inter-latin-400-normal.woff2) format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+  size-adjust: 90%; ascent-override: 111.11%; descent-override: 36.22%; line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Lab Inter";
+  src: url(/fonts/lab/inter-latin-600-normal.woff2) format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+  size-adjust: 90%; ascent-override: 111.11%; descent-override: 36.22%; line-gap-override: 0%;
+}
+/* Digits only: every other character falls through to the next family. */
+@font-face {
+  font-family: "Lab Mono Figures";
+  src: url(/fonts/lab/jetbrains-mono-digits-400.woff2) format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+  unicode-range: U+0030-0039;
+  size-adjust: 90%; ascent-override: 111.11%; descent-override: 36.22%; line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Lab Mono Figures";
+  src: url(/fonts/lab/jetbrains-mono-digits-700.woff2) format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+  unicode-range: U+0030-0039;
+  size-adjust: 90%; ascent-override: 111.11%; descent-override: 36.22%; line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Lab Newsreader Fallback";
+  src: local("Georgia");
+  size-adjust: 103.69%; ascent-override: 99.91%; descent-override: 32.31%; line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Lab Inter Fallback";
+  src: local("Arial");
+  size-adjust: 96.60%; ascent-override: 103.52%; descent-override: 33.75%; line-gap-override: 0%;
+}
