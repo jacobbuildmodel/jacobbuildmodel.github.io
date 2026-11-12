@@ -25,7 +25,9 @@
   set document(title: name + ": portfolio, " + date, author: name, date: day)
   set page(paper: "a4", margin: (x: 13mm, top: 11mm, bottom: 10mm))
   set text(font: serif, size: 9.6pt, fill: ink, lang: "en", region: "gb")
-  set par(leading: 0.52em, spacing: 0.72em, justify: false)
+  // Paragraph gap 0.66em (was 0.72em) since 14 November 2026: with ten pieces
+  // listed, 0.72em put the last line on a second page.
+  set par(leading: 0.52em, spacing: 0.66em, justify: false)
   show heading: it => block(above: 1.05em, below: 0.45em, sticky: true,
     text(font: sans, weight: "semibold", size: 8.2pt, fill: accent,
       tracking: 0.07em, upper(it.body)))
