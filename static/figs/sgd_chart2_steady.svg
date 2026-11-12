@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 483" role="img" aria-labelledby="sgd-chart2-title sgd-chart2-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 502" role="img" aria-labelledby="sgd-chart2-title sgd-chart2-desc">
 <title id="sgd-chart2-title">The Singapore dollar was steadier than all ten others, Hong Kong's peg included</title>
-<desc id="sgd-chart2-desc">How to read: each bar is how much a currency's value against all its trading partners typically moved in a month, August 2005 on, in per cent. Shorter is steadier; the Singapore dollar is in blue.</desc>
+<desc id="sgd-chart2-desc">How to read: each bar is how much a currency's value against its trading partners (BIS broad index) typically moved in a month, August 2005 on, in per cent. Shorter is steadier; the Singapore dollar is in blue.</desc>
 <style>:root{--fig-ink:#0b0b0b;--fig-ink-3:#717171;--fig-rule:#e2e1dd;--fig-surface:#fcfcfa;--fig-subject:#2873ce;--fig-context:#707379;}@media (prefers-color-scheme: dark){:root{--fig-ink:#ffffff;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}}:root[data-theme="dark"]{--fig-ink:#ffffff;--fig-ink-3:#9a9a9a;--fig-rule:#38393a;--fig-surface:#1a1a19;--fig-subject:#3987e5;--fig-context:#93969c;}text{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}</style>
-<rect x="0" y="0" width="480" height="483" fill="var(--fig-surface,#fcfcfa)"/>
+<rect x="0" y="0" width="480" height="502" fill="var(--fig-surface,#fcfcfa)"/>
 <text x="16.0" y="28.0" font-size="16" fill="var(--fig-ink,#0b0b0b)" font-weight="600">The Singapore dollar was steadier than all</text>
 <text x="16.0" y="49.0" font-size="16" fill="var(--fig-ink,#0b0b0b)" font-weight="600">ten others, Hong Kong's peg included</text>
 <text x="162.0" y="94.0" text-anchor="end" font-size="14" fill="var(--fig-ink,#0b0b0b)" font-weight="600">Singapore dollar</text>
@@ -34,7 +34,8 @@
 <text x="170.0" y="362.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">0</text>
 <text x="410.0" y="362.0" text-anchor="middle" font-size="14" fill="var(--fig-ink-3,#717171)">3</text>
 <text x="16.0" y="388.0" font-size="14" fill="var(--fig-ink-3,#717171)">How to read: each bar is how much a currency's value</text>
-<text x="16.0" y="407.0" font-size="14" fill="var(--fig-ink-3,#717171)">against all its trading partners typically moved in a</text>
-<text x="16.0" y="426.0" font-size="14" fill="var(--fig-ink-3,#717171)">month, August 2005 on, in per cent. Shorter is</text>
-<text x="16.0" y="445.0" font-size="14" fill="var(--fig-ink-3,#717171)">steadier; the Singapore dollar is in blue.</text>
+<text x="16.0" y="407.0" font-size="14" fill="var(--fig-ink-3,#717171)">against its trading partners (BIS broad index)</text>
+<text x="16.0" y="426.0" font-size="14" fill="var(--fig-ink-3,#717171)">typically moved in a month, August 2005 on, in per</text>
+<text x="16.0" y="445.0" font-size="14" fill="var(--fig-ink-3,#717171)">cent. Shorter is steadier; the Singapore dollar is in</text>
+<text x="16.0" y="464.0" font-size="14" fill="var(--fig-ink-3,#717171)">blue.</text>
 </svg>

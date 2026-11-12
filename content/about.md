@@ -36,6 +36,10 @@ check whether I got it right.
 
 Every piece published so far, newest first.
 
+- **[2021-25: the yen fell further than the Singapore dollar rose](/economics/2026-11-14/)**\
+  *Tokyo got cheaper. Did Singapore get richer?*\
+  Published 14 November 2026. Of 5 predictions sealed on 3 October 2026, 4 held and 1 failed.
+  [Code](https://github.com/jacobbuildmodel/coe-analysis/tree/main/sgd)
 - **[For low-paid gardeners, the floor became the pay](/economics/2026-10-31/)**\
   *Minimum wage or the Progressive Wage Model: which actually lifts Singapore's lowest pay?*\
   Published 31 October 2026. Of 4 predictions sealed on 28 September 2026, 3 held and 1 failed.

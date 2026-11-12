@@ -6,7 +6,7 @@ url: "/researchers/singapore-dollar/"
 ---
 
 The companion to the article
-[Tokyo got cheaper. The yen did most of the work](/economics/2026-11-14/).
+[2021-25: the yen fell further than the Singapore dollar rose](/economics/2026-11-14/).
 It sets out how each result was derived, every test as sealed, and every
 sealed sensitivity. Every number below is in `sgd/number_manifest.csv` with
 the script that wrote it, and `14_manifest.py --check` verifies each one.
@@ -181,6 +181,11 @@ each draw, and the range is the pair of percentiles that bound the central
 
 **Result.** rho_p 0.4653, rho_g 0.1127, D 0.3526, with a 90 per cent
 bootstrap range of 0.1117 to 0.5867, on 61 intervals.
+These and the finer-coding D (0.3460) come from unrounded values: some
+interval means of growth that `out/intervals.csv` prints alike differ in
+their last binary digit, so the sealed run ranks them apart rather than as
+ties, and recomputing from the printed file moves rho_g and D in the third
+decimal.
 
 ## 4. Every test
 
@@ -221,7 +226,7 @@ different outcome.
 | T7, CPI inflation in place of growth | rho_g 0.5074, D -0.0421 | **flips**: inflation lined up at least as well as MAS's decisions |
 | T7, finer slope coding | rho_p 0.4587, D 0.3460 | holds |
 | T7, intervals from 2010 only | 41 intervals; rho_p 0.5490, rho_g 0.0335, D 0.5155 | holds |
-| Yen, long window | S 0.5724, P 0.5058, R -0.0782 | **flips**: the Singapore dollar's own rise was the larger part |
+| Yen, long window | S 0.5724, P 0.5058, R -0.0782 | **flips** by the sealed rule (S >= P), but the split ranks neither part: \|R\| 0.0782 is larger than \|S - P\| |
 | Yen, single-month endpoints, scored | S 0.2921, P 0.7537, R -0.0459 | holds |
 | Yen, end-of-period rates, scored | S 0.3066, P 0.7311, R -0.0377 | holds |
 | Yen, single-month and end-of-period, long | P 0.5122 and 0.5089, against S 0.5688 and 0.5758 | the long-window flip holds |
@@ -237,8 +242,14 @@ since BIS publishes no real bilateral rate, so their residual carries the
 inflation differentials (THESIS_ADDENDUM item 3). Two flips matter. With
 inflation in place of growth, D is negative, so the T7 result cannot separate
 MAS's decisions from inflation, which MAS's framework targets. And the yen
-split is a statement about the scored window: over the long window, the
-Singapore dollar's own rise was the larger part.
+split is a statement about the scored window. Over the long window the split
+ranks neither part: the remainder, |R| 0.0782, is larger than the gap
+between S 0.5724 and P 0.5058. The other yardsticks disagree with each other
+(section 10): without the other currency in each basket, S 0.5332, P 0.4924,
+R -0.0256, the Singapore dollar's part first; against the US dollar, the
+yen's part first, 57 per cent against 43; and on the sealed real indices,
+the yen's part first too (P 1.0349 against S 0.4740, with a remainder of
+-0.5089 that carries the inflation differentials).
 
 ## 6. What the design cannot say
 
@@ -342,8 +353,8 @@ item 10.
 **The ringgit's shares, explained.** The article no longer prints them. Over
 the scored window, `b_MYR` was small (0.0486) while both broad indices rose,
 so `S_MYR` = 2.5386 and `P_MYR` = -1.7058. In per cent, the Singapore
-dollar's own rise was 254 per cent of the move, and the ringgit's own rise
-took back 171 per cent. A share above 1, or below 0, is what a small
+dollar's rise against its trading partners was 254 per cent of the move, and
+the ringgit's rise against its trading partners took back 171 per cent. A share above 1, or below 0, is what a small
 denominator and two indices moving the same way produce. It is not an error.
 
 ### A1. The US dollar as the reference currency
@@ -351,7 +362,7 @@ denominator and two indices moving the same way produce. It is not an error.
 ```
 b_X = d ln(X per USD) - d ln(SGD per USD)          exact, no remainder
 1   = [-d ln(SGD per USD)] / b_X + [d ln(X per USD)] / b_X
-       the Singapore dollar's own    X's own fall against
+       the Singapore dollar's        X's fall against
        move against the US dollar     the US dollar
 ```
 
@@ -366,10 +377,15 @@ The checker's rough figures for 2021-25 were confirmed: the Singapore dollar
 rose 2.7% and the yen fell 31.3% against the US dollar (shares 7 and 93 per
 cent), and the ringgit fell 2.1% (55 and 45). The identity is exact, but its
 reference is a single currency, whose own swings sit inside both shares. On
-the long window the choice of reference decides the reading. Against
-everyone, the Singapore dollar's own rise was the larger part (0.5724 against
-0.5058, with a remainder of -0.0782).
-Against the US dollar, the yen's fall was (0.5737 against 0.4263).
+the long window the yardsticks disagree, so none ranks the two parts.
+Against their trading partners, the split ranks neither: the remainder,
+|R| 0.0782, is larger than the gap between the Singapore dollar's rise
+against its trading partners (0.5724) and the yen's fall against its trading
+partners (0.5058). Without the other currency in each basket (A2), the
+Singapore dollar's part came first (S 0.5332, P 0.4924, R -0.0256). Against
+the US dollar, the yen's fall was the larger part (0.5737 against 0.4263, 57
+and 43 per cent), and so it was on the sealed real indices (P 1.0349 against
+S 0.4740, R -0.5089).
 
 ### A2. Each currency removed from the other's basket
 
@@ -418,12 +434,13 @@ recorded in RETRIEVED.txt.
 | SGD real broad index | up 14.7% |
 | Yen real broad index | down 26.6% |
 | S, P, R (real cross) | 0.3146, 0.7067, -0.0212 |
-| Tokyo goods per SGD, b - d ln CPI_JP (round 5) | up 32.1% |
+| Goods per SGD at Japan's national consumer prices, b - d ln CPI_JP (round 5) | up 32.1% |
 | Sealed "real indices" row (nominal cross) | 0.3419, 0.7680, -0.1098 |
 
 The traveller's figure and the real exchange rate sit on opposite sides of the
-nominal 49.5%: deflating by Japan's prices alone gives 32.1% more Tokyo
-goods per Singapore dollar, while the real exchange rate, deflated by both
+nominal 49.5%: deflating by Japan's prices alone gives 32.1% more goods per
+Singapore dollar at Japan's national consumer prices, while the real
+exchange rate, deflated by both
 countries' prices, rose 54.8%, because Singapore's prices rose faster (17.1%
 against 13.1%). On a real cross the remainder shrank from -0.1098 to -0.0212, as expected
 once both countries' prices are on both sides. The yen's real fall was still
@@ -445,10 +462,15 @@ the last window, which ends in August 2026. The windows overlap: consecutive
 ones share 57 of 60 months, so the 46 are not independent results. They
 describe one persistent pattern, and, as with the serial dependence in A5(c),
 the effective number of independent observations is far smaller than the
-count. The Singapore dollar did not rise against the yen in the
-windows starting from 2005 to 2008 and from 2014 to 2016. Its own rise was
-larger only in windows starting in 2008, 2009, 2013 and 2014. Over the full
-long window the order reverses (S 0.5724, P 0.5058). The Singapore dollar's broad index
+count. Only four five-year windows fit end to end without overlapping,
+from August 2005; the Singapore dollar rose against the yen in two of them,
+and in both the yen's fall was the larger part. The 39 windows where the
+yen's fall was larger come in three runs. The Singapore dollar did not rise against the yen in the
+windows starting from 2005 to 2008 and from 2014 to 2016. Its rise against
+its trading partners was larger only in windows starting in 2008, 2009, 2013
+and 2014. Over the full long window the split ranks neither part: |R| 0.0782
+is larger than the gap between S 0.5724 and P 0.5058, and the other
+yardsticks disagree with each other (A1, A2 and section 5). The Singapore dollar's broad index
 rose in every window, while the yen's rose in some and fell in others, so the
 yen's falls and recoveries partly offset over two decades.
 

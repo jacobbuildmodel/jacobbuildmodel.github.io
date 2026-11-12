@@ -1,5 +1,5 @@
 ---
-title: "31 sealed predictions: 13 held, 12 failed"
+title: "36 sealed predictions: 17 held, 13 failed"
 question: "How often has this site been wrong?"
 date: 2026-10-03
 draft: false
@@ -9,12 +9,12 @@ summary: "Every answered prediction this site wrote down and sealed before openi
 # Read by the home page band (layouts/partials/track_record.html). Keep these
 # equal to the counts this page states. brier and brierN stay empty until the
 # page states a Brier score; the band then adds its calibration line.
-sealed: 31
-held: 13
-failed: 12
+sealed: 36
+held: 17
+failed: 13
 neither: 6
-brier: 0.205
-brierN: 8
+brier: 0.179
+brierN: 13
 menu:
   main:
     name: "Scorecard"
@@ -23,7 +23,7 @@ menu:
 
 > Before any data is opened, each piece writes its predictions into a file called
 > `THESIS.md` and seals it in a dated commit (for the first two pieces, the file's own dated header). This page is what happened next.
-> Of 31 sealed predictions, 13 held, 12 failed, and 6 landed in between.
+> Of 36 sealed predictions, 17 held, 13 failed, and 6 landed in between.
 
 A method that never fails is not being tested. This page exists so that anyone can
 check how often this one does, without reading a single article first.
@@ -32,12 +32,13 @@ check how often this one does, without reading a single article first.
 
 | Piece | Held | Failed | Neither |
 |---|---|---|---|
+| [The Singapore dollar](/economics/2026-11-14/) | 4 | 1 | 0 |
 | [Minimum wage or PWM](/economics/2026-10-31/) | 3 | 1 | 0 |
 | [COE or ERP](/economics/2026-10-17/) | 1 | 2 | 1 |
 | [HDB loan vs bank loan](/economics/2026-10-03/) | 5 | 3 | 0 |
 | [HDB affordability](/economics/2026-09-19/) | 3 | 2 | 4 |
 | [GST rises](/economics/2026-09-08/) | 1 | 4 | 1 |
-| **Total** | **13** | **12** | **6** |
+| **Total** | **17** | **13** | **6** |
 
 **Held** means the sealed prediction survived. **Failed** means it did not, and the
 article says so. **Neither** means the result landed between the pass and fail lines
@@ -45,9 +46,40 @@ written in advance, or no verdict was recorded, and it is not rounded to either 
 Each piece is scored again against newer data twelve months after it is published.
 
 **Calibration.** From the COE or ERP piece on, each sealed prediction also carries
-a confidence, written before the data was opened. The first eight: 4 of 8 held,
-against 3.66 expected from those confidences. Brier score 0.205, where 0 is perfect
+a confidence, written before the data was opened. The first thirteen: 8 of 13 held,
+against 6.34 expected from those confidences. Brier score 0.179, where 0 is perfect
 and a flat 50 per cent on everything scores 0.25.
+
+## Tokyo got cheaper. Did Singapore get richer?
+
+[2021-25: the yen fell further than the Singapore dollar rose](/economics/2026-11-14/).
+Sealed 3 October 2026. Revisit 14 November 2027.
+
+- **Failed.** At least half of the Singapore dollar's rise against the ringgit
+  from January 2021 to December 2025 would be the ringgit falling against
+  everyone, and more of it the ringgit falling than the Singapore dollar rising.
+  Confidence 8%. Result: as shares of the rise, the Singapore dollar rising
+  2.5386, the ringgit falling -1.7058 and neither 0.1672.
+- **Held.** The split would close: for both currencies, on both windows, the
+  broad indices would account for at least 80 per cent of the move between the
+  two currencies, and the BIS cross rate would sit within 0.5 per cent of MAS's
+  rate on average. Confidence 55%. Result: residual shares -0.0392 for the yen
+  and 0.1672 for the ringgit from January 2021 to December 2025, and -0.0782 and
+  -0.0663 from August 2005, all within 0.20; BIS against MAS 0.0003 to 0.0007,
+  within 0.005.
+- **Held.** At least half of the Singapore dollar's rise against the yen from
+  January 2021 to December 2025 would be the yen falling against everyone, and
+  more of it the yen falling than the Singapore dollar rising. Confidence 90%.
+  Result: as shares of the rise, the yen falling 0.7321, the Singapore dollar
+  rising 0.3070 and neither -0.0392.
+- **Held.** The Singapore dollar's broad index would be the steadiest or second
+  steadiest of the 11 in the set. Confidence 80%. Result: the steadiest, with a
+  monthly swing of 0.0047 against 0.0100 for Hong Kong's dollar, the next, and
+  0.0216 for the yen.
+- **Held.** The broad path would line up with MAS's decisions clearly better
+  than with growth. Confidence 35%. Result: a correlation of 0.4653 with MAS's
+  decisions and 0.1127 with growth, a difference of 0.3526 against a line of
+  0.20, over 61 intervals.
 
 ## Minimum wage or the Progressive Wage Model: which actually lifts Singapore's lowest pay?
 

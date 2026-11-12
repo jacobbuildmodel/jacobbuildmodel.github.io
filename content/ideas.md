@@ -25,3 +25,10 @@ A required minimum can stop being a floor under pay and become the pay itself:
 the lowest-paid earn exactly the rung, no more.
 
 From: [For low-paid gardeners, the floor became the pay](/economics/2026-10-31/)
+
+## 2021-25: the yen fell further than the Singapore dollar rose
+
+An accounting split of exchange rates says whose currency moved; it does not
+measure whether Singapore got richer.
+
+From: [2021-25: the yen fell further than the Singapore dollar rose](/economics/2026-11-14/)
