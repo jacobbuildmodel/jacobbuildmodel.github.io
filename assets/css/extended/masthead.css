@@ -186,21 +186,31 @@
 }
 
 /* ---- article headline ----
-   NVD Serif 600, 28/34 at 390px rising to 38/44 at 1280px (was the
-   system sans at 40px). Article h2 and h3 keep their sizes and are already
-   serif 600 inside .post-content (custom.css). */
-.post-title {
+   Newsreader 600, 30/36 at 390px rising to 40/46 at 1280px (28/34 to 38/44
+   until 11 November 2026; raised by 2px with the section headings, which
+   went to 25px on a phone, so the title stays a clear step above them: see
+   "Heading scale" in custom.css). Article h2 and h3 are serif 600 inside
+   .post-content (custom.css).
+   The same rule now also sets the title of a section page (.page-header h1:
+   "How the scorecard works", "Economics"), which was still the theme's
+   system sans at 40px on a phone, a third larger than an article title and
+   in another face. */
+.post-title,
+.page-header h1 {
   font-family: var(--font-serif);
   font-weight: 600;
-  font-size: clamp(28px, calc(28px + 10 * (100vw - 390px) / 890), 38px);
-  line-height: clamp(34px, calc(34px + 10 * (100vw - 390px) / 890), 44px);
+  font-size: clamp(30px, calc(30px + 10 * (100vw - 390px) / 890), 40px);
+  line-height: clamp(36px, calc(36px + 10 * (100vw - 390px) / 890), 46px);
 }
 
 /* ---- A1: tabular lining figures ----
    Every number in tables, the method and decision strips and the scorecard
    lines up in columns. (The track-record band gets the same rule in PR B,
-   which adds the band; no page has one now.) Both faces already default to
-   tabular lining figures; this states it, so a fallback face follows too.
+   which adds the band; no page has one now.) Newsreader's figures
+   are tabular as drawn and the JetBrains Mono digits are fixed-width. Where
+   Inter itself draws digits this rule makes them tabular (its tnum feature);
+   in the blocks that take the mono digits that feature is switched off again
+   in 00-tokens.css, because it also widens Inter's hyphen.
    Prose figures are not touched. */
 .post-content table,
 .table-scroll,

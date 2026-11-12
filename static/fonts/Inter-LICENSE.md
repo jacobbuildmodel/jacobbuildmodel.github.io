@@ -1,10 +1,10 @@
-The font files NVDSans-Regular.woff2 and NVDSans-Semibold.woff2 in this folder are modified subsets of Source Sans 3 by Adobe, renamed "NVD Sans" because, under the licence below, a Modified Version may not use the Reserved Font Name "Source". The licence below applies to them unchanged.
+The font files inter-latin-400-normal.woff2 and inter-latin-600-normal.woff2 in this folder are Latin subsets of Inter (version 4.001) by The Inter Project Authors, as published by Fontsource (package @fontsource/inter 5.3.0), unchanged. A subset is a Modified Version under the licence below. The licence declares no Reserved Font Name, so the files keep the family's name. Sources and sha256 of the files: office/type-lab/FONTS.csv. The font files themselves carry the notice "Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)", as does the licence file in that repository; the copy below, the one the type lab collected, gives the year as 2020.
 
-Copyright 2010-2024 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe in the United States and/or other countries.
+Copyright 2020 The Inter Project Authors (https://github.com/rsms/inter)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
-
-This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL
+This license is copied below, and is also available with a FAQ at:
+https://scripts.sil.org/OFL
 
 
 -----------------------------------------------------------

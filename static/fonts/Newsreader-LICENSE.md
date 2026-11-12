@@ -1,10 +1,10 @@
-The font files NVDSerif-Regular.woff2, NVDSerif-It.woff2 and NVDSerif-Semibold.woff2 in this folder are modified subsets of Source Serif 4 by Adobe, renamed "NVD Serif" because, under the licence below, a Modified Version may not use the Reserved Font Name "Source". The licence below applies to them unchanged.
+The font files newsreader-latin-400-normal.woff2, newsreader-latin-400-italic.woff2 and newsreader-latin-600-normal.woff2 in this folder are Latin subsets of Newsreader (version 1.003, the 16pt optical size) by The Newsreader Project Authors, as published by Fontsource (package @fontsource/newsreader 5.3.0), unchanged. A subset is a Modified Version under the licence below. The licence declares no Reserved Font Name, so the files keep the family's name. Sources and sha256 of the files: office/type-lab/FONTS.csv.
 
-Copyright 2014 - 2023 Adobe (http://www.adobe.com/), with Reserved Font Name ‘Source’. All Rights Reserved. Source is a trademark of Adobe in the United States and/or other countries.
+Copyright 2020 The Newsreader Project Authors (http://github.com/productiontype/Newsreader)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
-
-This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
 
 
 -----------------------------------------------------------
