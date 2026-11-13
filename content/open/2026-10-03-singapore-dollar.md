@@ -3,6 +3,7 @@ title: "Tokyo got cheaper. Did Singapore get richer?"
 date: 2026-10-03
 draft: false
 answerDue: "December 2026"
+answered: "/economics/2026-11-14/"
 showToc: false
 summary: "Five predictions, each with a confidence, sealed before the data was opened. The answer is due in December 2026."
 repo: "https://github.com/jacobbuildmodel/coe-analysis"
