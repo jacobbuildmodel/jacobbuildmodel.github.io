@@ -1,0 +1,762 @@
+{
+ "id": "hdb-years-of-income",
+ "type": "timeline",
+ "icon": "house",
+ "topic": "HDB resale flats",
+ "explain": [
+  0
+ ],
+ "compare": {
+  "end": 2025,
+  "initial": 6,
+  "domain": [
+   -30,
+   40
+  ],
+  "title": "Whether 2025 looks high or low depends on the year it is compared with",
+  "subtitle": "Years of median household income to pay for a constant-quality four-room resale flat, as a change from the starting year the reader picks",
+  "ticks": [
+   -20,
+   0,
+   20,
+   40
+  ],
+  "strip_domain": [
+   -10,
+   30
+  ],
+  "presets": [
+   {
+    "i": 0,
+    "label": "2013, the peak"
+   },
+   {
+    "i": 6,
+    "label": "2019, the low"
+   }
+  ],
+  "tally": "From 11 of the 12 starting years, 2025 comes out higher. From 2013 it comes out lower.",
+  "starts": [
+   {
+    "year": 2013,
+    "values": [
+     0.0,
+     -11.2,
+     -17.0,
+     -18.7,
+     -21.2,
+     -24.3,
+     -25.5,
+     -21.0,
+     -15.8,
+     -11.1,
+     -11.7,
+     -8.1,
+     -7.2
+    ],
+    "pct": -7.2,
+    "dir": -1,
+    "pct_text": "-7%",
+    "headline": "fewer years of income than in 2013",
+    "verdict": "The flat took 5.04 years of median household income in 2025, against 5.43 in 2013: 0.39 fewer.",
+    "why": "Between those years the price rose 40% and income rose 51%."
+   },
+   {
+    "year": 2014,
+    "values": [
+     12.6,
+     0.0,
+     -6.5,
+     -8.5,
+     -11.3,
+     -14.7,
+     -16.1,
+     -11.0,
+     -5.1,
+     0.2,
+     -0.5,
+     3.5,
+     4.5
+    ],
+    "pct": 4.5,
+    "dir": 1,
+    "pct_text": "+5%",
+    "headline": "more years of income than in 2014",
+    "verdict": "The flat took 5.04 years of median household income in 2025, against 4.82 in 2014: 0.22 more.",
+    "why": "Between those years the price rose 50% and income rose 43%."
+   },
+   {
+    "year": 2015,
+    "values": [
+     20.5,
+     7.0,
+     0.0,
+     -2.1,
+     -5.1,
+     -8.7,
+     -10.3,
+     -4.8,
+     1.5,
+     7.1,
+     6.4,
+     10.8,
+     11.8
+    ],
+    "pct": 11.8,
+    "dir": 1,
+    "pct_text": "+12%",
+    "headline": "more years of income than in 2015",
+    "verdict": "The flat took 5.04 years of median household income in 2025, against 4.51 in 2015: 0.53 more.",
+    "why": "Between those years the price rose 55% and income rose 39%."
+   },
+   {
+    "year": 2016,
+    "values": [
+     23.1,
+     9.2,
+     2.1,
+     0.0,
+     -3.1,
+     -6.8,
+     -8.4,
+     -2.8,
+     3.6,
+     9.4,
+     8.7,
+     13.1,
+     14.2
+    ],
+    "pct": 14.2,
+    "dir": 1,
+    "pct_text": "+14%",
+    "headline": "more years of income than in 2016",
+    "verdict": "The flat took 5.04 years of median household income in 2025, against 4.41 in 2016: 0.63 more.",
+    "why": "Between those years the price rose 55% and income rose 36%."
+   },
+   {
+    "year": 2017,
+    "values": [
+     26.9,
+     12.7,
+     5.4,
+     3.2,
+     0.0,
+     -3.9,
+     -5.5,
+     0.3,
+     6.9,
+     12.9,
+     12.1,
+     16.7,
+     17.8
+    ],
+    "pct": 17.8,
+    "dir": 1,
+    "pct_text": "+18%",
+    "headline": "more years of income than in 2017",
+    "verdict": "The flat took 5.04 years of median household income in 2025, against 4.28 in 2017: 0.76 more.",
+    "why": "Between those years the price rose 57% and income rose 33%."
+   },
+   {
+    "year": 2018,
+    "values": [
+     32.0,
+     17.2,
+     9.6,
+     7.3,
+     4.0,
+     0.0,
+     -1.7,
+     4.3,
+     11.2,
+     17.4,
+     16.6,
+     21.4,
+     22.5
+    ],
+    "pct": 22.5,
+    "dir": 1,
+    "pct_text": "+22%",
+    "headline": "more years of income than in 2018",
+    "verdict": "The flat took 5.04 years of median household income in 2025, against 4.11 in 2018: 0.93 more.",
+    "why": "Between those years the price rose 59% and income rose 30%."
+   },
+   {
+    "year": 2019,
+    "values": [
+     34.3,
+     19.2,
+     11.5,
+     9.1,
+     5.8,
+     1.7,
+     0.0,
+     6.1,
+     13.1,
+     19.4,
+     18.6,
+     23.4,
+     24.6
+    ],
+    "pct": 24.6,
+    "dir": 1,
+    "pct_text": "+25%",
+    "headline": "more years of income than in 2019",
+    "verdict": "The flat took 5.04 years of median household income in 2025, against 4.04 in 2019: 1.00 more.",
+    "why": "Between those years the price rose 58% and income rose 27%."
+   },
+   {
+    "year": 2020,
+    "values": [
+     26.6,
+     12.4,
+     5.1,
+     2.9,
+     -0.3,
+     -4.1,
+     -5.7,
+     0.0,
+     6.6,
+     12.6,
+     11.8,
+     16.4,
+     17.4
+    ],
+    "pct": 17.4,
+    "dir": 1,
+    "pct_text": "+17%",
+    "headline": "more years of income than in 2020",
+    "verdict": "The flat took 5.04 years of median household income in 2025, against 4.29 in 2020: 0.75 more.",
+    "why": "Between those years the price rose 54% and income rose 31%."
+   },
+   {
+    "year": 2021,
+    "values": [
+     18.7,
+     5.4,
+     -1.5,
+     -3.5,
+     -6.5,
+     -10.1,
+     -11.6,
+     -6.2,
+     0.0,
+     5.6,
+     4.9,
+     9.1,
+     10.1
+    ],
+    "pct": 10.1,
+    "dir": 1,
+    "pct_text": "+10%",
+    "headline": "more years of income than in 2021",
+    "verdict": "The flat took 5.04 years of median household income in 2025, against 4.57 in 2021: 0.47 more.",
+    "why": "Between those years the price rose 39% and income rose 26%."
+   },
+   {
+    "year": 2022,
+    "values": [
+     12.4,
+     -0.2,
+     -6.7,
+     -8.6,
+     -11.4,
+     -14.8,
+     -16.3,
+     -11.2,
+     -5.3,
+     0.0,
+     -0.7,
+     3.4,
+     4.3
+    ],
+    "pct": 4.3,
+    "dir": 1,
+    "pct_text": "+4%",
+    "headline": "more years of income than in 2022",
+    "verdict": "The flat took 5.04 years of median household income in 2025, against 4.83 in 2022: 0.21 more.",
+    "why": "Between those years the price rose 24% and income rose 19%."
+   },
+   {
+    "year": 2023,
+    "values": [
+     13.2,
+     0.5,
+     -6.0,
+     -8.0,
+     -10.8,
+     -14.3,
+     -15.7,
+     -10.6,
+     -4.6,
+     0.7,
+     0.0,
+     4.1,
+     5.0
+    ],
+    "pct": 5.0,
+    "dir": 1,
+    "pct_text": "+5%",
+    "headline": "more years of income than in 2023",
+    "verdict": "The flat took 5.04 years of median household income in 2025, against 4.80 in 2023: 0.24 more.",
+    "why": "Between those years the price rose 15% and income rose 10%."
+   },
+   {
+    "year": 2024,
+    "values": [
+     8.8,
+     -3.4,
+     -9.7,
+     -11.6,
+     -14.3,
+     -17.6,
+     -19.0,
+     -14.1,
+     -8.4,
+     -3.3,
+     -3.9,
+     0.0,
+     0.9
+    ],
+    "pct": 0.9,
+    "dir": 1,
+    "pct_text": "+1%",
+    "headline": "more years of income than in 2024",
+    "verdict": "The flat took 5.04 years of median household income in 2025, against 4.99 in 2024: 0.05 more.",
+    "why": "Between those years the price rose 7% and income rose 6%."
+   }
+  ]
+ },
+ "howto2": {
+  "explain": [
+   "Each point is one year: the price of the same kind of four-room resale flat, divided by what the median household earned in a year. Lower means the flat took less income.",
+   "Tap a point, drag across the chart, or use the slider and the arrow buttons. The card under the chart reads that year: the value, the change from the year before, where it ranks, and how far it sits from the first year.",
+   "The sentences in the card are worked out when the page is built, from the same data file as the line. None is typed by hand and none comes from a live model, so the card and the chart cannot disagree."
+  ],
+  "compare": [
+   "Pick a starting year with the slider or the two buttons. The line then shows every year as a change from that year, in per cent. The starting year sits on the zero line.",
+   "Above the zero line the flat took more years of income than in the starting year; below it, fewer. The card gives the answer for 2025 in words.",
+   "The bars under the chart give the same answer for every starting year at once, so the reader can see how much the answer depends on where the comparison starts.",
+   "This is a reading of what happened. It says nothing about any one household, and nothing about what prices will do."
+  ]
+ },
+ "title": "A four-room flat took fewer years of income in 2025 than in 2013",
+ "subtitle": "Price of a constant-quality four-room resale flat, in years of median household income, 2013 to 2025",
+ "x": [
+  2013,
+  2014,
+  2015,
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "panels": [
+  {
+   "title": "Years of median household income to pay the price",
+   "unit": "years",
+   "decimals": 2,
+   "domain": [
+    0,
+    7
+   ],
+   "ticks": [
+    0,
+    2,
+    4,
+    6
+   ],
+   "short": "Years of income",
+   "points": [
+    {
+     "big": "5.43 years",
+     "dir": 0,
+     "step": "First year shown",
+     "lines": [
+      [
+       "rank",
+       "The highest of the 13 years shown."
+      ],
+      [
+       "start",
+       "The first year shown."
+      ],
+      [
+       "coins",
+       "Flat S$456,000. Median income S$7,000 a month."
+      ]
+     ]
+    },
+    {
+     "big": "4.82 years",
+     "dir": -1,
+     "step": "Down 0.61 from 2013",
+     "lines": [
+      [
+       "rank",
+       "5th highest of the 13 years shown."
+      ],
+      [
+       "start",
+       "0.61 years below 2013, the first year."
+      ],
+      [
+       "coins",
+       "Flat S$428,000. Median income S$7,400 a month."
+      ]
+     ]
+    },
+    {
+     "big": "4.51 years",
+     "dir": -1,
+     "step": "Down 0.31 from 2014",
+     "lines": [
+      [
+       "rank",
+       "The lowest of the years up to 2015."
+      ],
+      [
+       "start",
+       "0.92 years below 2013, the first year."
+      ],
+      [
+       "coins",
+       "Flat S$412,234. Median income S$7,624 a month."
+      ]
+     ]
+    },
+    {
+     "big": "4.41 years",
+     "dir": -1,
+     "step": "Down 0.10 from 2015",
+     "lines": [
+      [
+       "rank",
+       "The lowest of the years up to 2016."
+      ],
+      [
+       "start",
+       "1.02 years below 2013, the first year."
+      ],
+      [
+       "coins",
+       "Flat S$412,508. Median income S$7,791 a month."
+      ]
+     ]
+    },
+    {
+     "big": "4.28 years",
+     "dir": -1,
+     "step": "Down 0.13 from 2016",
+     "lines": [
+      [
+       "rank",
+       "The lowest of the years up to 2017."
+      ],
+      [
+       "start",
+       "1.15 years below 2013, the first year."
+      ],
+      [
+       "coins",
+       "Flat S$408,363. Median income S$7,956 a month."
+      ]
+     ]
+    },
+    {
+     "big": "4.11 years",
+     "dir": -1,
+     "step": "Down 0.17 from 2017",
+     "lines": [
+      [
+       "rank",
+       "The lowest of the years up to 2018."
+      ],
+      [
+       "start",
+       "1.32 years below 2013, the first year."
+      ],
+      [
+       "coins",
+       "Flat S$403,131. Median income S$8,169 a month."
+      ]
+     ]
+    },
+    {
+     "big": "4.04 years",
+     "dir": -1,
+     "step": "Down 0.07 from 2018",
+     "lines": [
+      [
+       "rank",
+       "The lowest of the 13 years shown."
+      ],
+      [
+       "start",
+       "1.39 years below 2013, the first year."
+      ],
+      [
+       "coins",
+       "Flat S$404,300. Median income S$8,333 a month."
+      ]
+     ]
+    },
+    {
+     "big": "4.29 years",
+     "dir": 1,
+     "step": "Up 0.25 from 2019",
+     "lines": [
+      [
+       "rank",
+       "The highest since 2016 (4.41)."
+      ],
+      [
+       "start",
+       "1.14 years below 2013, the first year."
+      ],
+      [
+       "coins",
+       "Flat S$416,480. Median income S$8,092 a month."
+      ]
+     ]
+    },
+    {
+     "big": "4.57 years",
+     "dir": 1,
+     "step": "Up 0.28 from 2020",
+     "lines": [
+      [
+       "rank",
+       "The highest since 2014 (4.82)."
+      ],
+      [
+       "start",
+       "0.86 years below 2013, the first year."
+      ],
+      [
+       "coins",
+       "Flat S$462,137. Median income S$8,421 a month."
+      ]
+     ]
+    },
+    {
+     "big": "4.83 years",
+     "dir": 1,
+     "step": "Up 0.26 from 2021",
+     "lines": [
+      [
+       "rank",
+       "The highest since 2013 (5.43)."
+      ],
+      [
+       "start",
+       "0.60 years below 2013, the first year."
+      ],
+      [
+       "coins",
+       "Flat S$515,849. Median income S$8,904 a month."
+      ]
+     ]
+    },
+    {
+     "big": "4.80 years",
+     "dir": -1,
+     "step": "Down 0.03 from 2022",
+     "lines": [
+      [
+       "rank",
+       "6th highest of the 13 years shown."
+      ],
+      [
+       "start",
+       "0.63 years below 2013, the first year."
+      ],
+      [
+       "coins",
+       "Flat S$555,150. Median income S$9,646 a month."
+      ]
+     ]
+    },
+    {
+     "big": "4.99 years",
+     "dir": 1,
+     "step": "Up 0.19 from 2023",
+     "lines": [
+      [
+       "rank",
+       "The highest since 2013 (5.43)."
+      ],
+      [
+       "start",
+       "0.44 years below 2013, the first year."
+      ],
+      [
+       "coins",
+       "Flat S$598,911. Median income S$9,999 a month."
+      ]
+     ]
+    },
+    {
+     "big": "5.04 years",
+     "dir": 1,
+     "step": "Up 0.05 from 2024",
+     "lines": [
+      [
+       "rank",
+       "The highest since 2013 (5.43)."
+      ],
+      [
+       "start",
+       "0.39 years below 2013, the first year."
+      ],
+      [
+       "coins",
+       "Flat S$640,157. Median income S$10,591 a month."
+      ]
+     ]
+    }
+   ],
+   "series": [
+    {
+     "key": "ratio",
+     "label": "years of income",
+     "role": "subject",
+     "values": [
+      5.43,
+      4.82,
+      4.51,
+      4.41,
+      4.28,
+      4.11,
+      4.04,
+      4.29,
+      4.57,
+      4.83,
+      4.8,
+      4.99,
+      5.04
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Why: income rose faster than the price (2013 = 100)",
+   "unit": "index",
+   "decimals": 0,
+   "domain": [
+    80,
+    160
+   ],
+   "ticks": [
+    80,
+    100,
+    120,
+    140,
+    160
+   ],
+   "baseline": 100,
+   "series": [
+    {
+     "key": "income",
+     "label": "income",
+     "role": "subject",
+     "values": [
+      100.0,
+      105.7,
+      108.9,
+      111.3,
+      113.7,
+      116.7,
+      119.0,
+      115.6,
+      120.3,
+      127.2,
+      137.8,
+      142.8,
+      151.3
+     ]
+    },
+    {
+     "key": "price",
+     "label": "flat price",
+     "role": "context",
+     "values": [
+      100.0,
+      93.9,
+      90.4,
+      90.5,
+      89.6,
+      88.4,
+      88.7,
+      91.3,
+      101.3,
+      113.1,
+      121.7,
+      131.3,
+      140.4
+     ]
+    }
+   ]
+  }
+ ],
+ "notes": {
+  "2013": "S$456,000 flat, S$7,000 a month: 5.43 years of income.",
+  "2014": "S$428,000 flat, S$7,400 a month: 4.82 years of income. Since 2013: price -6%, income +6%.",
+  "2015": "S$412,234 flat, S$7,624 a month: 4.51 years of income. Since 2013: price -10%, income +9%.",
+  "2016": "S$412,508 flat, S$7,791 a month: 4.41 years of income. Since 2013: price -10%, income +11%.",
+  "2017": "S$408,363 flat, S$7,956 a month: 4.28 years of income. Since 2013: price -10%, income +14%.",
+  "2018": "S$403,131 flat, S$8,169 a month: 4.11 years of income. Since 2013: price -12%, income +17%.",
+  "2019": "S$404,300 flat, S$8,333 a month: 4.04 years of income. Since 2013: price -11%, income +19%.",
+  "2020": "S$416,480 flat, S$8,092 a month: 4.29 years of income. Since 2013: price -9%, income +16%.",
+  "2021": "S$462,137 flat, S$8,421 a month: 4.57 years of income. Since 2013: price +1%, income +20%.",
+  "2022": "S$515,849 flat, S$8,904 a month: 4.83 years of income. Since 2013: price +13%, income +27%.",
+  "2023": "S$555,150 flat, S$9,646 a month: 4.80 years of income. Since 2013: price +22%, income +38%.",
+  "2024": "S$598,911 flat, S$9,999 a month: 4.99 years of income. Since 2013: price +31%, income +43%.",
+  "2025": "S$640,157 flat, S$10,591 a month: 5.04 years of income. Since 2013: price +40%, income +51%."
+ },
+ "steps": [
+  {
+   "at": 2013,
+   "text": "2013 was a price peak: the flat cost 5.43 years of median income."
+  },
+  {
+   "at": 2019,
+   "text": "2019 was the low: 4.04 years. Starting a comparison here makes everything after it look worse."
+  },
+  {
+   "at": 2025,
+   "text": "2025: 5.04 years. More than in 2019, fewer than in 2013."
+  }
+ ],
+ "howto": [
+  "Each point is one year: the price of the same kind of four-room resale flat, divided by what the median household earned in a year.",
+  "Lower means the flat took less income. Drag the slider, or press Play, to move through the years.",
+  "The second panel sets both the price and the income to 100 in the first year, so the two can be compared on one scale."
+ ],
+ "source_line": "Source: HDB resale transactions and SingStat household income, via the piece's own pipeline.",
+ "source": {
+  "repository": "https://github.com/jacobbuildmodel/hdb-affordability",
+  "commit": "2f5fcb0b1d218d1c27074f5883e87c716aa0e793",
+  "files": [
+   {
+    "path": "out/affordability.csv",
+    "rows": "buyer = p50",
+    "columns": [
+     "year",
+     "price",
+     "monthly_income",
+     "price_to_income_years"
+    ]
+   }
+  ]
+ },
+ "fallback": {
+  "src": "/figs/fig1_price_to_income.svg"
+ }
+}
