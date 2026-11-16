@@ -119,9 +119,29 @@
 }
 .project-strip-sep { color: var(--ink-3); }
 
+/* Headings written "Label: finding" on a project page are set as one line, label and finding
+   in the same face with the colon showing. Elsewhere on the site the label sits above the
+   finding as a small capitals line (custom.css); on project pages that small label above a
+   heading is one of the patterns the SMU-week brief asks the layout to avoid. To go back to
+   the house style, delete this block. */
+.project .post-content h2 .h2-label {
+  display: inline;
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: none;
+  color: inherit;
+}
+.project .post-content h2 .h2-colon { position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal; }
+.project .post-content h2 .h2-text { display: inline; }
+.project .post-content h2 .h2-text::first-letter { text-transform: none; }
+.project .post-content h2.h2-split .anchor { position: static; font-size: inherit; line-height: inherit; }
+
 /* Perspectives: a definition list, the lens then its reasoning. */
 .perspectives-on { font-style: italic; color: var(--ink-2); }
-.lenses { margin: var(--s4) 0 0; }
+.post-content .lenses { display: block; margin: var(--s4) 0 0; }   /* PaperMod sets .md-content dl as a 25%/75% row;
+                                                                    at phone width that leaves the reasoning a
+                                                                    column of three words */
 .lenses dt { margin-top: var(--s4); font-family: var(--font-sans); font-size: 0.86rem; font-weight: 600; color: var(--ink); }
 .lenses dd { margin: var(--s1) 0 0; padding-left: var(--s4); border-left: 2px solid var(--line); }
 .lenses dd > :first-child { margin-top: 0; }
