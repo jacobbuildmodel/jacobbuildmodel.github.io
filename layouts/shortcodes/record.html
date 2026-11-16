@@ -20,13 +20,16 @@
 {{- if not $s }}{{ errorf "record shortcode: no content/scorecard.md" }}{{ end }}
 {{- $sealed := int ($s.Param "sealed") }}{{ $held := int ($s.Param "held") }}
 {{- $failed := int ($s.Param "failed") }}{{ $neither := int ($s.Param "neither") }}
-{{- if ne $sealed (add $held $failed $neither) }}
-  {{- errorf "record shortcode: scorecard front matter does not add up: %d sealed, %d held, %d failed, %d neither" $sealed $held $failed $neither }}
+{{- /* A void prediction (a ruling of Jacob's: not scored, for a stated reason) is sealed but is
+       in none of the three counts. `void:` in the front matter is optional and defaults to 0. */}}
+{{- $void := int ($s.Param "void" | default 0) }}
+{{- if ne $sealed (add $held $failed $neither $void) }}
+  {{- errorf "record shortcode: scorecard front matter does not add up: %d sealed, %d held, %d failed, %d neither, %d void" $sealed $held $failed $neither $void }}
 {{- end }}
 {{- $parts := split $s.Content "<h2" }}
-{{- $ch := 0 }}{{ $cf := 0 }}{{ $cn := 0 }}
+{{- $ch := 0 }}{{ $cf := 0 }}{{ $cn := 0 }}{{ $cv := 0 }}
 <section class="record" aria-labelledby="record">
-<h3 id="record">The record: {{ $sealed }} sealed predictions: {{ $held }} held, {{ $failed }} failed, {{ $neither }} in between</h3>
+<h3 id="record">The record: {{ $sealed }} sealed predictions: {{ $held }} held, {{ $failed }} failed, {{ $neither }} in between{{ if $void }}, {{ $void }} void{{ end }}</h3>
 {{- /* The scorecard page's own summary line, printed from its front matter: it holds the
        rule "Failures included, and never removed." and would otherwise leave the site with
        the old page. */}}
@@ -38,11 +41,12 @@
   {{- $h := len (findRE `<li>\s*<strong>Held` .) }}
   {{- $f := len (findRE `<li>\s*<strong>Failed` .) }}
   {{- $n := len (findRE `<li>\s*<strong>Neither` .) }}
+  {{- $v := len (findRE `<li>\s*<strong>Void` .) }}
   {{- $m := index (findRESubmatch `(?s)^([^>]*)>(.*?)</h2>(.*)$` . 1) 0 }}
-  {{- if gt (add $h $f $n) 0 }}
-  {{- $ch = add $ch $h }}{{ $cf = add $cf $f }}{{ $cn = add $cn $n }}
+  {{- if gt (add $h $f $n $v) 0 }}
+  {{- $ch = add $ch $h }}{{ $cf = add $cf $f }}{{ $cn = add $cn $n }}{{ $cv = add $cv $v }}
 <details class="record-project">
-<summary><h4{{ index $m 1 | safeHTMLAttr }}>{{ index $m 2 | safeHTML }}</h4> <span class="record-count">{{ $h }} held, {{ $f }} failed{{ if $n }}, {{ $n }} in between{{ end }}</span></summary>
+<summary><h4{{ index $m 1 | safeHTMLAttr }}>{{ index $m 2 | safeHTML }}</h4> <span class="record-count">{{ $h }} held, {{ $f }} failed{{ if $n }}, {{ $n }} in between{{ end }}{{ if $v }}, {{ $v }} void{{ end }}</span></summary>
 {{ index $m 3 | safeHTML }}
 </details>
   {{- else }}
@@ -54,6 +58,6 @@
   {{- end }}
 {{- end }}
 </section>
-{{- if or (ne $ch $held) (ne $cf $failed) (ne $cn $neither) }}
-  {{- errorf "record shortcode: the scorecard's bullets count %d held, %d failed, %d neither; its front matter says %d, %d, %d" $ch $cf $cn $held $failed $neither }}
+{{- if or (ne $ch $held) (ne $cf $failed) (ne $cn $neither) (ne $cv $void) }}
+  {{- errorf "record shortcode: the scorecard's bullets count %d held, %d failed, %d neither, %d void; its front matter says %d, %d, %d, %d" $ch $cf $cn $cv $held $failed $neither $void }}
 {{- end }}

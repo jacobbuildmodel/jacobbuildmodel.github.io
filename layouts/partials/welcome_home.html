@@ -45,7 +45,7 @@
 <nav class="welcome-doors" aria-label="Where to start">
   <ul>
     <li><a href="{{ $latest.RelPermalink }}">Latest finding: {{ $latest.Title }} ({{ $latest.Date | time.Format site.Params.DateFormat }})</a></li>
-    <li><a href="{{ $how.RelPermalink }}#record">Track record: {{ $score.Params.sealed }} sealed predictions, {{ $score.Params.held }} held, {{ $score.Params.failed }} failed, {{ $score.Params.neither }} in between</a></li>
+    <li><a href="{{ $how.RelPermalink }}#record">Track record: {{ $score.Params.sealed }} sealed predictions, {{ $score.Params.held }} held, {{ $score.Params.failed }} failed, {{ $score.Params.neither }} in between{{ with $score.Params.void }}, {{ . }} void{{ end }}</a></li>
     <li><a href="{{ $connect.RelPermalink }}">Questions and counter-arguments for Jacob</a></li>
   </ul>
 </nav>
