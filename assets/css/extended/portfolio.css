@@ -147,6 +147,8 @@
 
 .method-block { margin-top: var(--s5); border-top: var(--rule); border-bottom: var(--rule); font-size: 0.88rem; line-height: 1.55; color: var(--ink-2); }
 .method-block > summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 600; color: var(--ink); }
+.method-block > summary h2 { margin: 0; font-family: var(--font-sans); font-size: inherit; font-weight: 600; line-height: inherit; }
+.method-block > summary h2::after { content: none; }
 .method-body { padding: 0 0 var(--s5); }
 .method-body h3 { margin: var(--s5) 0 var(--s2); font-family: var(--font-sans); font-size: 0.95rem; color: var(--ink); }
 .method-body h4 { margin: var(--s4) 0 var(--s1); font-family: var(--font-sans); font-size: 0.88rem; color: var(--ink); }

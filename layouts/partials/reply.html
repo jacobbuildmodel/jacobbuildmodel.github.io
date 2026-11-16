@@ -22,18 +22,23 @@
    hugo.toml. It reads nothing from the address bar, a comment or a form
    reply, writes no HTML string, and evaluates nothing. giscus's client
    script has no versioned address (giscus.app/client.js is the only one it
-   documents), so it cannot be pinned; the privacy note says so. The house
-   rule, privacy note and not-advice line are DRAFTS for Jacob's approval and
-   show only when the switches are on. */ -}}
+   documents), so it cannot be pinned; the privacy note must say so. The
+   house rule and the privacy note (which carries the not-advice line) are
+   not written here: they are Jacob's approved words, set as houseRule and
+   privacyNote under [params.reply], and the build stops if the switches are
+   on without them. Drafts for his approval are in the pull request. */ -}}
 {{- $r := site.Params.reply | default dict }}
 {{- $open := true }}
 {{- with .Params.comments_until }}{{ if (time.AsTime (printf "%v" . | substr 0 10)).Before now }}{{ $open = false }}{{ end }}{{ end }}
 {{- $on := and $r.enabled (.Param "comments") $open $r.repo $r.repoId $r.category $r.categoryId }}
+{{- if and $on (not (and $r.houseRule $r.privacyNote)) }}
+  {{- errorf "reply.html: the discussion is switched on but [params.reply] has no houseRule or privacyNote; both are approved words and must be set before it opens" }}
+{{- end }}
 {{- $here := .RelPermalink }}
 <section class="reply" aria-labelledby="reply" data-outside-reading-path>
   <h2 id="reply">Reply</h2>
   {{- if $on }}
-  <p class="reply-rule">House rule (draft): keep to this project; no personal attacks; no claims about named people. I remove what breaks it.</p>
+  <p class="reply-rule">{{ $r.houseRule }}</p>
   <p class="reply-actions">
     <button type="button" class="reply-load" hidden
       data-repo="{{ $r.repo }}" data-repo-id="{{ $r.repoId }}"
@@ -41,7 +46,7 @@
     {{- with $r.anonymousForm }} <a class="reply-anon" href="{{ . }}" rel="noopener noreferrer">Reply anonymously</a>{{ end }}
   </p>
   <div class="reply-thread"></div>
-  <p class="reply-privacy">Privacy (draft): the discussion is run by giscus on GitHub Discussions. Pressing the button loads a script from giscus.app, which cannot be pinned to a version; your browser then talks to giscus.app and github.com, and a comment needs a GitHub account and is public under that account.{{ with $r.anonymousForm }} The anonymous form is a Google Form: Google receives what you type; I read every reply first and may republish one as "A reader wrote".{{ end }} Nothing loads until you press the button. Nothing here is investment advice, replies included.</p>
+  <p class="reply-privacy">{{ $r.privacyNote }}</p>
   <noscript>
   {{- with site.GetPage "/connect" }}<p class="post-ask"><a href="{{ .RelPermalink }}?from={{ $here | urlquery }}">Questions and counter-arguments on this article go to Jacob's inbox.</a></p>{{ end }}
   </noscript>

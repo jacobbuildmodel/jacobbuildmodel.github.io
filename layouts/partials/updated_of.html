@@ -17,6 +17,9 @@
 {{- end }}
 {{- with .Params.changelog }}{{ if reflect.IsSlice . }}{{ $log = . }}{{ else }}{{ $log = slice . }}{{ end }}{{ end }}
 {{- range $log }}
+  {{- if not (findRE `^\d{1,2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* \d{4}` . 1) }}
+    {{- errorf "updated_of.html: a changelog line of %s does not start with a date like 10 November 2026: %q" $.RelPermalink . }}
+  {{- end }}
   {{- with findRESubmatch `^(\d{1,2}) ([A-Z][a-z]+) (\d{4})` . 1 }}
     {{- $m := index . 0 }}
     {{- with index $months (substr (index $m 2) 0 3) }}

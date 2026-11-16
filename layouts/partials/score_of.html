@@ -4,8 +4,11 @@
      scored   true when the scorecard has a section for this page
      held, failed, neither, total
      text     "1 held, 2 failed, 1 in between of 4", or "not scored"
+     section  that section's HTML after its heading (for the method block)
    The section is the one that links to the page and carries bullets that
-   start Held / Failed / Neither. SMU week, PR A, November 2026. */ -}}
+   start Held / Failed / Neither. layouts/shortcodes/record.html walks the
+   same sections for a different job (every section, in order, wrapped), so
+   the split is written there too. SMU week, PR A, November 2026. */ -}}
 {{- $out := dict "scored" false "text" "not scored" }}
 {{- $href := printf `href="%s"` .RelPermalink }}
 {{- with site.GetPage "/scorecard" }}
@@ -18,8 +21,15 @@
     {{- $text := printf "%d held, %d failed" $h $f }}
     {{- if $n }}{{ $text = printf "%s, %d in between" $text $n }}{{ end }}
     {{- $text = printf "%s of %d" $text $t }}
-    {{- $out = dict "scored" true "held" $h "failed" $f "neither" $n "total" $t "text" $text }}
+    {{- $m := index (findRESubmatch `(?s)</h2>(.*)$` . 1) 0 }}
+    {{- $out = dict "scored" true "held" $h "failed" $f "neither" $n "total" $t "text" $text "section" (index $m 1) }}
   {{- end }}
 {{- end }}
+{{- end }}
+{{- /* A page that says it was sealed must be on the scorecard. Without this
+       a scorecard list written as a loose list (paragraphs inside its
+       bullets) would be missed and the page would read "not scored". */}}
+{{- if and .Params.thesisSealed (not $out.scored) }}
+  {{- errorf "score_of.html: %s has thesisSealed but no scorecard section with Held / Failed / Neither bullets links to it" .RelPermalink }}
 {{- end }}
 {{- return $out }}

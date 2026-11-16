@@ -15,10 +15,10 @@ aliases:
   - /scorecard/
 ---
 
-Every project on this site is made the same way. I choose the question, set the rules and decide
-what counts as evidence. AI models write the code and the first drafts, and a separate AI checker
-recomputes every number from a fresh copy. I do not write the code. Four habits hold the work
-together.
+I choose each question, set the rules and decide what counts as evidence. AI models write the code
+and the first drafts, and a separate AI checker recomputes every scored number from a fresh copy. I
+do not write the code. Four habits hold the work together; since September 2026, every scored piece
+has followed them.
 
 ## Commit before the data
 
