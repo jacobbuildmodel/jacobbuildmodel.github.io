@@ -22,6 +22,13 @@ A fact, number or verdict was wrong.
   price series (32 of 162 hold still), not a share of spending, so it now reads "the four fifths
   of the 162 price series", and the heading "The 80 per cent I cannot see" is gone. Numbers
   changed: no result; the two figures quoted in those sentences.
+- **19 November 2026.** [COE quota](/economics/2026-08-22/). The last paragraph said: "The thing to watch is the gap between quota growth
+  and bid growth. As long as bidding grows faster, the premium keeps rising whatever the quota
+  does." That is wrong on the article's own data, and it contradicts the article's finding that
+  the quota lever works. The paragraph now reads: "Bids per certificate do not settle the
+  premium on their own: in the nine years since 2010 when bids grew faster than the quota, the
+  premium fell in four." The section's heading says the same. Numbers changed: no result; the
+  count in the new sentence comes from the yearly averages of the same bidding records.
 - **10 November 2026.** [HDB affordability](/economics/2026-09-19/) and the
   [scorecard](/scorecard/). Both said median household income crossed 9,000
   dollars a month in 2022. The two yearly readings are 8,904 in 2022 and 9,646 in
@@ -63,15 +70,15 @@ Wording made more accurate, meaning unchanged.
 - **19 November 2026.** [COE quota](/economics/2026-08-22/). Two sentences that pointed to "the section on what would prove this wrong" now
   point to "the section on the limits", its new heading. Sentences taken out when the page was
   rearranged: the opening quote and the six paragraphs after it; "Start with the picture. Both
-  series indexed to 100 in 2010, on one axis, so the shapes can be compared directly."; and from
-  the close, "Issuing 1% more certificates lowers the premium by about 0.3%, which is a real
-  effect and a small one.", the paragraph that began "Applied to the period since 2010" and ended "That is the
-  finding: the premium is high because more people are willing and able to pay, not because the
-  government has been withholding certificates." and "Which does not make the lever
-  useless. It makes it expensive. Anyone arguing for quota as the solution is implicitly arguing
-  for an increase far larger than any yet attempted, and it is worth being explicit about that
-  rather than treating supply as an untried idea." None was wrong; the first paragraph and the
-  section on the limits now carry what they said. Numbers changed: none.
+  series indexed to 100 in 2010, on one axis, so the shapes can be compared directly." None was
+  wrong; the first paragraph and the chart that now leads the page carry what they said. Numbers
+  changed: none.
+- **19 November 2026.** [COE quota](/economics/2026-08-22/). "Publishes the number three months at a time, one quarter ahead" and "The
+  quota is announced a quarter ahead" now read "shortly before each quarter begins". The quota
+  for August to October 2026 was announced on 24 July 2026, and bidding under it began on 3
+  August ([LTA](https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/7/news-releases/coe_quota_aug26-oct26.html)).
+  The argument needs only that the quota is announced before the quarter's bidding, which holds.
+  Numbers changed: none.
 - **19 November 2026.** [Minimum wage or the Progressive Wage Model](/economics/2026-10-31/). Taken out when the page was rearranged: its three opening paragraphs (the
   first rung in 2017, 2018 and 2022 is told once, in its own section), the box at the top
   (its verdict, number and score are in the first paragraph and the line under the title), and
