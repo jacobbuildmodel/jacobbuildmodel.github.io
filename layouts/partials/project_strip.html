@@ -1,0 +1,37 @@
+{{- /* layouts/partials/project_strip.html
+   The one-line strip under a project's title (SMU week, PR A, November
+   2026). Takes a dict: page, score (from score_of.html).
+
+   Every value is read, none is composed:
+     sealed      front matter thesisSealed, as written there
+     score       counted from the scorecard's own bullets (score_of.html)
+     confidence  front matter confidence, printed word for word; a project
+                 with no sealed confidence shows none. Never inferred,
+                 rounded or generated.
+     updated     the newest date in the page's changelog (updated_of.html)
+     reading     the words of the reading path at 220 a minute, rounded up
+   A project the scorecard does not list is "not scored", with the reason
+   the page's own record gives (data/for_economists.yaml, sealed.text). */ -}}
+{{- $p := .page }}{{ $score := .score }}
+{{- $items := slice }}
+{{- if $score.scored }}
+  {{- with $p.Params.thesisSealed }}{{ $items = $items | append (printf "Sealed %s" .) }}{{ end }}
+  {{- $items = $items | append $score.text }}
+  {{- with $p.Params.confidence }}{{ $items = $items | append (printf "Confidence going in: %s" .) }}{{ end }}
+{{- else }}
+  {{- $why := "" }}
+  {{- with $p.File }}{{ with index (index site.Data.for_economists $p.Section | default dict) .ContentBaseName }}{{ with .sealed }}{{ $why = .text }}{{ end }}{{ end }}{{ end }}
+  {{- if $why }}
+    {{- $why = printf "%s%s" (lower (substr $why 0 1)) (substr $why 1) | strings.TrimSuffix "." }}
+    {{- $items = $items | append (printf "Not scored: %s" $why) }}
+  {{- else }}
+    {{- $items = $items | append "Not scored" }}
+  {{- end }}
+{{- end }}
+{{- $items = $items | append (printf "Updated %s" (partial "updated_of.html" $p)) }}
+{{- $items = $items | append (printf "%d min read" (math.Ceil (div (float $p.WordCount) 220.0) | int)) }}
+<p class="project-strip">
+  {{- range $i, $t := $items }}
+  {{- if $i }}<span class="project-strip-sep" aria-hidden="true"> &middot; </span>{{ end }}<span class="project-strip-item">{{ $t }}</span>
+  {{- end }}
+</p>

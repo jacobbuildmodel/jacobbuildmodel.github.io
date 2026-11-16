@@ -1,0 +1,20 @@
+{{- /* layouts/partials/with_fig_sources.html
+   Returns the page's rendered content with the "Notes and Sources" line
+   from data/figure_notes.yaml placed under each figure it names. The same
+   rule as layouts/single.html (27 October 2026), kept as a partial for
+   layouts/project.html.
+   shortcut: the rule is written twice, here and in layouts/single.html;
+   single.html goes when the last project has moved to the project layout,
+   and this note with it. */ -}}
+{{- $body := .Content }}
+{{- with .File }}
+{{- with index (index site.Data.figure_notes $.Section | default dict) .ContentBaseName }}
+{{- range $src, $text := .figures }}
+  {{- $q := replace $src "." `\.` }}
+  {{- $re := printf `(?s)(<figure>\s*<img[^>]*src="%s"[^>]*>.*?</figure>|<p>\s*<img[^>]*src="%s"[^>]*>\s*</p>(?:\s*<p><em>.*?</em></p>)?)` $q $q }}
+  {{- $line := printf `<p class="fig-source">%s</p>` ($text | htmlEscape) }}
+  {{- $body = replaceRE $re (printf "${1}%s" (replace $line "$" "$$")) $body 1 }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- return $body }}

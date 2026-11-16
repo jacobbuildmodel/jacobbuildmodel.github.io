@@ -1,0 +1,1122 @@
+{
+ "id": "erp-peak-speeds",
+ "type": "timeline",
+ "icon": "car",
+ "topic": "Roads at peak hours",
+ "explain": [
+  0,
+  1
+ ],
+ "howto2": {
+  "explain": [
+   "The line is the average speed at peak hours in each year; the shaded band is the range LTA aims for. The two buttons switch between expressways and arterial roads.",
+   "Tap a point, drag across the chart, or use the slider and the arrow buttons. The card under the chart reads that year: the speed, the change from the year before, where it ranks, and how far it sits from the band.",
+   "A ringed dot marks a year outside the band. 2020 and 2021 are drawn faint: the piece did not score the pandemic years.",
+   "The sentences in the card are worked out when the page is built, from the same data file as the line. None is typed by hand and none comes from a live model, so the card and the chart cannot disagree."
+  ],
+  "panel": [
+   "Each dial shows the speed in the selected year on one kind of road. The thick part of the arc is LTA's target band, and the words under the number say whether the speed is inside it.",
+   "Tap a dial to draw that road's line under it. Drag the slider, or press Play, to move through the years.",
+   "Scroll on: each step of the story under the panel moves it to that step's year.",
+   "A ringed dot marks a year outside the band. 2020 and 2021 are drawn faint: the piece did not score the pandemic years."
+  ]
+ },
+ "title": "Peak-hour speeds stayed near LTA's target bands",
+ "subtitle": "Average weekday peak-hour speed, km/h, 2004 to 2025, against LTA's target bands",
+ "x": [
+  2004,
+  2005,
+  2006,
+  2007,
+  2008,
+  2009,
+  2010,
+  2011,
+  2012,
+  2013,
+  2014,
+  2015,
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "panels": [
+  {
+   "title": "Expressways (target band 45 to 65 km/h)",
+   "unit": "km/h",
+   "decimals": 1,
+   "domain": [
+    40,
+    70
+   ],
+   "ticks": [
+    45,
+    55,
+    65
+   ],
+   "band": [
+    45,
+    65
+   ],
+   "mute": [
+    2020,
+    2021
+   ],
+   "flag": [],
+   "short": "Expressways",
+   "status": [
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "not scored",
+    "not scored",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band"
+   ],
+   "points": [
+    {
+     "big": "62.7 km/h",
+     "dir": 0,
+     "step": "First year shown",
+     "lines": [
+      [
+       "rank",
+       "7th highest of the 22 years shown."
+      ],
+      [
+       "band",
+       "Inside the band, 2.3 km/h below its top."
+      ],
+      [
+       "start",
+       "The first year shown."
+      ]
+     ]
+    },
+    {
+     "big": "63 km/h",
+     "dir": 1,
+     "step": "Up 0.3 from 2004",
+     "lines": [
+      [
+       "rank",
+       "Joint 5th highest of the 22 years shown."
+      ],
+      [
+       "band",
+       "Inside the band, 2 km/h below its top."
+      ],
+      [
+       "start",
+       "0.3 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "61.6 km/h",
+     "dir": -1,
+     "step": "Down 1.4 from 2005",
+     "lines": [
+      [
+       "rank",
+       "The lowest of the years up to 2006."
+      ],
+      [
+       "band",
+       "Inside the band, 3.4 km/h below its top."
+      ],
+      [
+       "start",
+       "1.1 km/h below 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "62.4 km/h",
+     "dir": 1,
+     "step": "Up 0.8 from 2006",
+     "lines": [
+      [
+       "rank",
+       "9th highest of the 22 years shown."
+      ],
+      [
+       "band",
+       "Inside the band, 2.6 km/h below its top."
+      ],
+      [
+       "start",
+       "0.3 km/h below 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "63.3 km/h",
+     "dir": 1,
+     "step": "Up 0.9 from 2007",
+     "lines": [
+      [
+       "rank",
+       "The highest of the years up to 2008."
+      ],
+      [
+       "band",
+       "Inside the band, 1.7 km/h below its top."
+      ],
+      [
+       "start",
+       "0.6 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "62 km/h",
+     "dir": -1,
+     "step": "Down 1.3 from 2008",
+     "lines": [
+      [
+       "rank",
+       "The lowest since 2006 (61.6)."
+      ],
+      [
+       "band",
+       "Inside the band, 3 km/h below its top."
+      ],
+      [
+       "start",
+       "0.7 km/h below 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "62.3 km/h",
+     "dir": 1,
+     "step": "Up 0.3 from 2009",
+     "lines": [
+      [
+       "rank",
+       "10th highest of the 22 years shown."
+      ],
+      [
+       "band",
+       "Inside the band, 2.7 km/h below its top."
+      ],
+      [
+       "start",
+       "0.4 km/h below 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "62.5 km/h",
+     "dir": 1,
+     "step": "Up 0.2 from 2010",
+     "lines": [
+      [
+       "rank",
+       "The highest since 2008 (63.3)."
+      ],
+      [
+       "band",
+       "Inside the band, 2.5 km/h below its top."
+      ],
+      [
+       "start",
+       "0.2 km/h below 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "63.1 km/h",
+     "dir": 1,
+     "step": "Up 0.6 from 2011",
+     "lines": [
+      [
+       "rank",
+       "The highest since 2008 (63.3)."
+      ],
+      [
+       "band",
+       "Inside the band, 1.9 km/h below its top."
+      ],
+      [
+       "start",
+       "0.4 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "61.4 km/h",
+     "dir": -1,
+     "step": "Down 1.7 from 2012",
+     "lines": [
+      [
+       "rank",
+       "The lowest of the years up to 2013."
+      ],
+      [
+       "band",
+       "Inside the band, 3.6 km/h below its top."
+      ],
+      [
+       "start",
+       "1.3 km/h below 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "64.1 km/h",
+     "dir": 1,
+     "step": "Up 2.7 from 2013",
+     "lines": [
+      [
+       "rank",
+       "The highest of the 22 years shown."
+      ],
+      [
+       "band",
+       "Inside the band, 0.9 km/h below its top."
+      ],
+      [
+       "start",
+       "1.4 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "61.9 km/h",
+     "dir": -1,
+     "step": "Down 2.2 from 2014",
+     "lines": [
+      [
+       "rank",
+       "11th lowest of the 22 years shown."
+      ],
+      [
+       "band",
+       "Inside the band, 3.1 km/h below its top."
+      ],
+      [
+       "start",
+       "0.8 km/h below 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "61.5 km/h",
+     "dir": -1,
+     "step": "Down 0.4 from 2015",
+     "lines": [
+      [
+       "rank",
+       "The lowest since 2013 (61.4)."
+      ],
+      [
+       "band",
+       "Inside the band, 3.5 km/h below its top."
+      ],
+      [
+       "start",
+       "1.2 km/h below 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "60.2 km/h",
+     "dir": -1,
+     "step": "Down 1.3 from 2016",
+     "lines": [
+      [
+       "rank",
+       "The lowest of the years up to 2017."
+      ],
+      [
+       "band",
+       "Inside the band, 4.8 km/h below its top."
+      ],
+      [
+       "start",
+       "2.5 km/h below 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "61 km/h",
+     "dir": 1,
+     "step": "Up 0.8 from 2017",
+     "lines": [
+      [
+       "rank",
+       "7th lowest of the 22 years shown."
+      ],
+      [
+       "band",
+       "Inside the band, 4 km/h below its top."
+      ],
+      [
+       "start",
+       "1.7 km/h below 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "59.8 km/h",
+     "dir": -1,
+     "step": "Down 1.2 from 2018",
+     "lines": [
+      [
+       "rank",
+       "The lowest of the years up to 2019."
+      ],
+      [
+       "band",
+       "Inside the band, 5.2 km/h below its top."
+      ],
+      [
+       "start",
+       "2.9 km/h below 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "64 km/h",
+     "dir": 1,
+     "step": "Up 4.2 from 2019",
+     "lines": [
+      [
+       "rank",
+       "The highest since 2014 (64.1)."
+      ],
+      [
+       "band",
+       "Inside the band, 1 km/h below its top."
+      ],
+      [
+       "mute",
+       "Not scored: a pandemic year."
+      ]
+     ]
+    },
+    {
+     "big": "63 km/h",
+     "dir": -1,
+     "step": "Down 1 from 2020",
+     "lines": [
+      [
+       "rank",
+       "Joint 5th highest of the 22 years shown."
+      ],
+      [
+       "band",
+       "Inside the band, 2 km/h below its top."
+      ],
+      [
+       "mute",
+       "Not scored: a pandemic year."
+      ]
+     ]
+    },
+    {
+     "big": "60 km/h",
+     "dir": -1,
+     "step": "Down 3 from 2021",
+     "lines": [
+      [
+       "rank",
+       "The lowest since 2019 (59.8)."
+      ],
+      [
+       "band",
+       "Inside the band, 5 km/h below its top."
+      ],
+      [
+       "start",
+       "2.7 km/h below 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "59 km/h",
+     "dir": -1,
+     "step": "Down 1 from 2022",
+     "lines": [
+      [
+       "rank",
+       "The lowest of the years up to 2023."
+      ],
+      [
+       "band",
+       "Inside the band, 6 km/h below its top."
+      ],
+      [
+       "start",
+       "3.7 km/h below 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "58 km/h",
+     "dir": -1,
+     "step": "Down 1 from 2023",
+     "lines": [
+      [
+       "rank",
+       "The lowest of the years up to 2024."
+      ],
+      [
+       "band",
+       "Inside the band, 7 km/h below its top."
+      ],
+      [
+       "start",
+       "4.7 km/h below 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "55 km/h",
+     "dir": -1,
+     "step": "Down 3 from 2024",
+     "lines": [
+      [
+       "rank",
+       "The lowest of the 22 years shown."
+      ],
+      [
+       "band",
+       "Inside the band, 10 km/h below its top."
+      ],
+      [
+       "start",
+       "7.7 km/h below 2004, the first year."
+      ]
+     ]
+    }
+   ],
+   "series": [
+    {
+     "key": "ex",
+     "label": "expressways",
+     "role": "subject",
+     "values": [
+      62.7,
+      63.0,
+      61.6,
+      62.4,
+      63.3,
+      62.0,
+      62.3,
+      62.5,
+      63.1,
+      61.4,
+      64.1,
+      61.9,
+      61.5,
+      60.2,
+      61.0,
+      59.8,
+      64.0,
+      63.0,
+      60.0,
+      59.0,
+      58.0,
+      55.0
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Arterial roads (target band 20 to 30 km/h)",
+   "unit": "km/h",
+   "decimals": 1,
+   "domain": [
+    15,
+    35
+   ],
+   "ticks": [
+    20,
+    25,
+    30
+   ],
+   "band": [
+    20,
+    30
+   ],
+   "mute": [
+    2020,
+    2021
+   ],
+   "flag": [
+    2016,
+    2023
+   ],
+   "short": "Arterial roads",
+   "status": [
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "above the band",
+    "inside the band",
+    "inside the band",
+    "inside the band",
+    "not scored",
+    "not scored",
+    "inside the band",
+    "above the band",
+    "inside the band",
+    "inside the band"
+   ],
+   "points": [
+    {
+     "big": "24.8 km/h",
+     "dir": 0,
+     "step": "First year shown",
+     "lines": [
+      [
+       "rank",
+       "The lowest of the 22 years shown."
+      ],
+      [
+       "band",
+       "Inside the band, 4.8 km/h above its bottom."
+      ],
+      [
+       "start",
+       "The first year shown."
+      ]
+     ]
+    },
+    {
+     "big": "27.2 km/h",
+     "dir": 1,
+     "step": "Up 2.4 from 2004",
+     "lines": [
+      [
+       "rank",
+       "5th lowest of the 22 years shown."
+      ],
+      [
+       "band",
+       "Inside the band, 2.8 km/h below its top."
+      ],
+      [
+       "start",
+       "2.4 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "27.1 km/h",
+     "dir": -1,
+     "step": "Down 0.1 from 2005",
+     "lines": [
+      [
+       "rank",
+       "4th lowest of the 22 years shown."
+      ],
+      [
+       "band",
+       "Inside the band, 2.9 km/h below its top."
+      ],
+      [
+       "start",
+       "2.3 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "26.9 km/h",
+     "dir": -1,
+     "step": "Down 0.2 from 2006",
+     "lines": [
+      [
+       "rank",
+       "The lowest since 2004 (24.8)."
+      ],
+      [
+       "band",
+       "Inside the band, 3.1 km/h below its top."
+      ],
+      [
+       "start",
+       "2.1 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "26.7 km/h",
+     "dir": -1,
+     "step": "Down 0.2 from 2007",
+     "lines": [
+      [
+       "rank",
+       "The lowest since 2004 (24.8)."
+      ],
+      [
+       "band",
+       "Inside the band, 3.3 km/h below its top."
+      ],
+      [
+       "start",
+       "1.9 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "27.9 km/h",
+     "dir": 1,
+     "step": "Up 1.2 from 2008",
+     "lines": [
+      [
+       "rank",
+       "The highest of the years up to 2009."
+      ],
+      [
+       "band",
+       "Inside the band, 2.1 km/h below its top."
+      ],
+      [
+       "start",
+       "3.1 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "28 km/h",
+     "dir": 1,
+     "step": "Up 0.1 from 2009",
+     "lines": [
+      [
+       "rank",
+       "The highest of the years up to 2010."
+      ],
+      [
+       "band",
+       "Inside the band, 2 km/h below its top."
+      ],
+      [
+       "start",
+       "3.2 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "28.5 km/h",
+     "dir": 1,
+     "step": "Up 0.5 from 2010",
+     "lines": [
+      [
+       "rank",
+       "The highest of the years up to 2011."
+      ],
+      [
+       "band",
+       "Inside the band, 1.5 km/h below its top."
+      ],
+      [
+       "start",
+       "3.7 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "28.6 km/h",
+     "dir": 1,
+     "step": "Up 0.1 from 2011",
+     "lines": [
+      [
+       "rank",
+       "The highest of the years up to 2012."
+      ],
+      [
+       "band",
+       "Inside the band, 1.4 km/h below its top."
+      ],
+      [
+       "start",
+       "3.8 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "28.9 km/h",
+     "dir": 1,
+     "step": "Up 0.3 from 2012",
+     "lines": [
+      [
+       "rank",
+       "The highest of the years up to 2013."
+      ],
+      [
+       "band",
+       "Inside the band, 1.1 km/h below its top."
+      ],
+      [
+       "start",
+       "4.1 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "28.9 km/h",
+     "dir": 0,
+     "step": "Same as in 2013",
+     "lines": [
+      [
+       "rank",
+       "Joint 10th lowest of the 22 years shown."
+      ],
+      [
+       "band",
+       "Inside the band, 1.1 km/h below its top."
+      ],
+      [
+       "start",
+       "4.1 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "29.4 km/h",
+     "dir": 1,
+     "step": "Up 0.5 from 2014",
+     "lines": [
+      [
+       "rank",
+       "The highest of the years up to 2015."
+      ],
+      [
+       "band",
+       "Inside the band, 0.6 km/h below its top."
+      ],
+      [
+       "start",
+       "4.6 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "30.4 km/h",
+     "dir": 1,
+     "step": "Up 1 from 2015",
+     "lines": [
+      [
+       "rank",
+       "The highest of the years up to 2016."
+      ],
+      [
+       "band",
+       "0.4 km/h above the top of the band."
+      ],
+      [
+       "start",
+       "5.6 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "30 km/h",
+     "dir": -1,
+     "step": "Down 0.4 from 2016",
+     "lines": [
+      [
+       "rank",
+       "Joint 5th highest of the 22 years shown."
+      ],
+      [
+       "band",
+       "At the top of the band (30 km/h)."
+      ],
+      [
+       "start",
+       "5.2 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "29.4 km/h",
+     "dir": -1,
+     "step": "Down 0.6 from 2017",
+     "lines": [
+      [
+       "rank",
+       "The lowest since 2015 (the same)."
+      ],
+      [
+       "band",
+       "Inside the band, 0.6 km/h below its top."
+      ],
+      [
+       "start",
+       "4.6 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "29.5 km/h",
+     "dir": 1,
+     "step": "Up 0.1 from 2018",
+     "lines": [
+      [
+       "rank",
+       "8th highest of the 22 years shown."
+      ],
+      [
+       "band",
+       "Inside the band, 0.5 km/h below its top."
+      ],
+      [
+       "start",
+       "4.7 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "31 km/h",
+     "dir": 1,
+     "step": "Up 1.5 from 2019",
+     "lines": [
+      [
+       "rank",
+       "The highest of the years up to 2020."
+      ],
+      [
+       "band",
+       "1 km/h above the top of the band."
+      ],
+      [
+       "mute",
+       "Not scored: a pandemic year."
+      ]
+     ]
+    },
+    {
+     "big": "32 km/h",
+     "dir": 1,
+     "step": "Up 1 from 2020",
+     "lines": [
+      [
+       "rank",
+       "The highest of the 22 years shown."
+      ],
+      [
+       "band",
+       "2 km/h above the top of the band."
+      ],
+      [
+       "mute",
+       "Not scored: a pandemic year."
+      ]
+     ]
+    },
+    {
+     "big": "30 km/h",
+     "dir": -1,
+     "step": "Down 2 from 2021",
+     "lines": [
+      [
+       "rank",
+       "The lowest since 2019 (29.5)."
+      ],
+      [
+       "band",
+       "At the top of the band (30 km/h)."
+      ],
+      [
+       "start",
+       "5.2 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "31 km/h",
+     "dir": 1,
+     "step": "Up 1 from 2022",
+     "lines": [
+      [
+       "rank",
+       "Joint 2nd highest of the 22 years shown."
+      ],
+      [
+       "band",
+       "1 km/h above the top of the band."
+      ],
+      [
+       "start",
+       "6.2 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "30 km/h",
+     "dir": -1,
+     "step": "Down 1 from 2023",
+     "lines": [
+      [
+       "rank",
+       "Joint 5th highest of the 22 years shown."
+      ],
+      [
+       "band",
+       "At the top of the band (30 km/h)."
+      ],
+      [
+       "start",
+       "5.2 km/h above 2004, the first year."
+      ]
+     ]
+    },
+    {
+     "big": "29 km/h",
+     "dir": -1,
+     "step": "Down 1 from 2024",
+     "lines": [
+      [
+       "rank",
+       "The lowest since 2014 (28.9)."
+      ],
+      [
+       "band",
+       "Inside the band, 1 km/h below its top."
+      ],
+      [
+       "start",
+       "4.2 km/h above 2004, the first year."
+      ]
+     ]
+    }
+   ],
+   "series": [
+    {
+     "key": "ar",
+     "label": "arterial roads",
+     "role": "subject",
+     "values": [
+      24.8,
+      27.2,
+      27.1,
+      26.9,
+      26.7,
+      27.9,
+      28.0,
+      28.5,
+      28.6,
+      28.9,
+      28.9,
+      29.4,
+      30.4,
+      30.0,
+      29.4,
+      29.5,
+      31.0,
+      32.0,
+      30.0,
+      31.0,
+      30.0,
+      29.0
+     ]
+    }
+   ]
+  }
+ ],
+ "notes": {
+  "2004": "Expressways 62.7 km/h (target 45 to 65). Arterial roads 24.8 km/h (target 20 to 30).",
+  "2005": "Expressways 63 km/h (target 45 to 65). Arterial roads 27.2 km/h (target 20 to 30).",
+  "2006": "Expressways 61.6 km/h (target 45 to 65). Arterial roads 27.1 km/h (target 20 to 30).",
+  "2007": "Expressways 62.4 km/h (target 45 to 65). Arterial roads 26.9 km/h (target 20 to 30).",
+  "2008": "Expressways 63.3 km/h (target 45 to 65). Arterial roads 26.7 km/h (target 20 to 30).",
+  "2009": "Expressways 62 km/h (target 45 to 65). Arterial roads 27.9 km/h (target 20 to 30).",
+  "2010": "Expressways 62.3 km/h (target 45 to 65). Arterial roads 28 km/h (target 20 to 30).",
+  "2011": "Expressways 62.5 km/h (target 45 to 65). Arterial roads 28.5 km/h (target 20 to 30).",
+  "2012": "Expressways 63.1 km/h (target 45 to 65). Arterial roads 28.6 km/h (target 20 to 30).",
+  "2013": "Expressways 61.4 km/h (target 45 to 65). Arterial roads 28.9 km/h (target 20 to 30).",
+  "2014": "Expressways 64.1 km/h (target 45 to 65). Arterial roads 28.9 km/h (target 20 to 30).",
+  "2015": "Expressways 61.9 km/h (target 45 to 65). Arterial roads 29.4 km/h (target 20 to 30).",
+  "2016": "Expressways 61.5 km/h (target 45 to 65). Arterial roads 30.4 km/h (target 20 to 30). Arterial roads ran above the target band.",
+  "2017": "Expressways 60.2 km/h (target 45 to 65). Arterial roads 30 km/h (target 20 to 30).",
+  "2018": "Expressways 61 km/h (target 45 to 65). Arterial roads 29.4 km/h (target 20 to 30).",
+  "2019": "Expressways 59.8 km/h (target 45 to 65). Arterial roads 29.5 km/h (target 20 to 30).",
+  "2020": "Expressways 64 km/h (target 45 to 65). Arterial roads 31 km/h (target 20 to 30). Not scored: pandemic year.",
+  "2021": "Expressways 63 km/h (target 45 to 65). Arterial roads 32 km/h (target 20 to 30). Not scored: pandemic year.",
+  "2022": "Expressways 60 km/h (target 45 to 65). Arterial roads 30 km/h (target 20 to 30).",
+  "2023": "Expressways 59 km/h (target 45 to 65). Arterial roads 31 km/h (target 20 to 30). Arterial roads ran above the target band.",
+  "2024": "Expressways 58 km/h (target 45 to 65). Arterial roads 30 km/h (target 20 to 30).",
+  "2025": "Expressways 55 km/h (target 45 to 65). Arterial roads 29 km/h (target 20 to 30)."
+ },
+ "steps": [
+  {
+   "at": 2004,
+   "panel": 0,
+   "text": "2004: expressways 62.7 km/h, arterial roads 24.8 km/h. The shaded bands are LTA's targets."
+  },
+  {
+   "at": 2016,
+   "panel": 1,
+   "text": "2016: arterial roads at 30.4 km/h, above the band. It happened again in 2023. The sealed bet that every scored year would sit inside the bands failed on these years."
+  },
+  {
+   "at": 2021,
+   "panel": 1,
+   "text": "2021: arterial roads at 32 km/h, the highest in the record. The piece did not score 2020 and 2021, the pandemic years."
+  },
+  {
+   "at": 2025,
+   "panel": 0,
+   "text": "2025: expressways at 55 km/h, the lowest in the record and still inside the band."
+  }
+ ],
+ "howto": [
+  "Each panel is one kind of road. The line is the average speed at peak hours in each year; the shaded band is the range LTA aims for.",
+  "A ringed dot marks a year outside the band. 2020 and 2021 are drawn faint: the piece did not score the pandemic years.",
+  "Drag the slider, or press Play, to move through the years."
+ ],
+ "source_line": "Source: Land Transport Authority via data.gov.sg, through the piece's own pipeline.",
+ "source": {
+  "repository": "https://github.com/jacobbuildmodel/coe-analysis",
+  "commit": "af930a24db8c33e7af6518a152a281d31e6596f2",
+  "files": [
+   {
+    "path": "erp/out/annual.csv",
+    "columns": [
+     "year",
+     "speed_expressway",
+     "speed_arterial"
+    ]
+   }
+  ]
+ },
+ "fallback": {
+  "src": "/figs/chart1_speed_vs_band.svg"
+ }
+}

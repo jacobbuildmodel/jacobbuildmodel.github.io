@@ -1,0 +1,79 @@
+{{- /* layouts/partials/reply.html
+   A project's reply route (SMU week, PR A, November 2026). Outside the
+   reading path (data-outside-reading-path).
+
+   Default, and the only state that ships switched on: the question form,
+   with the sentence Jacob approved on 28 October 2026. ?from= carries this
+   page's path into the form, as extend_post_content.html does.
+
+   Behind two switches, both off until Jacob has installed giscus on his
+   repository and the third-party review has passed:
+     site:  [params.reply] enabled = true, with giscus repo, repoId,
+            category, categoryId and (optional) anonymousForm in hugo.toml
+     page:  comments: true in front matter; optional comments_until
+            (YYYY-MM-DD), after which the page shows the form route again
+   When both are on, the page shows a "Join the discussion" button and,
+   if anonymousForm is set, a "Reply anonymously" link. Nothing from another
+   site loads until the button is pressed: the button's handler (below)
+   creates the giscus script element then. With JavaScript off the button is
+   hidden and the form route line shows instead (noscript).
+
+   What the handler touches: only data-* values printed here by Hugo from
+   hugo.toml. It reads nothing from the address bar, a comment or a form
+   reply, writes no HTML string, and evaluates nothing. giscus's client
+   script has no versioned address (giscus.app/client.js is the only one it
+   documents), so it cannot be pinned; the privacy note says so. The house
+   rule, privacy note and not-advice line are DRAFTS for Jacob's approval and
+   show only when the switches are on. */ -}}
+{{- $r := site.Params.reply | default dict }}
+{{- $open := true }}
+{{- with .Params.comments_until }}{{ if (time.AsTime (printf "%v" . | substr 0 10)).Before now }}{{ $open = false }}{{ end }}{{ end }}
+{{- $on := and $r.enabled (.Param "comments") $open $r.repo $r.repoId $r.category $r.categoryId }}
+{{- $here := .RelPermalink }}
+<section class="reply" aria-labelledby="reply" data-outside-reading-path>
+  <h2 id="reply">Reply</h2>
+  {{- if $on }}
+  <p class="reply-rule">House rule (draft): keep to this project; no personal attacks; no claims about named people. I remove what breaks it.</p>
+  <p class="reply-actions">
+    <button type="button" class="reply-load" hidden
+      data-repo="{{ $r.repo }}" data-repo-id="{{ $r.repoId }}"
+      data-category="{{ $r.category }}" data-category-id="{{ $r.categoryId }}">Join the discussion</button>
+    {{- with $r.anonymousForm }} <a class="reply-anon" href="{{ . }}" rel="noopener noreferrer">Reply anonymously</a>{{ end }}
+  </p>
+  <div class="reply-thread"></div>
+  <p class="reply-privacy">Privacy (draft): the discussion is run by giscus on GitHub Discussions. Pressing the button loads a script from giscus.app, which cannot be pinned to a version; your browser then talks to giscus.app and github.com, and a comment needs a GitHub account and is public under that account.{{ with $r.anonymousForm }} The anonymous form is a Google Form: Google receives what you type; I read every reply first and may republish one as "A reader wrote".{{ end }} Nothing loads until you press the button. Nothing here is investment advice, replies included.</p>
+  <noscript>
+  {{- with site.GetPage "/connect" }}<p class="post-ask"><a href="{{ .RelPermalink }}?from={{ $here | urlquery }}">Questions and counter-arguments on this article go to Jacob's inbox.</a></p>{{ end }}
+  </noscript>
+  <script>
+  (function () {
+    var b = document.querySelector(".reply-load");
+    if (!b) return;
+    b.hidden = false;
+    b.addEventListener("click", function () {
+      var s = document.createElement("script");
+      s.src = "https://giscus.app/client.js";
+      s.async = true;
+      s.crossOrigin = "anonymous";
+      s.setAttribute("data-repo", b.dataset.repo);
+      s.setAttribute("data-repo-id", b.dataset.repoId);
+      s.setAttribute("data-category", b.dataset.category);
+      s.setAttribute("data-category-id", b.dataset.categoryId);
+      s.setAttribute("data-mapping", "pathname");
+      s.setAttribute("data-strict", "1");
+      s.setAttribute("data-reactions-enabled", "1");
+      s.setAttribute("data-emit-metadata", "0");
+      s.setAttribute("data-input-position", "top");
+      s.setAttribute("data-theme", "preferred_color_scheme");
+      s.setAttribute("data-lang", "en");
+      document.querySelector(".reply-thread").appendChild(s);
+      b.disabled = true;
+    }, { once: true });
+  })();
+  </script>
+  {{- else }}
+  {{- with site.GetPage "/connect" }}
+  <p class="post-ask"><a href="{{ .RelPermalink }}?from={{ $here | urlquery }}">Questions and counter-arguments on this article go to Jacob's inbox.</a></p>
+  {{- end }}
+  {{- end }}
+</section>

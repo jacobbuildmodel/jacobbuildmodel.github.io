@@ -1,0 +1,5 @@
+{{- /* layouts/shortcodes/lens.html: one lens inside {{< perspectives >}}.
+   {{< lens who="A household" >}} reasoning, Markdown allowed {{< /lens >}} */ -}}
+{{- if not (.Get "who") }}{{ errorf "lens: who is missing (%s)" .Position }}{{ end -}}
+<dt>{{ .Get "who" }}</dt>
+<dd>{{ .Page.RenderString (dict "display" "block") .Inner }}</dd>

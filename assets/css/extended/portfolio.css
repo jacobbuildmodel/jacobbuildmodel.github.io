@@ -101,3 +101,58 @@
 .record-project > :not(summary) { margin-left: calc(1ch + var(--s4)); }
 @media (max-width: 699px) { .record-project > :not(summary) { margin-left: 0; } }
 @media print { .record-project > * { display: block; } }
+
+/* ---- Project page (layouts/project.html) ----
+   A reading surface: one column at the article measure. Parts are set off
+   by space and a hairline, never by a box inside a box. */
+.project .post-title { margin-bottom: var(--s3); }
+.project-strip {
+  margin: 0 0 var(--s5);
+  padding: var(--s2) 0;
+  border-top: var(--rule);
+  border-bottom: var(--rule);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.project-strip-sep { color: var(--ink-3); }
+
+/* Perspectives: a definition list, the lens then its reasoning. */
+.perspectives-on { font-style: italic; color: var(--ink-2); }
+.lenses { margin: var(--s4) 0 0; }
+.lenses dt { margin-top: var(--s4); font-family: var(--font-sans); font-size: 0.86rem; font-weight: 600; color: var(--ink); }
+.lenses dd { margin: var(--s1) 0 0; padding-left: var(--s4); border-left: 2px solid var(--line); }
+.lenses dd > :first-child { margin-top: 0; }
+.lenses dd > :last-child { margin-bottom: 0; }
+
+/* What would you do? The answer is a native details the reader opens. */
+.wwyd-question { font-weight: 600; }
+.wwyd-answer { margin-top: var(--s4); border-top: var(--rule); border-bottom: var(--rule); }
+.wwyd-answer summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-family: var(--font-sans); font-size: 0.92rem; font-weight: 600; color: var(--accent); }
+.wwyd-answer summary:focus-visible, .method-block > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wwyd-answer > :not(summary) { margin: 0 0 var(--s4); }
+
+/* Reply, method block and the next link sit under the reading path, in the
+   interface sans, quieter than the text above them. */
+.reply, .method-block, .next-project { font-family: var(--font-sans); }
+.reply { margin-top: var(--s7); padding-top: var(--s4); border-top: var(--rule-strong); }
+.reply h2 { margin: 0 0 var(--s2); font-size: 1.05rem; }
+.reply .post-ask { margin: 0; }
+.reply-rule, .reply-privacy { font-size: 0.82rem; color: var(--ink-2); }
+.reply-load { min-height: 44px; padding: 0 var(--s4); border: 1px solid var(--accent); border-radius: var(--radius-btn); background: transparent; color: var(--accent); font: inherit; font-weight: 600; cursor: pointer; }
+.reply-load:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.reply-anon { margin-left: var(--s4); }
+
+.method-block { margin-top: var(--s5); border-top: var(--rule); border-bottom: var(--rule); font-size: 0.88rem; line-height: 1.55; color: var(--ink-2); }
+.method-block > summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 600; color: var(--ink); }
+.method-body { padding: 0 0 var(--s5); }
+.method-body h3 { margin: var(--s5) 0 var(--s2); font-family: var(--font-sans); font-size: 0.95rem; color: var(--ink); }
+.method-body h4 { margin: var(--s4) 0 var(--s1); font-family: var(--font-sans); font-size: 0.88rem; color: var(--ink); }
+.method-body table td, .method-score { font-variant-numeric: tabular-nums lining-nums; }
+.method-note { margin: 0 0 var(--s2); font-size: 0.82rem; color: var(--ink-3); }
+.sealed-page { padding-left: var(--s4); border-left: 2px solid var(--line); }
+.method-body .page-changelog { margin-top: var(--s4); }
+.next-project { margin: var(--s5) 0 0; font-size: 0.92rem; }
+@media print { .method-block > * { display: block; } }

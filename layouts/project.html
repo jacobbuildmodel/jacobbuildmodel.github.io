@@ -1,0 +1,53 @@
+{{- define "main" }}
+{{- /* layouts/project.html
+   One anatomy for a project page (SMU week, PR A, November 2026). A page
+   opts in with `layout: project` in its front matter; pages without it keep
+   layouts/single.html, so projects are moved over one at a time.
+
+   Order on the page:
+     title (the finding)
+     strip          one line: sealed date or "not scored", score, confidence
+                    going in, last change, reading time (project_strip.html)
+     reading path   the page's own Markdown: first paragraph, key chart,
+                    objective and mechanism, evidence, "Tested here / Not
+                    tested here", then the optional parts as shortcodes
+                    (perspectives, wwyd, myview). Marked data-reading-path;
+                    the numbers harness counts its words (limit 2,500).
+     reply          the answer-back route (reply.html)
+     method block   one closed <details>: data, method, the sealed bets as
+                    registered (printed from the open-question page named in
+                    `open:`), each bet's result (printed from the scorecard),
+                    and whatever the page put in its method shortcode
+                    (what changed after review, who did what, sources)
+     next           one link to the next project in the theme (`next:`)
+
+   Front matter read here and in the partials:
+     layout: project     this template
+     thesisSealed        seal date as text, copied from the sealed record
+     confidence          the confidence going in, copied word for word from
+                         the published page; leave out where none was sealed
+     open                path of the open-question page this project answers
+     myview: true        show the myview and answer shortcodes (Jacob's words);
+                         until then they print nothing
+     next                path of the next project in the theme
+     comments, comments_until   reply.html
+
+   .Content is rendered once, here, before the method block is printed: the
+   method shortcode stores its inner text on the page while .Content renders.
+   No table of contents: the headings are the skim path and each states its
+   finding. */ -}}
+{{- $score := partial "score_of.html" . }}
+{{- $body := partial "with_fig_sources.html" . }}
+<article class="post-single project">
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- partial "project_strip.html" (dict "page" . "score" $score) }}
+  </header>
+  <div class="post-content md-content project-body" data-reading-path>
+    {{- partial "anchored_headings.html" $body -}}
+  </div>
+  {{- partial "reply.html" . }}
+  {{- partial "method_block.html" (dict "page" . "score" $score) }}
+  {{- partial "next_project.html" . }}
+</article>
+{{- end }}
