@@ -52,36 +52,17 @@ class ChangedLines(unittest.TestCase):
 
     def test_a_moved_line_is_an_old_line(self):
         # two published lines move down the page; one of them is reworded on the way
-        diff = ("--- a/x.md
-+++ b/x.md
-"
-                "@@ -3,2 +2,0 @@
--It should not be repeated.
--A second line.
-"
-                "@@ -9,0 +8,3 @@
-+A new line.
-+It should not be repeated.
-+A second line, reworded.
-")
+        diff = ("--- a/x.md\n+++ b/x.md\n"
+                "@@ -3,2 +2,0 @@\n-It should not be repeated.\n-A second line.\n"
+                "@@ -9,0 +8,3 @@\n+A new line.\n+It should not be repeated.\n+A second line, reworded.\n")
         self.assertEqual(vcl.changed_lines(diff), {"x.md": {8, 10}})
 
     def test_one_removed_line_excuses_one_added_line(self):
-        diff = "+++ b/x.md
-@@ -3 +3,2 @@
--Same words.
-+Same words.
-+Same words.
-"
+        diff = "+++ b/x.md\n@@ -3 +3,2 @@\n-Same words.\n+Same words.\n+Same words.\n"
         self.assertEqual(vcl.changed_lines(diff), {"x.md": {4}})
 
     def test_a_blank_line_is_never_a_twin(self):
-        diff = "+++ b/x.md
-@@ -3 +3,2 @@
--
-+
-+new
-"
+        diff = "+++ b/x.md\n@@ -3 +3,2 @@\n-\n+\n+new\n"
         self.assertEqual(vcl.changed_lines(diff), {"x.md": {3, 4}})
 
     def test_a_deleted_file_has_no_changed_lines(self):
