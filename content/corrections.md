@@ -14,6 +14,14 @@ listed. Numbers are never changed silently.
 
 A fact, number or verdict was wrong.
 
+- **19 November 2026.** [GST rises](/economics/2026-09-08/). One sentence set "a 0.93 per cent signal" against "0.61 per cent of
+  noise". The 0.93 per cent is the price step for a taxed item; the 0.61 per cent is the noise
+  of the All Items index, for which full pass-through is 0.66 to 0.75 per cent, as the article
+  says further down. The sentence now gives 0.66 to 0.75. Another said the method "says nothing
+  about the four fifths of the basket that moves in January". The four fifths is a count of
+  price series (32 of 162 hold still), not a share of spending, so it now reads "the four fifths
+  of the 162 price series", and the heading "The 80 per cent I cannot see" is gone. Numbers
+  changed: no result; the two figures quoted in those sentences.
 - **10 November 2026.** [HDB affordability](/economics/2026-09-19/) and the
   [scorecard](/scorecard/). Both said median household income crossed 9,000
   dollars a month in 2022. The two yearly readings are 8,904 in 2022 and 9,646 in
@@ -50,6 +58,26 @@ A fact, number or verdict was wrong.
 
 Wording made more accurate, meaning unchanged.
 
+- **19 November 2026.** [GST rises](/economics/2026-09-08/). "In prices that change for no other reason" now reads "In prices that
+  rarely move in January": other prices also moved in those two Januaries. Numbers changed: none.
+- **19 November 2026.** [COE quota](/economics/2026-08-22/). Two sentences that pointed to "the section on what would prove this wrong" now
+  point to "the section on the limits", its new heading. Sentences taken out when the page was
+  rearranged: the opening quote and the six paragraphs after it; "Start with the picture. Both
+  series indexed to 100 in 2010, on one axis, so the shapes can be compared directly."; and from
+  the close, "Issuing 1% more certificates lowers the premium by about 0.3%, which is a real
+  effect and a small one.", "Applied to the period since 2010, the quota increase should have
+  pushed prices down. They rose anyway, because demand moved further and faster than supply did.
+  That is the finding: the premium is high because more people are willing and able to pay, not
+  because the government has been withholding certificates." and "Which does not make the lever
+  useless. It makes it expensive. Anyone arguing for quota as the solution is implicitly arguing
+  for an increase far larger than any yet attempted, and it is worth being explicit about that
+  rather than treating supply as an untried idea." None was wrong; the first paragraph and the
+  section on the limits now carry what they said. Numbers changed: none.
+- **19 November 2026.** [Minimum wage or the Progressive Wage Model](/economics/2026-10-31/). Taken out when the page was rearranged: its three opening paragraphs (the
+  first rung in 2017, 2018 and 2022 is told once, in its own section), the box at the top
+  (its verdict, number and score are in the first paragraph and the line under the title), and
+  the sentence pointing to the list of open questions, which is now part of the Projects page.
+  Numbers changed: none.
 - **10 November 2026.** [HDB loan](/economics/2026-10-03/). The first source now
   carries the dataset's own name. Numbers changed: none.
 - **10 November 2026.** [COE or ERP](/economics/2026-10-17/) and [Minimum wage or
@@ -85,6 +113,15 @@ Wording made more accurate, meaning unchanged.
 Layout, charts redrawn, or headline and question wording, with the data
 unchanged.
 
+- **19 November 2026.** [COE quota](/economics/2026-08-22/), [GST rises](/economics/2026-09-08/) and [Minimum wage or the Progressive Wage Model](/economics/2026-10-31/) moved to the project layout: a first paragraph with the question and the answer,
+  the main chart, the mechanism, the evidence, and one closed block holding the method, the
+  data and the sealed predictions. Headlines changed: "The COE quota went up 62%. Prices nearly
+  quadrupled anyway." to "Since 2010 the Category A COE quota has gone up 62%. The premium has nearly quadrupled anyway."; "Water bills show about the full GST rise.
+  The national price index cannot see it." to "GST pass-through was about full in water prices; headline CPI could not detect either rise"; "For low-paid
+  gardeners, the floor became the pay" to "Landscape workers' bottom pay rose about a quarter more than in low-paid jobs without a wage ladder". Charts are in a new order
+  on the first two pages and their captions renumbered. The open-question page of 28 September
+  2026 is now printed, word for word, inside the third page, and its address leads there.
+  Numbers changed: none.
 - **3 November 2026.** [LTA COE categories](/decisions/lta-coe-categories/). Status changed from "Open" to "Closed" and a changelog line added. Numbers changed: none.
 - **29 October 2026.** [HDB affordability](/economics/2026-09-19/). Question line
   changed from "Is an HDB flat really harder to afford than a decade ago?" to "Is
