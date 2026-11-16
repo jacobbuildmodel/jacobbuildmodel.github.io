@@ -22,8 +22,13 @@
    PaperMod caches this partial per layout and page kind (baseof.html), so
    nothing here may depend on the section; it does not. */ -}}
 {{- if not (.Param "hideFooter") }}
-{{- $links := slice (dict "label" site.Title "url" site.Home.RelPermalink) }}
-{{- range slice (slice "About" "/about") (slice "How it works" "/process") (slice "Scorecard" "/scorecard") (slice "Open questions" "/open") (slice "Corrections" "/corrections") (slice "Disclaimer" "/disclaimer") (slice "Questions and counter-arguments" "/connect") }}
+{{- /* SMU week, PR A (November 2026): the footer no longer repeats the menu
+       (the site name, About, How it works), and the scorecard and open
+       questions are no longer pages of their own. Contact lives on About. */}}
+{{- $links := slice }}
+{{- /* The disclaimer is linked from the line under the footer on every page
+       (extend_footer.html), so it is not repeated here. */}}
+{{- range slice (slice "Corrections" "/corrections") }}
   {{- $p := site.GetPage (index . 1) }}
   {{- if not $p }}{{ errorf "footer.html: no page at %s" (index . 1) }}{{ end }}
   {{- $links = $links | append (dict "label" (index . 0) "url" $p.RelPermalink) }}

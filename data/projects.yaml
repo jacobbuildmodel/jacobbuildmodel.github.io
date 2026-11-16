@@ -1,0 +1,52 @@
+# The Projects index (/economics/), read by layouts/economics/list.html.
+# SMU week, PR A, November 2026.
+#
+# One row per entry, in the order shown: the list is hand-ordered, not sorted
+# by date. The first three are the "Start here" projects.
+#   path    the content page (found with site.GetPage; a moved page stops the build)
+#   theme   one of: Transport, Housing, Prices and tax, Work and pay, Exchange rate
+#   method  a few words naming the method, so the range of methods shows at a glance
+#   kind    project (default), submission, or open (a sealed question still in progress)
+# Everything else in a row is read from the page itself: its title, its score
+# (counted from the scorecard's bullets), the date of its last change (the
+# newest line of its changelog in data/figure_notes.yaml, else its date) and
+# its reading time. Nothing in a row is typed twice.
+rows:
+  - path: /economics/2026-08-22
+    theme: Transport
+    method: Regression with year fixed effects on a quota fixed before bidding
+  - path: /economics/2026-09-08
+    theme: Prices and tax
+    method: Difference-in-differences that failed its pre-trend test; event study with placebo Januaries
+  - path: /economics/2026-10-17
+    theme: Transport
+    method: Four sealed tests on peak-hour speeds and cars per lane-kilometre
+  - path: /economics/2026-08-29
+    theme: Transport
+    method: Paired comparison of the month's two auctions; a rule tested out of sample
+  - path: /economics/2026-09-05
+    theme: Transport
+    method: Win rates and premiums across 393 auctions
+  - path: /economics/2026-09-12
+    theme: Transport
+    method: Comparison across COE categories, 2022 against 2025-26
+  - path: /decisions/lta-coe-categories
+    theme: Transport
+    method: Reply to a public consultation
+    kind: submission
+  - path: /economics/2026-09-19
+    theme: Housing
+    method: Hedonic price index against median household income
+  - path: /economics/2026-10-03
+    theme: Housing
+    method: Break-even interest margin by loan start year
+  - path: /open/2026-10-12-million-dollar-flats
+    theme: Housing
+    method: Three sealed predictions; resale prices by distance from the centre
+    kind: open
+  - path: /economics/2026-10-31
+    theme: Work and pay
+    method: Difference-in-differences across occupations
+  - path: /economics/2026-11-14
+    theme: Exchange rate
+    method: Decomposition of a bilateral rate into two trade-weighted indices

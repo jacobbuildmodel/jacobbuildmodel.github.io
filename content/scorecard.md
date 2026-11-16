@@ -1,5 +1,5 @@
 ---
-title: "36 sealed predictions: 17 held, 13 failed"
+title: "36 sealed predictions: 17 held, 13 failed, 6 in between"
 question: "How often has this site been wrong?"
 date: 2026-10-03
 draft: false
@@ -15,10 +15,13 @@ failed: 13
 neither: 6
 brier: 0.179
 brierN: 13
-menu:
-  main:
-    name: "Scorecard"
-    weight: 30
+# SMU week, PR A (November 2026): this file is no longer a page of its own.
+# Its body is printed, unchanged, inside "How I work" (/process/) by
+# layouts/shortcodes/record.html, and /scorecard/ is an alias of that page
+# (content/process/_index.md). Edit the record here, as before.
+build:
+  render: never
+  list: never
 ---
 
 > Before any data is opened, each piece writes its predictions into a file called

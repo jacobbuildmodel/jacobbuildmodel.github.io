@@ -9,11 +9,9 @@
    28 Oct 2026. Since front page PR A (4 November 2026) the site footer carries
    the same link on every page, so this line is left out on list pages (the home,
    section lists, /tags/ and tag pages); it stays on articles and other single
-   pages, where it sits inside the reading column. */ -}}
-{{- $asking := or (eq .RelPermalink "/connect/") (eq .RelPermalink "/connect/thanks/") }}
-{{- $listPage := in (slice "home" "section" "taxonomy" "term") .Kind }}
-{{- if not (or $asking $listPage) }}
-{{- with site.GetPage "/connect" }}
-<p class="footer-ask"><a href="{{ .RelPermalink }}">Questions and counter-arguments</a></p>
-{{- end }}
-{{- end }}
+   pages, where it sits inside the reading column.
+   SMU week, PR A (November 2026): this line is retired. The one site-wide
+   contact route is on About; each project keeps its own reply line
+   (extend_post_content.html). The partial stays so its callers need no
+   change, and renders nothing. */ -}}
+

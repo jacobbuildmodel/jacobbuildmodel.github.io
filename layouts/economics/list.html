@@ -1,0 +1,50 @@
+{{- define "main" }}
+{{- /* layouts/economics/list.html
+   The Projects index (/economics/): one hand-ordered table, one row per
+   entry in data/projects.yaml. SMU week, PR A, November 2026.
+
+   A real <table>, so a screen reader hears the column for every cell; under
+   700px wide the stylesheet (portfolio.css) lays each row out as a block,
+   title first, with the column name before each value (data-label). No
+   script. Each row's title, score, last-changed date and reading time are
+   read from the page it points to; only theme and method live in the data
+   file. A row whose page cannot be found stops the build. Nothing is
+   paginated and each page is linked once. */ -}}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+</header>
+{{- /* The page's own words are split at its first blockquote: the opening
+       paragraph stands above the table, the rest (the roadmap) below it, so
+       the table is on the first screen. */}}
+{{- $parts := split .Content "<blockquote" }}
+{{- with index $parts 0 }}
+<div class="post-content md-content projects-intro">{{ . | safeHTML }}</div>
+{{- end }}
+<table class="projects">
+  <thead>
+    <tr><th scope="col">Finding</th><th scope="col">Theme</th><th scope="col">Method</th><th scope="col">Score</th><th scope="col">Updated</th><th scope="col">Read</th></tr>
+  </thead>
+  <tbody>
+  {{- range site.Data.projects.rows }}
+    {{- $p := site.GetPage .path }}
+    {{- if not $p }}{{ errorf "data/projects.yaml: no page at %s" .path }}{{ end }}
+    {{- $kind := .kind | default "project" }}
+    {{- $score := "not scored" }}
+    {{- if eq $kind "project" }}{{ $score = (partial "score_of.html" $p).text }}{{ end }}
+    {{- if eq $kind "submission" }}{{ $score = "a submission, not a prediction" }}{{ end }}
+    {{- if eq $kind "open" }}{{ $score = printf "in progress: answer due %s" ($p.Params.answerDue | default "later") }}{{ end }}
+    <tr>
+      <th scope="row"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></th>
+      <td data-label="Theme">{{ .theme }}</td>
+      <td data-label="Method">{{ .method }}</td>
+      <td data-label="Score">{{ $score }}</td>
+      <td data-label="Updated">{{ partial "updated_of.html" $p }}</td>
+      <td data-label="Read">{{ $p.ReadingTime }} min</td>
+    </tr>
+  {{- end }}
+  </tbody>
+</table>
+{{- if gt (len $parts) 1 }}
+<div class="post-content md-content projects-more">{{ printf "<blockquote%s" (delimit (after 1 $parts) "<blockquote") | safeHTML }}</div>
+{{- end }}
+{{- end }}

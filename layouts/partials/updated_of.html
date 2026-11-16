@@ -1,0 +1,28 @@
+{{- /* layouts/partials/updated_of.html
+   The date of a page's last content change, as text: the newest date that
+   opens a line of its changelog (data/figure_notes.yaml for economics pages,
+   front matter for decision pages), printed as that line writes it; else the
+   page's own date. Read, never typed. The dates are compared as numbers
+   built from day, month name and year, so the list may be in any order and
+   may write "3 Nov 2026" or "10 November 2026".
+   SMU week, PR A, November 2026. */ -}}
+{{- $out := .Date | time.Format "2 January 2006" }}
+{{- $best := add (mul .Date.Year 10000) (mul (int .Date.Month) 100) .Date.Day }}
+{{- $months := dict "Jan" 1 "Feb" 2 "Mar" 3 "Apr" 4 "May" 5 "Jun" 6 "Jul" 7 "Aug" 8 "Sep" 9 "Oct" 10 "Nov" 11 "Dec" 12 }}
+{{- $log := slice }}
+{{- with .File }}
+  {{- with index (index site.Data.figure_notes $.Section | default dict) .ContentBaseName }}
+    {{- with .changelog }}{{ if reflect.IsSlice . }}{{ $log = . }}{{ else }}{{ $log = slice . }}{{ end }}{{ end }}
+  {{- end }}
+{{- end }}
+{{- with .Params.changelog }}{{ if reflect.IsSlice . }}{{ $log = . }}{{ else }}{{ $log = slice . }}{{ end }}{{ end }}
+{{- range $log }}
+  {{- with findRESubmatch `^(\d{1,2}) ([A-Z][a-z]+) (\d{4})` . 1 }}
+    {{- $m := index . 0 }}
+    {{- with index $months (substr (index $m 2) 0 3) }}
+      {{- $n := add (mul (int (index $m 3)) 10000) (mul . 100) (int (index $m 1)) }}
+      {{- if gt $n $best }}{{ $best = $n }}{{ $out = index $m 0 }}{{ end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- return $out }}

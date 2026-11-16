@@ -11,7 +11,9 @@
   </form>
 </div>
 {{- end }}
-{{- if eq .Kind "page" }}
+{{- /* On every page since SMU week, PR A (November 2026); before, on single
+       pages only, with a second disclaimer link in the footer. */}}
+{{- if true }}
 <p class="post-disclaimer">
   Educational analysis only. Not financial advice, not a recommendation to buy or sell any security.
   <a href="/disclaimer/">Full disclaimer</a>.

@@ -19,9 +19,14 @@
 {{- if not $latest }}{{ errorf "welcome_home.html: no published economics page" }}{{ end }}
 {{- $score := site.GetPage "/scorecard" }}
 {{- if not $score }}{{ errorf "welcome_home.html: no /scorecard page" }}{{ end }}
-{{- if not (and (isset $score.Params "sealed") (isset $score.Params "held") (isset $score.Params "failed")) }}
-  {{- errorf "welcome_home.html: content/scorecard.md needs sealed:, held: and failed: in its front matter" }}
+{{- if not (and (isset $score.Params "sealed") (isset $score.Params "held") (isset $score.Params "failed") (isset $score.Params "neither")) }}
+  {{- errorf "welcome_home.html: content/scorecard.md needs sealed:, held:, failed: and neither: in its front matter" }}
 {{- end }}
+{{- /* SMU week, PR A (November 2026): the record is printed inside "How I
+       work" (/process/#record), and the tally is always given whole: held,
+       failed and in between. */}}
+{{- $how := site.GetPage "/process" }}
+{{- if not $how }}{{ errorf "welcome_home.html: no /process page" }}{{ end }}
 {{- $connect := site.GetPage "/connect" }}
 {{- if not $connect }}{{ errorf "welcome_home.html: no /connect page" }}{{ end }}
 <header class="welcome">
@@ -40,14 +45,11 @@
 <nav class="welcome-doors" aria-label="Where to start">
   <ul>
     <li><a href="{{ $latest.RelPermalink }}">Latest finding: {{ $latest.Title }} ({{ $latest.Date | time.Format site.Params.DateFormat }})</a></li>
-    <li><a href="{{ $score.RelPermalink }}">Track record: {{ $score.Params.sealed }} sealed predictions, {{ $score.Params.held }} held, {{ $score.Params.failed }} failed</a></li>
+    <li><a href="{{ $how.RelPermalink }}#record">Track record: {{ $score.Params.sealed }} sealed predictions, {{ $score.Params.held }} held, {{ $score.Params.failed }} failed, {{ $score.Params.neither }} in between</a></li>
     <li><a href="{{ $connect.RelPermalink }}">Questions and counter-arguments for Jacob</a></li>
   </ul>
 </nav>
 {{- partial "start_here.html" . }}
 {{- partial "open_questions_strip.html" . }}
-<p class="welcome-more">
-  {{- with site.GetPage "/economics" }}<a href="{{ .RelPermalink }}">All articles</a>{{ end }}
-  <span aria-hidden="true"> &middot; </span>
-  {{- with site.GetPage "/process" }}<a href="{{ .RelPermalink }}">How it works</a>{{ end }}
-</p>
+{{- /* The closing "All articles / How it works" line is gone (SMU week, PR
+       A): both are in the menu, and no page links a target twice. */}}

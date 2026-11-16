@@ -1,0 +1,25 @@
+{{- /* layouts/partials/score_of.html
+   A project's score, counted from the scorecard's own bullets
+   (content/scorecard.md), never typed. Returns a dict:
+     scored   true when the scorecard has a section for this page
+     held, failed, neither, total
+     text     "1 held, 2 failed, 1 in between of 4", or "not scored"
+   The section is the one that links to the page and carries bullets that
+   start Held / Failed / Neither. SMU week, PR A, November 2026. */ -}}
+{{- $out := dict "scored" false "text" "not scored" }}
+{{- $href := printf `href="%s"` .RelPermalink }}
+{{- with site.GetPage "/scorecard" }}
+{{- range after 1 (split .Content "<h2") }}
+  {{- $h := len (findRE `<li>\s*<strong>Held` .) }}
+  {{- $f := len (findRE `<li>\s*<strong>Failed` .) }}
+  {{- $n := len (findRE `<li>\s*<strong>Neither` .) }}
+  {{- if and (gt (add $h $f $n) 0) (strings.Contains . $href) }}
+    {{- $t := add $h $f $n }}
+    {{- $text := printf "%d held, %d failed" $h $f }}
+    {{- if $n }}{{ $text = printf "%s, %d in between" $text $n }}{{ end }}
+    {{- $text = printf "%s of %d" $text $t }}
+    {{- $out = dict "scored" true "held" $h "failed" $f "neither" $n "total" $t "text" $text }}
+  {{- end }}
+{{- end }}
+{{- end }}
+{{- return $out }}

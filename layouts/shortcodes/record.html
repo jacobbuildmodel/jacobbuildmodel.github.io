@@ -1,0 +1,53 @@
+{{- /* layouts/shortcodes/record.html
+   The record of sealed predictions, printed inside "How I work" (/process/)
+   from content/scorecard.md. SMU week, PR A, November 2026.
+
+   Nothing is retyped: the scorecard file's rendered body is printed as it
+   is. Two things only are done to it:
+     its h2 headings become h4 (they now sit under this section's h3);
+     each project's section (a heading followed by bullets that start
+     Held / Failed / Neither) is wrapped in a native <details>, closed by
+     default, whose label is the project's question plus its own counts, so
+     no failure sits behind a click unannounced;
+     the links in the count table are taken off (words kept), because each
+     project is linked from its own block.
+   The counts in each label are counted from that section's bullets, and the
+   heading's tally is read from the scorecard's front matter. The build
+   stops if the bullets do not add up to the front matter, or the front
+   matter does not add up to its own total.
+   Usage: {{< record >}} (no arguments). */ -}}
+{{- $s := site.GetPage "/scorecard" }}
+{{- if not $s }}{{ errorf "record shortcode: no content/scorecard.md" }}{{ end }}
+{{- $sealed := int ($s.Param "sealed") }}{{ $held := int ($s.Param "held") }}
+{{- $failed := int ($s.Param "failed") }}{{ $neither := int ($s.Param "neither") }}
+{{- if ne $sealed (add $held $failed $neither) }}
+  {{- errorf "record shortcode: scorecard front matter does not add up: %d sealed, %d held, %d failed, %d neither" $sealed $held $failed $neither }}
+{{- end }}
+{{- $parts := split $s.Content "<h2" }}
+{{- $ch := 0 }}{{ $cf := 0 }}{{ $cn := 0 }}
+<section class="record" aria-labelledby="record">
+<h3 id="record">The record: {{ $sealed }} sealed predictions: {{ $held }} held, {{ $failed }} failed, {{ $neither }} in between</h3>
+{{ index $parts 0 | safeHTML }}
+{{- range after 1 $parts }}
+  {{- $h := len (findRE `<li>\s*<strong>Held` .) }}
+  {{- $f := len (findRE `<li>\s*<strong>Failed` .) }}
+  {{- $n := len (findRE `<li>\s*<strong>Neither` .) }}
+  {{- $m := index (findRESubmatch `(?s)^([^>]*)>(.*?)</h2>(.*)$` . 1) 0 }}
+  {{- if gt (add $h $f $n) 0 }}
+  {{- $ch = add $ch $h }}{{ $cf = add $cf $f }}{{ $cn = add $cn $n }}
+<details class="record-project">
+<summary><h4{{ index $m 1 | safeHTMLAttr }}>{{ index $m 2 | safeHTML }}</h4> <span class="record-count">{{ $h }} held, {{ $f }} failed{{ if $n }}, {{ $n }} in between{{ end }}</span></summary>
+{{ index $m 3 | safeHTML }}
+</details>
+  {{- else }}
+  {{- /* A section without bullets (the count table, the closing notes). Its
+         links are taken off, words kept: each project is already linked from
+         its own block below, and no page links a target twice. */}}
+<h4{{ index $m 1 | safeHTMLAttr }}>{{ index $m 2 | safeHTML }}</h4>
+{{ replaceRE `<a\s[^>]*>(.*?)</a>` "$1" (index $m 3) | safeHTML }}
+  {{- end }}
+{{- end }}
+</section>
+{{- if or (ne $ch $held) (ne $cf $failed) (ne $cn $neither) }}
+  {{- errorf "record shortcode: the scorecard's bullets count %d held, %d failed, %d neither; its front matter says %d, %d, %d" $ch $cf $cn $held $failed $neither }}
+{{- end }}

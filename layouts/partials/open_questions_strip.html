@@ -11,7 +11,7 @@
 {{- end }}
 {{- with $open }}
 <section class="open-strip" aria-labelledby="open-strip-title">
-  <h2 id="open-strip-title" class="open-strip-title"><a href="{{ "open/" | relURL }}">Open questions</a></h2>
+  <h2 id="open-strip-title" class="open-strip-title">Open questions</h2>
   <ul class="open-strip-list">
     {{- range first 3 (sort . "Date" "desc") }}
     <li>
