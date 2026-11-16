@@ -8,7 +8,9 @@
      confidence  front matter confidence, printed word for word; a project
                  with no sealed confidence shows none. Never inferred,
                  rounded or generated.
-     updated     the newest date in the page's changelog (updated_of.html)
+     published   the page's date
+     updated     the newest date in the page's changelog (updated_of.html),
+                 shown when it differs from the published date
      reading     the words of the reading path at 220 a minute, rounded up
    A project the scorecard does not list is "not scored", with the reason
    the page's own record gives (data/for_economists.yaml, sealed.text). */ -}}
@@ -28,7 +30,9 @@
     {{- $items = $items | append "Not scored" }}
   {{- end }}
 {{- end }}
-{{- $items = $items | append (printf "Updated %s" (partial "updated_of.html" $p)) }}
+{{- $items = $items | append (printf "Published %s" ($p.Date | time.Format "2 January 2006")) }}
+{{- $updated := partial "updated_of.html" $p }}
+{{- if ne $updated ($p.Date | time.Format "2 January 2006") }}{{ $items = $items | append (printf "Updated %s" $updated) }}{{ end }}
 {{- $items = $items | append (printf "%d min read" (math.Ceil (div (float $p.WordCount) 220.0) | int)) }}
 <p class="project-strip">
   {{- range $i, $t := $items }}

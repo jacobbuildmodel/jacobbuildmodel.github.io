@@ -13,6 +13,8 @@
                     tested here", then the optional parts as shortcodes
                     (perspectives, wwyd, myview). Marked data-reading-path;
                     the numbers harness counts its words (limit 2,500).
+     AI note        one visible line on who did what (params.aiNote, or the
+                    page's ai_note)
      reply          the answer-back route (reply.html)
      method block   one closed <details>: data, method, the sealed bets as
                     registered (printed from the open-question page named in
@@ -46,6 +48,12 @@
   <div class="post-content md-content project-body" data-reading-path>
     {{- partial "anchored_headings.html" $body -}}
   </div>
+  {{- /* Who did what, in one visible line on every project. The words are
+         params.aiNote in hugo.toml (the sentence Jacob approved for the LTA
+         page on 22 October 2026); a page may set its own in ai_note. */}}
+  {{- with (.Params.ai_note | default site.Params.aiNote) }}
+  <p class="ai-note" data-outside-reading-path>{{ . }}</p>
+  {{- end }}
   {{- partial "reply.html" . }}
   {{- partial "method_block.html" (dict "page" . "score" $score) }}
   {{- partial "next_project.html" . }}

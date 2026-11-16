@@ -85,6 +85,10 @@ disableKinds = ["taxonomy", "term"]
   # reading this same author value. Suppressing it from every card/article meta
   # line removes the repetition without adding a second source of the name.
   hideAuthor        = true
+  # One line on who did what, printed at the end of every project in the
+  # project layout (layouts/project.html). The sentence is the one Jacob
+  # approved for the LTA page on 22 October 2026, unchanged.
+  aiNote            = "The question and choices here are mine; the text was drafted by AI under my direction; a separate AI checker recomputed every number."
 
   # Homepage intro block
   # Home page welcome (layouts/partials/welcome_home.html). Final words,
