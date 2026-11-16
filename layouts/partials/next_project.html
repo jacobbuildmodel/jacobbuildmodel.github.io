@@ -7,6 +7,13 @@
 {{- $n := site.GetPage . }}
 {{- if not $n }}{{ errorf "next_project.html: %s names next page %s, which does not exist" $.RelPermalink . }}{{ end }}
 {{- $theme := "" }}
-{{- range site.Data.projects.rows }}{{ if eq (site.GetPage .path) $ }}{{ $theme = .theme }}{{ end }}{{ end }}
+{{- /* "Next in <theme>" only when the next project shares this one's theme; a theme with one
+       project (or its last) points on with a plain "Next". */}}
+{{- $mine := "" }}{{ $theirs := "" }}
+{{- range site.Data.projects.rows }}
+  {{- if eq (site.GetPage .path) $ }}{{ $mine = .theme }}{{ end }}
+  {{- if eq (site.GetPage .path) $n }}{{ $theirs = .theme }}{{ end }}
+{{- end }}
+{{- if and $mine (eq $mine $theirs) }}{{ $theme = $mine }}{{ end }}
 <p class="next-project">Next{{ with $theme }} in {{ lower . }}{{ end }}: <a href="{{ $n.RelPermalink }}">{{ $n.Title }}</a></p>
 {{- end }}
