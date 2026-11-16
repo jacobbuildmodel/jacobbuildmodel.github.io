@@ -27,6 +27,12 @@
 {{- $ch := 0 }}{{ $cf := 0 }}{{ $cn := 0 }}
 <section class="record" aria-labelledby="record">
 <h3 id="record">The record: {{ $sealed }} sealed predictions: {{ $held }} held, {{ $failed }} failed, {{ $neither }} in between</h3>
+{{- /* The scorecard page's own summary line, printed from its front matter: it holds the
+       rule "Failures included, and never removed." and would otherwise leave the site with
+       the old page. */}}
+{{- with $s.Params.summary }}
+<p class="record-summary">{{ . }}</p>
+{{- end }}
 {{ index $parts 0 | safeHTML }}
 {{- range after 1 $parts }}
   {{- $h := len (findRE `<li>\s*<strong>Held` .) }}

@@ -272,6 +272,10 @@ separates cause from effect. The piece says so, and says what evidence would set
 
 A claim that fits none of the three does not get published.
 
+Each project keeps its detail in a closed block under the reading, and one has a separate
+appendix. Nothing there changes the project's conclusion. If the argument does not stand
+without it, it is not detail, it is a paragraph I hid.
+
 {{< aside title="The residual has a size, not a name" >}}
 When an analysis shows that supply explains none of a price rise, it has measured how
 large the unexplained part is. It has not measured what is inside it. Incomes, population,
