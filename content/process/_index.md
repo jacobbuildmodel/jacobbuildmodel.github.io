@@ -16,9 +16,8 @@ aliases:
 ---
 
 I pick each question, set the rules and decide what counts as evidence. AI models write the code
-and the first drafts, and a separate AI checker recomputes every scored number from a fresh copy. I
-do not write the code. Four habits hold the work together; since September 2026, every scored piece
-has followed them.
+and the first drafts, and a separate AI checker recomputes every scored number from a fresh copy.
+Four habits hold the work together; since September 2026, every scored piece has followed them.
 
 ## Commit before the data
 
