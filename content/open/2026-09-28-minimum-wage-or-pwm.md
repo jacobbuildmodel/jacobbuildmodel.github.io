@@ -5,6 +5,12 @@ draft: false
 answerDue: "December 2026"
 answered: "/economics/2026-10-31/"
 showToc: false
+# Folded into its project (SMU week, November 2026): this page is no longer built on its
+# own. Its address redirects to /economics/2026-10-31/, whose method block prints the body
+# below word for word. The body is unchanged and stays under its checksum.
+build:
+  render: never
+  list: never
 summary: "Four predictions, each with a confidence, sealed before the data was opened. The answer is due in December 2026."
 repo: "https://github.com/jacobbuildmodel/coe-analysis"
 ---
