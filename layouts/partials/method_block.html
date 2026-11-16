@@ -34,7 +34,7 @@
   {{- $o := site.GetPage . }}
   {{- if not $o }}{{ errorf "method_block.html: %s names open page %s, which does not exist" $p.RelPermalink . }}{{ end }}
   <h3 id="bets-as-sealed">The bets as sealed{{ with $p.Params.thesisSealed }} on {{ . }}{{ end }}</h3>
-  <p class="method-note">Printed from the page published before the data was opened.</p>
+  <p class="method-note">Printed from the page published before the data was opened: <span class="sealed-title">{{ $o.Title }}</span></p>
   <div class="sealed-page">
     {{- $o.Content | replaceRE `<(/?)h3` "<${1}h5" | replaceRE `<(/?)h2` "<${1}h4" | safeHTML }}
   </div>
