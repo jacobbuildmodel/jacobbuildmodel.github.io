@@ -17,16 +17,16 @@ rows:
     method: Regression with year fixed effects on a quota fixed before bidding
   - path: /economics/2026-09-08
     theme: Prices and tax
-    method: Difference-in-differences that failed its pre-trend test; event study with placebo Januaries
+    method: The January step against other Januaries; a difference-in-differences that failed its pre-trend test
   - path: /economics/2026-10-17
     theme: Transport
     method: Four sealed tests on peak-hour speeds and cars per lane-kilometre
   - path: /economics/2026-08-29
     theme: Transport
-    method: Paired comparison of the month's two auctions; a rule tested out of sample
+    method: Paired comparison of the month's two bidding exercises; a rule tested out of sample
   - path: /economics/2026-09-05
     theme: Transport
-    method: Win rates and premiums across 393 auctions
+    method: Win rates and premiums across 393 bidding exercises
   - path: /economics/2026-09-12
     theme: Transport
     method: Comparison across COE categories, 2022 against 2025-26
