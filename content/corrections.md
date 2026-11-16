@@ -65,10 +65,9 @@ Wording made more accurate, meaning unchanged.
   rearranged: the opening quote and the six paragraphs after it; "Start with the picture. Both
   series indexed to 100 in 2010, on one axis, so the shapes can be compared directly."; and from
   the close, "Issuing 1% more certificates lowers the premium by about 0.3%, which is a real
-  effect and a small one.", "Applied to the period since 2010, the quota increase should have
-  pushed prices down. They rose anyway, because demand moved further and faster than supply did.
-  That is the finding: the premium is high because more people are willing and able to pay, not
-  because the government has been withholding certificates." and "Which does not make the lever
+  effect and a small one.", the paragraph that began "Applied to the period since 2010" and ended "That is the
+  finding: the premium is high because more people are willing and able to pay, not because the
+  government has been withholding certificates." and "Which does not make the lever
   useless. It makes it expensive. Anyone arguing for quota as the solution is implicitly arguing
   for an increase far larger than any yet attempted, and it is worth being explicit about that
   rather than treating supply as an untried idea." None was wrong; the first paragraph and the
