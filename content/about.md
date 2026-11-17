@@ -117,7 +117,7 @@ partly by getting better at those.
 My email is [jacobong999@gmail.com](mailto:jacobong999@gmail.com). Questions and counter-arguments
 can also go through [the question form](/connect/).
 
-[This page as a one-page PDF](/portfolio/Jacob-Ong-portfolio-2026-11.pdf), dated November 2026.
+[A one-page summary of the projects (PDF)](/portfolio/Jacob-Ong-portfolio-2026-11.pdf), dated November 2026.
 
 > "Wealth gained hastily will dwindle, but whoever gathers little by little will
 > increase it."
