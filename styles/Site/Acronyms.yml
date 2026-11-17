@@ -1,10 +1,11 @@
-# Acronyms and internal labels that mean nothing to a reader without finance
-# training or without the repo open: the SORA benchmark rate, and the T1-T5
-# test labels from THESIS.md. Case-sensitive on purpose.
+# Internal labels that mean nothing to a reader without the repo open: the T1-T5 test
+# labels from THESIS.md. Case-sensitive on purpose.
+# SORA was on this list until the SMU week of November 2026. It came off on the owner's rule
+# of 15 November 2026 (precise terms are used, not avoided), on the same condition as
+# "pass-through": a page that uses it spells it out once at first use.
 extends: existence
 message: "'%s' is jargon for this audience. Explain it where it appears, or say it plainly."
 level: error
 ignorecase: false
 tokens:
-  - SORA
   - T[1-5]

@@ -143,3 +143,9 @@ summary:focus-visible,
 .ask-keep h2 { font-size: 1.2rem; margin: 0 0 8px; }
 .ask-keep ul { margin: 0; padding-inline-start: 20px; }
 .ask-keep a { color: var(--accent); text-decoration: underline; box-shadow: none; }
+
+/* ---- home page, third update (November 2026): who, why, where to start ---- */
+.welcome-identity { margin: 10px 0 0; font-size: 1.05rem; line-height: 1.5; color: var(--primary); }
+.welcome-why { margin: 8px 0 0; font-size: 1rem; line-height: 1.55; color: var(--secondary); max-width: 68ch; }
+.start-here-list li { margin: 12px 0 0; }
+.start-here-meta { display: block; margin-top: 2px; font-size: 0.85rem; line-height: 1.4; color: var(--secondary); }
