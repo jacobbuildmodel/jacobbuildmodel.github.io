@@ -3,8 +3,10 @@
         {{< aside title="How the elasticity was estimated" >}}
         Body text. Markdown works inside, tables included.
         {{< /aside >}}
-     The markdown stays free of raw HTML, so the publish gate passes it. */}}
-<details class="aside">
+     The markdown stays free of raw HTML, so the publish gate passes it.
+     An optional id gives the box an address another page can link to
+     (SMU week, third update, November 2026). */}}
+<details class="aside"{{ with .Get "id" }} id="{{ . }}"{{ end }}>
   <summary>{{ .Get "title" | default "More detail" }}</summary>
   <div class="aside-body">
     {{ .Inner | markdownify }}

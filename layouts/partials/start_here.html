@@ -31,7 +31,7 @@
       <span class="start-here-meta">{{ .method }} · {{ (partial "score_of.html" $p).text }}</span></li>
     {{- end }}
     <li><a href="{{ $how.RelPermalink }}#record">The record: {{ $score.Params.sealed }} sealed predictions, {{ $score.Params.held }} held, {{ $score.Params.failed }} failed, {{ $score.Params.neither }} in between{{ with $score.Params.void }}, {{ . }} void{{ end }}</a>
-      <span class="start-here-meta">Every prediction sealed before its data was opened, and what happened to it. On the same page: how I work, and the three systems I direct</span></li>
+      <span class="start-here-meta">Every prediction sealed before its data was opened, and what happened to it. On the same page: how I work</span></li>
     <li><a href="{{ $lta.RelPermalink }}">{{ $lta.Title }}</a>
       <span class="start-here-meta">A reply to a public consultation by the Land Transport Authority</span></li>
   </ul>

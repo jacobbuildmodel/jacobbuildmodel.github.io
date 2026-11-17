@@ -34,13 +34,12 @@ check whether I got it right.
 
 ## Background
 
-A polytechnic graduate in banking and finance, recently out of National Service and applying to read economics at university.
+A polytechnic graduate with a Diploma in Business (banking and finance), recently out of National Service and applying to read economics at university.
 I'm not an analyst, and I'm not licensed by the Monetary Authority of Singapore. If
 anything here reads as authority, that's a failure in the writing rather than a
 claim I'm making.
 
-What I do have is the habit of writing down what would prove me wrong and, since
-the GST piece on 4 September 2026, of sealing each prediction before I open the data.
+What I do have is the habit of writing down what would prove me wrong and, since the GST piece, sealed on 4 September 2026, of sealing each prediction before I open the data.
 
 Since September 2026 I have been on the UBS SUPER Programme, a 12-month traineeship in Global
 Wealth Management. The research on this site is my own, done outside that role.
@@ -67,6 +66,10 @@ out of a view I formed early: AI is going to change how this kind of research ge
 done, and I would rather learn to direct it well than learn the old way and adapt
 later.
 
+It also came with a lesson. Nearly every rule on the How I work page exists
+because an early version of one of these systems produced something fluent and
+wrong. The rules are what's left after that. Two such lapses are set out under [Lapses on record](/process/#lapses).
+
 I define the objectives, formulate the hypotheses, design the architecture, establish the analytical
 frameworks and set the standards for evidence, accuracy and risk. AI agents serve as my research and
 analytical workforce: independently discovering information, investigating hypotheses, developing
@@ -75,19 +78,12 @@ the scope and depth of what I can investigate, but they do not replace my judgem
 ownership of the research direction, final investment decisions for my own portfolio (not advice to
 anyone) and accountability for performance.
 
-That is how I work across the three systems I direct: the policy research on this site, a private
-portfolio research system, and a research model. The last two are described under How I work.
-
 I do not want AI agents that merely follow instructions or produce summaries. I want an intelligent
 research ecosystem that can investigate independently, identify questions I have overlooked,
 challenge my assumptions, discover better methodologies and develop solutions beyond my initial
 ideas. I establish the mission and standards; the agents explore, build, analyse and improve. Every
 conclusion must withstand evidence, every strategy must be tested, and every recommendation must
 ultimately be judged by its real-world results.
-
-It also came with a lesson. Nearly every rule on the How I work page exists
-because an early version of one of these systems produced something fluent and
-wrong. The rules are what's left after that.
 
 ## Why I built the site
 
@@ -101,7 +97,7 @@ than a private folder you can quietly abandon. Writing in the open keeps me hone
 about the work and keeps me doing it.
 
 And because I'd like this to still exist in twenty years. Somewhere in here is a
-record of how I thought at 22, what I got right, what I got badly wrong, and how
+record of how I thought, what I got right, what I got badly wrong, and how
 long I stuck with it. If I ever have kids, I'd rather hand them that than a story
 about it.
 

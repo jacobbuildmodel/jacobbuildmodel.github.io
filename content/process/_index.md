@@ -131,7 +131,7 @@ Some parts are mine alone:
 - merging every change. Nothing reaches the site or the code without my
   approval.
 
-That split is deliberate. A model can write a regression faster than I can. It
+That split is deliberate. A model writes a regression in seconds. It
 cannot decide which argument matters to people here, or put its name to a bet.
 
 Mistakes that reach publication are mine.
@@ -221,7 +221,7 @@ wording stays visible on the corrections page. Nothing gets quietly edited, beca
 that the numbers were checked cannot also be a site where numbers change without notice.
 {{< /aside >}}
 
-{{< aside title="Lapses on record" >}}
+{{< aside title="Lapses on record" id="lapses" >}}
 Most rules on this site were written after something went wrong. Two that shaped
 how it works now:
 

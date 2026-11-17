@@ -96,13 +96,13 @@ disableKinds = ["taxonomy", "term"]
   #   byline    the tagline in the masthead band on every page (header.html)
   #   heading   the home page's heading: his words of 28 Oct 2026, the first sentence
   #             of the old promise
-  #   identity  who he is, in words already published on About; his name and age are
+  #   identity  who he is; the diploma named as he holds it (the moderator's words, 17 Nov 2026); his name and age are
   #             printed in front of it by the template
   #   why       why economics, in his own words (16 Nov 2026); leave empty to hide
   [params.welcome]
     byline   = "Jacob Ong's economics projects"
     heading  = "Singapore's favourite arguments, tested with public data."
-    identity = "A polytechnic graduate in banking and finance, applying to read economics at university."
+    identity = "A polytechnic graduate with a Diploma in Business (banking and finance), applying to read economics at university."
     why      = "I love economics because it gives me a structured, ever-changing way to solve real problems with data, design fixes that actually work for real people, and prove it, to myself and to anyone arguing from gut feeling."
 
   # The question form on /connect/ posts to Web3Forms. The access key is public
