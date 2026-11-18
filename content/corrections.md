@@ -16,7 +16,7 @@ A fact, number or verdict was wrong.
 
 - **19 November 2026.** [The record](/process/#record): three lines changed on Jacob's rulings, and the
   count with them. The tally was 36 sealed predictions: 17 held, 13 failed, 6 in between. It is now
-  37 sealed: 17 held, 12 failed, 6 in between, 2 void. A void is a sealed prediction that could
+  37 sealed predictions: 17 held, 12 failed, 6 in between, 2 void. A void is a sealed prediction that could
   not be scored as sealed; it counts neither for nor against the record.
   (1) [GST rises](/economics/2026-09-08/). Was: "Failed. The 2023 and 2024 estimates would agree within 0.3 points. Result: 0.45 apart." Now: "Void. The 2023 and 2024 estimates would agree within 0.3 points. Result: not scored, because the current index changed its basket in January 2024, so that year's step mixes the tax rise with the basket change. On All Items, which includes GST-exempt rents, they were 0.45 apart, which would have been Neither; on All Items less accommodation, 0.086 apart (not a re-run, not scored)." Why: the two years cannot be compared as the
   prediction was sealed, because the index changed its basket between them.
