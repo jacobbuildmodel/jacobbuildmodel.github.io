@@ -1,5 +1,5 @@
 ---
-title: "37 sealed predictions: 17 held, 12 failed, 6 in between, 2 void"
+title: "37 sealed predictions: 19 held, 11 failed, 5 in between, 2 void"
 question: "How often has this site been wrong?"
 date: 2026-10-03
 draft: false
@@ -10,9 +10,9 @@ summary: "Every answered prediction this site wrote down and sealed before openi
 # equal to the counts this page states. brier and brierN stay empty until the
 # page states a Brier score; the band then adds its calibration line.
 sealed: 37
-held: 17
-failed: 12
-neither: 6
+held: 19
+failed: 11
+neither: 5
 void: 2
 brier: 0.179
 brierN: 13
@@ -27,7 +27,7 @@ build:
 
 > Before any data is opened, each piece writes its predictions into a file called
 > `THESIS.md` and seals it in a dated commit (for the first two pieces, the file's own dated header). This page is what happened next.
-> Of 37 sealed predictions, 17 held, 12 failed, 6 landed in between, and 2 are void.
+> Of 37 sealed predictions, 19 held, 11 failed, 5 landed in between, and 2 are void.
 
 A method that never fails is not being tested. This page exists so that anyone can
 check how often this one does, without reading a single article first.
@@ -40,13 +40,14 @@ check how often this one does, without reading a single article first.
 | [Minimum wage or PWM](/economics/2026-10-31/) | 3 | 1 | 0 | 1 |
 | [COE or ERP](/economics/2026-10-17/) | 1 | 2 | 1 | 0 |
 | [HDB loan vs bank loan](/economics/2026-10-03/) | 5 | 3 | 0 | 0 |
-| [HDB affordability](/economics/2026-09-19/) | 3 | 2 | 4 | 0 |
+| [HDB affordability](/economics/2026-09-19/) | 5 | 1 | 3 | 0 |
 | [GST rises](/economics/2026-09-08/) | 1 | 3 | 1 | 1 |
-| **Total** | **17** | **12** | **6** | **2** |
+| **Total** | **19** | **11** | **5** | **2** |
 
 **Held** means the sealed prediction survived. **Failed** means it did not, and the
 article says so. **Neither** means the result landed between the pass and fail lines
-written in advance, or no verdict was recorded, and it is not rounded to either side.
+written in advance, met both of them, or no verdict was recorded, and it is not rounded to
+either side.
 **Void** means the test could not be scored as sealed, for example because the data series
 broke. A void is not a miss: it is a missing observation, and it counts neither for nor against
 the record.
@@ -168,17 +169,18 @@ Sealed 11 September 2026. Revisit 19 September 2027.
 - **Held.** From 2017, the same rise of more than 0.5. Result: up 0.76.
 - **Held.** The HDB concessionary rate would move 0.1 points or less. Result: no
   move, a decade apart.
-- **Neither.** Grants would cover more than 40 per cent of the price rise for a
-  lower-income buyer. Result: 17 per cent, short of the pass line, above the fail
-  line.
-- **Failed.** Lower-income buyers' repayment burden would rise at least 5 points
-  less than higher-income buyers'. Result: it rose 8.8 points more.
-- **Failed.** Grants would fully offset the price rise for lower-income buyers.
-  Result: their repayment share rose 9.3 points.
+- **Held.** Grants would cover more than 40 per cent of the price rise for a
+  lower-income buyer. Result: measured from 2013, 51.6 per cent.
+- **Neither.** Lower-income buyers' repayment burden would rise at least 5 points less
+  than higher-income buyers'. Result: measured from 2013, both fell, the lower-income
+  buyer's by 10.3 points more: heterogeneity without sign divergence.
+- **Held.** Grants would fully offset the price rise for lower-income buyers. Result:
+  measured from 2013, their repayment share fell from 60.4 to 47.1 per cent.
 - **Neither.** Correcting for which flats sold would change the answer by more than
   3 points. Result: 2.2 points.
-- **Neither.** Two correction methods would agree within 2 points. Result: 2.5
-  points apart.
+- **Failed.** Two correction methods would agree within 2 points. Result: 5.7 points
+  apart with method B built as sealed, past the 5-point fail line, where the seal says
+  a range is published instead of a single constant-quality number.
 - **Held.** Median income would cross the frozen grant ceiling within the window.
   Result: it crossed between 2022 and 2023 (8,904 then 9,646 dollars a month).
 

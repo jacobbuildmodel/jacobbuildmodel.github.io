@@ -9,9 +9,6 @@ hidemeta: true
 aliases:
   - /stocks/
   - /stocks/definitions/
-  - /stocks/nvda/
-  - /stocks/pltr/
-  - /stocks/shop/
   - /sectors/
   - /sectors/semiconductors/
   - /sectors/semiconductors/page/1/
@@ -42,7 +39,8 @@ claim I'm making.
 What I do have is the habit of writing down what would prove me wrong and, since the GST piece, sealed on 4 September 2026, of sealing each prediction before I open the data.
 
 Since September 2026 I have been on the UBS SUPER Programme, a 12-month traineeship in Global
-Wealth Management. The research on this site is my own, done outside that role.
+Wealth Management. The research on this site and the private projects described here are my own,
+done outside that role.
 
 ## Education and courses
 
@@ -53,7 +51,8 @@ Wealth Management. The research on this site is my own, done outside that role.
 - Inferential Statistics, Duke University, September 2026.
 - Generative and Agentic AI, Saïd Business School, University of Oxford, September 2026.
 
-Next comes economics at university.
+Next comes economics at university. I completed the FMVA certification in October
+2026, and the CFA charter is somewhere further down the road.
 
 ## Working with AI
 
@@ -63,27 +62,25 @@ I designed and run the research workflow behind this site. Inside it, Claude, an
 model made by Anthropic, does the research, coding and drafting. I write the
 specifications, decide what counts as evidence, and do the editorial pass. That came
 out of a view I formed early: AI is going to change how this kind of research gets
-done, and I would rather learn to direct it well than learn the old way and adapt
-later.
+done, and I want to learn the economics properly so that I can direct it well.
 
 It also came with a lesson. Nearly every rule on the How I work page exists
 because an early version of one of these systems produced something fluent and
 wrong. The rules are what's left after that. Two such lapses are set out under [Lapses on record](/process/#lapses).
 
 I define the objectives, formulate the hypotheses, design the architecture, establish the analytical
-frameworks and set the standards for evidence, accuracy and risk. AI agents serve as my research and
+frameworks and set the standards for evidence and accuracy. AI agents serve as my research and
 analytical workforce: independently discovering information, investigating hypotheses, developing
 models, analysing data, challenging assumptions and continuously improving the system. They expand
 the scope and depth of what I can investigate, but they do not replace my judgement. I retain
-ownership of the research direction, final investment decisions for my own portfolio (not advice to
-anyone) and accountability for performance.
+ownership of the research direction and final investment decisions for my own portfolio (not advice
+to anyone).
 
 I do not want AI agents that merely follow instructions or produce summaries. I want an intelligent
 research ecosystem that can investigate independently, identify questions I have overlooked,
 challenge my assumptions, discover better methodologies and develop solutions beyond my initial
 ideas. I establish the mission and standards; the agents explore, build, analyse and improve. Every
-conclusion must withstand evidence, every strategy must be tested, and every recommendation must
-ultimately be judged by its real-world results.
+conclusion must withstand evidence, and every prediction is scored against what actually happened.
 
 ## Why I built the site
 
