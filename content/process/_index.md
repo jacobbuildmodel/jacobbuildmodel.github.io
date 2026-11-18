@@ -312,6 +312,13 @@ If a result cannot survive someone else running the same code on the same file, 
 result.
 {{< /aside >}}
 
+## A second system
+
+I also direct DRIVE, a private system I built with AI to research listed companies. As on
+this site, a call is written down before its outcome is known, the roles are kept apart,
+and every call is graded. Its records are private, and it is personal research, not
+advice. [How DRIVE works](/process/drive/).
+
 ## Scope and limits
 
 I am not licensed by the Monetary Authority of Singapore and nothing here is financial
