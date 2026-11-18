@@ -1,0 +1,9 @@
+{{- /* layouts/shortcodes/answer.html: Jacob's answer inside {{< wwyd >}},
+   closed until the reader opens it. Prints nothing until the page's front
+   matter says myview: true. SMU week, PR A, November 2026. */ -}}
+{{- if .Page.Params.myview }}
+<details class="wwyd-answer">
+<summary>What I would do</summary>
+{{ .Page.RenderString (dict "display" "block") .Inner }}
+</details>
+{{- end }}

@@ -1,0 +1,11 @@
+{{- /* layouts/shortcodes/myview.html
+   {{< myview >}} ... {{< /myview >}}: Jacob's own view, in his words, the
+   last part of the reading path. Prints nothing until the page's front
+   matter says myview: true, so a preview never shows placeholder text in
+   his voice. SMU week, PR A, November 2026. */ -}}
+{{- if .Page.Params.myview }}
+<section class="my-view" aria-labelledby="my-view">
+<h2 id="my-view">My view</h2>
+{{ .Page.RenderString (dict "display" "block") .Inner }}
+</section>
+{{- end }}

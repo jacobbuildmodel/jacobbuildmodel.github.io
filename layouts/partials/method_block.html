@@ -1,0 +1,58 @@
+{{- /* layouts/partials/method_block.html
+   The project layout's one method block: a native <details>, closed by
+   default, no script. SMU week, PR A, November 2026. Takes a dict: page,
+   score (from score_of.html). Class method-block: the numbers harness
+   leaves it out of the reading-path word count.
+
+   In order, each part only when the page has it:
+     the data / method / sealed / code / rerun / check list
+         (data/for_economists.yaml, for_economists_list.html)
+     the bets as sealed: the open-question page named in front matter
+         `open:`, printed whole from its own file. That file's body is
+         under a checksum in the site's CI (scripts/check_open_pages.py), so
+         the sealed words are never retyped. Its h2 headings become h4
+         (and any h3 becomes h5).
+     what happened to each bet: this project's section of the scorecard
+         (content/scorecard.md), printed as it stands
+     the score, the confidence going in, and the re-check date (the page's
+         date plus twelve months, the rule method_strip.html already used)
+     the page's own method text: whatever it put between
+         {{< method >}} and {{< /method >}} (what changed after review, who
+         did what, sources), stored on the page while .Content rendered
+     the changelog line (data/figure_notes.yaml) */ -}}
+{{- $p := .page }}{{ $score := .score }}
+<details class="method-block" id="method">
+  <summary><h2 id="method-heading">Method, data and the sealed bets</h2></summary>
+  <div class="method-body">
+  {{- with $p.File }}
+  {{- with index (index site.Data.for_economists $p.Section | default dict) .ContentBaseName }}
+  {{- partial "for_economists_list.html" . }}
+  {{- end }}
+  {{- end }}
+
+  {{- with $p.Params.open }}
+  {{- $o := site.GetPage . }}
+  {{- if not $o }}{{ errorf "method_block.html: %s names open page %s, which does not exist" $p.RelPermalink . }}{{ end }}
+  <h3 id="bets-as-sealed">The bets as sealed{{ with $p.Params.thesisSealed }} on {{ . }}{{ end }}</h3>
+  <p class="method-note">Printed from the page published before the data was opened: <span class="sealed-title">{{ $o.Title }}</span></p>
+  <div class="sealed-page">
+    {{- $o.Content | replaceRE `<(/?)h3` "<${1}h5" | replaceRE `<(/?)h2` "<${1}h4" | safeHTML }}
+  </div>
+  {{- end }}
+
+  {{- if $score.scored }}
+  <h3 id="what-happened">What happened to each bet</h3>
+  {{- /* The section's first paragraph links back to this page; that link is
+         taken off here, words kept. The path holds only letters, digits,
+         hyphens and slashes, so it is safe inside the pattern. */}}
+  {{- replaceRE (printf `<a\s[^>]*href="%s"[^>]*>(.*?)</a>` $p.RelPermalink) "$1" $score.section | safeHTML }}
+  <p class="method-score">Score: {{ $score.text }}.{{ with $p.Params.confidence }} Confidence going in: {{ . }}.{{ end }} Re-check due {{ ($p.Date.AddDate 1 0 0) | time.Format "2 January 2006" }}, against newer data.</p>
+  {{- end }}
+
+  {{- with $p.Store.Get "method" }}
+  <div class="method-own">{{ $p.RenderString (dict "display" "block") . }}</div>
+  {{- end }}
+
+  {{- partial "page_changelog.html" $p }}
+  </div>
+</details>

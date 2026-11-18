@@ -1,0 +1,18 @@
+{{- define "main" }}
+{{- /* layouts/howiwork.html
+   "How I work" (/process/): one page for the method, who does what and the
+   record. Chosen by `layout: howiwork` in content/process/_index.md. The
+   page is a section index, but it lists nothing and is not paginated: its
+   own content is the page. SMU week, PR A, November 2026. */ -}}
+<article class="post-single howiwork">
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- with .Description }}
+    <div class="post-description">{{ . }}</div>
+    {{- end }}
+  </header>
+  <div class="post-content md-content">
+    {{- partial "anchored_headings.html" .Content -}}
+  </div>
+</article>
+{{- end }}

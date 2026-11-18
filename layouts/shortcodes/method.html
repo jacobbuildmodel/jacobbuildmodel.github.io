@@ -1,0 +1,8 @@
+{{- /* layouts/shortcodes/method.html
+   {{< method >}} ... {{< /method >}}: a project's own method text (what
+   changed after review, who did what, sources). Prints nothing where it
+   stands: the text is stored on the page, and layouts/project.html prints it
+   inside the closed method block after the reading path
+   (partials/method_block.html). Markdown inside is rendered there.
+   SMU week, PR A, November 2026. */ -}}
+{{- .Page.Store.Set "method" .Inner -}}

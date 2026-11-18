@@ -10,6 +10,10 @@ enableRobotsTXT = true
 buildDrafts    = false
 buildFuture    = false
 pagination.pagerSize = 10
+# The tag lists were a second copy of the Projects index (SMU week, PR A,
+# November 2026). Their addresses (/tags/, /tags/economics/) are aliases of
+# /economics/, listed in content/economics/_index.md.
+disableKinds = ["taxonomy", "term"]
 
 # --- theme (pulled automatically at build time, no files to download) ---
 [module]
@@ -67,8 +71,10 @@ pagination.pagerSize = 10
   # 1280px and wider (front page PR A, addition A3; layouts/single.html,
   # assets/css/extended/masthead.css). Researchers pages first.
   tocSideSections   = ["researchers"]
-  ShowBreadCrumbs   = true
-  ShowPostNavLinks  = true
+  # Breadcrumbs and the prev/next pair repeated links the menu already has
+  # (SMU week, PR A): no page links the same target twice.
+  ShowBreadCrumbs   = false
+  ShowPostNavLinks  = false
   ShowWordCount     = false
   ShowCodeCopyButtons = false
   ShowShareButtons  = false
@@ -79,6 +85,10 @@ pagination.pagerSize = 10
   # reading this same author value. Suppressing it from every card/article meta
   # line removes the repetition without adding a second source of the name.
   hideAuthor        = true
+  # One line on who did what, printed at the end of every project in the
+  # project layout (layouts/project.html). The sentence is the one Jacob
+  # approved for the LTA page on 22 October 2026, unchanged.
+  aiNote            = "The question and choices here are mine; the text was drafted by AI under my direction; a separate AI checker recomputed every number."
 
   # Homepage intro block
   # Home page welcome (layouts/partials/welcome_home.html). Final words,
@@ -129,12 +139,12 @@ failure is published too.
 # --- navigation ---
 [[menu.main]]
   identifier = "economics"
-  name       = "Economics"
+  name       = "Projects"
   url        = "/economics/"
   weight     = 1
 [[menu.main]]
   identifier = "process"
-  name       = "How it works"
+  name       = "How I work"
   url        = "/process/"
   weight     = 40
 [[menu.main]]

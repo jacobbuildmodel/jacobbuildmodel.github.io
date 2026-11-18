@@ -1,0 +1,21 @@
+{{- /* layouts/shortcodes/wwyd.html
+   {{< wwyd question="You are the minister. ..." >}}
+   - option one
+   - option two
+   {{< answer >}} Jacob's answer, in his words {{< /answer >}}
+   {{< /wwyd >}}
+   "What would you do?": a real decision, the options as a list, and Jacob's
+   own answer behind a native <details> the reader opens after choosing.
+   Works with JavaScript off and collects nothing. An optional part of a
+   project, only where a real decision exists. The whole part prints only
+   when the page's front matter says myview: true: a question with no answer
+   to open would leave the reader hanging, and the answer is Jacob's words.
+   SMU week, PR A, November 2026. */ -}}
+{{- if not (.Get "question") }}{{ errorf "wwyd: question is missing (%s)" .Position }}{{ end -}}
+{{- if .Page.Params.myview }}
+<section class="wwyd" aria-labelledby="what-would-you-do">
+<h2 id="what-would-you-do">What would you do?</h2>
+<p class="wwyd-question">{{ .Get "question" }}</p>
+{{ .Page.RenderString (dict "display" "block") .Inner }}
+</section>
+{{- end }}

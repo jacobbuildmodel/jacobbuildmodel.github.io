@@ -25,6 +25,14 @@ A changed line is a "+" line of the unified diff: the new side of each hunk
 ("@@ -a,b +c,d @@" gives lines c to c+d-1; d is 1 when left out, and 0 for a
 hunk that only deletes). A file the diff adds is all changed lines.
 
+A moved line is an old line. When a page is rearranged, its paragraphs appear
+in the diff as "-" lines in one place and the same "+" lines in another. A "+"
+line whose text is also a "-" line of the same file was already published, so
+it is not counted as changed (one "-" line excuses one "+" line). A line that
+was reworded has no twin and is still a changed line. November 2026: moving
+the published paragraphs of three articles into a new layout turned the check
+red for words written months earlier.
+
 Standard library only. Tests: scripts/tests/test_vale_changed_lines.py.
 """
 import argparse
@@ -46,10 +54,19 @@ def norm(path):
 
 
 def changed_lines(diff_text):
-    """{path: set of line numbers on the new side} from `git diff -U0` output."""
+    """{path: set of line numbers on the new side} from `git diff -U0` output.
+
+    A "+" line whose text is also a "-" line of the same file (a moved line) is
+    left out; see the module docstring.
+    """
     changed = {}
+    added = {}        # path -> [(line number, text)]
+    removed = {}      # path -> {text: how many "-" lines carry it}
     current = None
+    next_no = None
     for line in diff_text.splitlines():
+        if line.startswith("--- "):
+            continue
         if line.startswith("+++ "):
             target = line[4:].strip().strip('"')
             if target == "/dev/null":
@@ -57,12 +74,32 @@ def changed_lines(diff_text):
             else:
                 current = norm(target[2:] if target.startswith("b/") else target)
                 changed.setdefault(current, set())
+                added.setdefault(current, [])
+                removed.setdefault(current, {})
+            next_no = None
             continue
         m = HUNK.match(line)
         if m and current is not None:
             start = int(m.group(1))
             count = 1 if m.group(2) is None else int(m.group(2))
             changed[current].update(range(start, start + count))
+            next_no = start
+            continue
+        if current is None:
+            continue
+        if line.startswith("-"):
+            text = line[1:].strip()
+            if text:
+                removed[current][text] = removed[current].get(text, 0) + 1
+        elif line.startswith("+") and next_no is not None:
+            added[current].append((next_no, line[1:].strip()))
+            next_no += 1
+    for path, lines in added.items():
+        left = dict(removed[path])
+        for no, text in lines:
+            if text and left.get(text, 0) > 0:
+                left[text] -= 1
+                changed[path].discard(no)
     return changed
 
 

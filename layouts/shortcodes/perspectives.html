@@ -1,0 +1,19 @@
+{{- /* layouts/shortcodes/perspectives.html
+   {{< perspectives on="one precise statement" >}}
+     {{< lens who="A household" >}} two or three sentences {{< /lens >}}
+     ...
+   {{< /perspectives >}}
+   Three to five lenses on one statement, as a definition list: the lens,
+   then its reasoning. An optional part of a project, used only where the
+   topic supports at least three distinct lenses. Each lens reasons from a
+   principle; each fact in it carries a linked source; no position is put in
+   a named person's mouth without one. SMU week, PR A, November 2026. */ -}}
+<section class="perspectives" aria-labelledby="perspectives">
+<h2 id="perspectives">Perspectives</h2>
+{{- with .Get "on" }}
+<p class="perspectives-on">{{ . }}</p>
+{{- end }}
+<dl class="lenses">
+{{ .Inner }}
+</dl>
+</section>

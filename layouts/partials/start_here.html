@@ -21,9 +21,7 @@
     <li><a href="{{ $p.RelPermalink }}">{{ .text }}</a> <span class="start-here-when">({{ .when }})</span></li>
     {{- end }}
   </ul>
-  {{- with site.GetPage "/scorecard" }}
-  {{- $failed := .Param "failed" }}
-  {{- if not (isset .Params "failed") }}{{ errorf "start_here.html: content/scorecard.md has no failed: in its front matter" }}{{ end }}
-  <p class="track-band-more"><a href="{{ .RelPermalink }}">Every sealed prediction, including the {{ $failed }} that failed.</a></p>
-  {{- end }}
+  {{- /* The closing scorecard line is gone (SMU week, PR A, November 2026):
+         it gave the tally in part ("the 13 that failed") and repeated the
+         track-record link above it. */}}
 </section>

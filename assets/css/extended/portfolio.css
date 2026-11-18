@@ -1,0 +1,182 @@
+/* assets/css/extended/portfolio.css
+   SMU week, November 2026: the Projects index, "How I work" and the project
+   page parts. Uses the tokens in 00-tokens.css; adds no colour, font or
+   script. Loaded with the other files in this folder by PaperMod. */
+
+/* ---- Projects index (/economics/): one table, hand-ordered ----
+   A real table at 700px and wider. Under 700px each row is a block: the
+   title, then one line per value with its column name before it (the
+   data-label attribute), so nothing scrolls sideways at 390px. */
+.projects {
+  width: 100%;
+  margin: var(--s5) 0 var(--s7);
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+.projects thead th {
+  padding: 0 var(--s3) var(--s2) 0;
+  border-bottom: var(--rule-strong);
+  font-weight: 600;
+  text-align: left;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.projects tbody th,
+.projects tbody td {
+  padding: var(--s3) var(--s3) var(--s3) 0;
+  border-bottom: var(--rule);
+  vertical-align: top;
+  text-align: left;
+}
+.projects tbody th {
+  width: 38%;
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.projects tbody th a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+.projects tbody th a:hover { text-decoration-color: var(--accent); color: var(--accent); }
+.projects tbody th a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.projects td { font-variant-numeric: tabular-nums lining-nums; }
+.projects td[data-label="Updated"],
+.projects td[data-label="Read"] { white-space: nowrap; }
+
+@media (max-width: 699px) {
+  .projects thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .projects, .projects tbody, .projects tr, .projects th, .projects td { display: block; width: auto; }
+  .projects tr { padding: var(--s4) 0; border-bottom: var(--rule); }
+  .projects tbody th, .projects tbody td { padding: 0; border: 0; white-space: normal; }
+  .projects tbody th { width: auto; margin-bottom: var(--s2); }
+  .projects td::before { content: attr(data-label) ": "; color: var(--ink-3); }
+  .projects td[data-label="Updated"], .projects td[data-label="Read"] { display: inline; }
+  .projects td[data-label="Updated"]::after { content: "  \00b7  "; white-space: pre; color: var(--ink-3); }
+}
+/* The index page is wider than an article at desktop width, so six columns fit. */
+@media (min-width: 1000px) {
+  body.list .main:has(.projects) { max-width: min(var(--front-max), calc(100vw - 2 * var(--gap))); }
+  .projects-intro { max-width: var(--main-width); }
+}
+
+/* ---- "How I work" (/process/) ----
+   The collapsed detail blocks stay in the reading column here. On articles
+   they float into the margin at desktop width (economics.css); this page has
+   too many, and some hold lists and tables. */
+.howiwork .post-content details.aside {
+  float: none;
+  width: auto;
+  margin: var(--s4) 0;
+  padding: 0 var(--s4);
+}
+.howiwork .post-content details.aside summary { font-size: 0.92rem; min-height: 44px; display: flex; align-items: center; }
+.howiwork .post-content details.aside .aside-body { font-size: 0.95rem; }
+
+/* The record: the scorecard, printed. Each project's predictions sit in a
+   block that is closed by default; its label carries the project's question
+   and its own counts, so a failure is never behind a click unannounced. */
+.record { margin: var(--s6) 0; }
+.record table td, .record-count { font-family: var(--font-figures); font-variant-numeric: tabular-nums lining-nums; }
+.record-project { border-top: var(--rule); }
+.record-project:last-of-type { border-bottom: var(--rule); }
+.record-project summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s1) var(--s4);
+  min-height: 44px;
+  padding: var(--s3) 0;
+  cursor: pointer;
+  list-style: none;
+}
+.record-project summary::-webkit-details-marker { display: none; }
+.record-project summary::before { content: "+"; width: 1ch; font-family: var(--font-sans); color: var(--accent); }
+.record-project[open] summary::before { content: "\2212"; }
+.record-project summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.record-project summary h4 { flex: 1 1 16rem; margin: 0; font-size: 1.02rem; line-height: 1.35; }
+.record-count { font-size: 0.82rem; color: var(--ink-2); white-space: nowrap; }
+.record-project > :not(summary) { margin-left: calc(1ch + var(--s4)); }
+@media (max-width: 699px) { .record-project > :not(summary) { margin-left: 0; } }
+@media print { .record-project > * { display: block; } }
+
+/* ---- Project page (layouts/project.html) ----
+   A reading surface: one column at the article measure. Parts are set off
+   by space and a hairline, never by a box inside a box. */
+.project .post-title { margin-bottom: var(--s3); }
+.project-strip {
+  margin: 0 0 var(--s5);
+  padding: var(--s2) 0;
+  border-top: var(--rule);
+  border-bottom: var(--rule);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.project-strip-sep { color: var(--ink-3); }
+
+/* Headings written "Label: finding" on a project page are set as one line, label and finding
+   in the same face with the colon showing. Elsewhere on the site the label sits above the
+   finding as a small capitals line (custom.css); on project pages that small label above a
+   heading is one of the patterns the SMU-week brief asks the layout to avoid. To go back to
+   the house style, delete this block. */
+.project .post-content h2 .h2-label {
+  display: inline;
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: none;
+  color: inherit;
+}
+.project .post-content h2 .h2-colon { position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal; }
+.project .post-content h2 .h2-text { display: inline; }
+.project .post-content h2 .h2-text::first-letter { text-transform: none; }
+.project .post-content h2.h2-split .anchor { position: static; font-size: inherit; line-height: inherit; }
+
+/* Perspectives: a definition list, the lens then its reasoning. */
+.perspectives-on { font-style: italic; color: var(--ink-2); }
+.post-content .lenses { display: block; margin: var(--s4) 0 0; }   /* PaperMod sets .md-content dl as a 25%/75% row;
+                                                                    at phone width that leaves the reasoning a
+                                                                    column of three words */
+.lenses dt { margin-top: var(--s4); font-family: var(--font-sans); font-size: 0.86rem; font-weight: 600; color: var(--ink); }
+.lenses dd { margin: var(--s1) 0 0; padding-left: var(--s4); border-left: 2px solid var(--line); }
+.lenses dd > :first-child { margin-top: 0; }
+.lenses dd > :last-child { margin-bottom: 0; }
+
+/* What would you do? The answer is a native details the reader opens. */
+.wwyd-question { font-weight: 600; }
+.wwyd-answer { margin-top: var(--s4); border-top: var(--rule); border-bottom: var(--rule); }
+.wwyd-answer summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-family: var(--font-sans); font-size: 0.92rem; font-weight: 600; color: var(--accent); }
+.wwyd-answer summary:focus-visible, .method-block > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wwyd-answer > :not(summary) { margin: 0 0 var(--s4); }
+
+/* Reply, method block and the next link sit under the reading path, in the
+   interface sans, quieter than the text above them. */
+.reply, .method-block, .next-project { font-family: var(--font-sans); }
+.reply { margin-top: var(--s7); padding-top: var(--s4); border-top: var(--rule-strong); }
+.reply h2 { margin: 0 0 var(--s2); font-size: 1.05rem; }
+.reply .post-ask { margin: 0; }
+.reply-rule, .reply-privacy { font-size: 0.82rem; color: var(--ink-2); }
+.reply-load { min-height: 44px; padding: 0 var(--s4); border: 1px solid var(--accent); border-radius: var(--radius-btn); background: transparent; color: var(--accent); font: inherit; font-weight: 600; cursor: pointer; }
+.reply-load:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.reply-anon { margin-left: var(--s4); }
+
+.method-block { margin-top: var(--s5); border-top: var(--rule); border-bottom: var(--rule); font-size: 0.88rem; line-height: 1.55; color: var(--ink-2); }
+.method-block > summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 600; color: var(--ink); }
+.method-block > summary h2 { margin: 0; font-family: var(--font-sans); font-size: inherit; font-weight: 600; line-height: inherit; }
+.method-block > summary h2::after { content: none; }
+.method-body { padding: 0 0 var(--s5); }
+.method-body h3 { margin: var(--s5) 0 var(--s2); font-family: var(--font-sans); font-size: 0.95rem; color: var(--ink); }
+.method-body h4 { margin: var(--s4) 0 var(--s1); font-family: var(--font-sans); font-size: 0.88rem; color: var(--ink); }
+.method-body table td, .method-score { font-variant-numeric: tabular-nums lining-nums; }
+.method-note { margin: 0 0 var(--s2); font-size: 0.82rem; color: var(--ink-3); }
+.sealed-page { padding-left: var(--s4); border-left: 2px solid var(--line); }
+.method-body .page-changelog { margin-top: var(--s4); }
+.next-project { margin: var(--s5) 0 0; font-size: 0.92rem; }
+@media print { .method-block > * { display: block; } }
+
+.ai-note { margin: var(--s5) 0 0; font-family: var(--font-sans); font-size: 0.86rem; color: var(--ink-2); }

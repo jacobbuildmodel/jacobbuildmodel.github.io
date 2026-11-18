@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- A closing notice (November 2026). This list became part of the Projects page, and Hugo
+     makes no feed for a redirected address, so this file keeps the old feed address answering
+     and points a subscribed reader to the site's one feed. Static: it never changes again. -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Economics on The New Void Deck (feed closed)</title>
+    <link>https://jacobbuildmodel.github.io/economics/</link>
+    <description>This feed closed in November 2026. Every new project is in the site's feed.</description>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jacobbuildmodel.github.io/tags/economics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>This feed has closed. The site's feed carries every new project.</title>
+      <link>https://jacobbuildmodel.github.io/index.xml</link>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">https://jacobbuildmodel.github.io/tags/economics/index.xml#closed</guid>
+      <description>The list at this address is now part of the Projects page (https://jacobbuildmodel.github.io/economics/). To keep following, subscribe to https://jacobbuildmodel.github.io/index.xml.</description>
+    </item>
+  </channel>
+</rss>

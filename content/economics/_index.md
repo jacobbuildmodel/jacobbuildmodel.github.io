@@ -1,6 +1,19 @@
 ---
-title: "Economics"
+title: "Projects"
 draft: false
+# The Projects index (layouts/economics/list.html, data/projects.yaml). The
+# address stays /economics/, so no project address changes. The lists it
+# replaces redirect here (SMU week, PR A, November 2026).
+aliases:
+  - /projects/
+  - /economics/page/1/
+  - /open/
+  - /decisions/
+  - /decisions/page/1/
+  - /ideas/
+  - /tags/
+  - /tags/economics/
+  - /tags/economics/page/1/
 summary: "The arguments Singapore has about COE, HDB and prices, checked against primary data."
 ---
 

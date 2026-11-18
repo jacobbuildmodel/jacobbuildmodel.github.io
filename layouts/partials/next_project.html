@@ -1,0 +1,19 @@
+{{- /* layouts/partials/next_project.html
+   One link at the end of a project: the next project in its theme, named in
+   front matter `next:`. One link, not a list of related pieces. The theme
+   name comes from the page's row in data/projects.yaml. A `next:` that
+   points nowhere stops the build. SMU week, PR A, November 2026. */ -}}
+{{- with .Params.next }}
+{{- $n := site.GetPage . }}
+{{- if not $n }}{{ errorf "next_project.html: %s names next page %s, which does not exist" $.RelPermalink . }}{{ end }}
+{{- $theme := "" }}
+{{- /* "Next in <theme>" only when the next project shares this one's theme; a theme with one
+       project (or its last) points on with a plain "Next". */}}
+{{- $mine := "" }}{{ $theirs := "" }}
+{{- range site.Data.projects.rows }}
+  {{- if eq (site.GetPage .path) $ }}{{ $mine = .theme }}{{ end }}
+  {{- if eq (site.GetPage .path) $n }}{{ $theirs = .theme }}{{ end }}
+{{- end }}
+{{- if and $mine (eq $mine $theirs) }}{{ $theme = $mine }}{{ end }}
+<p class="next-project">Next{{ with $theme }} in {{ lower . }}{{ end }}: <a href="{{ $n.RelPermalink }}">{{ $n.Title }}</a></p>
+{{- end }}

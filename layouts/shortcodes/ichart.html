@@ -1,0 +1,251 @@
+{{- /* layouts/shortcodes/ichart.html: an interactive chart (prototype, Nov 2026).
+
+       Usage:  {{< ichart "hdb_years_of_income" >}}             round one: scrub, play, story steps
+               {{< ichart "erp_peak_speeds" "explain" >}}       round two A: tap a point, a card explains it
+               {{< ichart "hdb_years_of_income" "compare" >}}   round two B: the reader picks the starting year
+               {{< ichart "erp_peak_speeds" "panel" >}}         round two C: instrument panel with a scroll story
+
+       The first argument names a file in data/charts/ built by tools/build_chart_data.py from the piece's
+       own pipeline output; every number and every sentence on show comes from that file. Everything a
+       reader needs without JavaScript is printed here by Hugo: the static chart, the title, the "how to
+       read this" text, the numbers as a table and the source line. assets/js/ichart.js then draws the
+       interactive plot into the stage. Every stage, card and control has its final size from the first
+       paint (fixed in CSS, printed here), so nothing moves when the script runs (layout shift 0).
+       The script, the style sheet and the icon sprite are loaded only on pages that use this shortcode,
+       once per page; the data of one chart is printed once per page however often it is drawn. */ -}}
+{{- $id := .Get 0 -}}
+{{- $mode := default "" (.Get 1) -}}
+{{- $c := index site.Data.charts $id -}}
+{{- if not $c }}{{ errorf "ichart: no data/charts/%s.json (%s)" $id .Position }}{{ end -}}
+{{- if and $mode (not (in (slice "explain" "compare" "panel") $mode)) }}{{ errorf "ichart: unknown mode %q (%s)" $mode .Position }}{{ end -}}
+{{- if not (.Page.Store.Get "ichart") -}}
+  {{- .Page.Store.Set "ichart" true -}}
+  {{- $css := resources.Get "css/ichart.css" | minify | fingerprint -}}
+  {{- $js := resources.Get "js/ichart.js" | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+<script type="module" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+<noscript><style>.ichart-ui{display:none}.ichart .ichart-stage{height:auto}.ic-inst{position:static;padding:0;background:none;box-shadow:none}.ichart .ic-story{padding:0}.ichart .ic-story li{margin-bottom:8px}</style></noscript>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ic-house" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10M10 20v-5.5h4V20"/></symbol>
+  <symbol id="ic-coins" viewBox="0 0 24 24"><circle cx="9" cy="9" r="5.5"/><path d="M14.3 10.2a5.5 5.5 0 1 1-4.1 4.1M9 7v4M7.7 7.6 9 7"/></symbol>
+  <symbol id="ic-car" viewBox="0 0 24 24"><path d="M4 13.5 5.7 8a2 2 0 0 1 1.9-1.4h8.8A2 2 0 0 1 18.3 8l1.7 5.5M3 13.5h18V18H3zM6 18v1.8M18 18v1.8M7 15.7h.01M17 15.7h.01"/></symbol>
+  <symbol id="ic-gauge" viewBox="0 0 24 24"><path d="M4.5 17.5a8.5 8.5 0 1 1 15 0M12 14l4-5"/><circle cx="12" cy="14.5" r="1.3"/></symbol>
+  <symbol id="ic-currency" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M14.6 9.4c-.5-.8-1.4-1.2-2.6-1.2-1.5 0-2.6.7-2.6 1.9 0 2.6 5.3 1.2 5.3 3.9 0 1.1-1.1 1.8-2.7 1.8-1.2 0-2.2-.4-2.7-1.2M12 6.5v11"/></symbol>
+  <symbol id="ic-spark" viewBox="0 0 24 24"><path d="m10 3 1.9 5.1L17 10l-5.1 1.9L10 17l-1.9-5.1L3 10l5.1-1.9zM18.5 14.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></symbol>
+  <symbol id="ic-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+  <symbol id="ic-pause" viewBox="0 0 24 24"><path d="M8.5 5.5v13M15.5 5.5v13"/></symbol>
+  <symbol id="ic-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="ic-prev" viewBox="0 0 24 24"><path d="m14.5 5-7 7 7 7"/></symbol>
+  <symbol id="ic-rank" viewBox="0 0 24 24"><path d="M5 20v-6M12 20V5M19 20v-10"/></symbol>
+  <symbol id="ic-band" viewBox="0 0 24 24"><path d="M3 7.5h18M3 16.5h18"/><circle cx="12" cy="12" r="1.8"/></symbol>
+  <symbol id="ic-start" viewBox="0 0 24 24"><path d="M6 21V4M6 5h11l-2.5 3.5L17 12H6"/></symbol>
+  <symbol id="ic-mute" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m6 18 12-12"/></symbol>
+</svg>
+{{- end }}
+{{- if not (.Page.Store.Get (printf "ichart-%s" $id)) -}}
+  {{- .Page.Store.Set (printf "ichart-%s" $id) true }}
+<script type="application/json" id="ichart-data-{{ $c.id }}">{{ $c | jsonify | safeJS }}</script>
+{{- end }}
+{{- $panels := len (default (slice) $c.panels) -}}
+{{- $n := len (default (slice) $c.x) -}}
+{{- $last := 0 }}{{ if $n }}{{ $last = index $c.x (sub $n 1) }}{{ end -}}
+{{- $alt := printf "%s. %s. The numbers are in the table below the chart." $c.title $c.subtitle -}}
+
+{{- if eq $mode "explain" }}
+{{- /* A. Explain this point: a card under the plot reads the selected year in plain words. */ -}}
+{{- $p := index $c.panels (int (index $c.explain 0)) -}}
+{{- $pt := index $p.points (sub $n 1) }}
+<figure class="ichart ic2 ic-explain" id="chart-{{ $c.id }}-explain" data-mode="explain" data-chart="ichart-data-{{ $c.id }}">
+  <figcaption class="ichart-head">
+    <span class="ic-topic">{{ partial "ichart_icon.html" $c.icon }}{{ $c.topic }}</span>
+    <strong class="ichart-title">{{ $c.title }}</strong>
+    <span class="ichart-sub">{{ $c.subtitle }}</span>
+  </figcaption>
+  {{- if gt (len $c.explain) 1 }}
+  <div class="ichart-ui ic-seg" role="group" aria-label="Which line to explain">
+    {{- range $j, $pi := $c.explain }}
+    <button type="button" data-series="{{ $j }}" aria-pressed="{{ if eq $j 0 }}true{{ else }}false{{ end }}">{{ (index $c.panels (int $pi)).short }}</button>
+    {{- end }}
+  </div>
+  {{- end }}
+  <div class="ichart-stage" role="img" aria-label="{{ $alt }}">
+    <img src="{{ $c.fallback.src }}" alt="" loading="lazy" decoding="async">
+  </div>
+  <div class="ichart-ui ic-card">
+    <div class="ic-card-top">
+      <span class="ic-tag">{{ partial "ichart_icon.html" "spark" }}Explain this point</span>
+      <output class="ic-year">{{ $last }}</output>
+    </div>
+    <div class="ic-card-body" aria-live="polite" aria-atomic="true">
+      <p class="ic-big"><b>{{ $pt.big }}</b> <span class="ic-step" data-dir="{{ $pt.dir }}">{{ partial "ichart_icon.html" "up" }}<span>{{ $pt.step }}</span></span></p>
+      <ul class="ic-lines">
+        {{- range $pt.lines }}<li>{{ partial "ichart_icon.html" (index . 0) }}<span>{{ index . 1 }}</span></li>{{ end -}}
+      </ul>
+    </div>
+  </div>
+  <div class="ichart-ui ic-nav">
+    <button type="button" class="ic-prev" aria-label="The year before">{{ partial "ichart_icon.html" "prev" }}</button>
+    <label class="ichart-scrub"><span class="ichart-vh">Year</span>
+      <input type="range" min="0" max="{{ sub $n 1 }}" value="{{ sub $n 1 }}" step="1">
+    </label>
+    <button type="button" class="ic-next" aria-label="The year after">{{ partial "ichart_icon.html" "prev" }}</button>
+  </div>
+
+{{- else if eq $mode "compare" }}
+{{- /* B. Build the comparison: the reader picks the starting year; the chart answers against it. */ -}}
+{{- $q := $c.compare -}}
+{{- $s := index $q.starts (int $q.initial) }}
+<figure class="ichart ic2 ic-compare" id="chart-{{ $c.id }}-compare" data-mode="compare" data-chart="ichart-data-{{ $c.id }}">
+  <figcaption class="ichart-head">
+    <span class="ic-topic">{{ partial "ichart_icon.html" $c.icon }}{{ $c.topic }}</span>
+    <strong class="ichart-title">{{ $q.title }}</strong>
+    <span class="ichart-sub">{{ $q.subtitle }}</span>
+  </figcaption>
+  <div class="ichart-ui ic-card">
+    <div class="ic-card-top">
+      <span class="ic-tag">{{ partial "ichart_icon.html" "spark" }}{{ $q.end }} compared with</span>
+      <output class="ic-year">{{ $s.year }}</output>
+    </div>
+    <div class="ic-card-body" aria-live="polite" aria-atomic="true">
+      <p class="ic-big" data-dir="{{ $s.dir }}">{{ partial "ichart_icon.html" "up" }}<b class="ic-pct">{{ $s.pct_text }}</b> <span class="ic-headline">{{ $s.headline }}</span></p>
+      <p class="ic-text">{{ $s.verdict }} {{ $s.why }}</p>
+    </div>
+  </div>
+  <div class="ichart-stage" role="img" aria-label="{{ $q.title }}. {{ $q.subtitle }}. The numbers are in the table below the chart.">
+    <img src="{{ $c.fallback.src }}" alt="" loading="lazy" decoding="async">
+  </div>
+  <div class="ichart-ui ic-start">
+    <label class="ichart-scrub"><span class="ic-label">{{ partial "ichart_icon.html" "start" }}Starting year</span>
+      <input type="range" min="0" max="{{ sub (len $q.starts) 1 }}" value="{{ $q.initial }}" step="1">
+    </label>
+    <div class="ic-presets" role="group" aria-label="Starting years the article names">
+      {{- range $q.presets }}
+      <button type="button" data-start="{{ .i }}" aria-pressed="{{ if eq .i $q.initial }}true{{ else }}false{{ end }}">{{ .label }}</button>
+      {{- end }}
+    </div>
+  </div>
+  <div class="ichart-ui ic-all">
+    <p class="ic-label">{{ partial "ichart_icon.html" "rank" }}{{ $q.end }} against every starting year at once</p>
+    <div class="ic-strip"></div>
+    <p class="ic-text">{{ $q.tally }}</p>
+  </div>
+
+{{- else if eq $mode "panel" }}
+{{- /* C. Instrument panel: a dark, sticky panel; the story steps under it advance it as the reader scrolls. */}}
+<figure class="ichart ic2 ic-panel" id="chart-{{ $c.id }}-panel" data-mode="panel" data-chart="ichart-data-{{ $c.id }}">
+  <figcaption class="ichart-head">
+    <span class="ic-topic">{{ partial "ichart_icon.html" $c.icon }}{{ $c.topic }}</span>
+    <strong class="ichart-title">{{ $c.title }}</strong>
+    <span class="ichart-sub">{{ $c.subtitle }}</span>
+  </figcaption>
+  <div class="ic-inst">
+    <div class="ichart-ui ic-card-top">
+      <span class="ic-tag">{{ partial "ichart_icon.html" "gauge" }}Speed at peak hours</span>
+      <output class="ic-year">{{ $last }}</output>
+    </div>
+    <div class="ichart-ui ic-dials" role="group" aria-label="Which kind of road the line shows">
+      {{- range $j, $p := $c.panels }}
+      <button type="button" class="ic-dial" data-panel="{{ $j }}" aria-pressed="{{ if eq $j 0 }}true{{ else }}false{{ end }}">
+        <span class="ic-dial-arc"></span>
+        <span class="ic-dial-num">{{ index (index $p.series 0).values (sub $n 1) }}</span>
+        <span class="ic-dial-unit">{{ $p.unit }}</span>
+        <span class="ic-dial-name">{{ $p.short }}</span>
+        <span class="ic-dial-status">{{ index $p.status (sub $n 1) }}</span>
+      </button>
+      {{- end }}
+    </div>
+    <div class="ichart-stage" role="img" aria-label="{{ $alt }}">
+      <img src="{{ $c.fallback.src }}" alt="" loading="lazy" decoding="async">
+    </div>
+    <div class="ichart-ui ichart-controls">
+      <button type="button" class="ichart-play" aria-pressed="false">{{ partial "ichart_icon.html" "play" }}<span>Play</span></button>
+      <label class="ichart-scrub"><span class="ichart-vh">Year</span>
+        <input type="range" min="0" max="{{ sub $n 1 }}" value="{{ sub $n 1 }}" step="1">
+      </label>
+    </div>
+    <p class="ichart-ui ichart-vh ichart-readout" aria-live="polite">{{ index $c.notes (string $last) }}</p>
+  </div>
+  <ol class="ic-story" aria-label="The story in {{ len $c.steps }} steps">
+    {{- range $i, $s := $c.steps }}
+    <li><span class="ic-step-n">{{ add $i 1 }} of {{ len $c.steps }}</span>{{ $s.text }}</li>
+    {{- end }}
+  </ol>
+
+{{- else }}
+<figure class="ichart ichart-{{ $c.type }}" id="chart-{{ $c.id }}" data-panels="{{ $panels }}" data-chart="ichart-data-{{ $c.id }}">
+  <figcaption class="ichart-head">
+    <strong class="ichart-title">{{ $c.title }}</strong>
+    <span class="ichart-sub">{{ $c.subtitle }}</span>
+  </figcaption>
+  {{- if eq $c.type "switch" }}
+  <div class="ichart-ui ichart-measures" role="group" aria-label="Measure">
+    {{- range $i, $s := $c.states }}
+    <button type="button" data-state="{{ $i }}" aria-pressed="{{ if eq $i 0 }}true{{ else }}false{{ end }}">{{ $s.label }}</button>
+    {{- end }}
+  </div>
+  {{- end }}
+  <div class="ichart-stage" role="img" aria-label="{{ $alt }}">
+    <img src="{{ $c.fallback.src }}" alt="" loading="lazy" decoding="async">
+  </div>
+  {{- if eq $c.type "timeline" }}
+  <div class="ichart-ui ichart-controls">
+    <button type="button" class="ichart-play" aria-pressed="false">Play</button>
+    <label class="ichart-scrub"><span class="ichart-vh">Year</span>
+      <input type="range" min="0" max="{{ sub $n 1 }}" value="{{ sub $n 1 }}" step="1">
+    </label>
+    <output class="ichart-year">{{ $last }}</output>
+  </div>
+  <p class="ichart-ui ichart-readout" aria-live="polite">{{ index $c.notes (string $last) }}</p>
+  <div class="ichart-ui ichart-steps" role="group" aria-label="The story in {{ len $c.steps }} steps">
+    <span class="ichart-steps-label">The story:</span>
+    {{- range $i, $s := $c.steps }}
+    <button type="button" data-step="{{ $i }}" aria-label="Step {{ add $i 1 }}: {{ $s.at }}">{{ add $i 1 }}</button>
+    {{- end }}
+  </div>
+  {{- else }}
+  <p class="ichart-ui ichart-readout" aria-live="polite">{{ (index $c.states 0).explain }}</p>
+  <p class="ichart-summary">{{ $c.summary }}</p>
+  {{- end }}
+{{- end }}
+  <details class="ichart-how">
+    <summary>How to read this</summary>
+    {{- $how := $c.howto }}{{ if $mode }}{{ $how = index $c.howto2 $mode }}{{ end }}
+    {{- range $how }}<p>{{ . }}</p>{{ end }}
+  </details>
+  <details class="ichart-table">
+    <summary>See the numbers</summary>
+    <div class="table-scroll" tabindex="0">
+    {{- if eq $mode "compare" }}
+    <table>
+      <thead><tr><th>Starting year</th><th>Years of income then</th><th>Years of income in {{ $c.compare.end }}</th><th>Change</th></tr></thead>
+      <tbody>
+      {{- $vals := (index (index $c.panels 0).series 0).values }}
+      {{- range $i, $s := $c.compare.starts }}
+        <tr><td>{{ $s.year }}</td><td>{{ index $vals $i }}</td><td>{{ index $vals (sub $n 1) }}</td><td>{{ $s.pct_text }}</td></tr>
+      {{- end }}
+      </tbody>
+    </table>
+    {{- else if eq $c.type "timeline" }}
+    <table>
+      <thead><tr><th>Year</th>{{ range $c.panels }}{{ $u := .unit }}{{ range .series }}<th>{{ .label }} ({{ $u }})</th>{{ end }}{{ end }}</tr></thead>
+      <tbody>
+      {{- range $i, $x := $c.x }}
+        <tr><td>{{ $x }}</td>{{ range $c.panels }}{{ range .series }}<td>{{ index .values $i }}</td>{{ end }}{{ end }}</tr>
+      {{- end }}
+      </tbody>
+    </table>
+    {{- else }}
+    <table>
+      <thead><tr><th>Measure</th><th>Move</th><th>Per cent</th></tr></thead>
+      <tbody>
+      {{- range $c.states }}{{ $s := . }}
+        {{- range .bars }}<tr><td>{{ $s.label }}</td><td>{{ index . 0 }}</td><td>{{ index . 1 }}</td></tr>{{ end }}
+        <tr><td>{{ $s.label }}</td><td>Share of the move: {{ $c.partner }} / {{ $c.subject }} / remainder</td><td>{{ mul 100 $s.shares.sgd | math.Round }} / {{ mul 100 $s.shares.other | math.Round }} / {{ mul 100 $s.shares.remainder | math.Round }}</td></tr>
+      {{- end }}
+      </tbody>
+    </table>
+    {{- end }}
+    </div>
+  </details>
+  <p class="ichart-source">{{ $c.source_line }} <a href="{{ $c.source.repository }}/tree/{{ $c.source.commit }}">Data and code at commit {{ substr $c.source.commit 0 7 }}</a>.</p>
+</figure>
