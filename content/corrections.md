@@ -7,8 +7,8 @@ showToc: false
 ---
 
 Every correction to a published page is listed here with its date, and so is
-every change to an article's words. Changes to the pages about the site are not
-listed. Numbers are never changed silently.
+every change to an article's words. Changes to the pages about the site are listed
+only when they correct or clarify something said before. Numbers are never changed silently.
 
 ## Corrections
 
