@@ -1,6 +1,6 @@
 ---
 title: "How I work"
-description: "Four habits behind every project here, who does what, and the full record of the predictions sealed before the data was opened."
+description: "Four habits behind the scored projects here, who does what, and the full record of every answered prediction sealed before the data was opened."
 layout: howiwork
 ShowRssButtonInSectionTermList: false
 # One place for the method (SMU week, PR A, November 2026). This page now holds
@@ -17,7 +17,7 @@ aliases:
 
 I pick each question, set the rules and decide what counts as evidence. AI models write the code
 and the first drafts, and a separate AI checker recomputes every scored number from a fresh copy.
-Four habits hold the work together; since September 2026, every scored piece has followed them.
+Four habits hold the work together; each section below says from which piece its rules apply.
 
 ## Commit before the data
 

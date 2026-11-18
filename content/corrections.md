@@ -14,6 +14,18 @@ listed. Numbers are never changed silently.
 
 A fact, number or verdict was wrong.
 
+- **19 November 2026.** [The record](/process/#record): three lines changed on Jacob's rulings, and the
+  count with them. The tally was 36 sealed predictions: 17 held, 13 failed, 6 in between. It is now
+  37 sealed predictions: 17 held, 12 failed, 6 in between, 2 void. A void is a sealed prediction that could
+  not be scored as sealed; it counts neither for nor against the record.
+  (1) [GST rises](/economics/2026-09-08/). Was: "Failed. The 2023 and 2024 estimates would agree within 0.3 points. Result: 0.45 apart." Now: "Void. The 2023 and 2024 estimates would agree within 0.3 points. Result: not scored, because the current index changed its basket in January 2024, so that year's step mixes the tax rise with the basket change. On All Items, which includes GST-exempt rents, they were 0.45 apart, which would have been Neither; on All Items less accommodation, 0.086 apart (not a re-run, not scored)." Why: the two years cannot be compared as the
+  prediction was sealed, because the index changed its basket between them.
+  (2) [GST rises](/economics/2026-09-08/). Was: "Failed. Januaries with no tax change would show no step. Result: they showed steps as large as the tax, so no national figure for how much of the GST reached prices could be published." Now: "Failed. Januaries with no tax change would show no step. Result: the five sealed Januaries without a tax change (2019, 2020, 2022, 2025 and 2026) moved by amounts similar to 2023 and 2024, so the tax years could not be told apart from them, and no national figure for how much of the GST reached prices could be published." Why: the verdict stands; the old result words
+  did not say which Januaries the sealed test covers, and "as large as the tax" said more than
+  the test shows.
+  (3) [Minimum wage or the Progressive Wage Model](/economics/2026-10-31/). Was: "Not scored. The fourth bet, that employment in the covered industries held up: no public series qualifies (THESIS section 4), so it is not counted above." Now: "Void. The fourth bet, that employment in the covered industries held up: no public series qualifies (THESIS section 4), so it could not be scored." Why: this bet was listed as not scored and left
+  out of the count; the same rule now applies to it as to the first, so it is a void and is
+  counted as sealed.
 - **19 November 2026.** [GST rises](/economics/2026-09-08/). One sentence set "a 0.93 per cent signal" against "0.61 per cent of
   noise". The 0.93 per cent is the price step for a taxed item; the 0.61 per cent is the noise
   of the All Items index, for which full pass-through is 0.66 to 0.75 per cent, as the article
