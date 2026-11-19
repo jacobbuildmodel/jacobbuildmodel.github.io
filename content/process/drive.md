@@ -14,6 +14,7 @@ hidemeta: true
 # Reworded on 19 Nov 2026 after three independent reads (WEBSITE folder,
 # office/smu_week_2026-11/reviews_D/); the opening paragraph is Jacob's
 # approved framing and was not touched.
+# 19 Nov 2026: the checker's fixes 2 to 6 (reviews/smu_week/prD_verify_2026-11-19.md), in its words.
 # Opening: Jacob's choice C with his own change (19 Nov 2026, DRIVEOPEN, MODERATOR_TO_MISSION.md
 # section 20), his words exactly, with a full stop at the end.
 # Changed on 19 Nov 2026 on the moderator's rulings (MODERATOR_TO_MISSION.md
@@ -49,25 +50,23 @@ Three cases where I overruled the AI:
 
 DRIVE runs as a loop. AI assistants, each with one job, collect public data and score each
 company's quality and valuation from its filed accounts, blind to what I own. Their findings are
-reconciled by the rank of the evidence: filed, company-stated, market, analyst. Candidates
-are ranked mechanically, and a blind critic argues against each one. I then decide, and
+reconciled by the rank of the evidence: filed, company-stated, market, analyst. Candidates are ranked mechanically, and a critic argues against each one. I then decide, and
 the decision is logged before its outcome is known. Four weeks later it is graded.
 
 {{< flow steps="Public data|Blind scoring|Reconcile|Rank and critic|My decision|Graded ledger" feedback="Lab tests and the weekly auditor|Changes to the method" >}}
-Figure 1. The six steps are the loop, in order. The dashed pair sits outside it and changes the method the steps follow.
+Figure 1. The six steps run in order. The dashed pair sits outside them and changes the method the steps follow, which closes the loop.
 {{< /flow >}}
 
 ## Integrity
 
-A system like this can fool its owner in five ways. Each has checks that reduce it:
+Here are five ways a system like this can fool its owner, each with checks that reduce it:
 
 - **Look-ahead.** Decisions and hypotheses are timestamped before outcomes, and AI scores
   are judged only on outcomes that come after the score is made.
 - **Leakage.** Roles run in separate sessions, and code stops the scorer seeing what I own.
-- **Overfitting.** Tests use companies the system never chose and the Holm correction for
-  multiple testing.
+- **Overfitting.** Tests use companies the system never chose and apply the Holm correction for multiple testing.
 - **Cherry-picking.** Ledgers are append-only, every decision is graded once its four
-  weeks are up, and counts are given before rates.
+  weeks are up, and the system's own reports give counts before rates.
 - **AI errors.** Every figure is checked against a primary filing. AI-written briefs have
   contained fabricated numbers, one overstated about 130-fold.
 
@@ -91,8 +90,7 @@ clearer, data-based way to evaluate companies than I had before.
 Over the long run, I hope the loop helps me find the trends that matter, with AI sifting
 more information than I could alone and every decision still mine. It has also given me
 my next question for economics: how to tell skill from luck in a short record of
-overlapping four-week outcomes. That means studying inference with overlapping
-observations, multiple-testing control and statistical power.
+overlapping four-week outcomes. That means studying inference with overlapping observations, multiple-testing control, statistical power and correction for selection.
 
 The facts about the system come from a summary its own AI wrote from its private records,
 as of 18 November 2026; the approach and the hopes are mine. AI drafted the page from
