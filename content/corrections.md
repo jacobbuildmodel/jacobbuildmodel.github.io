@@ -64,7 +64,8 @@ A fact, number or verdict was wrong.
   a spread of 6 to 7%". Numbers changed: no result; the figures quoted in those two sentences.
 - **20 November 2026.** [COE quota](/economics/2026-08-22/). "Two bidding exercises have run every month since
   2010" was wrong: none was held from April to June 2020, when bidding was paused. It now reads "Two bidding
-  exercises a month have run since 2010, except during a pause from April to June 2020." The count of 393
+  exercises a month have run since 2010, except during a pause from April to June 2020." For the same reason "has
+  done for sixteen years" now reads "has done since 2010, apart from the 2020 pause". The count of 393
   exercises in each category was taken from the data, which has no exercise in those months, so it stands.
   Numbers changed: none.
 - **20 November 2026.** [The record](/process/#record): three lines changed on Jacob's rulings, and the
