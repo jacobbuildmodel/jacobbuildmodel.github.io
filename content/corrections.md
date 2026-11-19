@@ -53,7 +53,7 @@ A fact, number or verdict was wrong.
   forecasting rule fitted before 2019 did no better than a coin flip for Category A after it."
   In the body, "an effect of 1% against a spread of 7%" now reads "an effect of about 1% against
   a spread of 6 to 7%". Numbers changed: no result; the figures quoted in those two sentences.
-- **19 November 2026.** [The record](/process/#record): three lines changed on Jacob's rulings, and the
+- **20 November 2026.** [The record](/process/#record): three lines changed on Jacob's rulings, and the
   count with them. The tally was 36 sealed predictions: 17 held, 13 failed, 6 in between. It is now
   37 sealed predictions: 17 held, 12 failed, 6 in between, 2 void. A void is a sealed prediction that could
   not be scored as sealed; it counts neither for nor against the record.
@@ -65,7 +65,7 @@ A fact, number or verdict was wrong.
   (3) [Minimum wage or the Progressive Wage Model](/economics/2026-10-31/). Was: "Not scored. The fourth bet, that employment in the covered industries held up: no public series qualifies (THESIS section 4), so it is not counted above." Now: "Void. The fourth bet, that employment in the covered industries held up: no public series qualifies (THESIS section 4), so it could not be scored." Why: this bet was listed as not scored and left
   out of the count; the same rule now applies to it as to the first, so it is a void and is
   counted as sealed.
-- **19 November 2026.** [GST rises](/economics/2026-09-08/). One sentence set "a 0.93 per cent signal" against "0.61 per cent of
+- **20 November 2026.** [GST rises](/economics/2026-09-08/). One sentence set "a 0.93 per cent signal" against "0.61 per cent of
   noise". The 0.93 per cent is the price step for a taxed item; the 0.61 per cent is the noise
   of the All Items index, for which full pass-through is 0.66 to 0.75 per cent, as the article
   says further down. The sentence now gives 0.66 to 0.75. Another said the method "says nothing
@@ -73,7 +73,7 @@ A fact, number or verdict was wrong.
   price series (32 of 162 hold still), not a share of spending, so it now reads "the four fifths
   of the 162 price series", and the heading "The 80 per cent I cannot see" is gone. Numbers
   changed: no result; the two figures quoted in those sentences.
-- **19 November 2026.** [COE quota](/economics/2026-08-22/). The last paragraph said: "The thing to watch is the gap between quota growth
+- **20 November 2026.** [COE quota](/economics/2026-08-22/). The last paragraph said: "The thing to watch is the gap between quota growth
   and bid growth. As long as bidding grows faster, the premium keeps rising whatever the quota
   does." That is wrong on the article's own data, and it contradicts the article's finding that
   the quota lever works. The paragraph now reads: "Bids per certificate do not settle the
@@ -135,21 +135,21 @@ Wording made more accurate, meaning unchanged.
   the first two pages (their verdicts, numbers and scores are in the first paragraph and the
   line under the title); and the sentences that pointed to the scorecard and the list of open
   questions. None was wrong. Numbers changed: none.
-- **19 November 2026.** [GST rises](/economics/2026-09-08/). "In prices that change for no other reason" now reads "In prices that
+- **20 November 2026.** [GST rises](/economics/2026-09-08/). "In prices that change for no other reason" now reads "In prices that
   rarely move in January": other prices also moved in those two Januaries. Numbers changed: none.
-- **19 November 2026.** [COE quota](/economics/2026-08-22/). Two sentences that pointed to "the section on what would prove this wrong" now
+- **20 November 2026.** [COE quota](/economics/2026-08-22/). Two sentences that pointed to "the section on what would prove this wrong" now
   point to "the section on the limits", its new heading. Sentences taken out when the page was
   rearranged: the opening quote and the six paragraphs after it; "Start with the picture. Both
   series indexed to 100 in 2010, on one axis, so the shapes can be compared directly." None was
   wrong; the first paragraph and the chart that now leads the page carry what they said. Numbers
   changed: none.
-- **19 November 2026.** [COE quota](/economics/2026-08-22/). "Publishes the number three months at a time, one quarter ahead" and "The
+- **20 November 2026.** [COE quota](/economics/2026-08-22/). "Publishes the number three months at a time, one quarter ahead" and "The
   quota is announced a quarter ahead" now read "shortly before each quarter begins". The quota
   for August to October 2026 was announced on 24 July 2026, and bidding under it began on 3
   August ([LTA](https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/7/news-releases/coe_quota_aug26-oct26.html)).
   The argument needs only that the quota is announced before the quarter's bidding, which holds.
   Numbers changed: none.
-- **19 November 2026.** [Minimum wage or the Progressive Wage Model](/economics/2026-10-31/). Taken out when the page was rearranged: its three opening paragraphs (the
+- **20 November 2026.** [Minimum wage or the Progressive Wage Model](/economics/2026-10-31/). Taken out when the page was rearranged: its three opening paragraphs (the
   first rung in 2017, 2018 and 2022 is told once, in its own section), the box at the top
   (its verdict, number and score are in the first paragraph and the line under the title), and
   the sentence pointing to the list of open questions, which is now part of the Projects page.
@@ -202,7 +202,7 @@ unchanged.
   two charts changed places and their captions were renumbered. The open-question pages of 26
   September and 3 October 2026 are now printed, word for word, inside their projects, and their
   addresses lead there. Numbers changed: none.
-- **19 November 2026.** [COE quota](/economics/2026-08-22/), [GST rises](/economics/2026-09-08/) and [Minimum wage or the Progressive Wage Model](/economics/2026-10-31/) moved to the project layout: a first paragraph with the question and the answer,
+- **20 November 2026.** [COE quota](/economics/2026-08-22/), [GST rises](/economics/2026-09-08/) and [Minimum wage or the Progressive Wage Model](/economics/2026-10-31/) moved to the project layout: a first paragraph with the question and the answer,
   the main chart, the mechanism, the evidence, and one closed block holding the method, the
   data and the sealed predictions. Headlines changed: "The COE quota went up 62%. Prices nearly
   quadrupled anyway." to "Since 2010 the Category A COE quota has gone up 62%. The premium has nearly quadrupled anyway."; "Water bills show about the full GST rise.
