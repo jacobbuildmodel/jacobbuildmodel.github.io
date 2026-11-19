@@ -1,5 +1,5 @@
 ---
-title: "DRIVE: how I research listed companies with AI, each decision logged before its outcome is known"
+title: "DRIVE: how I research listed companies with AI"
 description: "A private system I built with AI to study listed companies. I make every decision, and each is logged before its outcome is known and graded four weeks later."
 date: 2026-11-18
 showToc: false
@@ -14,6 +14,9 @@ hidemeta: true
 # Reworded on 19 Nov 2026 after three independent reads (WEBSITE folder,
 # office/smu_week_2026-11/reviews_D/); the opening paragraph is Jacob's
 # approved framing and was not touched.
+# Changed on 19 Nov 2026 on the moderator's rulings (MODERATOR_TO_MISSION.md
+# section 18): the shorter title; the two comparisons out of the grading
+# sentence; three terms the summary does not explain taken out.
 ---
 
 My approach to markets rests on three ideas: trend, growth and fundamentals. DRIVE is the
@@ -43,11 +46,10 @@ Three cases where I overruled the AI:
 ## How it works
 
 DRIVE runs as a loop. AI assistants, each with one job, collect public data and score each
-company's quality and valuation blind, from its filed accounts. Their findings are
+company's quality and valuation from its filed accounts, blind to what I own. Their findings are
 reconciled by the rank of the evidence: filed, company-stated, market, analyst. Candidates
 are ranked mechanically, and a blind critic argues against each one. I then decide, and
-the decision is logged before its outcome is known. Four weeks later it is graded against
-doing nothing and against a plain mechanical screen.
+the decision is logged before its outcome is known. Four weeks later it is graded.
 
 {{< flow steps="Public data|Blind scoring|Reconcile|Rank and critic|My decision|Graded ledger" feedback="Lab tests and the weekly auditor|Changes to the method" >}}
 Figure 1. The six steps are the loop, in order. The dashed pair sits outside it and changes the method the steps follow.
@@ -60,8 +62,8 @@ A system like this can fool its owner in five ways. Each has checks that reduce 
 - **Look-ahead.** Decisions and hypotheses are timestamped before outcomes, and AI scores
   are judged only on outcomes that come after the score is made.
 - **Leakage.** Roles run in separate sessions, and code stops the scorer seeing what I own.
-- **Overfitting.** Tests use companies the system never chose, split samples, a random
-  control and the Holm correction for multiple testing.
+- **Overfitting.** Tests use companies the system never chose and the Holm correction for
+  multiple testing.
 - **Cherry-picking.** Ledgers are append-only, every decision is graded once its four
   weeks are up, and counts are given before rates.
 - **AI errors.** Every figure is checked against a primary filing. AI-written briefs have
@@ -72,7 +74,7 @@ A system like this can fool its owner in five ways. Each has checks that reduce 
 An integrity gate runs at the start of every session, and a failure stops work. A weekly
 auditor reads the files, never the conversation. Methods change only through the lab: the
 hypothesis, the decision rule and the deadline are hashed before the test's data is
-opened, and blind replication and adversarial review follow. A test that passes as
+opened, and replication and adversarial review follow. A test that passes as
 registered still has to survive replication.
 
 ## What it gives me
