@@ -314,10 +314,10 @@ result.
 
 ## A second system
 
-I also direct DRIVE, a private system I built with AI to research listed companies. As on
-this site, a call is written down before its outcome is known, the roles are kept apart,
-and every call is graded. Its records are private, and it is personal research, not
-advice. [How DRIVE works](/process/drive/).
+I also direct DRIVE, a private system I built with AI to study listed companies. In it, a
+decision is written down before its outcome is known, the roles run in separate sessions,
+and every decision is graded once its four weeks are up. Its records are private, and it
+is personal research, not advice. [How DRIVE works](/process/drive/).
 
 ## Scope and limits
 
