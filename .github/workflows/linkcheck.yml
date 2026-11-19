@@ -82,6 +82,12 @@ jobs:
           hugo --gc --minify --buildFuture -d public-future
           git diff --exit-code -- go.mod go.sum
 
+      # Jacob, 19 Nov 2026 (SCOPE): How I work's "Scope and limits" line keeps the
+      # published "No policy recommendations" paragraph until a project's "My view"
+      # is live, then carries his sentence. Fails if the two disagree.
+      - name: Check the Scope line against live views
+        run: python scripts/check_scope_line.py public
+
       - name: Check links
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
