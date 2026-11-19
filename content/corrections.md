@@ -14,9 +14,9 @@ only when they correct or clarify something said before. Numbers are never chang
 
 A fact, number or verdict was wrong.
 
-- **20 November 2026.** [The record](/process/#record): four lines changed on Jacob's rulings, all on
+- **20 November 2026.** [The record](/process/#record): four lines changed, three of them in verdict, on Jacob's rulings, all on
   [HDB affordability](/economics/2026-09-19/), and the count with them. The tally was 37 sealed predictions: 17 held, 12 failed, 6 in
-  between, 2 void. It is now 37 sealed predictions: 19 held, 11 failed, 5 in between, 2 void.
+  between, 2 void. It is now 37 sealed predictions: 19 held, 10 failed, 6 in between, 2 void.
   (1) Was: "Neither. Grants would cover more than 40 per cent of the price rise for a lower-income buyer. Result: 17 per cent, short of the pass line, above the fail line." Now: "Held. Grants would cover more than 40 per cent of the price rise for a lower-income buyer. Result: measured from 2013, 51.6 per cent." Why: the first result was measured from 2019, because the
   income ceiling of the grant in force before then had not been found in a primary document. It
   was found after publication (5,000 dollars; HDB, 6 February 2009), so the test is now measured
@@ -28,16 +28,25 @@ A fact, number or verdict was wrong.
   that meets both lines is recorded as Neither, and the definition of Neither on the record now
   says so.
   (3) Was: "Failed. Grants would fully offset the price rise for lower-income buyers. Result: their repayment share rose 9.3 points." Now: "Held. Grants would fully offset the price rise for lower-income buyers. Result: measured from 2013, their repayment share fell from 60.4 to 47.1 per cent." Why: the same change of starting year.
-  (4) Was: "Neither. Two correction methods would agree within 2 points. Result: 2.5 points apart." Now: "Failed. Two correction methods would agree within 2 points. Result: 5.7 points apart with method B built as sealed, past the 5-point fail line, where the seal says a range is published instead of a single constant-quality number." Why: the first result compared the two methods with the
-  second built on cells and a base year other than the sealed ones. Built as sealed, the two are
-  5.7 points apart.
-- **20 November 2026.** [HDB affordability](/economics/2026-09-19/). Three sentences were wrong. The proportional rises in the repayment
-  burden were given as "24.6 per cent, 10.2 per cent and 4.9 per cent" for buyers at the 20th,
-  50th and 80th percentiles; they are 24.7, 9.7 and 5.4 per cent. "For that buyer grants had
-  already covered the deposit in full" held only until 2024, and now says so. And the older
-  grant's income ceiling, which the article said "could not be found in any primary document",
-  was found after publication: 5,000 dollars (HDB, 6 February 2009). Numbers changed: the three
-  proportional rises; no result.
+  (4) Was: "Neither. Two correction methods would agree within 2 points. Result: 2.5 points apart." Now: "Neither. Two correction methods would agree within 2 points. Result: 4.8 points apart with method B built as sealed, between the pass and fail lines; most other reasonable cell choices put it past the 5-point fail line." Why: the first result compared the two methods with the
+  second built on cells and a base year other than the sealed ones. Built as sealed, a Laspeyres
+  index of the cells' median prices with 2017 weights, the two are 4.8 points apart.
+- **20 November 2026.** [HDB affordability](/economics/2026-09-19/). The first version measured the grant tests from 2019, because the older grant's income ceiling
+  had not been found in a primary document. It has been found (HDB, 6 February 2009), so the tests
+  now run from 2013, the first year of the window, as sealed. Measured from 2013, grants covered
+  51.6 per cent of the price rise, not 17; the 20th-percentile buyer's repayment share fell from
+  60.4 to 47.1 per cent (45.4 on method B), where the first version had it rising from 37.8; and
+  the low-income buyer's change is 10.3 points smaller than the high-income buyer's, not 8.8
+  points larger. The first version also gave 37.9 per cent for the fixed-basket method, from cells
+  not built as sealed. Built as sealed, a Laspeyres index of the cells' median prices with 2017
+  weights, it gives 35.6 per cent: 4.8 points from the hedonic 40.4, between the pre-registered
+  lines for agreement and failure, though most other cell choices, tried after the result, put it
+  past 5. Four score lines changed, three of them in verdict; the scorecard and the corrections
+  page list them.
+  Two more sentences were wrong. The proportional rises in the repayment burden were given as
+  "24.6 per cent, 10.2 per cent and 4.9 per cent" for buyers at the 20th, 50th and 80th
+  percentiles; they are 24.7, 9.7 and 5.4 per cent. "For that buyer grants had already covered
+  the deposit in full" held only until 2024, and now says so. Numbers changed: those named here.
 - **20 November 2026.** [HDB loan or bank loan](/economics/2026-10-03/). Two sentences claimed more than the numbers show. "That is the floor every one
   of them cleared here" now reads "that is roughly the floor every January start cleared here,
   on every reset interval tested": the margin was computed for loans starting in January. "It
