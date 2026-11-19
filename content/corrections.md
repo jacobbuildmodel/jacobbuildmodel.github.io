@@ -214,7 +214,7 @@ unchanged.
 - **20 November 2026.** [COE quota](/economics/2026-08-22/), [GST rises](/economics/2026-09-08/) and [Minimum wage or the Progressive Wage Model](/economics/2026-10-31/) moved to the project layout: a first paragraph with the question and the answer,
   the main chart, the mechanism, the evidence, and one closed block holding the method, the
   data and the sealed predictions. Headlines changed: "The COE quota went up 62%. Prices nearly
-  quadrupled anyway." to "Since 2010 the Category A COE quota has gone up 62%. The premium has nearly quadrupled anyway."; "Water bills show about the full GST rise.
+  quadrupled anyway." to "Since 2010 the Category A COE quota rose 62% and the premium 287%. The quota alone implies a 14% fall."; "Water bills show about the full GST rise.
   The national price index cannot see it." to "The 2023 and 2024 GST rises reached water prices in full; headline CPI is too noisy to show either"; "For low-paid
   gardeners, the floor became the pay" to "Landscape workers' bottom pay rose about a quarter more than in low-paid jobs without a wage ladder". Charts are in a new order
   on the first two pages and their captions renumbered. The open-question page of 28 September
