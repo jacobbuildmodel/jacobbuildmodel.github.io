@@ -14,14 +14,16 @@ hidemeta: true
 # Reworded on 19 Nov 2026 after three independent reads (WEBSITE folder,
 # office/smu_week_2026-11/reviews_D/); the opening paragraph is Jacob's
 # approved framing and was not touched.
+# Opening: Jacob's choice C with his own change (19 Nov 2026, DRIVEOPEN, MODERATOR_TO_MISSION.md
+# section 20), his words exactly, with a full stop at the end.
 # Changed on 19 Nov 2026 on the moderator's rulings (MODERATOR_TO_MISSION.md
 # section 18): the shorter title; the two comparisons out of the grading
 # sentence; three terms the summary does not explain taken out.
 ---
 
-My approach to markets rests on three ideas: trend, growth and fundamentals. DRIVE is the
-system I built with AI to study listed companies in that light, with data instead of gut
-feel. I set its goals and rules, and every decision is mine.
+My approach to markets rests on three ideas: trend, growth and fundamentals. My portfolio
+model is the system I built with AI to bring data to that approach. It scores listed
+companies on the quality and valuation shown in their filings, and every decision is mine.
 
 DRIVE is private. Its code and records are not published, so a reader cannot check what
 this page says. It is personal research, not advice to anyone.
