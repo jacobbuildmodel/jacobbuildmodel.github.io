@@ -66,7 +66,7 @@ done, and I want to learn the economics properly so that I can direct it well.
 
 It also came with a lesson. Nearly every rule on the How I work page exists
 because an early version of one of these systems produced something fluent and
-wrong. The rules are what's left after that. Two such lapses are set out under [Lapses on record](/process/#lapses).
+wrong. The rules are what's left after that. Two lapses that changed the rules are set out under [Lapses on record](/process/#lapses).
 
 I define the objectives, formulate the hypotheses, design the architecture, establish the analytical
 frameworks and set the standards for evidence and accuracy. AI agents serve as my research and
