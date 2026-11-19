@@ -50,11 +50,11 @@ Three cases where I overruled the AI:
 
 DRIVE runs as a loop. AI assistants, each with one job, collect public data and score each
 company's quality and valuation from its filed accounts, blind to what I own. Their findings are
-reconciled by the rank of the evidence: filed, company-stated, market, analyst. Candidates are ranked mechanically, and a critic argues against each one. I then decide, and
+reconciled by the rank of the evidence: filed, company-stated, market, analyst. Candidates are ranked mechanically, and a critic then argues against each one. I then decide, and
 the decision is logged before its outcome is known. Four weeks later it is graded.
 
 {{< flow steps="Public data|Blind scoring|Reconcile|Rank and critic|My decision|Graded ledger" feedback="Lab tests and the weekly auditor|Changes to the method" >}}
-Figure 1. The six steps run in order. The dashed pair sits outside them and changes the method the steps follow, which closes the loop.
+Figure 1. The six steps run in order. The dashed pair sits outside them and changes the method the steps follow.
 {{< /flow >}}
 
 ## Integrity
