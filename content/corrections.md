@@ -33,7 +33,7 @@ A fact, number or verdict was wrong.
   5.7 points apart.
 - **20 November 2026.** [HDB affordability](/economics/2026-09-19/). Three sentences were wrong. The proportional rises in the repayment
   burden were given as "24.6 per cent, 10.2 per cent and 4.9 per cent" for buyers at the 20th,
-  50th and 80th percentiles; they are 24.7, 9.8 and 5.4 per cent. "For that buyer grants had
+  50th and 80th percentiles; they are 24.7, 9.7 and 5.4 per cent. "For that buyer grants had
   already covered the deposit in full" held only until 2024, and now says so. And the older
   grant's income ceiling, which the article said "could not be found in any primary document",
   was found after publication: 5,000 dollars (HDB, 6 February 2009). Numbers changed: the three
