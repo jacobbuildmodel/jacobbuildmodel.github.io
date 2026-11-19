@@ -204,9 +204,9 @@ unchanged.
   about a quarter more crowded. Speeds held." to "From 2005 to 2017 roads got about a quarter more crowded. Peak speeds held."; "2021-25: the yen fell
   further than the Singapore dollar rose" to "Nearly three-quarters of the Singapore dollar's 2021-25 rise against the yen was the yen's own fall"; "A four-room flat takes
   fewer years of income than in 2013" to "A four-room resale flat takes fewer years of income than in 2013, and more than in 2019"; "Early HDB loans lost to any
-  bank charging under 1.4 points" to "HDB loans begun in 2010-2015 cost more than a bank loan under 1.4 points over SORA would have"; "Perfect COE timing is worth
-  $1,840. Nobody has it." to "A small round effect: the month's second COE round clears about 1% higher in Categories B and E"; "Two in three COE bids win. It is not a
-  lottery." to "Across years since 2010, the Category A COE premium varied 3.9-fold and the bid win rate 1.4-fold"; "Motorcycle COEs fell 17%. Car COEs rose 43%." to
+  bank charging under 1.4 points" to "The HDB loan's 2.6% sat above compounded SORA for over a decade, then below it for 28 months"; "Perfect COE timing is worth
+  $1,840. Nobody has it." to "Perfect timing between a month's two COE rounds is worth about 2% of a Category A premium on average"; "Two in three COE bids win. It is not a
+  lottery." to "Two in three Category A COE bids win: between 54% and 75% in every year since 2010"; "Motorcycle COEs fell 17%. Car COEs rose 43%." to
   "Motorcycle COE premiums fell 17% since 2022, in the only category where bidding did not grow". Section headings now state their finding. On the HDB loan page the
   two charts changed places and their captions were renumbered. The open-question pages of 26
   September and 3 October 2026 are now printed, word for word, inside their projects, and their

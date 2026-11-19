@@ -60,7 +60,7 @@ and a flat 50 per cent on everything scores 0.25.
 
 ## Tokyo got cheaper. Did Singapore get richer?
 
-[2021-25: the yen fell further than the Singapore dollar rose](/economics/2026-11-14/).
+[Nearly three-quarters of the Singapore dollar's 2021-25 rise against the yen was the yen's own fall](/economics/2026-11-14/).
 Sealed 3 October 2026. Revisit 14 November 2027.
 
 - **Failed.** At least half of the Singapore dollar's rise against the ringgit
@@ -116,7 +116,7 @@ Sealed 28 September 2026. Revisit 31 October 2027.
 
 ## COE or ERP: which one actually keeps Singapore's roads moving?
 
-[Roads got about a quarter more crowded. Speeds held.](/economics/2026-10-17/)
+[From 2005 to 2017 roads got about a quarter more crowded. Peak speeds held.](/economics/2026-10-17/)
 Sealed 26 September 2026. Revisit 17 October 2027.
 
 - **Failed.** Every scored year's average peak speed would sit inside the Land
@@ -137,7 +137,7 @@ Sealed 26 September 2026. Revisit 17 October 2027.
 
 ## Was the HDB loan really cheaper than a bank's?
 
-[Early HDB loans lost to any bank charging under 1.4 points](/economics/2026-10-03/).
+[The HDB loan's 2.6% sat above compounded SORA for over a decade, then below it for 28 months](/economics/2026-10-03/).
 Sealed 17 September 2026. Revisit 3 October 2027.
 
 - **Held.** Borrowers who started in 2010-2015 needed a bigger bank margin to break
@@ -161,7 +161,7 @@ Sealed 17 September 2026. Revisit 3 October 2027.
 
 ## Is an HDB flat really harder to afford than it used to be? {#is-an-hdb-flat-really-harder-to-afford-than-a-decade-ago}
 
-[A four-room flat takes fewer years of income than in 2013](/economics/2026-09-19/).
+[A four-room resale flat takes fewer years of income than in 2013, and more than in 2019](/economics/2026-09-19/).
 Sealed 11 September 2026. Revisit 19 September 2027.
 
 - **Neither.** From 2013, years of income for a four-room flat would rise by more
