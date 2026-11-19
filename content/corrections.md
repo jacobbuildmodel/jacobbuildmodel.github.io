@@ -215,7 +215,7 @@ unchanged.
   the main chart, the mechanism, the evidence, and one closed block holding the method, the
   data and the sealed predictions. Headlines changed: "The COE quota went up 62%. Prices nearly
   quadrupled anyway." to "Since 2010 the Category A COE quota has gone up 62%. The premium has nearly quadrupled anyway."; "Water bills show about the full GST rise.
-  The national price index cannot see it." to "GST pass-through was about full in water prices; headline CPI could not detect either rise"; "For low-paid
+  The national price index cannot see it." to "The 2023 and 2024 GST rises reached water prices in full; headline CPI is too noisy to show either"; "For low-paid
   gardeners, the floor became the pay" to "Landscape workers' bottom pay rose about a quarter more than in low-paid jobs without a wage ladder". Charts are in a new order
   on the first two pages and their captions renumbered. The open-question page of 28 September
   2026 is now printed, word for word, inside the third page, and its address leads there.

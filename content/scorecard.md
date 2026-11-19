@@ -91,7 +91,7 @@ Sealed 3 October 2026. Revisit 14 November 2027.
 
 ## Minimum wage or the Progressive Wage Model: which actually lifts Singapore's lowest pay?
 
-[For low-paid gardeners, the floor became the pay](/economics/2026-10-31/).
+[Landscape workers' bottom pay rose about a quarter more than in low-paid jobs without a wage ladder](/economics/2026-10-31/).
 Sealed 28 September 2026. Revisit 31 October 2027.
 
 - **Failed.** Before the ladders, bottom pay in each covered job would track
@@ -186,7 +186,7 @@ Sealed 11 September 2026. Revisit 19 September 2027.
 
 ## Where did the GST rises actually show up in prices?
 
-[Water bills show about the full GST rise. The national price index cannot see it](/economics/2026-09-08/).
+[The 2023 and 2024 GST rises reached water prices in full; headline CPI is too noisy to show either](/economics/2026-09-08/).
 Sealed 4 September 2026. Revisit 8 September 2027.
 
 - **Failed.** Taxed and untaxed prices moved in parallel before the rises, so they
