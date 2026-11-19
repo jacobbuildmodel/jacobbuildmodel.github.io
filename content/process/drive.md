@@ -26,7 +26,7 @@ My approach to markets rests on three ideas: trend, growth and fundamentals. My 
 model is the system I built with AI to bring data to that approach. It scores listed
 companies on the quality and valuation shown in their filings, and every decision is mine.
 
-DRIVE is private. Its code and records are not published, so a reader cannot check what
+DRIVE, as the model is called, is private. Its code and records are not published, so a reader cannot check what
 this page says. It is personal research, not advice to anyone.
 
 ## My role
