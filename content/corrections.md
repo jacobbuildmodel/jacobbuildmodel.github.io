@@ -149,6 +149,9 @@ Wording made more accurate, meaning unchanged.
   the first two pages (their verdicts, numbers and scores are in the first paragraph and the
   line under the title); and the sentences that pointed to the scorecard and the list of open
   questions. None was wrong. Numbers changed: none.
+- **20 November 2026.** [COE quota](/economics/2026-08-22/). "393 of these experiments" now reads "393 of these
+  auctions", and "except the experiment runs twice a month" now reads "except the auction runs twice a month":
+  the quotas were not set at random, so the word experiment overstated the design. Numbers changed: none.
 - **20 November 2026.** [GST rises](/economics/2026-09-08/). "In prices that change for no other reason" now reads "In prices that
   rarely move in January": other prices also moved in those two Januaries. Numbers changed: none.
 - **20 November 2026.** [COE quota](/economics/2026-08-22/). Two sentences that pointed to "the section on what would prove this wrong" now
