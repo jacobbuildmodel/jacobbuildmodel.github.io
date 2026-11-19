@@ -207,7 +207,7 @@ unchanged.
   bank charging under 1.4 points" to "The HDB loan's 2.6% sat above compounded SORA for over a decade, then below it for 28 months"; "Perfect COE timing is worth
   $1,840. Nobody has it." to "Perfect timing between a month's two COE rounds is worth about 2% of a Category A premium on average"; "Two in three COE bids win. It is not a
   lottery." to "Two in three Category A COE bids win: between 54% and 75% in every year since 2010"; "Motorcycle COEs fell 17%. Car COEs rose 43%." to
-  "Since 2022, motorcycle COE premiums fell 17% while Category A's rose 43%. Only motorcycle bids did not grow.". Section headings now state their finding. On the HDB loan page the
+  "Between 2022 and 2025-26, motorcycle COE premiums fell 17% while Category A's rose 43%. Only motorcycle bids did not grow.". Section headings now state their finding. On the HDB loan page the
   two charts changed places and their captions were renumbered. The open-question pages of 26
   September and 3 October 2026 are now printed, word for word, inside their projects, and their
   addresses lead there. Numbers changed: none.
