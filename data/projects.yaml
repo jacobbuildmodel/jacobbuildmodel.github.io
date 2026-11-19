@@ -31,7 +31,8 @@ rows:
     theme: Transport
     # 19 Nov 2026 (MODERATOR_TO_MISSION s41): two outside readers took "a rule tested out of sample" for a tradable
     # rule; the line now gives the page's Category A result ("picked the cheaper Category A exercise 52.3% of the time")
-    method: Paired comparison of the month's two bidding exercises; a forecasting rule picked the cheaper Category A exercise 52.3% of the time out of sample
+    # s42: shortened so the one-page PDF stays on one page (the moderator's choice (a))
+    method: Paired comparison of each month's two exercises; a rule picked the cheaper Category A one 52.3% of the time out of sample
   - path: /economics/2026-09-05
     theme: Transport
     method: Win rates and premiums across 393 bidding exercises
