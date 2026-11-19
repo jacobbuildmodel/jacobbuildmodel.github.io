@@ -2,7 +2,10 @@
 # labels from THESIS.md. Case-sensitive on purpose.
 # SORA was on this list until the SMU week of November 2026. It came off on the owner's rule
 # of 15 November 2026 (precise terms are used, not avoided), on the same condition as
-# "pass-through": a page that uses it spells it out once at first use.
+# "pass-through": a page that uses it spells it out once at first use. Jacob approved this on
+# 19 November 2026 ("Approve all four"). A title may use "SORA" without spelling it out where
+# the title prints without its page (the Projects index, the front page, the one-page PDF),
+# because the HDB loan page it names explains it.
 extends: existence
 message: "'%s' is jargon for this audience. Explain it where it appears, or say it plainly."
 level: error

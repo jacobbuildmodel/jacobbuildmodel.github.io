@@ -61,7 +61,18 @@ A fact, number or verdict was wrong.
   gap is about 1% and the month-to-month spread around it is five to six times that; the
   forecasting rule fitted before 2019 did no better than a coin flip for Category A after it."
   In the body, "an effect of 1% against a spread of 7%" now reads "an effect of about 1% against
-  a spread of 6 to 7%". Numbers changed: no result; the figures quoted in those two sentences.
+  a spread of 6 to 7%". The first chart's caption said "The mean is real"; for Category A the gap of 0.61% cannot be told from zero
+  (p = 0.18), and the caption now says so. Numbers changed: no result; the figures quoted in those two
+  sentences.
+- **20 November 2026.** [Motorcycle COEs](/economics/2026-09-12/). Three passages at the end
+  claimed more than the page tests. "Premiums there have fallen because bidding stopped growing" now reads
+  "Their premium fell while their bids stopped growing": the bidding file cannot say why. The paragraph that
+  began "That is the same finding as the quota piece" is removed: the page finds that bids per certificate do not
+  track the premium (a correlation under 0.16 in every category), the earlier project's estimate is that
+  motorcycle premiums move most with the quota, and the deposit rises of 2022 and 2023 fall in the same years, so
+  "without any policy change doing the work" was not shown. "The thing to watch is bids per exercise … It moves
+  first" is removed: no lead was tested. "The difference is not the quota. It is that nobody new turned up to
+  bid." is removed from the summary: the page does not show why the premium fell. Numbers changed: none.
 - **20 November 2026.** [COE quota](/economics/2026-08-22/). "Two bidding exercises have run every month since
   2010" was wrong: none was held from April to June 2020, when bidding was paused. It now reads "Two bidding
   exercises a month have run since 2010, except during a pause from April to June 2020." For the same reason "has
