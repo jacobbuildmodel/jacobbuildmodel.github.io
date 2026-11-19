@@ -17,7 +17,9 @@ rows:
     method: Regression with year fixed effects on a quota fixed before bidding
   - path: /economics/2026-09-08
     theme: Prices and tax
-    method: The January step against other Januaries; a difference-in-differences that failed its pre-trend test
+    # 19 Nov 2026 (MODERATOR_TO_MISSION s29): the three-minute read tied the water result to the failed
+    # difference-in-differences; the line now says which is which
+    method: Water's January step against its other Januaries; the sealed difference-in-differences failed its pre-trend test
   - path: /economics/2026-10-31
     theme: Work and pay
     method: Difference-in-differences across occupations
