@@ -1,8 +1,10 @@
 {{- /* layouts/shortcodes/answer.html: Jacob's answer inside {{< wwyd >}},
-   closed until the reader opens it. Prints nothing until the page's front
+   closed until the reader opens it, or shown open with open="true" (the
+   moderator, 19 Nov 2026: on the lead projects the answer meets the readers'
+   main objection, so it is not hidden). Prints nothing until the page's front
    matter says myview: true. SMU week, PR A, November 2026. */ -}}
 {{- if .Page.Params.myview }}
-<details class="wwyd-answer">
+<details class="wwyd-answer"{{ if eq (.Get "open") "true" }} open{{ end }}>
 <summary>What I would do</summary>
 {{ .Page.RenderString (dict "display" "block") .Inner }}
 </details>

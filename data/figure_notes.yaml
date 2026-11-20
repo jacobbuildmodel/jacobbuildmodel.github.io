@@ -13,6 +13,7 @@
 economics:
   "2026-08-22":
     changelog:
+      - "20 November 2026: moved to the project layout; three sentences corrected and six clarified (see Corrections); no result changed."
       - "29 October 2026: headline and opening quote corrected; no number changed."
       - "28 October 2026: Notes and Sources added under the figures; no number changed."
     figures:
@@ -32,6 +33,7 @@ economics:
       "/figs/winrate.svg": "Source: LTA, COE bidding results, via data.gov.sg, January 2010 to August 2026. Note: win rate is successful bids divided by bids received in each exercise; annual figures are means across that year's exercises, 15 in 2026 to August."
   "2026-09-08":
     changelog:
+      - "20 November 2026: moved to the project layout; two sentences corrected and one clarified; one scorecard line void and one reworded (see Corrections)."
       - "29 October 2026: headline and summary corrected, and one sentence limited to water; no number changed."
       - "28 October 2026: Notes and Sources added under the figures; no number changed."
     figures:
@@ -65,4 +67,6 @@ economics:
       "/figs/chart1_speed_vs_band.svg": "Source: LTA, Average Speed During Peak Hours, 2004-2025, and Annual Motor Vehicle Population by Vehicle Type and Length of Roads (Lane-Kilometres), 2005-2017, via data.gov.sg; target bands from the Ministry of Transport."
       "/figs/chart2_door_fee.svg": "Source: LTA, Average Annual Kilometres Travelled Per Vehicle, via data.gov.sg, 2005-2018; SingStat, Motor Vehicle Quota, Quota Premium And Prevailing Quota Premium, Monthly."
   "2026-10-31":
-    changelog: "10 November 2026: closing line reworded; no number changed."
+    changelog:
+      - "20 November 2026: moved to the project layout, with the sealed open-question page printed inside it; one scorecard line void (see Corrections)."
+      - "10 November 2026: closing line reworded; no number changed."

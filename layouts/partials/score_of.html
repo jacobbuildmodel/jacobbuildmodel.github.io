@@ -16,13 +16,16 @@
   {{- $h := len (findRE `<li>\s*<strong>Held` .) }}
   {{- $f := len (findRE `<li>\s*<strong>Failed` .) }}
   {{- $n := len (findRE `<li>\s*<strong>Neither` .) }}
-  {{- if and (gt (add $h $f $n) 0) (strings.Contains . $href) }}
-    {{- $t := add $h $f $n }}
+  {{- $v := len (findRE `<li>\s*<strong>Void` .) }}
+  {{- if and (gt (add $h $f $n $v) 0) (strings.Contains . $href) }}
+    {{- $t := add $h $f $n $v }}
     {{- $text := printf "%d held, %d failed" $h $f }}
     {{- if $n }}{{ $text = printf "%s, %d in between" $text $n }}{{ end }}
-    {{- $text = printf "%s of %d" $text $t }}
+    {{- /* With a void prediction the count reads "1 held, 3 failed, 1 in between, 1 void, of 6
+           sealed": the void is sealed and is in none of the three counts. */}}
+    {{- if $v }}{{ $text = printf "%s, %d void, of %d sealed" $text $v $t }}{{ else }}{{ $text = printf "%s of %d" $text $t }}{{ end }}
     {{- $m := index (findRESubmatch `(?s)</h2>(.*)$` . 1) 0 }}
-    {{- $out = dict "scored" true "held" $h "failed" $f "neither" $n "total" $t "text" $text "section" (index $m 1) }}
+    {{- $out = dict "scored" true "held" $h "failed" $f "neither" $n "void" $v "total" $t "text" $text "section" (index $m 1) }}
   {{- end }}
 {{- end }}
 {{- end }}

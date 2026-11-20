@@ -6,4 +6,7 @@ ignorecase: true
 tokens:
   - log points?
   - yardsticks?
-  - pass-through
+# "pass-through" was on this list until November 2026. It is the precise economic term for
+# what the GST project measures, and Jacob's instruction of 15 November 2026 is that precise
+# economic terms are used and not explained away. The two words above are not terms of art a
+# reader needs: they stay.

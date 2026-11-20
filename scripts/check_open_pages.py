@@ -22,7 +22,8 @@ Three checks:
    must carry a reason: line that is new or changed against <ref>, so an
    intentional edit to a sealed page shows in the diff with its why.
 3. The scorecard page (whichever content page's front matter has sealed, held,
-   failed and neither) satisfies sealed == held + failed + neither.
+   failed and neither) satisfies sealed == held + failed + neither, plus
+   void where the page has a void: line (a prediction ruled not scored).
 
 Exits 1 on any failure, printing one FAIL line per problem.
 """
@@ -160,9 +161,9 @@ def check_scorecard():
         values = {}
         for line in front:
             m = re.match(r"^([a-z]+):\s*(.*?)\s*(#.*)?$", line)
-            if m and m.group(1) in BAND:
+            if m and m.group(1) in BAND + ("void",):
                 values[m.group(1)] = unquote(m.group(2))
-        if set(values) == set(BAND):
+        if set(values) - {"void"} == set(BAND):
             found.append((page.as_posix(), values))
     if not found:
         return [f"FAIL no page under {CONTENT}/ has {', '.join(BAND)} "
@@ -174,9 +175,11 @@ def check_scorecard():
         except ValueError:
             fails.append(f"FAIL {key}: {values} are not all whole numbers")
             continue
-        total = n["held"] + n["failed"] + n["neither"]
+        void = n.get("void", 0)
+        total = n["held"] + n["failed"] + n["neither"] + void
         line = (f"{key}: sealed {n['sealed']}, held {n['held']} + failed "
-                f"{n['failed']} + neither {n['neither']} = {total}")
+                f"{n['failed']} + neither {n['neither']}"
+                + (f" + void {void}" if "void" in n else "") + f" = {total}")
         if n["sealed"] != total:
             fails.append(f"FAIL {line}")
         else:

@@ -50,16 +50,57 @@ class ChangedLines(unittest.TestCase):
     def test_count_left_out_means_one_line(self):
         self.assertEqual(vcl.changed_lines("+++ b/x.md\n@@ -4 +7 @@\n+new\n"), {"x.md": {7}})
 
-    def test_a_moved_line_is_an_old_line(self):
-        # two published lines move down the page; one of them is reworded on the way
+    def test_a_moved_paragraph_is_old_lines(self):
+        # a published two-line paragraph moves down the page, whole
+        diff = ("--- a/x.md\n+++ b/x.md\n"
+                "@@ -3,2 +2,0 @@\n-It should not be repeated.\n-A second line.\n"
+                "@@ -9,0 +8,2 @@\n+It should not be repeated.\n+A second line.\n")
+        self.assertEqual(vcl.changed_lines(diff), {"x.md": set()})
+
+    def test_one_new_line_makes_its_whole_paragraph_changed(self):
+        # the same move, but one line is reworded and one is new: nothing in the run is excused
         diff = ("--- a/x.md\n+++ b/x.md\n"
                 "@@ -3,2 +2,0 @@\n-It should not be repeated.\n-A second line.\n"
                 "@@ -9,0 +8,3 @@\n+A new line.\n+It should not be repeated.\n+A second line, reworded.\n")
-        self.assertEqual(vcl.changed_lines(diff), {"x.md": {8, 10}})
+        self.assertEqual(vcl.changed_lines(diff), {"x.md": {8, 9, 10}})
+
+    def test_a_blank_line_ends_a_paragraph(self):
+        # two paragraphs in one hunk: the moved one is excused, the new one is not
+        diff = ("--- a/x.md\n+++ b/x.md\n"
+                "@@ -3 +2,0 @@\n-A published line.\n"
+                "@@ -9,0 +8,3 @@\n+A published line.\n+\n+A new line.\n")
+        self.assertEqual(vcl.changed_lines(diff), {"x.md": {9, 10}})
 
     def test_one_removed_line_excuses_one_added_line(self):
         diff = "+++ b/x.md\n@@ -3 +3,2 @@\n-Same words.\n+Same words.\n+Same words.\n"
-        self.assertEqual(vcl.changed_lines(diff), {"x.md": {4}})
+        self.assertEqual(vcl.changed_lines(diff), {"x.md": {3, 4}})
+
+    def test_checker_plant_p4_a_moved_line_beside_a_new_one_is_blocked(self):
+        # prA_verify 18 Nov 2026, P4: "Nothing here says / you should sell your flat." becomes
+        # "Everything here says / you should sell your flat." lower down the page
+        diff = ("--- a/x.md\n+++ b/x.md\n"
+                "@@ -1,3 +0,0 @@\n-Nothing here says\n-you should sell your flat.\n-\n"
+                "@@ -6,0 +4,3 @@\n+\n+Everything here says\n+you should sell your flat.\n")
+        self.assertIn(6, vcl.changed_lines(diff)["x.md"])
+
+    def test_checker_plants_p1_p2_a_line_out_of_a_comment_or_a_code_fence_is_blocked(self):
+        s = "You should choose the cheaper loan."
+        body = "First paragraph.\nSecond paragraph.\nThird paragraph.\n"
+        for open_, close in (("<!--", "-->"), ("```", "```")):
+            base = body + "\n" + open_ + "\n" + s + "\n" + close + "\n"
+            diff = ("--- a/x.md\n+++ b/x.md\n@@ -0,0 +1,2 @@\n+" + s + "\n+\n"
+                    "@@ -4,4 +5,0 @@\n-\n-" + open_ + "\n-" + s + "\n-" + close + "\n")
+            self.assertEqual(vcl.hidden_lines(base), {5, 6, 7})
+            self.assertIn(1, vcl.changed_lines(diff)["x.md"])                      # seen in the diff alone
+            self.assertIn(1, vcl.changed_lines(diff, lambda path: base)["x.md"])
+            # the comment or fence stays and only the sentence leaves it: the base file shows where it sat
+            only = ("--- a/x.md\n+++ b/x.md\n@@ -0,0 +1,2 @@\n+" + s + "\n+\n@@ -6 +7,0 @@\n-" + s + "\n")
+            self.assertNotIn(1, vcl.changed_lines(only)["x.md"])                   # the diff alone cannot tell
+            self.assertIn(1, vcl.changed_lines(only, lambda path: base)["x.md"])
+        # a sentence that sat in the open text of the base and moves, whole, is a moved line
+        plain = body + "\nintro\n" + s + "\noutro\n"
+        moved = ("--- a/x.md\n+++ b/x.md\n@@ -0,0 +1,2 @@\n+" + s + "\n+\n@@ -6 +7,0 @@\n-" + s + "\n")
+        self.assertNotIn(1, vcl.changed_lines(moved, lambda path: plain)["x.md"])
 
     def test_a_blank_line_is_never_a_twin(self):
         diff = "+++ b/x.md\n@@ -3 +3,2 @@\n-\n+\n+new\n"

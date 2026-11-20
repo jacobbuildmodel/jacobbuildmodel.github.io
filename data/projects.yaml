@@ -2,7 +2,7 @@
 # SMU week, PR A, November 2026.
 #
 # One row per entry, in the order shown: the list is hand-ordered, not sorted
-# by date. The first three are the "Start here" projects.
+# by date. The first three are the "Start here" projects (COE quota, GST, the Progressive Wage Model: Jacob, 16 November 2026).
 #   path    the content page (found with site.GetPage; a moved page stops the build)
 #   theme   one of: Transport, Housing, Prices and tax, Work and pay, Exchange rate
 #   method  a few words naming the method, so the range of methods shows at a glance
@@ -17,7 +17,13 @@ rows:
     method: Regression with year fixed effects on a quota fixed before bidding
   - path: /economics/2026-09-08
     theme: Prices and tax
-    method: The January step against other Januaries; a difference-in-differences that failed its pre-trend test
+    # 19 Nov 2026 (MODERATOR_TO_MISSION s29, then s41 after the outside read of the PDF): the method alone; the
+    # failed difference-in-differences read as undercutting the water result
+    method: Water's January step against its other Januaries
+  - path: /economics/2026-10-31
+    theme: Work and pay
+    # 19 Nov 2026 (s41): what the two groups are
+    method: Difference-in-differences across occupations with and without the Progressive Wage Model's ladder
   - path: /economics/2026-10-17
     theme: Transport
     method: Four sealed tests on peak-hour speeds and cars per lane-kilometre
@@ -44,9 +50,6 @@ rows:
     theme: Housing
     method: Three sealed predictions; resale prices by distance from the centre
     kind: open
-  - path: /economics/2026-10-31
-    theme: Work and pay
-    method: Difference-in-differences across occupations
   - path: /economics/2026-11-14
     theme: Exchange rate
     method: Decomposition of a bilateral rate into two trade-weighted indices

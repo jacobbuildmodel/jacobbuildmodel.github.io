@@ -42,7 +42,7 @@ Every piece published so far, newest first.
   [Code](https://github.com/jacobbuildmodel/coe-analysis/tree/main/sgd)
 - **[For low-paid gardeners, the floor became the pay](/economics/2026-10-31/)**\
   *Minimum wage or the Progressive Wage Model: which actually lifts Singapore's lowest pay?*\
-  Published 31 October 2026. Of 4 predictions sealed on 28 September 2026, 3 held and 1 failed.
+  Published 31 October 2026. Of 5 predictions sealed on 28 September 2026, 3 held, 1 failed, and 1 is void.
   [Code](https://github.com/jacobbuildmodel/coe-analysis/tree/main/pwm)
 - **[Roads got about a quarter more crowded. Speeds held.](/economics/2026-10-17/)**\
   *COE or ERP: which one actually keeps Singapore's roads moving?*\
@@ -62,7 +62,7 @@ Every piece published so far, newest first.
   [Code](https://github.com/jacobbuildmodel/coe-analysis)
 - **[Water bills show about the full GST rise. The national price index cannot see it.](/economics/2026-09-08/)**\
   *Where did the GST rises actually show up in prices?*\
-  Published 8 September 2026. Of 6 predictions sealed on 4 September 2026, 1 held, 4 failed, and 1 landed in between.
+  Published 8 September 2026. Of 6 predictions sealed on 4 September 2026, 1 held, 3 failed, 1 landed in between, and 1 is void.
   [Code](https://github.com/jacobbuildmodel/gst-passthrough)
 - **[Two in three COE bids win. It is not a lottery.](/economics/2026-09-05/)**\
   *Is getting a COE just a lottery?*\

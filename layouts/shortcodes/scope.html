@@ -1,0 +1,16 @@
+{{- /* layouts/shortcodes/scope.html
+   {{< scope view="..." >}} the published paragraph {{< /scope >}}
+   The "Scope and limits" line on How I work. Until any project page says
+   myview: true (Jacob's own "My view" words are in), it prints the published
+   paragraph between the tags, word for word. From the first live view on, it
+   prints the sentence in view= instead. Jacob, 19 Nov 2026 (SCOPE): "Keep the
+   published paragraph until my first view is in ... Swap my sentence in
+   automatically with the first view." scripts/check_scope_line.py checks the
+   built site the other way round, from the pages' HTML, not from this logic.
+   SMU week, November 2026. */ -}}
+{{- $views := where site.RegularPages "Params.myview" true }}
+{{- if gt (len $views) 0 }}
+{{ .Page.RenderString (dict "display" "block") (.Get "view") }}
+{{- else }}
+{{ .Page.RenderString (dict "display" "block") (trim .Inner "\n") }}
+{{- end }}

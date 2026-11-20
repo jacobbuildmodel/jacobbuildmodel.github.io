@@ -25,22 +25,32 @@ A changed line is a "+" line of the unified diff: the new side of each hunk
 ("@@ -a,b +c,d @@" gives lines c to c+d-1; d is 1 when left out, and 0 for a
 hunk that only deletes). A file the diff adds is all changed lines.
 
-A moved line is an old line. When a page is rearranged, its paragraphs appear
-in the diff as "-" lines in one place and the same "+" lines in another. A "+"
-line whose text is also a "-" line of the same file was already published, so
-it is not counted as changed (one "-" line excuses one "+" line). A line that
-was reworded has no twin and is still a changed line. November 2026: moving
-the published paragraphs of three articles into a new layout turned the check
-red for words written months earlier.
+A moved paragraph is old lines. When a page is rearranged, its paragraphs
+appear in the diff as "-" lines in one place and the same "+" lines in another.
+A run of "+" lines (the "+" lines of one hunk between blank lines) is counted
+as moved, not changed, only when both of these hold:
+  - every non-blank line of the run is also a "-" line of the same file (one
+    "-" line excuses one "+" line), so the whole paragraph moved. One reworded
+    or new line makes the whole run changed lines: a published line set beside
+    a new one can say something new.
+  - none of those "-" lines sat inside an HTML comment or a code fence of the
+    base file, where no reader saw it and Vale never checked it. This needs
+    the base file: pass --base-ref (the pull request's base commit) and the
+    script reads it with git. Without --base-ref this second test is not run
+    and the report says so.
+November 2026: moving the published paragraphs of three articles into a new
+layout turned the check red for words written months earlier; the checker then
+showed three ways a new sentence could pass as a moved one (18 November).
 
 Standard library only. Tests: scripts/tests/test_vale_changed_lines.py.
 """
 import argparse
 import json
 import re
+import subprocess
 import sys
 
-HUNK = re.compile(r"^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@")
+HUNK = re.compile(r"^@@ -(\d+)(?:,\d+)? \+(\d+)(?:,(\d+))? @@")
 
 
 class InputError(Exception):
@@ -53,17 +63,47 @@ def norm(path):
     return path[2:] if path.startswith("./") else path
 
 
-def changed_lines(diff_text):
+def hidden_lines(text):
+    """Line numbers of a file that sit inside an HTML comment or a fenced code block."""
+    hidden, in_comment, fence = set(), False, None
+    for no, line in enumerate(text.splitlines(), 1):
+        stripped = line.strip()
+        if fence:
+            hidden.add(no)
+            if stripped.startswith(fence):
+                fence = None
+            continue
+        if in_comment:
+            hidden.add(no)
+            if "-->" in line:
+                in_comment = False
+            continue
+        m = re.match(r"(`{3,}|~{3,})", stripped)
+        if m:
+            fence = m.group(1)[0] * 3
+            hidden.add(no)
+            continue
+        if "<!--" in line:
+            hidden.add(no)
+            if "-->" not in line.split("<!--", 1)[1]:
+                in_comment = True
+    return hidden
+
+
+def changed_lines(diff_text, base_text=None):
     """{path: set of line numbers on the new side} from `git diff -U0` output.
 
-    A "+" line whose text is also a "-" line of the same file (a moved line) is
-    left out; see the module docstring.
+    A run of "+" lines that is a moved paragraph is left out; see the module
+    docstring. base_text, when given, is a function from a path to the base
+    file's text (or None): a "-" line inside a comment or a code fence of that
+    file is no twin.
     """
     changed = {}
-    added = {}        # path -> [(line number, text)]
-    removed = {}      # path -> {text: how many "-" lines carry it}
+    added = {}        # path -> [(hunk index, line number, text)]
+    removed = {}      # path -> [(old line number, text)]
     current = None
-    next_no = None
+    next_no = old_no = None
+    hunk = 0
     for line in diff_text.splitlines():
         if line.startswith("--- "):
             continue
@@ -75,31 +115,62 @@ def changed_lines(diff_text):
                 current = norm(target[2:] if target.startswith("b/") else target)
                 changed.setdefault(current, set())
                 added.setdefault(current, [])
-                removed.setdefault(current, {})
-            next_no = None
+                removed.setdefault(current, [])
+            next_no = old_no = None
             continue
         m = HUNK.match(line)
         if m and current is not None:
-            start = int(m.group(1))
-            count = 1 if m.group(2) is None else int(m.group(2))
+            start = int(m.group(2))
+            count = 1 if m.group(3) is None else int(m.group(3))
             changed[current].update(range(start, start + count))
-            next_no = start
+            next_no, old_no = start, int(m.group(1))
+            hunk += 1
             continue
         if current is None:
             continue
-        if line.startswith("-"):
-            text = line[1:].strip()
-            if text:
-                removed[current][text] = removed[current].get(text, 0) + 1
+        if line.startswith("-") and old_no is not None:
+            removed[current].append((hunk, old_no, line[1:].strip()))
+            old_no += 1
         elif line.startswith("+") and next_no is not None:
-            added[current].append((next_no, line[1:].strip()))
+            added[current].append((hunk, next_no, line[1:].strip()))
             next_no += 1
     for path, lines in added.items():
-        left = dict(removed[path])
-        for no, text in lines:
-            if text and left.get(text, 0) > 0:
-                left[text] -= 1
-                changed[path].discard(no)
+        hidden = set()
+        if base_text is not None:
+            text = base_text(path)
+            hidden = hidden_lines(text) if text else set()
+        # The diff alone already shows a comment or a fence that was removed whole: its markers are
+        # "-" lines of the same hunk. (The base file, when given, also covers one that stays.)
+        by_hunk = {}
+        for h, no, text in removed[path]:
+            by_hunk.setdefault(h, []).append((no, text))
+        for items in by_hunk.values():
+            inside = hidden_lines("\n".join(text for _, text in items))
+            hidden.update(items[i - 1][0] for i in inside)
+        left = {}
+        for _, no, text in removed[path]:
+            if text and no not in hidden:
+                left[text] = left.get(text, 0) + 1
+        # runs: the "+" lines of one hunk, cut at blank lines
+        runs, run, last = [], [], None
+        for h, no, text in lines:
+            if not text or (last is not None and (h, no) != (last[0], last[1] + 1)):
+                if run:
+                    runs.append(run)
+                run = []
+            if text:
+                run.append((no, text))
+            last = (h, no)
+        if run:
+            runs.append(run)
+        for run in runs:
+            need = {}
+            for _, text in run:
+                need[text] = need.get(text, 0) + 1
+            if all(left.get(text, 0) >= n for text, n in need.items()):
+                for text, n in need.items():
+                    left[text] -= n
+                changed[path].difference_update(no for no, _ in run)
     return changed
 
 
@@ -127,9 +198,20 @@ def findings(vale):
     return sorted(out, key=lambda f: (f["path"], f["line"], f["col"]))
 
 
-def judge(vale, diff_text):
+def git_base_text(base_ref):
+    """A function from a path to that file's text on the old side of `git diff BASE...HEAD`."""
+    def run(*args):
+        r = subprocess.run(["git"] + list(args), capture_output=True)
+        return r.stdout.decode("utf-8", errors="replace") if r.returncode == 0 else None
+    merge_base = (run("merge-base", base_ref, "HEAD") or "").strip()
+    if not merge_base:
+        raise InputError("cannot find the merge base of %s and HEAD" % base_ref)
+    return lambda path: run("show", "%s:%s" % (merge_base, path))
+
+
+def judge(vale, diff_text, base_text=None):
     """(rows, blocking): every finding marked, and the errors on changed lines."""
-    changed = changed_lines(diff_text)
+    changed = changed_lines(diff_text, base_text)
     rows = findings(vale)
     for f in rows:
         # Fail closed: if Vale and git spell a path differently, every finding
@@ -161,6 +243,8 @@ def main(argv=None, out=sys.stdout):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--vale-json", required=True, help="output of vale --output=JSON")
     ap.add_argument("--diff", required=True, help="output of git diff -U0 BASE...HEAD -- files")
+    ap.add_argument("--base-ref", help="the BASE of that diff; lets a line moved out of a comment or a code "
+                                       "fence count as a changed line")
     args = ap.parse_args(argv)
     try:
         with open(args.vale_json, encoding="utf-8") as fh:
@@ -168,11 +252,13 @@ def main(argv=None, out=sys.stdout):
         vale = json.loads(text)
         with open(args.diff, encoding="utf-8") as fh:
             diff_text = fh.read()
-        rows, blocking = judge(vale, diff_text)
+        rows, blocking = judge(vale, diff_text, git_base_text(args.base_ref) if args.base_ref else None)
     except (OSError, ValueError, InputError) as e:
         out.write("vale_changed_lines.py: %s\n" % e)
         return 2
     report(rows, blocking, out)
+    if not args.base_ref:
+        out.write("note: no --base-ref, so lines moved out of comments or code fences were not looked for\n")
     return 1 if blocking else 0
 
 

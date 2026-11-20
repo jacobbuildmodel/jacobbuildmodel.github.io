@@ -142,6 +142,9 @@
 .post-content .lenses { display: block; margin: var(--s4) 0 0; }   /* PaperMod sets .md-content dl as a 25%/75% row;
                                                                     at phone width that leaves the reasoning a
                                                                     column of three words */
+/* The same theme rule gives dt a width of 25% and dd 75%; left alone, a lens label wraps into a column
+   87px wide on a phone and its reasoning uses three quarters of the line (seen at 375px, 18 Nov 2026). */
+.post-content .lenses dt, .post-content .lenses dd { width: auto; }
 .lenses dt { margin-top: var(--s4); font-family: var(--font-sans); font-size: 0.86rem; font-weight: 600; color: var(--ink); }
 .lenses dd { margin: var(--s1) 0 0; padding-left: var(--s4); border-left: 2px solid var(--line); }
 .lenses dd > :first-child { margin-top: 0; }

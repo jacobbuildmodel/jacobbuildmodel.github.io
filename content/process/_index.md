@@ -323,9 +323,11 @@ somewhere investable, the piece stops at the economics.
 
 **Nothing tailored to one person.** No content responds to an individual's situation.
 
+{{< scope view="The site tests popular arguments against public data. In each 'My view' section I say where I land and why." >}}
 **No policy recommendations.** These pieces explain what the data shows. What a government
 ought to do about it is a different question, involving trade-offs the data does not
 contain, and I do not answer it.
+{{< /scope >}}
 
 **Reasoning, not recommendations.** The point of the site is the argument and the evidence
 behind it. A reader who disagrees with a conclusion can find the exact point where the

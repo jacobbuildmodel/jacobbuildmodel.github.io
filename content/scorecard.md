@@ -1,5 +1,5 @@
 ---
-title: "36 sealed predictions: 17 held, 13 failed, 6 in between"
+title: "37 sealed predictions: 17 held, 12 failed, 6 in between, 2 void"
 question: "How often has this site been wrong?"
 date: 2026-10-03
 draft: false
@@ -9,10 +9,11 @@ summary: "Every answered prediction this site wrote down and sealed before openi
 # Read by the home page band (layouts/partials/track_record.html). Keep these
 # equal to the counts this page states. brier and brierN stay empty until the
 # page states a Brier score; the band then adds its calibration line.
-sealed: 36
+sealed: 37
 held: 17
-failed: 13
+failed: 12
 neither: 6
+void: 2
 brier: 0.179
 brierN: 13
 # SMU week, PR A (November 2026): this file is no longer a page of its own.
@@ -26,26 +27,29 @@ build:
 
 > Before any data is opened, each piece writes its predictions into a file called
 > `THESIS.md` and seals it in a dated commit (for the first two pieces, the file's own dated header). This page is what happened next.
-> Of 36 sealed predictions, 17 held, 13 failed, and 6 landed in between.
+> Of 37 sealed predictions, 17 held, 12 failed, 6 landed in between, and 2 are void.
 
 A method that never fails is not being tested. This page exists so that anyone can
 check how often this one does, without reading a single article first.
 
 ## The count
 
-| Piece | Held | Failed | Neither |
-|---|---|---|---|
-| [The Singapore dollar](/economics/2026-11-14/) | 4 | 1 | 0 |
-| [Minimum wage or PWM](/economics/2026-10-31/) | 3 | 1 | 0 |
-| [COE or ERP](/economics/2026-10-17/) | 1 | 2 | 1 |
-| [HDB loan vs bank loan](/economics/2026-10-03/) | 5 | 3 | 0 |
-| [HDB affordability](/economics/2026-09-19/) | 3 | 2 | 4 |
-| [GST rises](/economics/2026-09-08/) | 1 | 4 | 1 |
-| **Total** | **17** | **13** | **6** |
+| Piece | Held | Failed | Neither | Void |
+|---|---|---|---|---|
+| [The Singapore dollar](/economics/2026-11-14/) | 4 | 1 | 0 | 0 |
+| [Minimum wage or PWM](/economics/2026-10-31/) | 3 | 1 | 0 | 1 |
+| [COE or ERP](/economics/2026-10-17/) | 1 | 2 | 1 | 0 |
+| [HDB loan vs bank loan](/economics/2026-10-03/) | 5 | 3 | 0 | 0 |
+| [HDB affordability](/economics/2026-09-19/) | 3 | 2 | 4 | 0 |
+| [GST rises](/economics/2026-09-08/) | 1 | 3 | 1 | 1 |
+| **Total** | **17** | **12** | **6** | **2** |
 
 **Held** means the sealed prediction survived. **Failed** means it did not, and the
 article says so. **Neither** means the result landed between the pass and fail lines
 written in advance, or no verdict was recorded, and it is not rounded to either side.
+**Void** means the test could not be scored as sealed, for example because the data series
+broke. A void is not a miss: it is a missing observation, and it counts neither for nor against
+the record.
 Each piece is scored again against newer data twelve months after it is published.
 
 **Calibration.** From the COE or ERP piece on, each sealed prediction also carries
@@ -86,7 +90,7 @@ Sealed 3 October 2026. Revisit 14 November 2027.
 
 ## Minimum wage or the Progressive Wage Model: which actually lifts Singapore's lowest pay?
 
-[For low-paid gardeners, the floor became the pay](/economics/2026-10-31/).
+[Landscape workers' bottom pay rose about a quarter more than in low-paid jobs without a wage ladder](/economics/2026-10-31/).
 Sealed 28 September 2026. Revisit 31 October 2027.
 
 - **Failed.** Before the ladders, bottom pay in each covered job would track
@@ -106,8 +110,8 @@ Sealed 28 September 2026. Revisit 31 October 2027.
   at least 0.97 of the ladder's first rung. Confidence 50%. Result: landscape
   workers' lowest ratio was 1.000 (2017 1.000, 2018 1.000, 2019 1.038, 2022
   1.000).
-- **Not scored.** The fourth bet, that employment in the covered industries held
-  up: no public series qualifies (THESIS section 4), so it is not counted above.
+- **Void.** The fourth bet, that employment in the covered industries held up: no
+  public series qualifies (THESIS section 4), so it could not be scored.
 
 ## COE or ERP: which one actually keeps Singapore's roads moving?
 
@@ -180,7 +184,7 @@ Sealed 11 September 2026. Revisit 19 September 2027.
 
 ## Where did the GST rises actually show up in prices?
 
-[Water bills show about the full GST rise. The national price index cannot see it](/economics/2026-09-08/).
+[The 2023 and 2024 GST rises reached water prices in full; headline CPI is too noisy to show either](/economics/2026-09-08/).
 Sealed 4 September 2026. Revisit 8 September 2027.
 
 - **Failed.** Taxed and untaxed prices moved in parallel before the rises, so they
@@ -188,15 +192,19 @@ Sealed 4 September 2026. Revisit 8 September 2027.
   before it produced a number.
 - **Failed.** The national index would show a January step close to the tax rise.
   Result: neither year did.
-- **Failed.** The 2023 and 2024 estimates would agree within 0.3 points. Result:
-  0.45 apart.
+- **Void.** The 2023 and 2024 estimates would agree within 0.3 points. Result: not
+  scored, because the current index changed its basket in January 2024, so that year's
+  step mixes the tax rise with the basket change. On All Items, which includes
+  GST-exempt rents, they were 0.45 apart, which would have been Neither; on All Items
+  less accommodation, 0.086 apart (not a re-run, not scored).
 - **Held, with a caveat.** The 2007 mid-year rise would show a step of at least 1.4
   per cent. Result: it did, but most of it was the 2007 property boom.
 - **Neither.** Some, but fewer than half, of price categories would over-shoot the
   tax. Result: 6 of 162 did; no verdict was recorded against the sealed wording.
-- **Failed.** Januaries with no tax change would show no step. Result: they showed
-  steps as large as the tax, so no national figure for how much of the GST reached
-  prices could be published.
+- **Failed.** Januaries with no tax change would show no step. Result: the five sealed
+  Januaries without a tax change (2019, 2020, 2022, 2025 and 2026) moved by amounts
+  similar to 2023 and 2024, so the tax years could not be told apart from them, and no
+  national figure for how much of the GST reached prices could be published.
 
 ## Before the rule existed
 
