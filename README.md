@@ -30,3 +30,8 @@ The weekly brief (content/briefs/) was retired on 7 September 2026.
 Write `{{< tag "hard-flow" >}}` in any post. Recognised: `hard-co`, `company-prelim`, `hard-flow`,
 `consensus`, `price-proxy`, `cong-disc`, `spec`, `verified`, `inferred`, `speculative`.
 Any other value still renders, just with default styling.
+
+## Licence
+
+- Code is under the MIT licence (`LICENSE`); text and figures are under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit "Jacob Ong, The New Void Deck".
+- Data files and third-party material, such as vendored fonts and saved sources, keep their sources' own terms and are not covered by either.

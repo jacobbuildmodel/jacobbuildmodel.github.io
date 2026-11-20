@@ -1,0 +1,34 @@
+{{- /* layouts/shortcodes/flow.html
+   A small flow diagram made of text, for a case-study page (SMU week, systems
+   update, November 2026).
+     {{< flow steps="First|Second|Third" feedback="What reviews the steps|What it changes" >}}
+     The caption, Markdown allowed.
+     {{< /flow >}}
+   steps     the boxes of the main row, in order, separated by a bar
+   feedback  optional second row: what feeds back into the main row. It is
+             drawn apart from the steps and joined to them by a rule, so it
+             does not read as one more step.
+   Plain lists, no SVG and no script: the boxes are list items, so the page
+   is complete with JavaScript off, a screen reader reads the steps in order,
+   and at phone width the row becomes a column (assets/css/extended/systems.css).
+   The arrows are drawn by the stylesheet and carry no meaning the list order
+   does not already carry. */ -}}
+{{- $steps := split (.Get "steps") "|" }}
+{{- if lt (len $steps) 2 }}{{ errorf "flow: steps needs at least two boxes separated by | (%s)" .Position }}{{ end }}
+<figure class="flow">
+  <ol class="flow-steps" aria-label="The steps, in order">
+    {{- range $steps }}
+    <li>{{ strings.TrimSpace . }}</li>
+    {{- end }}
+  </ol>
+  {{- with .Get "feedback" }}
+  <ol class="flow-steps flow-feedback" aria-label="What changes the steps">
+    {{- range split . "|" }}
+    <li>{{ strings.TrimSpace . }}</li>
+    {{- end }}
+  </ol>
+  {{- end }}
+  {{- with strings.TrimSpace .Inner }}
+  <figcaption>{{ $.Page.RenderString . }}</figcaption>
+  {{- end }}
+</figure>
