@@ -1,0 +1,23 @@
+/* Case-study pages under How I work (SMU week, systems update, November 2026).
+   One component: the flow diagram printed by layouts/shortcodes/flow.html.
+   Boxes are list items. Wide screens: one row with arrows between the boxes.
+   Phone width: one column with arrows pointing down. Colours are the site's
+   tokens, so both themes are covered. Delete this file and the shortcode to
+   go back. */
+.flow { margin: var(--s5) 0; }
+.post-content .flow-steps { display: flex; flex-wrap: nowrap; align-items: stretch; margin: 0; padding: 0; list-style: none; }
+/* The boxes of a row share its width equally, so six fit the text column; a long label wraps inside its box. */
+.post-content .flow-steps li { position: relative; display: flex; flex: 1 1 0; min-width: 0; align-items: center; justify-content: center; text-align: center; margin: 0 24px 0 0; padding: var(--s2) 6px; border: 1px solid var(--ink-3); border-radius: 4px; font-family: var(--font-sans); font-size: 0.9rem; line-height: 1.3; color: var(--ink); }
+.post-content .flow-steps li:last-child { margin-right: 0; }
+.flow-steps li:not(:last-child)::after { content: "\2192"; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); color: var(--ink-3); }
+/* The second row is what changes the steps: set apart, dashed, under a rule. */
+.post-content .flow-feedback { margin-top: var(--s4); padding-top: var(--s4); border-top: 1px dashed var(--ink-3); }
+.post-content .flow-feedback li { flex: 0 1 auto; padding: var(--s2) var(--s3); border-style: dashed; }
+.flow figcaption { margin-top: var(--s3); font-family: var(--font-sans); font-size: 0.86rem; line-height: 1.5; color: var(--ink-2); }
+.flow figcaption p { margin: 0; }
+@media (max-width: 640px) {
+  .post-content .flow-steps { flex-direction: column; align-items: stretch; }
+  .post-content .flow-steps li { flex: 0 0 auto; justify-content: flex-start; text-align: left; margin: 0 0 26px; padding: var(--s2) var(--s3); }
+  .post-content .flow-steps li:last-child { margin-bottom: 0; }
+  .flow-steps li:not(:last-child)::after { content: "\2193"; right: auto; left: 50%; top: auto; bottom: -24px; transform: translateX(-50%); }
+}
