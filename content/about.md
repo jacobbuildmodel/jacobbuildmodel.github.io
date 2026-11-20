@@ -76,6 +76,10 @@ the scope and depth of what I can investigate, but they do not replace my judgem
 ownership of the research direction and final investment decisions for my own portfolio (not advice
 to anyone).
 
+That is how I work across the three systems I direct: the policy research on this site,
+[a private portfolio research system](/process/drive/), and a research model. The portfolio model is
+described under How I work.
+
 I do not want AI agents that merely follow instructions or produce summaries. I want an intelligent
 research ecosystem that can investigate independently, identify questions I have overlooked,
 challenge my assumptions, discover better methodologies and develop solutions beyond my initial
