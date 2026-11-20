@@ -6,7 +6,7 @@ url: "/researchers/singapore-dollar/"
 ---
 
 The companion to the article
-[2021-25: the yen fell further than the Singapore dollar rose](/economics/2026-11-14/).
+[Nearly three-quarters of the Singapore dollar's 2021-25 rise against the yen was the yen's own fall](/economics/2026-11-14/).
 It sets out how each result was derived, every test as sealed, and every
 sealed sensitivity. Every number below is in `sgd/number_manifest.csv` with
 the script that wrote it, and `14_manifest.py --check` verifies each one.

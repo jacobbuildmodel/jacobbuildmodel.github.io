@@ -1,5 +1,5 @@
 ---
-title: "37 sealed predictions: 17 held, 12 failed, 6 in between, 2 void"
+title: "37 sealed predictions: 19 held, 10 failed, 6 in between, 2 void"
 question: "How often has this site been wrong?"
 date: 2026-10-03
 draft: false
@@ -10,8 +10,8 @@ summary: "Every answered prediction this site wrote down and sealed before openi
 # equal to the counts this page states. brier and brierN stay empty until the
 # page states a Brier score; the band then adds its calibration line.
 sealed: 37
-held: 17
-failed: 12
+held: 19
+failed: 10
 neither: 6
 void: 2
 brier: 0.179
@@ -27,7 +27,7 @@ build:
 
 > Before any data is opened, each piece writes its predictions into a file called
 > `THESIS.md` and seals it in a dated commit (for the first two pieces, the file's own dated header). This page is what happened next.
-> Of 37 sealed predictions, 17 held, 12 failed, 6 landed in between, and 2 are void.
+> Of 37 sealed predictions, 19 held, 10 failed, 6 landed in between, and 2 are void.
 
 A method that never fails is not being tested. This page exists so that anyone can
 check how often this one does, without reading a single article first.
@@ -40,13 +40,14 @@ check how often this one does, without reading a single article first.
 | [Minimum wage or PWM](/economics/2026-10-31/) | 3 | 1 | 0 | 1 |
 | [COE or ERP](/economics/2026-10-17/) | 1 | 2 | 1 | 0 |
 | [HDB loan vs bank loan](/economics/2026-10-03/) | 5 | 3 | 0 | 0 |
-| [HDB affordability](/economics/2026-09-19/) | 3 | 2 | 4 | 0 |
+| [HDB affordability](/economics/2026-09-19/) | 5 | 0 | 4 | 0 |
 | [GST rises](/economics/2026-09-08/) | 1 | 3 | 1 | 1 |
-| **Total** | **17** | **12** | **6** | **2** |
+| **Total** | **19** | **10** | **6** | **2** |
 
 **Held** means the sealed prediction survived. **Failed** means it did not, and the
 article says so. **Neither** means the result landed between the pass and fail lines
-written in advance, or no verdict was recorded, and it is not rounded to either side.
+written in advance, met both of them, or no verdict was recorded, and it is not rounded to
+either side.
 **Void** means the test could not be scored as sealed, for example because the data series
 broke. A void is not a miss: it is a missing observation, and it counts neither for nor against
 the record.
@@ -59,7 +60,7 @@ and a flat 50 per cent on everything scores 0.25.
 
 ## Tokyo got cheaper. Did Singapore get richer?
 
-[2021-25: the yen fell further than the Singapore dollar rose](/economics/2026-11-14/).
+[Nearly three-quarters of the Singapore dollar's 2021-25 rise against the yen was the yen's own fall](/economics/2026-11-14/).
 Sealed 3 October 2026. Revisit 14 November 2027.
 
 - **Failed.** At least half of the Singapore dollar's rise against the ringgit
@@ -115,7 +116,7 @@ Sealed 28 September 2026. Revisit 31 October 2027.
 
 ## COE or ERP: which one actually keeps Singapore's roads moving?
 
-[Roads got about a quarter more crowded. Speeds held.](/economics/2026-10-17/)
+[From 2005 to 2017 roads got about a quarter more crowded. Peak speeds held.](/economics/2026-10-17/)
 Sealed 26 September 2026. Revisit 17 October 2027.
 
 - **Failed.** Every scored year's average peak speed would sit inside the Land
@@ -136,7 +137,7 @@ Sealed 26 September 2026. Revisit 17 October 2027.
 
 ## Was the HDB loan really cheaper than a bank's?
 
-[Early HDB loans lost to any bank charging under 1.4 points](/economics/2026-10-03/).
+[The HDB loan's 2.6% sat above compounded SORA for over a decade, then below it for 28 months](/economics/2026-10-03/).
 Sealed 17 September 2026. Revisit 3 October 2027.
 
 - **Held.** Borrowers who started in 2010-2015 needed a bigger bank margin to break
@@ -160,7 +161,7 @@ Sealed 17 September 2026. Revisit 3 October 2027.
 
 ## Is an HDB flat really harder to afford than it used to be? {#is-an-hdb-flat-really-harder-to-afford-than-a-decade-ago}
 
-[A four-room flat takes fewer years of income than in 2013](/economics/2026-09-19/).
+[A four-room resale flat takes fewer years of income than in 2013, and more than in 2019](/economics/2026-09-19/).
 Sealed 11 September 2026. Revisit 19 September 2027.
 
 - **Neither.** From 2013, years of income for a four-room flat would rise by more
@@ -168,17 +169,18 @@ Sealed 11 September 2026. Revisit 19 September 2027.
 - **Held.** From 2017, the same rise of more than 0.5. Result: up 0.76.
 - **Held.** The HDB concessionary rate would move 0.1 points or less. Result: no
   move, a decade apart.
-- **Neither.** Grants would cover more than 40 per cent of the price rise for a
-  lower-income buyer. Result: 17 per cent, short of the pass line, above the fail
-  line.
-- **Failed.** Lower-income buyers' repayment burden would rise at least 5 points
-  less than higher-income buyers'. Result: it rose 8.8 points more.
-- **Failed.** Grants would fully offset the price rise for lower-income buyers.
-  Result: their repayment share rose 9.3 points.
+- **Held.** Grants would cover more than 40 per cent of the price rise for a
+  lower-income buyer. Result: measured from 2013, 51.6 per cent.
+- **Neither.** Lower-income buyers' repayment burden would rise at least 5 points less
+  than higher-income buyers'. Result: measured from 2013, both fell, the lower-income
+  buyer's by 10.3 points more: heterogeneity without sign divergence.
+- **Held.** Grants would fully offset the price rise for lower-income buyers. Result:
+  measured from 2013, their repayment share fell from 60.4 to 47.1 per cent.
 - **Neither.** Correcting for which flats sold would change the answer by more than
   3 points. Result: 2.2 points.
-- **Neither.** Two correction methods would agree within 2 points. Result: 2.5
-  points apart.
+- **Neither.** Two correction methods would agree within 2 points. Result: 4.8 points
+  apart with method B built as sealed, between the pass and fail lines; most other
+  reasonable cell choices put it past the 5-point fail line.
 - **Held.** Median income would cross the frozen grant ceiling within the window.
   Result: it crossed between 2022 and 2023 (8,904 then 9,646 dollars a month).
 

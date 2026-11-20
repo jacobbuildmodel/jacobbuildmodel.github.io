@@ -1,55 +1,31 @@
 {{- /* layouts/partials/welcome_home.html
-   The home page (27 October 2026): a welcome, not a splash screen. One
-   narrow column, in this order:
-     the H1, the author line and the promise (site.Params.welcome)
-     three doors, one line each:
-       the latest page in /economics/ only (not /open/ or /decisions/), its
-       title and date, computed
-       the track record: sealed, held and failed, read from
-       content/scorecard.md front matter
-       the question page, /connect/
-     the start-here box (start_here.html, unchanged)
-     the open questions strip (at most three)
-     one line: All articles, How it works
-   The full list of pieces stays on /economics/; the home page has no
-   paginated list. At 390 x 812 the H1, the promise and all three doors fit
-   on the first screen. Every count is read from front matter, never typed,
-   and a missing page or field stops the build. */ -}}
-{{- $latest := index (where site.RegularPages "Section" "economics").ByDate.Reverse 0 }}
-{{- if not $latest }}{{ errorf "welcome_home.html: no published economics page" }}{{ end }}
-{{- $score := site.GetPage "/scorecard" }}
-{{- if not $score }}{{ errorf "welcome_home.html: no /scorecard page" }}{{ end }}
-{{- if not (and (isset $score.Params "sealed") (isset $score.Params "held") (isset $score.Params "failed") (isset $score.Params "neither")) }}
-  {{- errorf "welcome_home.html: content/scorecard.md needs sealed:, held:, failed: and neither: in its front matter" }}
-{{- end }}
-{{- /* SMU week, PR A (November 2026): the record is printed inside "How I
-       work" (/process/#record), and the tally is always given whole: held,
-       failed and in between. */}}
-{{- $how := site.GetPage "/process" }}
-{{- if not $how }}{{ errorf "welcome_home.html: no /process page" }}{{ end }}
-{{- $connect := site.GetPage "/connect" }}
-{{- if not $connect }}{{ errorf "welcome_home.html: no /connect page" }}{{ end }}
+   The home page (SMU week, third update, November 2026): one screen that
+   says who Jacob is, why economics, and where to start. One narrow column:
+     the heading (site.Params.welcome.heading): what the work is
+     the identity line: his name, his age (computed, as the age shortcode
+       does) and site.Params.welcome.identity
+     one sentence on why economics, in his own words
+       (site.Params.welcome.why; printed only when set)
+     the start-here box (start_here.html): the three lead projects with
+       their method and score, the record, the reply to LTA, How I work
+   What left this page, and why: the "Welcome to" heading; the three doors
+   (the "Latest finding" slot put the newest piece first, which is how a
+   news feed works, not a portfolio: Jacob, 15 November 2026; the record and
+   the question form are reached from the box and from About); and the
+   open-questions strip (the Projects index lists the open question).
+   Every count is read from front matter, never typed, and a missing page or
+   field stops the build. */ -}}
+{{- $w := site.Params.welcome }}
+{{- if not (and $w.heading $w.identity) }}{{ errorf "welcome_home.html: hugo.toml needs params.welcome.heading and .identity" }}{{ end }}
+{{- $birth := time.AsTime "2004-06-10" }}
+{{- $age := sub now.Year $birth.Year }}
+{{- if lt now.YearDay $birth.YearDay }}{{ $age = sub $age 1 }}{{ end }}
 <header class="welcome">
-  {{- /* An h2 since front page PR A (fix round 1, 5 November 2026): the
-         masthead's wordmark is the home page's one h1 (header.html). Same
-         words and the same look (.welcome-title in welcome.css). PR B
-         replaces this block. */}}
-  <h2 class="welcome-title">Welcome to {{ site.Title }}</h2>
-  {{- with site.Params.welcome.byline }}
-  <p class="welcome-byline">{{ . }}</p>
-  {{- end }}
-  {{- with site.Params.welcome.promise }}
-  <p class="welcome-promise">{{ . }}</p>
+  {{- /* An h2: the masthead's wordmark is the home page's one h1 (header.html). */}}
+  <h2 class="welcome-title">{{ $w.heading }}</h2>
+  <p class="welcome-identity">Jacob Ong, {{ $age }}. {{ $w.identity }}</p>
+  {{- with $w.why }}
+  <p class="welcome-why">{{ . }}</p>
   {{- end }}
 </header>
-<nav class="welcome-doors" aria-label="Where to start">
-  <ul>
-    <li><a href="{{ $latest.RelPermalink }}">Latest finding: {{ $latest.Title }} ({{ $latest.Date | time.Format site.Params.DateFormat }})</a></li>
-    <li><a href="{{ $how.RelPermalink }}#record">Track record: {{ $score.Params.sealed }} sealed predictions, {{ $score.Params.held }} held, {{ $score.Params.failed }} failed, {{ $score.Params.neither }} in between{{ with $score.Params.void }}, {{ . }} void{{ end }}</a></li>
-    <li><a href="{{ $connect.RelPermalink }}">Questions and counter-arguments for Jacob</a></li>
-  </ul>
-</nav>
 {{- partial "start_here.html" . }}
-{{- partial "open_questions_strip.html" . }}
-{{- /* The closing "All articles / How it works" line is gone (SMU week, PR
-       A): both are in the menu, and no page links a target twice. */}}

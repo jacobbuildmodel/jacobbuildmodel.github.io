@@ -221,7 +221,7 @@ wording stays visible on the corrections page. Nothing gets quietly edited, beca
 that the numbers were checked cannot also be a site where numbers change without notice.
 {{< /aside >}}
 
-{{< aside title="Lapses on record" >}}
+{{< aside title="Lapses on record" id="lapses" >}}
 Most rules on this site were written after something went wrong. Two that shaped
 how it works now:
 

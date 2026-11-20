@@ -1,28 +1,38 @@
 {{- /* layouts/partials/start_here.html
-   Home page, page 1 only: three pieces for a first-time reader, then a link
-   to the scorecard. Sits directly above the Track record band and uses the
-   same box as the home strips.
-
-   Each piece is found with site.GetPage, so a moved or renamed page stops the
-   build here instead of leaving a broken link. The failure count is read from
-   content/scorecard.md's front matter ("failed"), never typed, so it follows
-   the scorecard on every publication day. The line texts are fixed, as
-   written for this box (22 October 2026). */ -}}
-{{- /* The three lead projects are the first three rows of data/projects.yaml (the Projects
-       index's own order), and each line is the page's own title and date, so nothing is typed
-       twice. */}}
-{{- $picks := slice }}
-{{- range first 3 site.Data.projects.rows }}{{ $picks = $picks | append .path }}{{ end }}
+   Home page: where a first-time reader starts (SMU week, third update,
+   November 2026). Five rows in one list (How I work is in the menu on every
+   page, and no page links one target twice, so it has no row of its own):
+     the three lead projects: the first three rows of data/projects.yaml
+       (the Projects index's own order). Each prints the page's own title,
+       then its method (from the data file) and its score (counted from the
+       scorecard's bullets by score_of.html), so the range of methods and the
+       record show without a click, and nothing is typed twice.
+     the record: the whole tally, read from content/scorecard.md's front
+       matter (held, failed, in between, and void when there is one)
+     the reply to LTA: the submission's own title
+   Each page is found with site.GetPage, so a moved or renamed page stops the
+   build here instead of leaving a broken link. */ -}}
+{{- $score := site.GetPage "/scorecard" }}
+{{- if not $score }}{{ errorf "start_here.html: no /scorecard page" }}{{ end }}
+{{- if not (and (isset $score.Params "sealed") (isset $score.Params "held") (isset $score.Params "failed") (isset $score.Params "neither")) }}
+  {{- errorf "start_here.html: content/scorecard.md needs sealed:, held:, failed: and neither: in its front matter" }}
+{{- end }}
+{{- $how := site.GetPage "/process" }}
+{{- if not $how }}{{ errorf "start_here.html: no /process page" }}{{ end }}
+{{- $lta := site.GetPage "/decisions/lta-coe-categories" }}
+{{- if not $lta }}{{ errorf "start_here.html: no /decisions/lta-coe-categories page" }}{{ end }}
 <section class="start-here" aria-labelledby="start-here-title">
-  <h2 id="start-here-title" class="open-strip-title">New here? Start with these three.</h2>
+  <h2 id="start-here-title" class="open-strip-title">Start here</h2>
   <ul class="start-here-list">
-    {{- range $picks }}
-    {{- $p := site.GetPage . }}
-    {{- if not $p }}{{ errorf "start_here.html: no page at %s; update the start-here box" . }}{{ end }}
-    <li><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a> <span class="start-here-when">({{ $p.Date | time.Format "2 Jan" }})</span></li>
+    {{- range first 3 site.Data.projects.rows }}
+    {{- $p := site.GetPage .path }}
+    {{- if not $p }}{{ errorf "start_here.html: no page at %s; update data/projects.yaml" .path }}{{ end }}
+    <li><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+      <span class="start-here-meta">{{ .method }} · {{ (partial "score_of.html" $p).text }}</span></li>
     {{- end }}
+    <li><a href="{{ $how.RelPermalink }}#record">The record: {{ $score.Params.sealed }} sealed predictions, {{ $score.Params.held }} held, {{ $score.Params.failed }} failed, {{ $score.Params.neither }} in between{{ with $score.Params.void }}, {{ . }} void{{ end }}</a>
+      <span class="start-here-meta">Every prediction sealed before its data was opened, and what happened to it. On the same page: how I work</span></li>
+    <li><a href="{{ $lta.RelPermalink }}">{{ $lta.Title }}</a>
+      <span class="start-here-meta">A reply to a public consultation by the Land Transport Authority</span></li>
   </ul>
-  {{- /* The closing scorecard line is gone (SMU week, PR A, November 2026):
-         it gave the tally in part ("the 13 that failed") and repeated the
-         track-record link above it. */}}
 </section>

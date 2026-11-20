@@ -7,13 +7,72 @@ showToc: false
 ---
 
 Every correction to a published page is listed here with its date, and so is
-every change to an article's words. Changes to the pages about the site are not
-listed. Numbers are never changed silently.
+every change to an article's words. Changes to the pages about the site are listed
+only when they correct or clarify something said before. Numbers are never changed silently.
 
 ## Corrections
 
 A fact, number or verdict was wrong.
 
+- **20 November 2026.** [The record](/process/#record): four lines changed, three of them in verdict, on Jacob's rulings, all on
+  [HDB affordability](/economics/2026-09-19/), and the count with them. The tally was 37 sealed predictions: 17 held, 12 failed, 6 in
+  between, 2 void. It is now 37 sealed predictions: 19 held, 10 failed, 6 in between, 2 void.
+  (1) Was: "Neither. Grants would cover more than 40 per cent of the price rise for a lower-income buyer. Result: 17 per cent, short of the pass line, above the fail line." Now: "Held. Grants would cover more than 40 per cent of the price rise for a lower-income buyer. Result: measured from 2013, 51.6 per cent." Why: the first result was measured from 2019, because the
+  income ceiling of the grant in force before then had not been found in a primary document. It
+  was found after publication (5,000 dollars; HDB, 6 February 2009), so the test is now measured
+  from 2013, the first year the piece covers.
+  (2) Was: "Failed. Lower-income buyers' repayment burden would rise at least 5 points less than higher-income buyers'. Result: it rose 8.8 points more." Now: "Neither. Lower-income buyers' repayment burden would rise at least 5 points less than higher-income buyers'. Result: measured from 2013, both fell, the lower-income buyer's by 10.3 points more: heterogeneity without sign divergence." Why: the same change of starting year. From 2013 the result
+  meets the line written for this prediction to hold. It also meets a second line in the same
+  seal, for burdens that "move in the same direction but differ by more than 5 percentage
+  points", which the seal says is reported as "heterogeneity without sign divergence". A result
+  that meets both lines is recorded as Neither, and the definition of Neither on the record now
+  says so.
+  (3) Was: "Failed. Grants would fully offset the price rise for lower-income buyers. Result: their repayment share rose 9.3 points." Now: "Held. Grants would fully offset the price rise for lower-income buyers. Result: measured from 2013, their repayment share fell from 60.4 to 47.1 per cent." Why: the same change of starting year.
+  (4) Was: "Neither. Two correction methods would agree within 2 points. Result: 2.5 points apart." Now: "Neither. Two correction methods would agree within 2 points. Result: 4.8 points apart with method B built as sealed, between the pass and fail lines; most other reasonable cell choices put it past the 5-point fail line." Why: the first result compared the two methods with the
+  second built on cells and a base year other than the sealed ones. Built as sealed, a Laspeyres
+  index of the cells' median prices with 2017 weights, the two are 4.8 points apart.
+- **20 November 2026.** [HDB affordability](/economics/2026-09-19/). The first version measured the grant tests from 2019, because the older grant's income ceiling
+  had not been found in a primary document. It has been found (HDB, 6 February 2009), so the tests
+  now run from 2013, the first year of the window, as sealed. Measured from 2013, grants covered
+  51.6 per cent of the price rise, not 17; the 20th-percentile buyer's repayment share fell from
+  60.4 to 47.1 per cent (45.4 on method B), where the first version had it rising from 37.8; and
+  the low-income buyer's change is 10.3 points smaller than the high-income buyer's, not 8.8
+  points larger. The first version also gave 37.9 per cent for the fixed-basket method, from cells
+  not built as sealed. Built as sealed, a Laspeyres index of the cells' median prices with 2017
+  weights, it gives 35.6 per cent: 4.8 points from the hedonic 40.4, between the pre-registered
+  lines for agreement and failure, though most other cell choices, tried after the result, put it
+  past 5. Four score lines changed, three of them in verdict; the scorecard and the corrections
+  page list them.
+  Two more sentences were wrong. The proportional rises in the repayment burden were given as
+  "24.6 per cent, 10.2 per cent and 4.9 per cent" for buyers at the 20th, 50th and 80th
+  percentiles; they are 24.7, 9.7 and 5.4 per cent. "For that buyer grants had already covered
+  the deposit in full" held only until 2024, and now says so. Numbers changed: those named here.
+- **20 November 2026.** [HDB loan or bank loan](/economics/2026-10-03/). Two sentences claimed more than the numbers show. "That is the floor every one
+  of them cleared here" now reads "that is roughly the floor every January start cleared here,
+  on every reset interval tested": the margin was computed for loans starting in January. "It
+  stayed large even after allowing for the one bias that could have inflated it" now reads "it
+  stayed large, with the one bias that could have inflated it stated beside it rather than
+  measured": the bias is signed, not measured. Numbers changed: none.
+- **20 November 2026.** [COE timing](/economics/2026-08-29/). The summary line said "The gap is about 1%, the month-to-month spread around it
+  is seven times that, and no rule fitted before 2019 beat a coin flip after it." The 1% is the
+  gap in Categories B and E and the 7% is Category A's spread; like for like, the spread is five
+  to six times the gap. And the article itself reports one fitted rule and one fixed rule that
+  did better than a coin in some categories. The summary now reads: "In Categories B and E the
+  gap is about 1% and the month-to-month spread around it is five to six times that; the
+  forecasting rule fitted before 2019 did no better than a coin flip for Category A after it."
+  In the body, "an effect of 1% against a spread of 7%" now reads "an effect of about 1% against
+  a spread of 6 to 7%". The first chart's caption said "The mean is real"; for Category A the gap of 0.61% cannot be told from zero
+  (p = 0.18), and the caption now says so. Numbers changed: no result; the figures quoted in those two
+  sentences.
+- **20 November 2026.** [Motorcycle COEs](/economics/2026-09-12/). Three passages at the end
+  claimed more than the page tests. "Premiums there have fallen because bidding stopped growing" now reads
+  "Their premium fell while their bids stopped growing": the bidding file cannot say why. The paragraph that
+  began "That is the same finding as the quota piece" is removed: the page finds that bids per certificate do not
+  track the premium (a correlation under 0.16 in every category), the earlier project's estimate is that
+  motorcycle premiums move most with the quota, and the deposit rises of 2022 and 2023 fall in the same years, so
+  "without any policy change doing the work" was not shown. "The thing to watch is bids per exercise … It moves
+  first" is removed: no lead was tested. "The difference is not the quota. It is that nobody new turned up to
+  bid." is removed from the summary: the page does not show why the premium fell. Numbers changed: none.
 - **20 November 2026.** [COE quota](/economics/2026-08-22/). "Two bidding exercises have run every month since
   2010" was wrong: none was held from April to June 2020, when bidding was paused. It now reads "Two bidding
   exercises a month have run since 2010, except during a pause from April to June 2020." For the same reason "has
@@ -83,6 +142,28 @@ A fact, number or verdict was wrong.
 
 Wording made more accurate, meaning unchanged.
 
+- **20 November 2026.** [About](/about/). "since the GST piece on 4 September 2026" now reads "since the GST piece,
+  sealed on 4 September 2026": the piece was published on 8 September; 4 September is the day its predictions
+  were sealed. Numbers changed: none.
+- **20 November 2026.** [About](/about/). "AI is going to change how this kind of research gets done, and I
+  would rather learn to direct it well than learn the old way and adapt later" now ends "and I
+  want to learn the economics properly so that I can direct it well". The old ending could be
+  read as a wish not to learn the economics itself. Numbers changed: none.
+- **20 November 2026.** [HDB loan or bank loan](/economics/2026-10-03/). The refinancing result, "1.260 points, against 0.296 points for 2010-2015",
+  now adds "with no switching cost (0.486 against 0.059 at S$3,000)", so that both versions of
+  the test stand side by side. Numbers changed: none; two more are shown.
+- **20 November 2026.** [The Singapore dollar and the yen](/economics/2026-11-14/). As first published the article carried the words "(added after outside review,
+  not sealed)" twelve times. Nine of those marks are taken off their sentences, and the sentences
+  are listed, word for word, in one note in the method block ("What was added after review");
+  the other three stand where they were, in the opening paragraphs, which the method block
+  prints as published. One new sentence in the article says which results were added after
+  review. No statement lost its mark without being listed. Numbers changed: none.
+- **20 November 2026.** [COE or ERP](/economics/2026-10-17/), [The Singapore dollar and the yen](/economics/2026-11-14/), [HDB affordability](/economics/2026-09-19/) and [HDB loan or bank loan](/economics/2026-10-03/). Five sentences that repeated a link now say where the link
+  stands (each page gives a link once). Sentences taken out when the pages were rearranged: each
+  page's opening quote; the paragraphs that only announced what followed; the boxes at the top of
+  the first two pages (their verdicts, numbers and scores are in the first paragraph and the
+  line under the title); and the sentences that pointed to the scorecard and the list of open
+  questions. None was wrong. Numbers changed: none.
 - **20 November 2026.** [COE quota](/economics/2026-08-22/). "393 of these experiments" now reads "393 of these
   auctions", and "except the experiment runs twice a month" now reads "except the auction runs twice a month":
   the quotas were not set at random, so the word experiment overstated the design. Numbers changed: none.
@@ -140,6 +221,21 @@ Wording made more accurate, meaning unchanged.
 Layout, charts redrawn, or headline and question wording, with the data
 unchanged.
 
+- **20 November 2026.** The other seven projects moved to the project layout: a first paragraph with the question and the answer, the main chart, the
+  mechanism, the evidence, two lines saying what was tested and what was not, and one closed
+  block holding the method, the data and the sealed predictions. Headlines changed: "Roads got
+  about a quarter more crowded. Speeds held." to "From 2005 to 2017 roads got about a quarter more crowded. Peak speeds held."; "2021-25: the yen fell
+  further than the Singapore dollar rose" to "Nearly three-quarters of the Singapore dollar's 2021-25 rise against the yen was the yen's own fall"; "A four-room flat takes
+  fewer years of income than in 2013" to "A four-room resale flat takes fewer years of income than in 2013, and more than in 2019"; "Early HDB loans lost to any
+  bank charging under 1.4 points" to "The HDB loan's 2.6% sat above compounded SORA for over a decade, then below it for 28 months"; "Perfect COE timing is worth
+  $1,840. Nobody has it." to "Perfect timing between a month's two COE rounds is worth about 2% of a Category A premium on average"; "Two in three COE bids win. It is not a
+  lottery." to "Two in three Category A COE bids win: between 54% and 75% in every year since 2010"; "Motorcycle COEs fell 17%. Car COEs rose 43%." to
+  "Between 2022 and 2025-26, motorcycle COE premiums fell 17% while Category A's rose 43%. Only motorcycle bids did not grow.". Section headings now state their finding. New in the move: each first
+  paragraph, the lines on what was and was not tested, five Perspectives on COE or ERP with their sources, and the
+  not-advice note on COE timing. On the HDB loan page the
+  two charts changed places and their captions were renumbered. The open-question pages of 26
+  September and 3 October 2026 are now printed, word for word, inside their projects, and their
+  addresses lead there. Numbers changed: none.
 - **20 November 2026.** [COE quota](/economics/2026-08-22/), [GST rises](/economics/2026-09-08/) and [Minimum wage or the Progressive Wage Model](/economics/2026-10-31/) moved to the project layout: a first paragraph with the question and the answer,
   the main chart, the mechanism, the evidence, and one closed block holding the method, the
   data and the sealed predictions. Headlines changed: "The COE quota went up 62%. Prices nearly
