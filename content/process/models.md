@@ -32,8 +32,8 @@ review every decision on film.
 
 **My portfolio model is matchday.** AI scouts collect public data and score each company's
 quality and valuation from its filed accounts, blind to what I own. A critic argues against
-every candidate. I make the call, it is logged before the outcome is known, and four weeks
-later it is graded, the way a club judges a new signing after a month of games. [How the portfolio model works](/process/drive/).
+every candidate. I make the call, it is logged before the outcome is known, and it is graded once
+the outcome is in, the way a club judges a new signing after a run of games. [How the portfolio model works](/process/drive/).
 
 **My research model is the training ground and the analysts' room.** It works top-down.
 It is built to read the big events, the macro news, and the mood around them: the language
