@@ -28,12 +28,12 @@ every call is reviewed afterwards. Both are personal research, not advice to any
 A club's scouts watch far more players than its manager ever could. Its analysts study the
 opposition and the conditions, and the training ground is where a new tactic is tried before
 it is risked in a match. On matchday the manager picks the team; afterwards, the staff
-review the game on film.
+review every decision on film.
 
 **My portfolio model is matchday.** AI scouts collect public data and score each company's
 quality and valuation from its filed accounts, blind to what I own. A critic argues against
 every candidate. I make the call, it is logged before the outcome is known, and four weeks
-later it is graded, like a match reviewed on film. [How the portfolio model works](/process/drive/).
+later it is graded, the way a club judges a new signing after a month of games. [How the portfolio model works](/process/drive/).
 
 **My research model is the training ground and the analysts' room.** It works top-down.
 It is built to read the big events, the macro news, and the mood around them: the language
@@ -46,8 +46,8 @@ passed its test.
 ## What the research model is working on now
 
 Its current project is event-driven sentiment analysis. My question is how news and
-sentiment find their way into prices. If they spread through the market gradually rather
-than all at once, a macro event and the first reaction to it may say something about the
+investor sentiment find their way into prices. If they spread through the market gradually
+rather than all at once (what economists call gradual information diffusion), a macro event and the first reaction to it may say something about the
 direction that follows. The aim is a strategy built on both sentiment and macro events,
 validated before I trust it. The strategies it studies start from the economy and the
 market, not from chart patterns; hedging against swings in volatility is one of them.
@@ -55,7 +55,7 @@ market, not from chart patterns; hedging against swings in volatility is one of 
 ## My purpose: the edge I am trying to build
 
 I am a retail investor. A smaller club cannot outspend the biggest ones, so it has
-to choose better, and that is the edge I am after: being selective. My purpose is to be
+to be more selective, and that selectivity is the edge I am after. My purpose is to be
 clear about direction, to follow a rising trend and stay wary of a falling one and its
 pitfalls, and to be strategic about how I allocate my own portfolio. AI lets me read far
 more news and data than I could alone. The choices stay mine.
@@ -67,7 +67,7 @@ sounds right. Markets answer that question every day, and they do not mark on ef
 the same reason the policy research on this site commits to each prediction before the data
 is opened. Building these models has also given me the questions I want to study
 in economics: how information and sentiment get into prices, and how to tell skill from luck
-in a short record. I want to learn the theory and the econometrics behind both properly, so
+in a short track record. I want to learn the theory and the econometrics behind both properly, so
 that I can direct this kind of research well.
 
 ## The quote I live by
