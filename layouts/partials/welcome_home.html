@@ -28,4 +28,20 @@
   <p class="welcome-why">{{ . }}</p>
   {{- end }}
 </header>
+{{- with $w.whatido }}
+<section class="what-i-do" aria-labelledby="what-i-do-title">
+  <h2 id="what-i-do-title" class="open-strip-title">What I do</h2>
+  <ul class="what-i-do-list">
+    {{- range . }}
+    {{- $name := .name }}
+    {{- with .path }}
+    {{- $p := site.GetPage . }}
+    {{- if not $p }}{{ errorf "welcome_home.html: whatido path %s has no page" . }}{{ end }}
+    {{- $name = printf "<a href=\"%s\">%s</a>" $p.RelPermalink $name }}
+    {{- end }}
+    <li><strong>{{ $name | safeHTML }}:</strong> {{ .text }}</li>
+    {{- end }}
+  </ul>
+</section>
+{{- end }}
 {{- partial "start_here.html" . }}

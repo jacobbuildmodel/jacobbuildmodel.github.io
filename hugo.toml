@@ -105,6 +105,21 @@ disableKinds = ["taxonomy", "term"]
     identity = "A polytechnic graduate with a Diploma in Business (banking and finance), applying to read economics at university."
     why      = "I love economics because it gives me a structured, ever-changing way to solve real problems with data, test which fixes actually work for real people, and show the evidence, to myself and to anyone arguing from gut feeling."
 
+    # What I do: Jacob's own executive summary of his three systems, word for word (22 Nov 2026: "this is the
+    # exact executive level summary for people who want to know what i do"); spelling fixed only. Printed on
+    # the home page under the identity line (welcome_home.html). path: the page the name links to (optional).
+    [[params.welcome.whatido]]
+      name = "Portfolio model"
+      text = "Manages my portfolio taking into account data points and valuation of them."
+      path = "/process/drive"
+    [[params.welcome.whatido]]
+      name = "Research model"
+      text = "Seeking to establish alpha in news and sentiment signals."
+      path = "/process/models"
+    [[params.welcome.whatido]]
+      name = "Website model"
+      text = "Duo hat: Singapore policy research page and portfolio website."
+
   # The question form on /connect/ posts to Web3Forms. The access key is public
   # by design (it only routes a message to Jacob's inbox). Empty = the form is
   # shown disabled with "The form opens soon."
