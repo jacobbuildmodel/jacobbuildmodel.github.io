@@ -312,12 +312,14 @@ If a result cannot survive someone else running the same code on the same file, 
 result.
 {{< /aside >}}
 
-## A second system
+## Two market models
 
-I also direct DRIVE, a private system I built with AI to study listed companies. In it, a
+I also direct two private systems for my own investing, told together as a football club on
+[My two models](/process/models/). My portfolio model, DRIVE, studies listed companies: a
 decision is written down before its outcome is known, the roles run in separate sessions,
-and every decision is graded once its four weeks are up. Its records are private, and it
-is personal research, not advice. [How DRIVE works](/process/drive/).
+and every decision is graded once its outcome is in ([How DRIVE works](/process/drive/)).
+My research model studies news, sentiment and macro events, and looks for strategies worth
+testing. Both are personal research, not advice.
 
 ## Scope and limits
 

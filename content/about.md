@@ -77,7 +77,7 @@ ownership of the research direction and final investment decisions for my own po
 to anyone).
 
 That is how I work across the three systems I direct: the policy research on this site,
-[a private portfolio research system](/process/drive/), and a research model. The portfolio model is
+[a private portfolio research system](/process/drive/), and [a research model](/process/models/). The last two are
 described under How I work.
 
 I do not want AI agents that merely follow instructions or produce summaries. I want an intelligent
@@ -115,10 +115,5 @@ My email is [jacobong999@gmail.com](mailto:jacobong999@gmail.com). Questions and
 can also go through [the question form](/connect/).
 
 [A one-page summary of the projects (PDF)](/portfolio/Jacob-Ong-portfolio-2026-11.pdf), dated November 2026.
-
-> "Wealth gained hastily will dwindle, but whoever gathers little by little will
-> increase it."
->
-> Proverbs 13:11
 
 Mistakes that reach publication are mine.

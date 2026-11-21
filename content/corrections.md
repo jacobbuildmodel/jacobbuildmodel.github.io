@@ -14,6 +14,11 @@ only when they correct or clarify something said before. Numbers are never chang
 
 A fact, number or verdict was wrong.
 
+- **21 November 2026.** [DRIVE](/process/drive/) and [How I work](/process/#two-market-models). Both pages said
+  every decision is graded four weeks after it is logged ("Four weeks later it is graded"; "graded once its four weeks
+  are up"; "overlapping four-week outcomes"). Not every decision has a four-week horizon: each is graded when its own
+  outcome is in. The lines now say so. The system's own summary of 18 November gave four weeks; its records do not
+  back it for every decision. Numbers changed: none.
 - **20 November 2026.** [The record](/process/#record): four lines changed, three of them in verdict, on Jacob's rulings, all on
   [HDB affordability](/economics/2026-09-19/), and the count with them. The tally was 37 sealed predictions: 17 held, 12 failed, 6 in
   between, 2 void. It is now 37 sealed predictions: 19 held, 10 failed, 6 in between, 2 void.
