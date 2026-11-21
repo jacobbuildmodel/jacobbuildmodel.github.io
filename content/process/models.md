@@ -47,7 +47,8 @@ passed its test.
 
 Its current project is event-driven sentiment analysis. My question is how news and
 investor sentiment find their way into prices. If they spread through the market gradually
-rather than all at once (what economists call gradual information diffusion), a macro event and the first reaction to it may say something about the
+rather than all at once (what economists call gradual information diffusion, a common explanation for post-event
+drift), a macro event and the first reaction to it may say something about the
 direction that follows. The aim is a strategy built on both sentiment and macro events,
 validated before I trust it. The strategies it studies start from the economy and the
 market, not from chart patterns; hedging against swings in volatility is one of them.
@@ -66,7 +67,8 @@ I want to know whether my reasoning holds up once the result is in, not only whe
 sounds right. Markets answer that question every day, and they do not mark on effort. It is
 the same reason the policy research on this site commits to each prediction before the data
 is opened. Building these models has also given me the questions I want to study
-in economics: how information and sentiment get into prices, and how to tell skill from luck
+in economics: how information and sentiment get into prices, which is what event studies measure, and
+how to tell skill from luck
 in a short track record. I want to learn the theory and the econometrics behind both properly, so
 that I can direct this kind of research well.
 
