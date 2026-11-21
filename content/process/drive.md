@@ -1,6 +1,6 @@
 ---
 title: "DRIVE: how I research listed companies with AI"
-description: "A private system I built with AI to study listed companies. I make every decision, and each is logged before its outcome is known and graded four weeks later."
+description: "A private system I built with AI to study listed companies. I make every decision, and each is logged before its outcome is known and graded once the outcome is in."
 date: 2026-11-18
 showToc: false
 hidemeta: true
@@ -51,7 +51,7 @@ Three cases where I overruled the AI:
 DRIVE runs as a loop. AI assistants, each with one job, collect public data and score each
 company's quality and valuation from its filed accounts, blind to what I own. Their findings are
 reconciled by the rank of the evidence: filed, company-stated, market, analyst. Candidates are ranked mechanically, and a critic then argues against each one. I then decide, and
-the decision is logged before its outcome is known. Four weeks later it is graded.
+the decision is logged before its outcome is known. Once the outcome is in, it is graded.
 
 {{< flow steps="Public data|Blind scoring|Reconcile|Rank and critic|My decision|Graded ledger" feedback="Lab tests and the weekly auditor|Changes to the method" >}}
 Figure 1. The six steps run in order. The dashed pair sits outside them and changes the method the steps follow.
@@ -65,8 +65,8 @@ Here are five ways a system like this can fool its owner, each with checks that 
   are judged only on outcomes that come after the score is made.
 - **Leakage.** Roles run in separate sessions, and code stops the scorer seeing what I own.
 - **Overfitting.** Tests use companies the system never chose and apply the Holm correction for multiple testing.
-- **Cherry-picking.** Ledgers are append-only, every decision is graded once its four
-  weeks are up, and the system's own reports give counts before rates.
+- **Cherry-picking.** Ledgers are append-only, every decision is graded once its
+  outcome is in, and the system's own reports give counts before rates.
 - **AI errors.** Every figure is checked against a primary filing. AI-written briefs have
   contained fabricated numbers, one overstated about 130-fold.
 
@@ -90,7 +90,7 @@ clearer, data-based way to evaluate companies than I had before.
 Over the long run, I hope the loop helps me find the trends that matter, with AI sifting
 more information than I could alone and every decision still mine. It has also given me
 my next question for economics: how to tell skill from luck in a short record of
-overlapping four-week outcomes. That means studying inference with overlapping observations, multiple-testing control, statistical power and correction for selection.
+overlapping outcomes. That means studying inference with overlapping observations, multiple-testing control, statistical power and correction for selection.
 
 The facts about the system come from a summary its own AI wrote from its private records,
 as of 18 November 2026; the approach and the hopes are mine. AI drafted the page from
