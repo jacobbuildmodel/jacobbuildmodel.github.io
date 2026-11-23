@@ -58,6 +58,8 @@ a confidence, written before the data was opened. The first thirteen: 8 of 13 he
 against 6.34 expected from those confidences. Brier score 0.179, where 0 is perfect
 and a flat 50 per cent on everything scores 0.25.
 
+{{< calibration >}}
+
 ## Tokyo got cheaper. Did Singapore get richer?
 
 [Nearly three-quarters of the Singapore dollar's 2021-25 rise against the yen was the yen's own fall](/economics/2026-11-14/).

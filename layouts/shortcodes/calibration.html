@@ -1,0 +1,72 @@
+{{- /* layouts/shortcodes/calibration.html
+   The calibration dot strip (scholarly layer, November 2026): one dot per
+   sealed prediction that carries a confidence, placed at that confidence.
+   Filled = held, hollow = failed, half-filled = in between. Drawn at build
+   time as inline SVG from data/calibration.yaml (written by
+   tools/build_calibration.py from the record; never edited by hand). No
+   script, no curve and no bins: thirteen points cannot carry one.
+
+   The numbers beside it are the record's own: the Brier score and its count
+   from content/scorecard.md's front matter (brier, brierN). The build stops
+   if the rows do not reproduce them: the row count must equal brierN and the
+   Brier score computed here (held = 1, anything else = 0, as the record
+   scores it) must round to brier. A confidence is Jacob's alone; nothing
+   here sets or changes one.
+
+   Dots at the same confidence stack upwards. Usage: {{< calibration >}}. */ -}}
+{{- $s := site.GetPage "/scorecard" }}
+{{- if not $s }}{{ errorf "calibration shortcode: no content/scorecard.md" }}{{ end }}
+{{- $rows := site.Data.calibration.rows }}
+{{- $n := len $rows }}
+{{- if ne $n (int ($s.Param "brierN")) }}{{ errorf "calibration shortcode: data/calibration.yaml has %d rows; the record's brierN is %v. Run python tools/build_calibration.py" $n ($s.Param "brierN") }}{{ end }}
+{{- $sq := 0.0 }}{{ $exp := 0.0 }}{{ $held := 0 }}
+{{- range $rows }}
+  {{- $p := div (float .confidence) 100.0 }}
+  {{- $o := 0.0 }}{{ if eq .result "held" }}{{ $o = 1.0 }}{{ $held = add $held 1 }}{{ end }}
+  {{- $sq = add $sq (mul (sub $p $o) (sub $p $o)) }}
+  {{- $exp = add $exp $p }}
+{{- end }}
+{{- $brier := div (math.Round (mul (div $sq $n) 1000)) 1000 }}
+{{- if ne (printf "%.3f" $brier) (printf "%.3f" (float ($s.Param "brier"))) }}{{ errorf "calibration shortcode: the rows give a Brier score of %.3f; the record says %v" $brier ($s.Param "brier") }}{{ end }}
+{{- /* Geometry, in viewBox units: the axis runs from x0 to x1 at y = base. */}}
+{{- $x0 := 16.0 }}{{ $x1 := 344.0 }}{{ $base := 74.0 }}{{ $r := 4.0 }}
+{{- $seen := dict }}
+<figure class="calibration">
+<svg class="calibration-svg" viewBox="0 0 360 112" role="img" aria-labelledby="calibration-title calibration-desc">
+  <title id="calibration-title">{{ $n }} sealed predictions by the confidence written before the data was opened</title>
+  <desc id="calibration-desc">{{ range $i, $row := sort $rows "confidence" }}{{ if $i }}; {{ end }}{{ $row.confidence }} per cent, {{ if eq $row.result "neither" }}in between{{ else }}{{ $row.result }}{{ end }}{{ end }}.</desc>
+  <line class="calibration-axis" x1="{{ $x0 }}" y1="{{ $base }}" x2="{{ $x1 }}" y2="{{ $base }}"/>
+  {{- range slice 0 25 50 75 100 }}
+  {{- $x := add $x0 (mul (div (sub $x1 $x0) 100.0) .) }}
+  <line class="calibration-axis" x1="{{ $x }}" y1="{{ $base }}" x2="{{ $x }}" y2="{{ add $base 4 }}"/>
+  <text class="calibration-tick" x="{{ $x }}" y="{{ add $base 17 }}" text-anchor="{{ if eq . 0 }}start{{ else if eq . 100 }}end{{ else }}middle{{ end }}">{{ . }}%</text>
+  {{- end }}
+  <text class="calibration-label" x="{{ $x0 }}" y="{{ add $base 33 }}">Confidence written before the data was opened</text>
+  {{- range sort $rows "confidence" }}
+  {{- $k := string .confidence }}
+  {{- $level := index $seen $k | default 0 }}
+  {{- $seen = merge $seen (dict $k (add $level 1)) }}
+  {{- $cx := add $x0 (mul (div (sub $x1 $x0) 100.0) .confidence) }}
+  {{- $cy := sub (sub $base 10) (mul $level (add (mul $r 2) 2)) }}
+  {{- if eq .result "held" }}
+  <circle class="calibration-dot is-held" cx="{{ $cx }}" cy="{{ $cy }}" r="{{ $r }}"/>
+  {{- else if eq .result "neither" }}
+  <path class="calibration-dot is-held" d="M{{ $cx }} {{ sub $cy $r }}a{{ $r }} {{ $r }} 0 0 0 0 {{ mul $r 2 }}z"/>
+  <circle class="calibration-dot is-open" cx="{{ $cx }}" cy="{{ $cy }}" r="{{ $r }}"/>
+  {{- else }}
+  <circle class="calibration-dot is-open" cx="{{ $cx }}" cy="{{ $cy }}" r="{{ $r }}"/>
+  {{- end }}
+  {{- end }}
+  <g class="calibration-key">
+    <circle class="calibration-dot is-held" cx="20.5" cy="10" r="{{ $r }}"/><text class="calibration-tick" x="29" y="14">held</text>
+    <circle class="calibration-dot is-open" cx="70.5" cy="10" r="{{ $r }}"/><text class="calibration-tick" x="79" y="14">failed</text>
+    <path class="calibration-dot is-held" d="M128.5 6a4 4 0 0 0 0 8z"/><circle class="calibration-dot is-open" cx="128.5" cy="10" r="{{ $r }}"/><text class="calibration-tick" x="137" y="14">in between</text>
+  </g>
+</svg>
+<figcaption class="calibration-caption">
+  <span class="calibration-stat"><span class="calibration-stat-n">{{ $s.Param "brier" }}</span> Brier score</span>
+  <span class="calibration-stat"><span class="calibration-stat-n">N = {{ $n }}</span> scored predictions</span>
+  <span class="calibration-stat"><span class="calibration-stat-n">{{ $held }}</span> held, against {{ printf "%.2f" $exp }} expected</span>
+  <span class="calibration-note">Each dot is one sealed prediction, placed at the confidence I wrote down before its data was opened. {{ $n }} predictions are too few for a calibration curve, so none is drawn.{{ if lt $held (sub $n (len (where $rows "result" "failed"))) }} A result in between counts as not held in the Brier score.{{ end }}</span>
+</figcaption>
+</figure>

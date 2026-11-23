@@ -40,6 +40,11 @@ jobs:
           fi
           python scripts/aitell.py "${files[@]}" --strict --published-only
 
+      # The calibration strip's data file is written from the record by a
+      # script; this fails when the record changed and the file was not rebuilt.
+      - name: Calibration data matches the record
+        run: python tools/build_calibration.py --check
+
   # Vale (github.com/errata-ai/vale), rules in styles/Site/ (see .vale.ini),
   # over the content/**/*.md files this pull request adds or changes. Only
   # those: the older articles still carry hits, listed in the PR that added

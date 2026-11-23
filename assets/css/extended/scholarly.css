@@ -108,3 +108,20 @@
 }
 .cite-bibtex code { background: none; padding: 0; font: inherit; color: inherit; }
 .replication-box a code { padding: 0; background: none; color: inherit; }
+
+/* ---- calibration dot strip (layouts/shortcodes/calibration.html) ----
+   Inline SVG, so the page's own colours apply in both themes. Held is the
+   ink colour filled; failed is the same ring, empty: no red or green, as in
+   the record's own counts. */
+.calibration { margin: var(--s4) 0 var(--s5); max-width: 620px; }
+.calibration-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.calibration-axis { stroke: var(--ink-3); stroke-width: 1; }
+.calibration-tick, .calibration-label { font-family: var(--font-sans); font-size: 10px; fill: var(--ink-3); font-variant-numeric: tabular-nums lining-nums; }
+.calibration-label { fill: var(--ink-2); }
+.calibration-dot { stroke: var(--ink); stroke-width: 1.4; }
+.calibration-dot.is-held { fill: var(--ink); }
+.calibration-dot.is-open { fill: none; }
+path.calibration-dot { stroke: none; }
+.calibration-caption { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s2) var(--s3); margin-top: var(--s2); font-family: var(--font-sans); font-size: 0.82rem; line-height: 1.4; color: var(--ink-2); }
+.calibration-stat-n { display: block; font-family: var(--font-serif); font-size: 1.35rem; line-height: 1.15; font-weight: 600; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+.calibration-note { grid-column: 1 / -1; color: var(--ink-3); }
