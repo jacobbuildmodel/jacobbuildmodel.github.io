@@ -1,0 +1,15 @@
+{{- /* layouts/shortcodes/mn.html
+   A margin note, Tufte style (scholarly layer, November 2026), for a term of
+   art defined once at first use. No script: a hidden checkbox and its label.
+     wide screens (1240px and up)  the note sits in the right margin beside
+                                   its line; the "+" is not shown
+     narrower screens and phones   a small "+" after the term; a tap opens
+                                   the note under the line, a second tap
+                                   closes it
+   Usage, inside a sentence, straight after the term (shortcode name: mn):
+     pass-through, then the opening mn tag, the note, the closing mn tag.
+   The note is one short sentence or two; Markdown inside is rendered inline.
+   Printed pages show every note. */ -}}
+{{- $id := printf "mn-%s-%d" (substr (md5 .Page.RelPermalink) 0 6) .Ordinal -}}
+<input type="checkbox" id="{{ $id }}" class="mn-input"><label for="{{ $id }}" class="mn-toggle" aria-label="Note">+</label><span class="mn" role="note">{{ .Inner | strings.TrimSpace | .Page.RenderString }}</span>
+{{- /* no trailing space */ -}}

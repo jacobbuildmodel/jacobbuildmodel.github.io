@@ -58,7 +58,8 @@
   {{- /* The section's first paragraph links back to this page; that link is
          taken off here, words kept. The path holds only letters, digits,
          hyphens and slashes, so it is safe inside the pattern. */}}
-  {{- replaceRE (printf `<a\s[^>]*href="%s"[^>]*>(.*?)</a>` $p.RelPermalink) "$1" $score.section | safeHTML }}
+  {{- $section := replaceRE (printf `<a\s[^>]*href="%s"[^>]*>(.*?)</a>` $p.RelPermalink) "$1" $score.section }}
+  {{- partial "with_pillars.html" (dict "html" $section "mode" "bullets") }}
   <p class="method-score">Score: {{ $score.text }}.{{ with $p.Params.confidence }} Confidence going in: {{ . }}.{{ end }} Re-check due {{ ($p.Date.AddDate 1 0 0) | time.Format "2 January 2006" }}, against newer data.</p>
   {{- end }}
 

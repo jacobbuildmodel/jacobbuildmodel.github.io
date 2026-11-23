@@ -33,7 +33,8 @@
   {{- if and $p.Params.opened $p.Params.openedLink }}
     {{- $items = $items | append (printf `<a href="%s">Data opened %s</a>` (htmlEscape $p.Params.openedLink) (htmlEscape $p.Params.opened) | safeHTML) }}
   {{- end }}
-  {{- $items = $items | append $score.text }}
+  {{- /* The score's own words, with the pillar glyph beside each count. */}}
+  {{- $items = $items | append (partial "with_pillars.html" (dict "html" $score.text "mode" "counts")) }}
   {{- with $p.Params.confidence }}{{ $items = $items | append (printf "Confidence going in: %s" .) }}{{ end }}
 {{- else }}
   {{- $why := "" }}

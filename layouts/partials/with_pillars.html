@@ -1,0 +1,20 @@
+{{- /* layouts/partials/with_pillars.html
+   Puts the pillar glyph (pillar.html) in front of words that already state
+   a result. Context: a dict with html and mode.
+     mode "bullets"  the record's own bullets: "<li><strong>Held", Failed,
+                     Neither, Void (content/scorecard.md, rendered)
+     mode "counts"   a score line from score_of.html: "1 held, 2 failed,
+                     1 in between, 1 void, of 6 sealed"
+   Words are never changed: the glyph is added beside them. */ -}}
+{{- $h := .html }}
+{{- if eq .mode "bullets" }}
+  {{- range $word, $state := dict "Held" "held" "Failed" "failed" "Neither" "neither" "Void" "void" }}
+    {{- $h = replaceRE (printf `(<li>\s*)(<strong>%s)` $word) (printf "${1}%s${2}" (partial "pillar.html" $state)) $h }}
+  {{- end }}
+{{- else }}
+  {{- $h = htmlEscape $h }}
+  {{- range $word, $state := dict "held" "held" "failed" "failed" "in between" "neither" "void" "void" }}
+    {{- $h = replaceRE (printf `(\d+ %s)` $word) (printf `<span class="pillar-count">%s${1}</span>` (partial "pillar.html" $state)) $h }}
+  {{- end }}
+{{- end }}
+{{- return ($h | safeHTML) -}}

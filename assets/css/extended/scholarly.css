@@ -125,3 +125,68 @@ path.calibration-dot { stroke: none; }
 .calibration-caption { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s2) var(--s3); margin-top: var(--s2); font-family: var(--font-sans); font-size: 0.82rem; line-height: 1.4; color: var(--ink-2); }
 .calibration-stat-n { display: block; font-family: var(--font-serif); font-size: 1.35rem; line-height: 1.15; font-weight: 600; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
 .calibration-note { grid-column: 1 / -1; color: var(--ink-3); }
+
+/* ---- the pillar status glyph (layouts/partials/pillar.html) ---- */
+.pillar { display: inline-block; width: 0.58em; height: 0.93em; margin-right: 0.3em; vertical-align: -0.08em; color: inherit; overflow: visible; }
+.pillar-count { white-space: nowrap; }
+.pillar-legend { margin: var(--s2) 0 var(--s3); font-family: var(--font-sans); font-size: 0.82rem; line-height: 1.6; color: var(--ink-2); }
+.pillar-legend-label { margin-right: 0.4em; color: var(--ink-3); }
+.pillar-legend .pillar-count { margin-right: 0.9em; }
+.record-project li > .pillar, .method-body li > .pillar { margin-right: 0.4em; }
+
+/* ---- margin notes (layouts/shortcodes/mn.html) ---- */
+.mn-input { position: absolute; width: 1px; height: 1px; margin: 0; opacity: 0; pointer-events: none; }
+.mn-toggle {
+  display: inline-block;
+  min-width: 1.5em;
+  margin: 0 0.15em;
+  padding: 0 0.25em;
+  border: 1px solid var(--accent-quiet);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.72em;
+  line-height: 1.5;
+  text-align: center;
+  vertical-align: 0.15em;
+  color: var(--accent);
+  cursor: pointer;
+  user-select: none;
+}
+.mn-input:focus-visible + .mn-toggle { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mn-input:checked + .mn-toggle { background: var(--accent); color: var(--paper); }
+.mn {
+  display: none;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--ink-2);
+}
+.mn-input:checked + .mn-toggle + .mn {
+  display: block;
+  margin: var(--s2) 0;
+  padding: var(--s2) var(--s3);
+  border-inline-start: 2px solid var(--accent-quiet);
+  background: var(--code-bg);
+}
+@media (min-width: 1240px) {
+  .mn-toggle { display: none; }
+  .mn, .mn-input:checked + .mn-toggle + .mn {
+    display: block;
+    float: right;
+    clear: right;
+    width: 210px;
+    margin: 0.2em -242px var(--s3) 0;
+    padding: 0 0 0 var(--s3);
+    border-inline-start: 1px solid var(--line);
+    background: none;
+  }
+}
+@media print {
+  .mn-toggle { display: none; }
+  .mn { display: block; margin: 4pt 0; padding-left: 8pt; border-left: 1pt solid #999; }
+}
+/* a larger tap target for the margin-note toggle (44px with the label) */
+.mn-toggle { position: relative; }
+.mn-toggle::after { content: ""; position: absolute; inset: -12px; }

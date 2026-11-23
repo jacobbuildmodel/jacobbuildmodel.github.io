@@ -1,0 +1,20 @@
+{{- /* layouts/partials/pillar.html
+   The pillar status glyph (scholarly layer, November 2026; Jacob's decision
+   L2, 23 November 2026): a void-deck pillar under its beam, in the text
+   colour, one ink and no red. Context: the state, one of
+     sealed    outline: sealed, not scored yet
+     held      solid
+     neither   outline, lower half filled: in between
+     failed    outline, struck through
+     void      dashed outline
+   Returns inline SVG, hidden from screen readers: the word for the state
+   always stands beside it in the text. Any other value stops the build. */ -}}
+{{- $s := . }}
+{{- if not (in (slice "sealed" "held" "neither" "failed" "void") $s) }}{{ errorf "pillar.html: unknown state %q" $s }}{{ end }}
+{{- $o := `<rect x="3" y="2.5" width="4" height="12.5" fill="none" stroke="currentColor" stroke-width="1"/>` }}
+{{- $in := $o }}
+{{- if eq $s "held" }}{{ $in = `<rect x="2.5" y="2" width="5" height="13.5" fill="currentColor"/>` }}{{ end }}
+{{- if eq $s "neither" }}{{ $in = printf `%s<rect x="2.5" y="8.75" width="5" height="6.75" fill="currentColor"/>` $o }}{{ end }}
+{{- if eq $s "failed" }}{{ $in = printf `%s<path d="M0.8 13.2L9.2 5.2" fill="none" stroke="currentColor" stroke-width="1.2"/>` $o }}{{ end }}
+{{- if eq $s "void" }}{{ $in = `<path d="M3 3V15H7V3" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 1.5"/>` }}{{ end }}
+{{- return (printf `<svg class="pillar pillar-%s" viewBox="0 0 10 16" aria-hidden="true" focusable="false"><rect x="0" y="0" width="10" height="2.2" fill="currentColor"/>%s</svg>` $s $in | safeHTML) -}}

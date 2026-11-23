@@ -40,7 +40,7 @@
       <th scope="row" role="rowheader"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></th>
       <td role="cell" data-label="Theme">{{ .theme }}</td>
       <td role="cell" data-label="Method">{{ .method }}</td>
-      <td role="cell" data-label="Score">{{ $score }}</td>
+      <td role="cell" data-label="Score">{{ if eq $kind "open" }}<span class="pillar-count">{{ partial "pillar.html" "sealed" }}{{ $score }}</span>{{ else if eq $kind "project" }}{{ partial "with_pillars.html" (dict "html" $score "mode" "counts") }}{{ else }}{{ $score }}{{ end }}</td>
       <td role="cell" data-label="Updated">{{ partial "updated_of.html" $p }}</td>
       <td role="cell" data-label="Read">{{ $p.ReadingTime }} min</td>
     </tr>

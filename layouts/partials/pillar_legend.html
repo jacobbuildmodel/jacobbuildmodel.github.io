@@ -1,0 +1,10 @@
+{{- /* layouts/partials/pillar_legend.html
+   The legend for the pillar status glyph, printed once where the glyph is
+   first used on a page (the record on How I work). */ -}}
+<p class="pillar-legend"><span class="pillar-legend-label">Key:</span>
+  <span class="pillar-count">{{ partial "pillar.html" "held" }}held</span>
+  <span class="pillar-count">{{ partial "pillar.html" "failed" }}failed</span>
+  <span class="pillar-count">{{ partial "pillar.html" "neither" }}in between</span>
+  <span class="pillar-count">{{ partial "pillar.html" "void" }}void</span>
+  <span class="pillar-count">{{ partial "pillar.html" "sealed" }}sealed, not scored yet</span>
+</p>
