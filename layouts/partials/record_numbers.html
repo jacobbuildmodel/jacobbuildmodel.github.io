@@ -1,0 +1,32 @@
+{{- /* layouts/partials/record_numbers.html
+   Home page: the record as four numbers (scholarly layer, November 2026).
+   Read from content/scorecard.md's front matter (sealed, held, failed,
+   neither, void), never typed; a missing field stops the build. The four
+   numbers sit inside one link to the record on How I work, so the page
+   still links that target once. Void predictions are sealed but are in none
+   of the three results, so a line under the numbers accounts for them and
+   the four numbers plus that line add up to the sealed count. No Brier
+   score here: Jacob's rule of 22 October 2026 keeps it off the home page
+   below 16 scored confidences (track_record.html). */ -}}
+{{- $score := site.GetPage "/scorecard" }}
+{{- if not $score }}{{ errorf "record_numbers.html: no /scorecard page" }}{{ end }}
+{{- range slice "sealed" "held" "failed" "neither" }}
+  {{- if not (isset $score.Params .) }}{{ errorf "record_numbers.html: content/scorecard.md needs %s: in its front matter" . }}{{ end }}
+{{- end }}
+{{- $how := site.GetPage "/process" }}
+{{- if not $how }}{{ errorf "record_numbers.html: no /process page" }}{{ end }}
+{{- $p := $score.Params }}
+{{- $void := int ($p.void | default 0) }}
+{{- if ne (int $p.sealed) (add (int $p.held) (int $p.failed) (int $p.neither) $void) }}
+  {{- errorf "record_numbers.html: held + failed + neither + void does not equal sealed in content/scorecard.md" }}
+{{- end }}
+<section class="record-numbers" aria-labelledby="record-numbers-title">
+  <h2 id="record-numbers-title" class="open-strip-title">The record</h2>
+  <a class="record-numbers-link" href="{{ $how.RelPermalink }}#record">
+    <span class="record-number"><span class="record-number-n">{{ $p.sealed }}</span> <span class="record-number-l">predictions sealed</span></span>
+    <span class="record-number"><span class="record-number-n">{{ $p.held }}</span> <span class="record-number-l">held</span></span>
+    <span class="record-number"><span class="record-number-n">{{ $p.failed }}</span> <span class="record-number-l">failed</span></span>
+    <span class="record-number"><span class="record-number-n">{{ $p.neither }}</span> <span class="record-number-l">in between</span></span>
+  </a>
+  <p class="record-numbers-note">{{ if $void }}The other {{ $void }} could not be scored as sealed and {{ if eq $void 1 }}is{{ else }}are{{ end }} void. {{ end }}The numbers link to every prediction and what happened to it.</p>
+</section>

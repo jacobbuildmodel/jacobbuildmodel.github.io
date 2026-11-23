@@ -21,6 +21,10 @@
                     `open:`), each bet's result (printed from the scorecard),
                     and whatever the page put in its method shortcode
                     (what changed after review, who did what, sources)
+     replication    repository, commit, data, rerun command, checks
+                    (replication_box.html, from data/for_economists.yaml)
+     cite this      a citation and a BibTeX entry built from front matter
+                    (cite_this.html)
      next           one link to the next project in the theme (`next:`)
 
    Front matter read here and in the partials:
@@ -56,6 +60,8 @@
   {{- end }}
   {{- partial "reply.html" . }}
   {{- partial "method_block.html" (dict "page" . "score" $score) }}
+  {{- partial "replication_box.html" . }}
+  {{- partial "cite_this.html" . }}
   {{- partial "next_project.html" . }}
 </article>
 {{- end }}

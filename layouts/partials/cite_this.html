@@ -1,0 +1,27 @@
+{{- /* layouts/partials/cite_this.html
+   "Cite this page" at the foot of a project (scholarly layer, November
+   2026). Context: the page. Everything is read, nothing typed: the author
+   (params.author), the page's title, date, last change (updated_of.html)
+   and address, and the site's title. The retrieval date is left blank for
+   the reader to fill in, as FRED's suggested citation does. No DOI: none
+   has been minted. No script: the text is selected and copied by hand. */ -}}
+{{- $author := site.Params.author }}
+{{- if not $author }}{{ errorf "cite_this.html: hugo.toml needs params.author" }}{{ end }}
+{{- $names := split $author " " }}
+{{- $family := index $names (sub (len $names) 1) }}
+{{- $given := delimit (first (sub (len $names) 1) $names) " " }}
+{{- $published := .Date | time.Format "2 January 2006" }}
+{{- $updated := partial "updated_of.html" . }}
+{{- $title := .Title }}
+{{- $stop := "." }}
+{{- if findRE `[.?!]$` $title }}{{ $stop = "" }}{{ end }}
+{{- $dates := $published }}
+{{- if ne $updated $published }}{{ $dates = printf "%s, updated %s" $published $updated }}{{ end }}
+{{- $tex := $title | replaceRE `([%&$#_])` `\$1` }}
+{{- $key := printf "%s%s" (lower $family) (.Date | time.Format "20060102") }}
+{{- $bib := printf "@misc{%s,\n  author       = {%s, %s},\n  title        = {{%s}},\n  year         = {%d},\n  howpublished = {%s},\n  url          = {%s},\n  note         = {Published %s},\n  urldate      = {}\n}" $key $family $given $tex .Date.Year site.Title .Permalink $dates }}
+<section class="cite-box" aria-labelledby="cite-title">
+  <h2 id="cite-title">Cite this page</h2>
+  <p class="cite-text">{{ $family }}, {{ $given }}. {{ .Date.Year }}. &ldquo;{{ $title }}{{ $stop }}&rdquo; <cite>{{ site.Title }}</cite>, {{ $dates }}. {{ .Permalink }}. Retrieved on <span class="cite-blank">____________</span>.</p>
+  <pre class="cite-bibtex"><code>{{ $bib }}</code></pre>
+</section>

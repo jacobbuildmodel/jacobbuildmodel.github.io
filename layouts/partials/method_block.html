@@ -26,7 +26,17 @@
   <div class="method-body">
   {{- with $p.File }}
   {{- with index (index site.Data.for_economists $p.Section | default dict) .ContentBaseName }}
-  {{- partial "for_economists_list.html" . }}
+  {{- /* Scholarly layer (November 2026): the repository, commit, data, rerun
+         and check rows moved to the Replication box under this block
+         (replication_box.html); the method and the seal's own words stay
+         here. The seal's link is on the record strip when the page names
+         it (sealedLink), so it is not repeated. */}}
+  {{- $e := dict }}
+  {{- with .method }}{{ $e = merge $e (dict "method" .) }}{{ end }}
+  {{- with .sealed }}
+    {{- if $p.Params.sealedLink }}{{ $e = merge $e (dict "sealed" (dict "text" .text)) }}{{ else }}{{ $e = merge $e (dict "sealed" .) }}{{ end }}
+  {{- end }}
+  {{- if $e }}{{ partial "for_economists_list.html" $e }}{{ end }}
   {{- end }}
   {{- end }}
 
