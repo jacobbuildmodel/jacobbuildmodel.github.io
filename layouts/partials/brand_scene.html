@@ -1,0 +1,15 @@
+{{- /* layouts/partials/brand_scene.html
+   The slot on About for the mark's full scene (scholarly layer, November
+   2026). Prints nothing until both exist:
+     static/brand/scene.svg         the full scene Jacob picks (logo round 3)
+     params.brand.sceneCaption      its one-line caption, from the moderator
+                                    after the public-words checks
+   Neither is in the repository yet, so About is unchanged for now. */ -}}
+{{- if fileExists "static/brand/scene.svg" }}
+{{- with site.Params.brand }}{{ with .sceneCaption }}
+<figure class="brand-scene">
+  <img src="/brand/scene.svg" alt="{{ site.Params.brand.sceneAlt | default "The site's mark" }}" loading="lazy" width="600" height="300">
+  <figcaption>{{ . }}</figcaption>
+</figure>
+{{- end }}{{ end }}
+{{- end }}

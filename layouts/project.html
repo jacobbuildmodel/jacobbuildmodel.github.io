@@ -8,6 +8,8 @@
      title (the finding)
      strip          one line: sealed date or "not scored", score, confidence
                     going in, last change, reading time (project_strip.html)
+     cover          a ridgeline drawn by code from the project's own series,
+                    with its credit line (cover.html); decoration
      reading path   the page's own Markdown: first paragraph, key chart,
                     objective and mechanism, evidence, "Tested here / Not
                     tested here", then the optional parts as shortcodes
@@ -49,6 +51,7 @@
     <h1 class="post-title">{{ .Title }}</h1>
     {{- partial "project_strip.html" (dict "page" . "score" $score) }}
   </header>
+  {{- partial "cover.html" . }}
   <div class="post-content md-content project-body" data-reading-path>
     {{- partial "anchored_headings.html" $body -}}
   </div>

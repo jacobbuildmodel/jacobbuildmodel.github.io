@@ -190,3 +190,22 @@ path.calibration-dot { stroke: none; }
 /* a larger tap target for the margin-note toggle (44px with the label) */
 .mn-toggle { position: relative; }
 .mn-toggle::after { content: ""; position: absolute; inset: -12px; }
+
+/* ---- project cover (layouts/partials/cover.html) ----
+   Inline SVG ridges in the text colour; each ridge is filled with the page
+   colour so it hides the ones behind it. The newest ridge is the red of the
+   mark's ground line. */
+:root { --cover-red: #9b2d20; }
+:root[data-theme="dark"] { --cover-red: #cf5a46; }
+.cover { margin: 0 0 var(--s5); }
+.cover-art { display: block; width: 100%; height: auto; color: var(--ink-2); }
+.cover-ridge { fill: var(--paper); stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.cover-ridge.is-last { stroke: var(--cover-red); }
+.cover-credit { margin-top: var(--s2); font-family: var(--font-sans); font-size: 0.74rem; line-height: 1.45; color: var(--ink-3); }
+@media (max-width: 520px) { .cover-ridge { stroke-width: 0.9; } }
+@media print { .cover { display: none; } }
+
+/* ---- About: the slot for the mark's full scene (brand_scene.html) ---- */
+.brand-scene { margin: var(--s6) 0 0; }
+.brand-scene img { display: block; width: 100%; max-width: 600px; height: auto; }
+.brand-scene figcaption { margin-top: var(--s2); font-family: var(--font-sans); font-size: 0.82rem; color: var(--ink-3); }

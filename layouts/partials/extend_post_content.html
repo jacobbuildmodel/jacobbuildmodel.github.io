@@ -31,3 +31,6 @@
 <p class="post-ask"><a href="{{ .RelPermalink }}?from={{ $here | urlquery }}">Questions and counter-arguments on this article go to Jacob's inbox.</a></p>
 {{- end }}
 {{- end }}
+{{- /* About: the slot for the mark's full scene (brand_scene.html); empty
+       until the scene and its caption exist. */ -}}
+{{- if eq .RelPermalink "/about/" }}{{ partial "brand_scene.html" . }}{{ end }}
