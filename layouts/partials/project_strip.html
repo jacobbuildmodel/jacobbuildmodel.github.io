@@ -3,7 +3,13 @@
    2026). Takes a dict: page, score (from score_of.html).
 
    Every value is read, none is composed:
-     sealed      front matter thesisSealed, as written there
+     sealed      front matter thesisSealed, as written there; linked to
+                 front matter sealedLink (the seal commit, or THESIS.md for
+                 the two pieces sealed before their repository was public)
+     opened      front matter opened and openedLink: the first commit after
+                 the seal that scored the predictions on the real data, date
+                 in Singapore time. A piece without the fields shows no
+                 opened date (scholarly layer, November 2026).
      score       counted from the scorecard's own bullets (score_of.html)
      confidence  front matter confidence, printed word for word; a project
                  with no sealed confidence shows none. Never inferred,
@@ -17,8 +23,18 @@
 {{- $p := .page }}{{ $score := .score }}
 {{- $items := slice }}
 {{- if $score.scored }}
-  {{- with $p.Params.thesisSealed }}{{ $items = $items | append (printf "Sealed %s" .) }}{{ end }}
-  {{- $items = $items | append $score.text }}
+  {{- with $p.Params.thesisSealed }}
+    {{- with $p.Params.sealedLink }}
+      {{- $items = $items | append (printf `<a href="%s">Sealed %s</a>` (htmlEscape .) (htmlEscape $p.Params.thesisSealed) | safeHTML) }}
+    {{- else }}
+      {{- $items = $items | append (printf "Sealed %s" .) }}
+    {{- end }}
+  {{- end }}
+  {{- if and $p.Params.opened $p.Params.openedLink }}
+    {{- $items = $items | append (printf `<a href="%s">Data opened %s</a>` (htmlEscape $p.Params.openedLink) (htmlEscape $p.Params.opened) | safeHTML) }}
+  {{- end }}
+  {{- /* The score's own words, with the pillar glyph beside each count. */}}
+  {{- $items = $items | append (partial "with_pillars.html" (dict "html" $score.text "mode" "counts")) }}
   {{- with $p.Params.confidence }}{{ $items = $items | append (printf "Confidence going in: %s" .) }}{{ end }}
 {{- else }}
   {{- $why := "" }}

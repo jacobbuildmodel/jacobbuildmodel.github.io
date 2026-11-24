@@ -1,0 +1,90 @@
+# The scored confidences, one row per sealed prediction that carries one.
+# WRITTEN BY tools/build_calibration.py FROM content/scorecard.md. Do not edit by
+# hand: change the record, then rerun the script (lint.yml runs it with --check).
+# A confidence is Jacob's alone, set before the data was opened; this file copies
+# the numbers the record prints and sets none.
+#   piece       the project page
+#   result      held, failed or neither, as the record's bullet says
+#   confidence  per cent, as the record's bullet says
+#   words       the bullet's first words, to find it by eye
+#   source      where the result and the confidence were read
+#   sealed      the sealed file to check the confidence against, at the seal commit
+rows:
+  - piece: "/economics/2026-11-14"
+    result: failed
+    confidence: 8
+    words: "At least half of the Singapore dollar's rise against"
+    source: "content/scorecard.md, line 68"
+    sealed: "https://github.com/jacobbuildmodel/coe-analysis/blob/9e460349ebfc56bf313728e14243876e9dd6c9f4/sgd/THESIS.md"
+  - piece: "/economics/2026-11-14"
+    result: held
+    confidence: 55
+    words: "The split would close: for both currencies, on both"
+    source: "content/scorecard.md, line 73"
+    sealed: "https://github.com/jacobbuildmodel/coe-analysis/blob/9e460349ebfc56bf313728e14243876e9dd6c9f4/sgd/THESIS.md"
+  - piece: "/economics/2026-11-14"
+    result: held
+    confidence: 90
+    words: "At least half of the Singapore dollar's rise against"
+    source: "content/scorecard.md, line 80"
+    sealed: "https://github.com/jacobbuildmodel/coe-analysis/blob/9e460349ebfc56bf313728e14243876e9dd6c9f4/sgd/THESIS.md"
+  - piece: "/economics/2026-11-14"
+    result: held
+    confidence: 80
+    words: "The Singapore dollar's broad index would be the steadiest"
+    source: "content/scorecard.md, line 85"
+    sealed: "https://github.com/jacobbuildmodel/coe-analysis/blob/9e460349ebfc56bf313728e14243876e9dd6c9f4/sgd/THESIS.md"
+  - piece: "/economics/2026-11-14"
+    result: held
+    confidence: 35
+    words: "The broad path would line up with MAS's decisions"
+    source: "content/scorecard.md, line 89"
+    sealed: "https://github.com/jacobbuildmodel/coe-analysis/blob/9e460349ebfc56bf313728e14243876e9dd6c9f4/sgd/THESIS.md"
+  - piece: "/economics/2026-10-31"
+    result: failed
+    confidence: 28
+    words: "Before the ladders, bottom pay in each covered job"
+    source: "content/scorecard.md, line 99"
+    sealed: "https://github.com/jacobbuildmodel/coe-analysis/blob/e5f877b70f60f38a99248e6bd90a3e4063c45a65/pwm/THESIS.md"
+  - piece: "/economics/2026-10-31"
+    result: held
+    confidence: 40
+    words: "Bottom pay in covered jobs would rise at least"
+    source: "content/scorecard.md, line 104"
+    sealed: "https://github.com/jacobbuildmodel/coe-analysis/blob/e5f877b70f60f38a99248e6bd90a3e4063c45a65/pwm/THESIS.md"
+  - piece: "/economics/2026-10-31"
+    result: held
+    confidence: 58
+    words: "Low-paid jobs without a ladder would keep pace, their"
+    source: "content/scorecard.md, line 108"
+    sealed: "https://github.com/jacobbuildmodel/coe-analysis/blob/e5f877b70f60f38a99248e6bd90a3e4063c45a65/pwm/THESIS.md"
+  - piece: "/economics/2026-10-31"
+    result: held
+    confidence: 50
+    words: "In every year after the ladder, pay at the"
+    source: "content/scorecard.md, line 112"
+    sealed: "https://github.com/jacobbuildmodel/coe-analysis/blob/e5f877b70f60f38a99248e6bd90a3e4063c45a65/pwm/THESIS.md"
+  - piece: "/economics/2026-10-17"
+    result: failed
+    confidence: 35
+    words: "Every scored year's average peak speed would sit inside"
+    source: "content/scorecard.md, line 124"
+    sealed: "https://github.com/jacobbuildmodel/coe-analysis/blob/6d2a345d90015b8911e3be5ccfc76730a9d57206/erp/THESIS.md"
+  - piece: "/economics/2026-10-17"
+    result: held
+    confidence: 65
+    words: "Once road space is allowed for, peak speed would"
+    source: "content/scorecard.md, line 128"
+    sealed: "https://github.com/jacobbuildmodel/coe-analysis/blob/6d2a345d90015b8911e3be5ccfc76730a9d57206/erp/THESIS.md"
+  - piece: "/economics/2026-10-17"
+    result: failed
+    confidence: 20
+    words: "Cars would be driven no more than 3 per"
+    source: "content/scorecard.md, line 132"
+    sealed: "https://github.com/jacobbuildmodel/coe-analysis/blob/6d2a345d90015b8911e3be5ccfc76730a9d57206/erp/THESIS.md"
+  - piece: "/economics/2026-10-17"
+    result: neither
+    confidence: 70
+    words: "Once the number of cars is known, the COE"
+    source: "content/scorecard.md, line 135"
+    sealed: "https://github.com/jacobbuildmodel/coe-analysis/blob/6d2a345d90015b8911e3be5ccfc76730a9d57206/erp/THESIS.md"

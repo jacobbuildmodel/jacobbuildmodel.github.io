@@ -1,0 +1,19 @@
+{{- /* layouts/partials/cover.html
+   A project's cover (scholarly layer, November 2026; Jacob's decision V1):
+   a ridgeline drawn by tools/make_covers.py from the project's own
+   published series. The SVG (assets/covers/<page>.svg) is inlined so its
+   lines take the page's text colour in both themes; it is decoration
+   (aria-hidden), and the credit line under it says what it was drawn from
+   (data/covers.yaml, written by the same script). A project without a cover
+   prints nothing. */ -}}
+{{- with .File }}
+{{- $name := .ContentBaseName }}
+{{- with resources.Get (printf "covers/%s.svg" $name) }}
+{{- $c := index site.Data.covers $name }}
+{{- if not $c }}{{ errorf "cover.html: assets/covers/%s.svg has no entry in data/covers.yaml; rerun tools/make_covers.py" $name }}{{ end }}
+<figure class="cover">
+  {{ .Content | safeHTML }}
+  <figcaption class="cover-credit">Cover: drawn by code from {{ $c.series }}, {{ $c.source }}, {{ $c.dates }}. Script in the repository.</figcaption>
+</figure>
+{{- end }}
+{{- end }}

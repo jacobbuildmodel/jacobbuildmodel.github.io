@@ -13,6 +13,12 @@
 #   sealed   text, url, label (the seal commit or THESIS.md)
 #   code     url, label    rerun    command (list, shown as code)
 #   check    list of url, label
+#   commit   url, label, date, checked (the day the pin was read from git): the repository as it stood when this entry was pinned (scholarly layer,
+#            23 November 2026). For a piece with its own folder: the last commit that changed the folder,
+#            and that commit's date in Singapore time. For a piece at the repository root (scope: repository):
+#            the head of main on 23 November 2026 and its date. Printed in the Replication box (replication_box.html).
+#   rebuilt  optional text: the date of the last independent rebuild, when one is on the public record.
+#            Left out everywhere for now; the box prints nothing for it rather than a guess.
 
 economics:
   "2026-08-22":
@@ -21,6 +27,7 @@ economics:
     sealed: { text: "Written before this site sealed predictions in advance." }
     code: { url: "https://github.com/jacobbuildmodel/coe-analysis", label: "coe-analysis" }
     rerun: { command: ["pip install -r requirements.txt", "bash run_all.sh"] }
+    commit: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/7acce31a266433f276928042f6119e72f3a9cf0c", label: "7acce31", date: "19 November 2026", checked: "23 November 2026", scope: "repository" }
     check:
       - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/README.md#checking-your-reproduction", label: "Checking your reproduction (README.md)" }
       - { url: "https://github.com/jacobbuildmodel/coe-analysis/actions/workflows/research-checks.yml", label: "GitHub Actions" }
@@ -30,6 +37,7 @@ economics:
     sealed: { text: "Written before this site sealed predictions in advance." }
     code: { url: "https://github.com/jacobbuildmodel/coe-analysis", label: "coe-analysis" }
     rerun: { command: ["pip install -r requirements.txt", "bash run_all.sh"] }
+    commit: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/7acce31a266433f276928042f6119e72f3a9cf0c", label: "7acce31", date: "19 November 2026", checked: "23 November 2026", scope: "repository" }
     check:
       - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/README.md#checking-your-reproduction", label: "Checking your reproduction (README.md)" }
       - { url: "https://github.com/jacobbuildmodel/coe-analysis/actions/workflows/research-checks.yml", label: "GitHub Actions" }
@@ -39,6 +47,7 @@ economics:
     sealed: { text: "Written before this site sealed predictions in advance." }
     code: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/main/win-rate", label: "coe-analysis/win-rate" }
     rerun: { command: ["bash run_all.sh", "cd win-rate && python3 11_winrate.py && python3 12_figures.py"] }
+    commit: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/f6904e974789cdd886512a900a2cf41337c8d517/win-rate", label: "f6904e9", date: "24 September 2026", checked: "23 November 2026" }
     check:
       - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/win-rate/README.md#checking-your-reproduction", label: "Checking your reproduction (win-rate/README.md)" }
   "2026-09-08":
@@ -47,6 +56,7 @@ economics:
     sealed: { text: "4 September 2026. Seal date from the header of THESIS.md; the public repository was created after it.", url: "https://github.com/jacobbuildmodel/gst-passthrough/blob/main/THESIS.md", label: "THESIS.md" }
     code: { url: "https://github.com/jacobbuildmodel/gst-passthrough", label: "gst-passthrough" }
     rerun: { command: ["pip install -r requirements.txt", "./run_all.sh"] }
+    commit: { url: "https://github.com/jacobbuildmodel/gst-passthrough/tree/998568b947a96312183e03cb56d7caf54d097b16", label: "998568b", date: "19 November 2026", checked: "23 November 2026", scope: "repository" }
     check:
       - { url: "https://github.com/jacobbuildmodel/gst-passthrough/blob/main/CHECKSUMS.md5", label: "CHECKSUMS.md5" }
       - { url: "https://github.com/jacobbuildmodel/gst-passthrough/actions/workflows/research-checks.yml", label: "GitHub Actions" }
@@ -56,6 +66,7 @@ economics:
     sealed: { text: "Written before this site sealed predictions in advance." }
     code: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/main/motorcycles", label: "coe-analysis/motorcycles" }
     rerun: { command: ["python3 13_motorcycles.py", "python3 14_figures.py"] }
+    commit: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/f6904e974789cdd886512a900a2cf41337c8d517/motorcycles", label: "f6904e9", date: "24 September 2026", checked: "23 November 2026" }
     check:
       - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/motorcycles/README.md#checking-your-reproduction", label: "Checking your reproduction (motorcycles/README.md)" }
   "2026-09-19":
@@ -64,6 +75,7 @@ economics:
     sealed: { text: "11 September 2026. Seal date from the header of THESIS.md; the public repository was created after it.", url: "https://github.com/jacobbuildmodel/hdb-affordability/blob/main/THESIS.md", label: "THESIS.md" }
     code: { url: "https://github.com/jacobbuildmodel/hdb-affordability", label: "hdb-affordability" }
     rerun: { command: ["rm -rf out figs && ./run_all.sh"] }
+    commit: { url: "https://github.com/jacobbuildmodel/hdb-affordability/tree/bc3545b93e861bd4ab998333630b2b2bee097381", label: "bc3545b", date: "19 November 2026", checked: "23 November 2026", scope: "repository" }
     check:
       - { url: "https://github.com/jacobbuildmodel/hdb-affordability/blob/main/CHECKSUMS.md5", label: "CHECKSUMS.md5" }
       - { url: "https://github.com/jacobbuildmodel/hdb-affordability/actions/workflows/standards.yml", label: "GitHub Actions" }
@@ -73,6 +85,7 @@ economics:
     sealed: { text: "17 September 2026.", url: "https://github.com/jacobbuildmodel/hdb-affordability/commit/ac1687d7e15daaff721080592ab09bc15c88dab3", label: "ac1687d (financing: SEAL THESIS.md)" }
     code: { url: "https://github.com/jacobbuildmodel/hdb-affordability/tree/main/financing", label: "hdb-affordability/financing" }
     rerun: { command: ["rm -rf out figs && ./run_all.sh"] }
+    commit: { url: "https://github.com/jacobbuildmodel/hdb-affordability/tree/30cc1d0b03298193aaae90ec63ae54197b03d53d/financing", label: "30cc1d0", date: "24 September 2026", checked: "23 November 2026" }
     check:
       - { url: "https://github.com/jacobbuildmodel/hdb-affordability/blob/main/financing/CHECKSUMS.md5", label: "financing/CHECKSUMS.md5" }
       - { url: "https://github.com/jacobbuildmodel/hdb-affordability/actions/workflows/standards.yml", label: "GitHub Actions" }
@@ -82,6 +95,7 @@ economics:
     sealed: { text: "26 September 2026.", url: "https://github.com/jacobbuildmodel/coe-analysis/commit/6d2a345d90015b8911e3be5ccfc76730a9d57206", label: "6d2a345 (erp: SEAL THESIS.md)" }
     code: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/main/erp", label: "coe-analysis/erp" }
     rerun: { command: ["rm -rf erp/out erp/figs && bash erp/run_all.sh"] }
+    commit: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/26840cc07c703fe32c1613c2e015c8908c066ff9/erp", label: "26840cc", date: "14 October 2026", checked: "23 November 2026" }
     check:
       - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/erp/CHECKSUMS.md5", label: "erp/CHECKSUMS.md5" }
       - { url: "https://github.com/jacobbuildmodel/coe-analysis/actions/workflows/research-checks.yml", label: "GitHub Actions" }
@@ -91,8 +105,20 @@ economics:
     sealed: { text: "28 September 2026.", url: "https://github.com/jacobbuildmodel/coe-analysis/commit/e5f877b70f60f38a99248e6bd90a3e4063c45a65", label: "e5f877b (pwm: SEAL)" }
     code: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/main/pwm", label: "coe-analysis/pwm" }
     rerun: { command: ["bash pwm/run_all.sh"] }
+    commit: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/26840cc07c703fe32c1613c2e015c8908c066ff9/pwm", label: "26840cc", date: "14 October 2026", checked: "23 November 2026" }
     check:
       - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/pwm/CHECKSUMS.md5", label: "pwm/CHECKSUMS.md5" }
+      - { url: "https://github.com/jacobbuildmodel/coe-analysis/actions/workflows/research-checks.yml", label: "GitHub Actions" }
+
+  "2026-11-14":
+    # Added with the Replication box (scholarly layer, November 2026). Each value is copied from the
+    # researchers' page (content/researchers/singapore-dollar.md, section 8, "Rerun it") and the open
+    # seals list (data/open_seals.yaml). No data or method line: the researchers' page carries both in full.
+    code: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/main/sgd", label: "coe-analysis/sgd" }
+    rerun: { command: ["python3 -m pip install -r sgd/requirements.txt", "bash sgd/run_all.sh"] }
+    commit: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/7fa1a8960cde2e5ad53c118f3280ec45d062e674/sgd", label: "7fa1a89", date: "4 November 2026", checked: "23 November 2026" }
+    check:
+      - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/sgd/CHECKSUMS.md5", label: "sgd/CHECKSUMS.md5" }
       - { url: "https://github.com/jacobbuildmodel/coe-analysis/actions/workflows/research-checks.yml", label: "GitHub Actions" }
 
 decisions:
@@ -101,6 +127,7 @@ decisions:
     method: "A short, descriptive evidence note for LTA's public consultation on merging COE Categories A and B into one passenger car category with a feebate (8 October to 2 November 2026). It sets out what the published bidding record showed on four points the consultation paper raised."
     code: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/main/lta-ab", label: "coe-analysis/lta-ab" }
     rerun: { command: ["bash lta-ab/run_all.sh"] }
+    commit: { url: "https://github.com/jacobbuildmodel/coe-analysis/tree/a3ca1ed8a5bd4817d3bebcce10c5caec3cf0edc7/lta-ab", label: "a3ca1ed", date: "22 October 2026", checked: "23 November 2026" }
     check:
       - { url: "https://github.com/jacobbuildmodel/coe-analysis/blob/main/lta-ab/CHECKSUMS.md5", label: "lta-ab/CHECKSUMS.md5" }
       - { url: "https://github.com/jacobbuildmodel/coe-analysis/actions/workflows/research-checks.yml", label: "GitHub Actions" }

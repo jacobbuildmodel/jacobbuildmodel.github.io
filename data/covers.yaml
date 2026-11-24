@@ -1,0 +1,72 @@
+# The cover of each project: what it was drawn from. WRITTEN BY tools/make_covers.py; do not edit by hand.
+# The page prints: Cover: drawn by code from <series>, <source>, <dates>. Script in the repository.
+"2026-08-22":
+  series: "the Category A COE premium at every bidding exercise, one ridge a year"
+  source: "Land Transport Authority via data.gov.sg"
+  dates: "January 2010 to August 2026"
+  kind: dist
+  ridges: 17
+  file: "https://github.com/jacobbuildmodel/coe-analysis/blob/7acce31a266433f276928042f6119e72f3a9cf0c/analysis.csv"
+"2026-08-29":
+  series: "the change in the Category A COE premium from each month's first exercise to its second, one ridge a year"
+  source: "Land Transport Authority via data.gov.sg"
+  dates: "January 2010 to August 2026"
+  kind: dist
+  ridges: 17
+  file: "https://github.com/jacobbuildmodel/coe-analysis/blob/7acce31a266433f276928042f6119e72f3a9cf0c/analysis.csv"
+"2026-09-05":
+  series: "the share of Category A COE bids that won at every bidding exercise, one ridge a year"
+  source: "Land Transport Authority via data.gov.sg"
+  dates: "January 2010 to August 2026"
+  kind: dist
+  ridges: 17
+  file: "https://github.com/jacobbuildmodel/coe-analysis/blob/7acce31a266433f276928042f6119e72f3a9cf0c/analysis.csv"
+"2026-09-12":
+  series: "the motorcycle (Category D) COE premium at every bidding exercise, one ridge a year"
+  source: "Land Transport Authority via data.gov.sg"
+  dates: "January 2010 to August 2026"
+  kind: dist
+  ridges: 17
+  file: "https://github.com/jacobbuildmodel/coe-analysis/blob/7acce31a266433f276928042f6119e72f3a9cf0c/analysis.csv"
+"2026-09-08":
+  series: "the month-on-month change in the Consumer Price Index (All Items), one ridge a year"
+  source: "Department of Statistics Singapore via data.gov.sg"
+  dates: "January 2010 to December 2025"
+  kind: path
+  ridges: 16
+  file: "https://github.com/jacobbuildmodel/gst-passthrough/blob/998568b947a96312183e03cb56d7caf54d097b16/raw/cpi_2024base_monthly.csv"
+"2026-09-19":
+  series: "the years of household income a four-room resale flat cost, one ridge each for buyers at the 20th, 50th and 80th percentiles of household income"
+  source: "HDB and the Department of Statistics Singapore via data.gov.sg"
+  dates: "2013 to 2025"
+  kind: path
+  ridges: 3
+  file: "https://github.com/jacobbuildmodel/hdb-affordability/blob/bc3545b93e861bd4ab998333630b2b2bee097381/out/affordability.csv"
+"2026-10-03":
+  series: "the monthly benchmark interest rate used in the analysis (3-month compounded SORA), one ridge a year"
+  source: "Monetary Authority of Singapore via data.gov.sg"
+  dates: "January 2006 to December 2025"
+  kind: dist
+  ridges: 20
+  file: "https://github.com/jacobbuildmodel/hdb-affordability/blob/bc3545b93e861bd4ab998333630b2b2bee097381/financing/out/rates_monthly.csv"
+"2026-10-17":
+  series: "average peak-hour speeds on expressways and on arterial roads, one ridge each"
+  source: "Land Transport Authority via data.gov.sg"
+  dates: "2004 to 2025"
+  kind: path
+  ridges: 2
+  file: "https://github.com/jacobbuildmodel/coe-analysis/blob/7acce31a266433f276928042f6119e72f3a9cf0c/erp/out/annual.csv"
+"2026-10-31":
+  series: "bottom pay each June in the comparison jobs and in cleaning, security and landscape work, one ridge each"
+  source: "Ministry of Manpower, Occupational Wage Survey"
+  dates: "June 2009 to June 2025"
+  kind: path
+  ridges: 4
+  file: "https://github.com/jacobbuildmodel/coe-analysis/blob/7acce31a266433f276928042f6119e72f3a9cf0c/pwm/out/group_values.csv"
+"2026-11-14":
+  series: "the trade-weighted exchange rate index of each currency in the analysis, the Singapore dollar last, one ridge each"
+  source: "Bank for International Settlements"
+  dates: "January 2005 to August 2026"
+  kind: path
+  ridges: 11
+  file: "https://github.com/jacobbuildmodel/coe-analysis/blob/7acce31a266433f276928042f6119e72f3a9cf0c/sgd/out/neer.csv"

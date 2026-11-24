@@ -105,6 +105,11 @@ disableKinds = ["taxonomy", "term"]
     identity = "A polytechnic graduate with a Diploma in Business (banking and finance), applying to read economics at university."
     why      = "I love economics because it gives me a structured, ever-changing way to solve real problems with data, test which fixes actually work for real people, and show the evidence, to myself and to anyone arguing from gut feeling."
 
+    # method: the method in one sentence, under the heading (scholarly layer, November 2026). Each clause
+    # restates a sentence already published: the record's opening lines (content/scorecard.md) and the
+    # second paragraph of How I work (content/process/_index.md). Leave empty to hide.
+    method   = "Each prediction is written down and sealed with a date before its data is opened, a separate AI checker recomputes every scored number from a fresh copy of the code, and failures are published and never removed."
+
     # What I do: Jacob's own executive summary of his three systems, word for word (22 Nov 2026: "this is the
     # exact executive level summary for people who want to know what i do"); spelling fixed only. Printed on
     # the home page under the identity line (welcome_home.html). path: the page the name links to (optional).

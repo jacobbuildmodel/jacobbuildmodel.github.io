@@ -36,6 +36,8 @@
 {{- with $s.Params.summary }}
 <p class="record-summary">{{ . }}</p>
 {{- end }}
+{{- /* The pillar glyph marks each bullet's result; its legend is printed here, once. */}}
+{{- partial "pillar_legend.html" . }}
 {{ index $parts 0 | safeHTML }}
 {{- range after 1 $parts }}
   {{- $h := len (findRE `<li>\s*<strong>Held` .) }}
@@ -47,7 +49,7 @@
   {{- $ch = add $ch $h }}{{ $cf = add $cf $f }}{{ $cn = add $cn $n }}{{ $cv = add $cv $v }}
 <details class="record-project">
 <summary><h4{{ index $m 1 | safeHTMLAttr }}>{{ index $m 2 | safeHTML }}</h4> <span class="record-count">{{ $h }} held, {{ $f }} failed{{ if $n }}, {{ $n }} in between{{ end }}{{ if $v }}, {{ $v }} void{{ end }}</span></summary>
-{{ index $m 3 | safeHTML }}
+{{ partial "with_pillars.html" (dict "html" (index $m 3) "mode" "bullets") }}
 </details>
   {{- else }}
   {{- /* A section without bullets (the count table, the closing notes). Its

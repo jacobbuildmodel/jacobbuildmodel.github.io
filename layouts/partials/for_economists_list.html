@@ -39,6 +39,10 @@
     <dt>Rerun</dt>
     <dd>{{ range $i, $c := .command }}{{ if $i }}<br>{{ end }}<code>{{ $c }}</code>{{ end }}{{ with .runtime }} {{ . }}{{ end }}</dd>
     {{- end }}
+    {{- with .commit }}
+    <dt>Commit</dt>
+    <dd><a href="{{ .url }}">{{ .label }}</a>{{ with .date }}, {{ . }}{{ end }}</dd>
+    {{- end }}
     {{- with .check }}
     <dt>Check</dt>
     <dd>{{ range $i, $c := . }}{{ if $i }}; {{ end }}<a href="{{ $c.url }}">{{ $c.label }}</a>{{ end }}</dd>

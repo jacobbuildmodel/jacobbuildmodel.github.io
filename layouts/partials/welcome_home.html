@@ -23,11 +23,21 @@
 <header class="welcome">
   {{- /* An h2: the masthead's wordmark is the home page's one h1 (header.html). */}}
   <h2 class="welcome-title">{{ $w.heading }}</h2>
+  {{- /* Scholarly layer (November 2026): the method in one sentence
+         (params.welcome.method), then the record, then the lead projects;
+         who Jacob is and "What I do" follow, words unchanged. */}}
+  {{- with $w.method }}
+  <p class="welcome-method">{{ . }}</p>
+  {{- end }}
+</header>
+{{- partial "record_numbers.html" . }}
+{{- partial "start_here.html" . }}
+<section class="welcome-who" aria-label="About Jacob Ong">
   <p class="welcome-identity">Jacob Ong, {{ $age }}. {{ $w.identity }}</p>
   {{- with $w.why }}
   <p class="welcome-why">{{ . }}</p>
   {{- end }}
-</header>
+</section>
 {{- with $w.whatido }}
 <section class="what-i-do" aria-labelledby="what-i-do-title">
   <h2 id="what-i-do-title" class="open-strip-title">What I do</h2>
@@ -44,4 +54,3 @@
   </ul>
 </section>
 {{- end }}
-{{- partial "start_here.html" . }}

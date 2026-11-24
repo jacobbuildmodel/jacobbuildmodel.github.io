@@ -34,6 +34,14 @@
 {{- $W := site.Data.sharecard_font.widths }}
 {{- $measure := 1040.0 }}
 {{- $sizes := slice 84 76 68 60 54 48 42 38 34 30 }}
+{{- /* Scholarly layer (November 2026): a project with a cover
+       (assets/covers/<page>.png, drawn by tools/make_covers.py from the
+       project's own series) uses it as the card's base. The ridges fill the
+       lower half, so the title sits in the upper half: smaller sizes, and a
+       size is accepted when its lines fit a 230px block. */}}
+{{- $cover := false }}
+{{- with .File }}{{ with resources.Get (printf "covers/%s.png" .ContentBaseName) }}{{ $cover = . }}{{ end }}{{ end }}
+{{- if $cover }}{{ $sizes = slice 60 54 48 42 38 34 30 }}{{ end }}
 {{- $words := split $text " " }}
 {{- $size := 30 }}
 {{- $lines := slice }}
@@ -58,7 +66,9 @@
   {{- $ls = $ls | append $cur }}
   {{- $size = . }}
   {{- $lines = $ls }}
-  {{- if le (len $ls) 3 }}{{ break }}{{ end }}
+  {{- if $cover }}
+    {{- if le (mul (len $ls) (mul $s 1.18)) 230.0 }}{{ break }}{{ end }}
+  {{- else if le (len $ls) 3 }}{{ break }}{{ end }}
 {{- end }}
 
 {{- $font := resources.Get "share/SourceSans3-Bold.ttf" }}
@@ -69,4 +79,13 @@
       "font" $font "size" 28 "color" "#3d6c8c"
       "x" 80 "y" 548 "alignx" "left" "aligny" "top") }}
 {{- $card := resources.Get "share/base.png" | images.Filter $title $footer }}
+{{- if $cover }}
+  {{- $title = images.Text (delimit $lines "\n") (dict
+        "font" $font "size" $size "color" "#1b1f24" "linespacing" (int (mul $size 0.18))
+        "x" 80 "y" 196 "alignx" "left" "aligny" "center") }}
+  {{- $footer = images.Text site.Title (dict
+        "font" $font "size" 26 "color" "#35627f"
+        "x" 80 "y" 40 "alignx" "left" "aligny" "top") }}
+  {{- $card = $cover | images.Filter $title $footer }}
+{{- end }}
 {{- return $card }}

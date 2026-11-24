@@ -1,0 +1,49 @@
+{{- /* layouts/partials/replication_box.html
+   The Replication box at the foot of a project (scholarly layer, November
+   2026): what a reader needs to rerun the piece, in one place. Context: the
+   page. Every value is read from the page's entry in
+   data/for_economists.yaml (each one copied from the article, its README or
+   the repository's git history); a row whose value is missing is not
+   printed, and a page with no entry prints no box.
+     Repository   code.url, code.label
+     Commit       commit.url, label, date, scope
+     Data         data
+     Rerun        rerun.command
+     Checks       check
+     Last rebuilt rebuilt (optional; none set yet) */ -}}
+{{- $p := . }}
+{{- with $p.File }}
+{{- with index (index site.Data.for_economists $p.Section | default dict) .ContentBaseName }}
+{{- if or .code .rerun }}
+<section class="replication-box" aria-labelledby="replication-title">
+  <h2 id="replication-title">Replication</h2>
+  <dl class="for-economists-list">
+    {{- with .code }}
+    <dt>Repository</dt>
+    <dd><a href="{{ .url }}">{{ .label }}</a></dd>
+    {{- end }}
+    {{- with .commit }}
+    <dt>Commit</dt>
+    <dd><a href="{{ .url }}"><code>{{ .label }}</code></a>{{ with .date }}, {{ . }}{{ end }}. {{ if eq .scope "repository" }}The latest commit to the repository{{ else }}The latest commit touching this piece's folder{{ end }}{{ with .checked }} as of {{ . }}{{ end }}.</dd>
+    {{- end }}
+    {{- with .data }}
+    <dt>Data</dt>
+    <dd>{{ . }}</dd>
+    {{- end }}
+    {{- with .rerun }}
+    <dt>Rerun</dt>
+    <dd>{{ range $i, $c := .command }}{{ if $i }}<br>{{ end }}<code>{{ $c }}</code>{{ end }}{{ with .runtime }} {{ . }}{{ end }}</dd>
+    {{- end }}
+    {{- with .check }}
+    <dt>Checks</dt>
+    <dd>{{ range $i, $c := . }}{{ if $i }}; {{ end }}<a href="{{ $c.url }}">{{ $c.label }}</a>{{ end }}</dd>
+    {{- end }}
+    {{- with .rebuilt }}
+    <dt>Last rebuilt</dt>
+    <dd>{{ . }}</dd>
+    {{- end }}
+  </dl>
+</section>
+{{- end }}
+{{- end }}
+{{- end }}
