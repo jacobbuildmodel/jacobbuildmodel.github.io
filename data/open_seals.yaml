@@ -27,3 +27,7 @@
 - path: content/open/2026-10-12-million-dollar-flats.md
   body_md5: 4956e27776cf40b0f40d97c2443f2dd6
   seal: https://github.com/jacobbuildmodel/hdb-affordability/commit/7ee9b9169c36399a80400b0e2e9ef9bd6b5000af
+
+- path: content/open/2026-11-27-cdc-vouchers-hawker-prices.md
+  body_md5: c1cf8e3237896f26ccc611c46ac70833
+  seal: pending (draft page; the seal commit is filled in on the seal day)
