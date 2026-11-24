@@ -36,14 +36,14 @@
   ridges: 16
   file: "https://github.com/jacobbuildmodel/gst-passthrough/blob/998568b947a96312183e03cb56d7caf54d097b16/raw/cpi_2024base_monthly.csv"
 "2026-09-19":
-  series: "the years of household income a four-room resale flat cost, one ridge for each buyer in the analysis"
+  series: "the years of household income a four-room resale flat cost, one ridge each for buyers at the 20th, 50th and 80th percentiles of household income"
   source: "HDB and the Department of Statistics Singapore via data.gov.sg"
   dates: "2013 to 2025"
   kind: path
   ridges: 3
   file: "https://github.com/jacobbuildmodel/hdb-affordability/blob/bc3545b93e861bd4ab998333630b2b2bee097381/out/affordability.csv"
 "2026-10-03":
-  series: "the monthly benchmark interest rate used in the analysis (three-month compounded SORA), one ridge a year"
+  series: "the monthly benchmark interest rate used in the analysis (3-month SORA), one ridge a year"
   source: "Monetary Authority of Singapore via data.gov.sg"
   dates: "January 2006 to December 2025"
   kind: dist
