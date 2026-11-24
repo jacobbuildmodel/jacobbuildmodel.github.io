@@ -118,7 +118,7 @@ Sealed 28 September 2026. Revisit 31 October 2027.
 
 ## COE or ERP: which one actually keeps Singapore's roads moving?
 
-[From 2005 to 2017 roads got about a quarter more crowded. Peak speeds held.](/economics/2026-10-17/)
+[From 2005 to 2017 roads carried about a quarter more cars per lane. Peak speeds held.](/economics/2026-10-17/)
 Sealed 26 September 2026. Revisit 17 October 2027.
 
 - **Failed.** Every scored year's average peak speed would sit inside the Land
