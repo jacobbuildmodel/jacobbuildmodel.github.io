@@ -47,7 +47,7 @@ economics:
       "/figs/fig3-still-prices.svg": "Source: Department of Statistics Singapore, Consumer Price Index (CPI), 2024 As Base Year, Monthly, via data.gov.sg, 2010 to 2026."
   "2026-09-12":
     changelog:
-      - "24 November 2026: one sentence corrected: the larger motorcycle quota explains about a third of the fall, not all of it (see Corrections); no result changed."
+      - "24 November 2026: one sentence corrected: the larger motorcycle quota explains more than a third of the fall, not all of it (see Corrections); no result changed."
       - "20 November 2026: moved to the project layout; one sentence corrected, and two closing passages and two sentences of the summary removed (see Corrections); no number changed."
       - "28 October 2026: Notes and Sources added under the figures; no number changed."
     figures:

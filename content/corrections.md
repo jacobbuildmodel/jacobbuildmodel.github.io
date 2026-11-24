@@ -20,7 +20,7 @@ A fact, number or verdict was wrong.
   approved each correction. No sealed prediction, confidence or score changed.
   (1) [The HDB loan](/economics/2026-10-03/). The test that would overturn the finding was the wrong way round. Was:
   "What would overturn it: a published bank margin below about 1.4 points". A margin below a cohort's break-even
-  confirms that a bank would have been cheaper; only one above it overturns that. Now: "a published bank margin above a
+  confirms that a bank loan would have been cheaper; only one above it overturns the bank loan's advantage. Now: "a published bank margin above a
   cohort's break-even". The summary said "a bank had to charge under 1.4 points"; the break-even runs from 1.43 to
   2.05 points by cohort, and the summary now says "less than that cohort's break-even, 1.43 to 2.05 points over SORA".
   (2) [Roads and cars](/economics/2026-10-17/). The title said "roads got about a quarter more crowded". Cars per
@@ -28,11 +28,11 @@ A fact, number or verdict was wrong.
   changed. Now: "From 2005 to 2017 roads carried about a quarter more cars per lane. Peak speeds held." The summary
   changed the same way, and the body now says each car was driven less.
   (3) [Motorcycle COEs](/economics/2026-09-12/). Was: "The motorcycle quota rose 10%, which is modest, and it was
-  enough". On the earlier COE piece's estimate, a 10% larger quota alone predicts a fall of about 6.5%, a third of the
-  17%. Now the sentence says so, and that the rest is not explained here.
+  enough". On the earlier COE piece's estimate, a 10% larger quota alone predicts a fall of about 6.5%, more than a third
+  of the 17%. Now the sentence says so, and that the rest is not explained here.
   (4) [The COE quota](/economics/2026-08-22/). Was: "for sixteen years it has been pulling in the wrong direction".
   That holds measured from 2010. From the 2016 quota peak (annual means) the quota fell 37.8%, which implies a premium
-  about 16% higher, against an actual rise of 137%. Now the sentence gives both and ends: "Either way it is far too
+  only about 16% higher, against an actual rise of 137%. Now the sentence gives both and ends: "Either way it is far too
   weak to explain what happened."
   (5) [The two COE rounds](/economics/2026-08-29/). One sentence mixed two windows: 2.25% is for 2010-26 and $1,840
   for 2023-26, where the figure is 1.85%. Now: "about 2% against a random pick (2.25% over 2010-26, 1.85% over
