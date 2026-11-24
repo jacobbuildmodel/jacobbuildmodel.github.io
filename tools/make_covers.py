@@ -172,7 +172,7 @@ COVERS = [
     ("2026-09-19", "path", HDB, "out/affordability.csv", hdb_years,
      "the years of household income a four-room resale flat cost, one ridge each for buyers at the 20th, 50th and 80th percentiles of household income", "HDB and the Department of Statistics Singapore via data.gov.sg"),
     ("2026-10-03", "dist", HDB, "financing/out/rates_monthly.csv", hdb_sora,
-     "the monthly benchmark interest rate used in the analysis (3-month SORA), one ridge a year", "Monetary Authority of Singapore via data.gov.sg"),
+     "the monthly benchmark interest rate used in the analysis (3-month compounded SORA), one ridge a year", "Monetary Authority of Singapore via data.gov.sg"),
     ("2026-10-17", "path", COE, "erp/out/annual.csv", erp_speeds,
      "average peak-hour speeds on expressways and on arterial roads, one ridge each", LTA),
     ("2026-10-31", "path", COE, "pwm/out/group_values.csv", pwm_groups,

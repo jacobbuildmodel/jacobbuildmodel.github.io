@@ -43,7 +43,7 @@
   ridges: 3
   file: "https://github.com/jacobbuildmodel/hdb-affordability/blob/bc3545b93e861bd4ab998333630b2b2bee097381/out/affordability.csv"
 "2026-10-03":
-  series: "the monthly benchmark interest rate used in the analysis (3-month SORA), one ridge a year"
+  series: "the monthly benchmark interest rate used in the analysis (3-month compounded SORA), one ridge a year"
   source: "Monetary Authority of Singapore via data.gov.sg"
   dates: "January 2006 to December 2025"
   kind: dist

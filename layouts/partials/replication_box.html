@@ -24,7 +24,7 @@
     {{- end }}
     {{- with .commit }}
     <dt>Commit</dt>
-    <dd><a href="{{ .url }}"><code>{{ .label }}</code></a>{{ with .date }}, {{ . }}{{ end }}. {{ if eq .scope "repository" }}The latest commit to the repository{{ else }}The latest commit to this piece's folder{{ end }}{{ with .checked }} as of {{ . }}{{ end }}.</dd>
+    <dd><a href="{{ .url }}"><code>{{ .label }}</code></a>{{ with .date }}, {{ . }}{{ end }}. {{ if eq .scope "repository" }}The latest commit to the repository{{ else }}The latest commit touching this piece's folder{{ end }}{{ with .checked }} as of {{ . }}{{ end }}.</dd>
     {{- end }}
     {{- with .data }}
     <dt>Data</dt>

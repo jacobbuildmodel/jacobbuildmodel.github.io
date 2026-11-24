@@ -28,5 +28,5 @@
     <span class="record-number"><span class="record-number-n">{{ $p.failed }}</span> <span class="record-number-l">failed</span></span>
     <span class="record-number"><span class="record-number-n">{{ $p.neither }}</span> <span class="record-number-l">in between</span></span>
   </a>
-  <p class="record-numbers-note">{{ if $void }}The other {{ $void }} could not be scored as sealed and {{ if eq $void 1 }}is{{ else }}are{{ end }} void. {{ end }}The numbers link to every prediction and what happened to it.</p>
+  <p class="record-numbers-note">{{ if $void }}The other {{ $void }} {{ if eq $void 1 }}could not be scored as it was written and is{{ else }}could not be scored as they were written and are{{ end }} void. {{ end }}The numbers link to every prediction and what happened to it.</p>
 </section>
