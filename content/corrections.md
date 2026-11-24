@@ -14,6 +14,31 @@ only when they correct or clarify something said before. Numbers are never chang
 
 A fact, number or verdict was wrong.
 
+- **24 November 2026.** Six pieces, after a referee read. A Claude model read every published piece as a journal
+  referee would; a second model checked each objection against the article; the AI checker then recomputed every
+  deciding number from the repositories. Of 30 objections, six found a sentence that was wrong as written. Jacob
+  approved each correction. No sealed prediction, confidence or score changed.
+  (1) [The HDB loan](/economics/2026-10-03/). The test that would overturn the finding was the wrong way round. Was:
+  "What would overturn it: a published bank margin below about 1.4 points". A margin below a cohort's break-even
+  confirms that a bank would have been cheaper; only one above it overturns that. Now: "a published bank margin above a
+  cohort's break-even". The summary said "a bank had to charge under 1.4 points"; the break-even runs from 1.43 to
+  2.05 points by cohort, and the summary now says "less than that cohort's break-even, 1.43 to 2.05 points over SORA".
+  (2) [Roads and cars](/economics/2026-10-17/). The title said "roads got about a quarter more crowded". Cars per
+  lane-kilometre rose 22 to 25 per cent, but each car was driven about a fifth less, so car-kilometres per lane barely
+  changed. Now: "From 2005 to 2017 roads carried about a quarter more cars per lane. Peak speeds held." The summary
+  changed the same way, and the body now says each car was driven less.
+  (3) [Motorcycle COEs](/economics/2026-09-12/). Was: "The motorcycle quota rose 10%, which is modest, and it was
+  enough". On the earlier COE piece's estimate, a 10% larger quota alone predicts a fall of about 6.5%, a third of the
+  17%. Now the sentence says so, and that the rest is not explained here.
+  (4) [The COE quota](/economics/2026-08-22/). Was: "for sixteen years it has been pulling in the wrong direction".
+  That holds measured from 2010. From the 2016 quota peak (annual means) the quota fell 37.8%, which implies a premium
+  about 16% higher, against an actual rise of 137%. Now the sentence gives both and ends: "Either way it is far too
+  weak to explain what happened."
+  (5) [The two COE rounds](/economics/2026-08-29/). One sentence mixed two windows: 2.25% is for 2010-26 and $1,840
+  for 2023-26, where the figure is 1.85%. Now: "about 2% against a random pick (2.25% over 2010-26, 1.85% over
+  2023-26)", and $1,840 is labelled 2023 to 2026 wherever it appears; "In the recent era" now says "In 2023 to 2026".
+  (6) [COE win rates](/economics/2026-09-05/). "The premium 3.9-fold" included part of 2026; across full years, as the
+  win rate is measured, it is 3.4-fold. Numbers changed: 3.9 to 3.4.
 - **21 November 2026.** [DRIVE](/process/drive/) and [How I work](/process/#two-market-models). Both pages said
   every decision is graded four weeks after it is logged ("Four weeks later it is graded"; "graded once its four weeks
   are up"; "overlapping four-week outcomes"). Not every decision has a four-week horizon: each is graded when its own

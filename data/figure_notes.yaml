@@ -13,6 +13,7 @@
 economics:
   "2026-08-22":
     changelog:
+      - "24 November 2026: one sentence corrected after a referee read: the quota's direction depends on the start year (see Corrections); no result changed."
       - "20 November 2026: moved to the project layout; three sentences corrected and six clarified (see Corrections); no result changed."
       - "29 October 2026: headline and opening quote corrected; no number changed."
       - "28 October 2026: Notes and Sources added under the figures; no number changed."
@@ -21,6 +22,7 @@ economics:
       "/figs/decomposition.svg": "Source: LTA, COE bidding results, via data.gov.sg, Category A, 2010 to 2026. Note: premiums in Singapore dollars, not adjusted for inflation."
   "2026-08-29":
     changelog:
+      - "24 November 2026: the timing figures now name their window, 2010-26 or 2023-26 (see Corrections); no result changed."
       - "20 November 2026: moved to the project layout; the summary line, one sentence and the first chart's caption corrected (see Corrections); no result changed."
       - "29 October 2026: two sentences on timing reworded; no number changed."
       - "28 October 2026: Notes and Sources added under the figures; no number changed."
@@ -28,6 +30,7 @@ economics:
       "/figs/gap_distribution.svg": "Source: LTA, COE bidding results, via data.gov.sg, January 2010 to July 2026. Note: premiums in Singapore dollars, not adjusted for inflation."
   "2026-09-05":
     changelog:
+      - "24 November 2026: the premium's range across full years corrected from 3.9-fold to 3.4-fold (see Corrections); no result changed."
       - "20 November 2026: moved to the project layout, with a new title and section headings that state their finding (see Corrections); no number changed."
       - "29 October 2026: headline, one section heading and two sentences now say bids, not bidders; no number changed."
       - "28 October 2026: Notes and Sources added under the figures; no number changed."
@@ -44,6 +47,7 @@ economics:
       "/figs/fig3-still-prices.svg": "Source: Department of Statistics Singapore, Consumer Price Index (CPI), 2024 As Base Year, Monthly, via data.gov.sg, 2010 to 2026."
   "2026-09-12":
     changelog:
+      - "24 November 2026: one sentence corrected: the larger motorcycle quota explains about a third of the fall, not all of it (see Corrections); no result changed."
       - "20 November 2026: moved to the project layout; one sentence corrected, and two closing passages and two sentences of the summary removed (see Corrections); no number changed."
       - "28 October 2026: Notes and Sources added under the figures; no number changed."
     figures:
@@ -59,6 +63,7 @@ economics:
       "/figs/fig2_ehg_crossing.svg": "Source: SingStat, Monthly Household Employment Income excluding employer CPF contributions, via data.gov.sg; HDB, Enhanced CPF Housing Grant table; 2013 to 2025."
   "2026-10-03":
     changelog:
+      - "24 November 2026: the test that would overturn the finding was stated the wrong way round, and the summary flattened the break-even; both corrected (see Corrections); no result changed."
       - "20 November 2026: moved to the project layout; two sentences corrected and one clarified (see Corrections); no result changed."
       - "10 November 2026: first source's name corrected; no number changed."
       - "28 October 2026: Notes and Sources added under the figures; no number changed."
@@ -67,6 +72,7 @@ economics:
       "/figs/chart2_breakeven_by_start_year.svg": "Source: MAS, SORA and SGS yields, monthly, via data.gov.sg; CPF Board, CPF Interest Rates history, and HDB, Interest Rate for HDB Housing Loan; loan start years 2010 to 2025. Note: a fixed S$400,000 principal over 25 years."
   "2026-10-17":
     changelog:
+      - "24 November 2026: title and summary corrected: cars per lane rose about a quarter, but each car was driven about a fifth less (see Corrections); no result changed."
       - "20 November 2026: moved to the project layout, with the sealed open-question page printed inside it; sentences that repeated a link now say where it stands (see Corrections); no result changed."
       - "10 November 2026: closing line reworded, and the method strip says 'neither' for 'inconclusive'; no number changed."
       - "28 October 2026: Notes and Sources added under the figures; no number changed."
