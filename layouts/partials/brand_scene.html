@@ -8,7 +8,7 @@
 {{- if fileExists "static/brand/scene.svg" }}
 {{- with site.Params.brand }}{{ with .sceneCaption }}
 <figure class="brand-scene">
-  <img src="/brand/scene.svg" alt="{{ site.Params.brand.sceneAlt | default "The site's mark" }}" loading="lazy" width="600" height="300">
+  <img src="/brand/scene.svg" alt="{{ site.Params.brand.sceneAlt | default "The site's mark" }}" loading="lazy" width="480" height="480">
   <figcaption>{{ . }}</figcaption>
 </figure>
 {{- end }}{{ end }}

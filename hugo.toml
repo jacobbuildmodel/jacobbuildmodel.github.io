@@ -115,11 +115,11 @@ disableKinds = ["taxonomy", "term"]
     # the home page under the identity line (welcome_home.html). path: the page the name links to (optional).
     [[params.welcome.whatido]]
       name = "Portfolio model"
-      text = "Manages my portfolio taking into account data points and valuation of them."
+      text = "Manages my portfolio from public data on each company's quality and valuation."
       path = "/process/drive"
     [[params.welcome.whatido]]
       name = "Research model"
-      text = "Seeking to establish alpha in news and sentiment signals."
+      text = "Seeks to establish alpha, an edge over the market, in news and sentiment signals."
       path = "/process/models"
     [[params.welcome.whatido]]
       name = "Website model"
@@ -130,6 +130,13 @@ disableKinds = ["taxonomy", "term"]
   # shown disabled with "The form opens soon."
   [params.web3forms]
     accessKey = "ffcb89cd-89b8-4d1c-a407-005bf58ea8ac"
+
+  # The full scene of the mark on About (layouts/partials/brand_scene.html). Jacob picked R1 (classical engraving)
+  # and the short caption on 24 Nov 2026 (words-and-logo page, W4 "short", W5 "R1"); caption checked by the
+  # wording editor and two outside models (WEBSITE reviews/outside/2026-11-23_whatido-caption).
+  [params.brand]
+    sceneCaption = "Drawn after the Egyptian weighing of the heart against the feather of truth: each prediction here is weighed against the data, in public."
+    sceneAlt = "Under a void deck beam, level scales weigh a gold feather against a blue heart; three people marked alpha, beta and omega stand on a red ground line."
 
   [params.homeInfoParams]
     Title   = "Singapore's favourite arguments, tested with public data."
