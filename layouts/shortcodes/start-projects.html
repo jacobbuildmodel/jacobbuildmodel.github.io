@@ -1,0 +1,17 @@
+{{- /* layouts/shortcodes/start-projects.html
+   Start here page: the three projects to read first (COE quota, GST, the
+   Progressive Wage Model: Jacob, 16 November 2026), the first three rows of
+   data/projects.yaml, the Projects index's own order. Each prints the
+   page's own title (never typed), then its method (from the data file) and
+   its score (counted from the record's bullets by score_of.html). Moved
+   here from the home page's start-here box (start-here PR, 26 November
+   2026); the LTA row became start-lta.html. A moved page stops the build.
+   Usage: {{< start-projects >}} */ -}}
+<ul class="start-here-list">
+  {{- range first 3 site.Data.projects.rows }}
+  {{- $p := site.GetPage .path }}
+  {{- if not $p }}{{ errorf "start-projects shortcode: no page at %s; update data/projects.yaml" .path }}{{ end }}
+  <li><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+    <span class="start-here-meta">{{ .method }} · {{ (partial "score_of.html" $p).text }}</span></li>
+  {{- end }}
+</ul>

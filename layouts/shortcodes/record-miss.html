@@ -1,0 +1,28 @@
+{{- /* layouts/shortcodes/record-miss.html
+   One prediction from the record, printed word for word from
+   content/scorecard.md at build time, with its seal date: the section that
+   links to `piece`, the one bullet in it whose text contains `words`. The
+   build stops unless exactly one bullet matches. Start-here PR, 26 November
+   2026 (the GST national-index miss on the Start here page).
+   Usage: {{< record-miss piece="/economics/2026-09-08" words="national index" >}} */ -}}
+{{- $piece := .Get "piece" }}{{ $words := .Get "words" }}
+{{- $pg := site.GetPage $piece }}
+{{- if not $pg }}{{ errorf "record-miss shortcode: no page at %s" $piece }}{{ end }}
+{{- $s := site.GetPage "/scorecard" }}
+{{- if not $s }}{{ errorf "record-miss shortcode: no /scorecard page" }}{{ end }}
+{{- $href := printf `href="%s"` $pg.RelPermalink }}
+{{- $hits := slice }}{{ $sealed := "" }}
+{{- range after 1 (split $s.Content "<h2") }}
+  {{- if strings.Contains . $href }}
+    {{- with findRESubmatch `Sealed (\d{1,2} [A-Z][a-z]+ \d{4})` . 1 }}{{ $sealed = index (index . 0) 1 }}{{ end }}
+    {{- range findRESubmatch `(?s)<li>\s*(<strong>(?:Held|Failed|Neither|Void)[^<]*</strong>.*?)</li>` . }}
+      {{- if strings.Contains (index . 1) $words }}{{ $hits = $hits | append (index . 1) }}{{ end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- if ne (len $hits) 1 }}{{ errorf "record-miss shortcode: %d bullets for %s contain %q; exactly one must" (len $hits) $piece $words }}{{ end }}
+{{- if not $sealed }}{{ errorf "record-miss shortcode: no seal date in the record's section for %s" $piece }}{{ end }}
+<blockquote class="record-miss">
+<p class="record-miss-sealed">Sealed {{ $sealed }}</p>
+<p>{{ index $hits 0 | safeHTML }}</p>
+</blockquote>

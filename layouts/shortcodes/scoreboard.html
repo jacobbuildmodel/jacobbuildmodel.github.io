@@ -1,0 +1,87 @@
+{{- /* layouts/shortcodes/scoreboard.html
+   The record as a scoreboard (start-here PR, Jacob, 26 November 2026): one
+   row per sealed prediction, oldest seal first, with its project, the date
+   it was sealed, its confidence and its result, then a calibration line.
+
+   Nothing is typed. Every row is read at build time from the rendered
+   record (content/scorecard.md): each project's section gives the link, the
+   "Sealed ..." date and the bullets; a bullet's first bold word is its
+   result and "Confidence N%" in its text is its confidence, printed exactly
+   as the record prints it. The project's short name is the one in the
+   record's count table. The calibration line is computed from
+   data/calibration.yaml, which tools/build_calibration.py writes from the
+   same record.
+
+   The build stops if the rows do not reproduce the record's front matter
+   (sealed, held, failed, neither, void, brierN), or if the confidences read
+   here differ from data/calibration.yaml's. A confidence is Jacob's alone;
+   nothing here sets, changes or rounds one.
+   Usage: {{< scoreboard >}} */ -}}
+{{- $s := site.GetPage "/scorecard" }}
+{{- if not $s }}{{ errorf "scoreboard shortcode: no /scorecard page" }}{{ end }}
+{{- $months := dict "January" "01" "February" "02" "March" "03" "April" "04" "May" "05" "June" "06" "July" "07" "August" "08" "September" "09" "October" "10" "November" "11" "December" "12" }}
+{{- $parts := after 1 (split $s.Content "<h2") }}
+{{- /* Short names, from the record's count table: href -> words. */}}
+{{- $names := dict }}
+{{- range $parts }}
+  {{- if and (strings.Contains . "<table") (not (findRE `<li>\s*<strong>(Held|Failed|Neither|Void)` .)) }}
+    {{- range findRESubmatch `<a href="(/[^"]+)">([^<]+)</a>` . }}
+      {{- $names = merge $names (dict (index . 1) (index . 2)) }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- $rows := slice }}
+{{- range $parts }}
+  {{- $bullets := findRESubmatch `(?s)<li>\s*<strong>(Held|Failed|Neither|Void)[^<]*</strong>(.*?)</li>` . }}
+  {{- if $bullets }}
+    {{- $href := index (index (findRESubmatch `<a href="(/[^"]+)"` . 1) 0) 1 }}
+    {{- $d := findRESubmatch `Sealed (\d{1,2}) ([A-Z][a-z]+) (\d{4})` . 1 }}
+    {{- if not $d }}{{ errorf "scoreboard shortcode: no \"Sealed D Month YYYY\" line in the record's section for %s" $href }}{{ end }}
+    {{- $d = index $d 0 }}
+    {{- $mon := index $months (index $d 2) }}
+    {{- if not $mon }}{{ errorf "scoreboard shortcode: %q is not a month (section for %s)" (index $d 2) $href }}{{ end }}
+    {{- $day := int (strings.TrimLeft "0" (index $d 1)) }}
+    {{- $iso := printf "%s-%s-%02d" (index $d 3) $mon $day }}
+    {{- $name := index $names $href }}
+    {{- if not $name }}{{ errorf "scoreboard shortcode: the record's count table has no row linking to %s" $href }}{{ end }}
+    {{- range $j, $b := $bullets }}
+      {{- $conf := "" }}
+      {{- with findRESubmatch `Confidence\s+(\d+)%` (index $b 2) 1 }}{{ $conf = index (index . 0) 1 }}{{ end }}
+      {{- $rows = $rows | append (dict "key" (printf "%s-%02d" $iso $j) "date" (printf "%d %s %s" $day (substr (index $d 2) 0 3) (index $d 3)) "href" $href "name" $name "result" (index $b 1) "conf" $conf) }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- /* The rows must reproduce the record. */}}
+{{- $p := $s.Params }}
+{{- $cnt := dict "Held" 0 "Failed" 0 "Neither" 0 "Void" 0 }}
+{{- $confs := slice }}
+{{- range $rows }}
+  {{- $cnt = merge $cnt (dict .result (add (index $cnt .result) 1)) }}
+  {{- with .conf }}{{ $confs = $confs | append (int .) }}{{ end }}
+{{- end }}
+{{- if or (ne (len $rows) (int $p.sealed)) (ne $cnt.Held (int $p.held)) (ne $cnt.Failed (int $p.failed)) (ne $cnt.Neither (int $p.neither)) (ne $cnt.Void (int ($p.void | default 0))) }}
+  {{- errorf "scoreboard shortcode: %d rows (%d held, %d failed, %d neither, %d void); the record's front matter says %v sealed, %v, %v, %v, %v" (len $rows) $cnt.Held $cnt.Failed $cnt.Neither $cnt.Void $p.sealed $p.held $p.failed $p.neither ($p.void | default 0) }}
+{{- end }}
+{{- $cal := site.Data.calibration.rows }}
+{{- $calConfs := slice }}{{ range $cal }}{{ $calConfs = $calConfs | append (int .confidence) }}{{ end }}
+{{- if or (ne (len $confs) (int $p.brierN)) (ne (delimit (sort $confs) ",") (delimit (sort $calConfs) ",")) }}
+  {{- errorf "scoreboard shortcode: the record's bullets carry confidences %v; data/calibration.yaml has %v and brierN is %v. Run python tools/build_calibration.py" (sort $confs) (sort $calConfs) $p.brierN }}
+{{- end }}
+{{- $labels := dict "Held" "Held" "Failed" "Failed" "Neither" "In between" "Void" "Void" }}
+<div class="scoreboard-wrap">
+<table class="scoreboard">
+  <caption>Every sealed prediction, oldest seal first: {{ $p.sealed }} in all.</caption>
+  <thead><tr><th scope="col" class="sb-n">#</th><th scope="col">Project</th><th scope="col">Sealed</th><th scope="col" class="sb-num">Confidence</th><th scope="col">Result</th></tr></thead>
+  <tbody>
+  {{- range $i, $r := sort $rows "key" }}
+    <tr class="is-{{ lower $r.result }}"><td class="sb-n">{{ add $i 1 }}</td><td><a href="{{ $r.href }}">{{ $r.name }}</a></td><td class="sb-date">{{ $r.date }}</td><td class="sb-num">{{ with $r.conf }}{{ . }}%{{ else }}–{{ end }}</td><td class="sb-res">{{ index $labels $r.result }}</td></tr>
+  {{- end }}
+  </tbody>
+</table>
+</div>
+<p class="scoreboard-note">A dash means no confidence is shown: the pieces sealed before 26 September 2026 carried none, and a void prediction is not scored.</p>
+{{- /* The calibration line: confidence against hit rate, from data/calibration.yaml. */}}
+{{- $n := len $cal }}{{ $sum := 0 }}{{ $held := 0 }}
+{{- range $cal }}{{ $sum = add $sum (int .confidence) }}{{ if eq .result "held" }}{{ $held = add $held 1 }}{{ end }}{{ end }}
+{{- $lesson := site.GetPage "/lessons/skill-or-luck" }}
+<p class="scoreboard-cal"><strong>Confidence against hit rate.</strong> {{ $n }} of these predictions carry a confidence. On average I gave them {{ printf "%.0f" (div (float $sum) $n) }}%; {{ $held }} held, a hit rate of {{ printf "%.0f" (mul (div (float $held) $n) 100) }}% (a result in between counts as not held). These {{ $n }} can show which way my confidences have leaned so far, but they are too few to tell skill from luck.{{ with $lesson }} <a href="{{ .RelPermalink }}">Why, in numbers</a>.{{ end }}</p>
