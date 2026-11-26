@@ -79,9 +79,9 @@
   </tbody>
 </table>
 </div>
-<p class="scoreboard-note">A dash means the record prints no confidence: the pieces sealed before 26 September 2026 carried none, and a void prediction is not scored.</p>
+<p class="scoreboard-note">A dash means no confidence is shown: the pieces sealed before 26 September 2026 carried none, and a void prediction is not scored.</p>
 {{- /* The calibration line: confidence against hit rate, from data/calibration.yaml. */}}
 {{- $n := len $cal }}{{ $sum := 0 }}{{ $held := 0 }}
 {{- range $cal }}{{ $sum = add $sum (int .confidence) }}{{ if eq .result "held" }}{{ $held = add $held 1 }}{{ end }}{{ end }}
 {{- $lesson := site.GetPage "/lessons/skill-or-luck" }}
-<p class="scoreboard-cal"><strong>Confidence against hit rate.</strong> {{ $n }} of these predictions carry a confidence. On average I gave them {{ printf "%.0f" (div (float $sum) $n) }}%; {{ $held }} held, a hit rate of {{ printf "%.0f" (mul (div (float $held) $n) 100) }}% (a result in between counts as not held). So few predictions can show which way my confidences have leaned so far; they are too few to tell skill from luck.{{ with $lesson }} <a href="{{ .RelPermalink }}">Why, in numbers</a>.{{ end }}</p>
+<p class="scoreboard-cal"><strong>Confidence against hit rate.</strong> {{ $n }} of these predictions carry a confidence. On average I gave them {{ printf "%.0f" (div (float $sum) $n) }}%; {{ $held }} held, a hit rate of {{ printf "%.0f" (mul (div (float $held) $n) 100) }}% (a result in between counts as not held). These {{ $n }} can show which way my confidences have leaned so far, but they are too few to tell skill from luck.{{ with $lesson }} <a href="{{ .RelPermalink }}">Why, in numbers</a>.{{ end }}</p>

@@ -8,11 +8,12 @@ hidemeta: true
 ---
 
 I'm Jacob Ong, a polytechnic graduate on the UBS SUPER Programme, applying to read Economics at
-university. This site is my own work, done outside that programme.
+university. This site is my own work, done outside that programme: I test Singapore's favourite
+economic arguments against public data.
 
 ## What is different
 
-- **Sealed first:** each prediction is sealed with a date before I open the data; since
+- **Sealed first:** each prediction is written down and sealed with a date before I open the data; since
   26 September 2026, with my confidence.
 - **Scored in public:** [every result](/record/), held or failed, and no failure is removed.
 - **Dated corrections:** each one listed with its date on [Corrections](/corrections/).

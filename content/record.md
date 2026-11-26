@@ -1,6 +1,6 @@
 ---
 title: "The record"
-description: "Every sealed prediction on this site, with its confidence and its result. Failures included, and never removed."
+description: "Every sealed prediction on this site, with its result and, where it carries one, its confidence. Failures included, and never removed."
 layout: start
 showToc: false
 hidemeta: true

@@ -17,7 +17,7 @@ time. The simplest check adds up the confidences. Mine add up to 6.34, so if eve
 exactly right, about six of the thirteen would hold. Eight held. A result that landed in between
 counts as not held.
 
-So far, more held than my numbers expected. At face value, I was too cautious, not too bold.
+So far, more held than my numbers expected. Taken literally, I was too cautious, not too bold.
 
 ## The Brier score: a penalty for confident misses
 
@@ -34,7 +34,7 @@ the same miss would have cost 0.81, more than a hundred times as much.
 ## Sample size: why thirteen cannot settle it
 
 Suppose my thirteen confidences were exactly right. Even then, the number that held would not land
-on 6.34; it would scatter. Here one standard deviation of that scatter is about 1.6 predictions,
+on 6.34; it would scatter. Here the standard deviation of that count is about 1.6 predictions,
 so eight held sits about one standard deviation above what was expected. A forecaster whose confidences were exactly these, and exactly
 right, would see eight or more of the thirteen hold about one time in four.
 
@@ -44,15 +44,14 @@ result says almost nothing about the number behind it. The thirteen run from 8 t
 no ten-point band holds more than three of them. That is why the record shows each prediction as a
 dot and draws no calibration curve.
 
-What it can show is discipline and the shape of my mistakes. Every confidence was written before
-the data was opened, and every result is published, so the record cannot be flattered after the
-fact. And so far the misses came where I expected them: none of the four that failed had a
-confidence above 35 per cent, and the one at 70 landed in between.
+What it can show is the shape of my mistakes. Every confidence was written before the data was
+opened, and every result is published, so the record cannot be flattered after the fact. So far
+the misses came where I expected them. Of the five that did not hold, four
+failed, none of them with a confidence above 35 per cent; the fifth, at 70, landed in between.
 
 ## What I would test next
 
-The test I want is the one this record cannot yet run: whether my high numbers hold as often as
+The test I want is one this record cannot yet run: whether my high numbers hold as often as
 they claim. Seven of my confidences are 50 per cent or more, and six of those held, against an
-average confidence of 67 per cent. Seven is too few to mean anything. Next, I would
-fix in advance the number of scored confidences at which I compare the two, and publish the
-comparison whichever way it comes out.
+average confidence of 67 per cent. Seven is too few to mean anything. Next, I would fix in advance the count at which I compare the two, and publish the comparison
+whichever way it comes out.

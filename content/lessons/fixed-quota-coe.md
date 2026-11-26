@@ -30,13 +30,13 @@ published.
 ## What the record shows
 
 Since 2010 the Category A quota has risen 62%, and the average premium, in nominal dollars, 287%.
-Compared within each year, 1% more certificates goes with a premium about 0.3% lower. Over the
-sixteen years, on this estimate, the larger quota alone implies a premium about 14% lower. The
-premium rose anyway, because demand moved further and faster than supply did.
+Compared within each year, 1% more certificates goes with a premium about 0.3% lower. Applied on
+a log scale to the sixteen years, on this estimate, the larger quota alone implies a premium about
+14% lower. The premium rose anyway, so whatever moved demand outran the extra certificates.
 
 The lesson I take from it is about how to read a price. A high premium looks like a shortage, and
 the common argument is that the government keeps cutting the quota. A quota fixed in advance turns
-that reading around. With supply set before the bidding, the price is a reading of demand, and a
+that around. With supply set before the bidding, the price is a reading of demand, and a
 rising premium on top of a rising quota means demand grew by more than the extra certificates.
 
 The quota is still a real lever, and a weak one. On the same estimate, a premium 10% lower would
@@ -56,7 +56,7 @@ about most: in 2023 to 2026 the estimate cannot be told from zero.
 
 ## What I would test next
 
-The remainder needs a test of its own, sealed before the data is opened. Credit is the cleanest
-place to start, because its changes are dated: MAS capped car loans in 2013 and eased the caps in
+The remainder needs a test of its own, sealed before the data is opened. Credit is the easiest
+place to start, because its changes are dated: the Monetary Authority of Singapore (MAS) capped car loans in 2013 and eased the caps in
 2016. Next, I would test whether the Category A premium moved after each of those dates by more
 than its quota alone implies, with the prediction and my confidence in it sealed first.
