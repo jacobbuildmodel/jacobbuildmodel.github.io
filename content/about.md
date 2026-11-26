@@ -38,9 +38,8 @@ claim I'm making.
 
 What I do have is the habit of writing down what would prove me wrong and, since the GST piece, sealed on 4 September 2026, of sealing each prediction before I open the data.
 
-Since September 2026 I have been on the UBS SUPER Programme, a 12-month traineeship in Global
-Wealth Management. The research on this site and the private projects described here are my own,
-done outside that role.
+Since September 2026 I have been on the UBS SUPER Programme. The research on this site and the
+private projects described here are my own, done outside that programme.
 
 ## Education and courses
 

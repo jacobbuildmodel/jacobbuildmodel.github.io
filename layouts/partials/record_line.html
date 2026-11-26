@@ -1,14 +1,15 @@
 {{- /* layouts/partials/record_line.html
    Home page, under the tagline (start-here PR, November 2026): the live
-   record in one line, in Jacob's words of 26 November 2026:
+   record in one line, first in Jacob's words of 26 November 2026:
      "[N] sealed predictions. [held] held, [failed] failed, all published."
-   The three numbers are read from content/scorecard.md's front matter at
+   The numbers are read from content/scorecard.md's front matter at
    build time, never typed. The record shortcode on How I work stops the
    build when that front matter does not match the record's own bullets, and
    this partial stops it when the front matter does not add up to its total,
-   so the line cannot drift from the record. The in-between and void
-   predictions are not in the line (his wording); the scoreboard behind the
-   "The record" button lists every one. */ -}}
+   so the line cannot drift from the record.
+   Jacob, 26 November 2026 (after blind readers took the missing eight as
+   pending): "37 sealed predictions. 19 held, 10 failed, 6 in between, 2 void,
+   all published." The void count is printed only while there is one. */ -}}
 {{- $s := site.GetPage "/scorecard" }}
 {{- if not $s }}{{ errorf "record_line.html: no /scorecard page" }}{{ end }}
 {{- range slice "sealed" "held" "failed" "neither" }}
@@ -18,4 +19,5 @@
 {{- if ne (int $p.sealed) (add (int $p.held) (int $p.failed) (int $p.neither) (int ($p.void | default 0))) }}
   {{- errorf "record_line.html: held + failed + neither + void does not equal sealed in content/scorecard.md" }}
 {{- end }}
-<p class="record-line">{{ $p.sealed }} sealed predictions. {{ $p.held }} held, {{ $p.failed }} failed, all published.</p>
+{{- $void := int ($p.void | default 0) }}
+<p class="record-line">{{ $p.sealed }} sealed predictions. {{ $p.held }} held, {{ $p.failed }} failed, {{ $p.neither }} in between{{ if $void }}, {{ $void }} void{{ end }}, all published.</p>
