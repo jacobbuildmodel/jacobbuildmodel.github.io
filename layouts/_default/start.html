@@ -1,0 +1,22 @@
+{{- define "main" }}
+{{- /* layouts/_default/start.html
+   The Start here page (/start/) and the record (/record/): short pages a
+   first-time reader opens from the home page's buttons (start-here PR,
+   Jacob, 26 November 2026). Chosen by `layout: start` in their front matter.
+   Like howiwork.html: a title, a description, the content; no date, no
+   reading time, no table of contents. `hideDescription: true` keeps the
+   description for search results and share cards and leaves it off the page. The page class (`start-page`, plus
+   the page's own name) lets the Start here page keep to about one phone
+   screen with small section labels. */ -}}
+<article class="post-single start-page start-page-{{ .File.ContentBaseName }}">
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- if not .Params.hideDescription }}{{ with .Description }}
+    <div class="post-description">{{ . }}</div>
+    {{- end }}{{ end }}
+  </header>
+  <div class="post-content md-content">
+    {{- .Content -}}
+  </div>
+</article>
+{{- end }}

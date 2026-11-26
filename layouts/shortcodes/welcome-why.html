@@ -1,0 +1,5 @@
+{{- /* layouts/shortcodes/welcome-why.html
+   Prints site.Params.welcome.why, Jacob's own sentence on why economics
+   (hugo.toml), so it is typed once and the home page and the Start here
+   page cannot drift apart. Usage: {{< welcome-why >}} */ -}}
+{{- with site.Params.welcome.why }}{{ . }}{{ else }}{{ errorf "welcome-why shortcode: hugo.toml has no params.welcome.why" }}{{ end }}

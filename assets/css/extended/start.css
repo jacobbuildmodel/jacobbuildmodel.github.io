@@ -1,0 +1,104 @@
+/* The start-here PR (Jacob, 26 November 2026): the home page's record line
+   and three buttons, the Start here page (/start/), the record as a
+   scoreboard (/record/). Same tokens as every other file (00-tokens.css);
+   no script. Checked at 390 px, light and dark. */
+
+/* ---- home: the record in one line, then three buttons ---- */
+.record-line {
+  margin: 10px 0 0;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  line-height: 1.45;
+  font-variant-numeric: lining-nums;
+  color: var(--ink);
+}
+.welcome-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 16px 0 0;
+}
+.welcome-button {
+  display: block;
+  padding: 10px 6px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-btn);
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--accent);
+  text-decoration: none;
+  box-shadow: none;
+}
+.welcome-button.is-first { background: var(--accent); color: var(--theme); }
+.welcome-button:hover,
+.welcome-button:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.welcome-buttons + .welcome-method { margin-top: 18px; }
+
+/* ---- the Start here page: as close to one phone screen as the words allow ---- */
+.start-page .post-header { margin-bottom: 8px; }
+.start-page-start .post-content { font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.45; }
+.start-page-start .post-content p { margin: 0 0 8px; font-size: inherit; line-height: inherit; }
+.start-page-start .post-content h2 {
+  margin: 14px 0 4px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.start-page-start .post-content h2::after { display: none; }
+.start-page-start .post-content ul { margin: 0 0 6px; padding-inline-start: 16px; }
+.start-page-start .post-content li { margin: 2px 0 0; font-size: inherit; line-height: inherit; }
+.start-page-start .post-content .start-here-list { padding: 0; list-style: none; }
+.start-page-start .post-content .start-here-list li { margin: 4px 0 0; }
+.start-page-start .start-here-meta { font-size: 0.8rem; }
+.record-miss { margin: 4px 0 8px; padding: 6px 10px; background: var(--code-bg); border-inline-start: 3px solid var(--accent); }
+.post-content .record-miss p { margin: 0; }
+.record-miss-sealed { font-size: 0.8rem; color: var(--secondary); }
+
+/* ---- the record as a scoreboard ---- */
+.scoreboard-wrap { margin: 12px 0 6px; overflow-x: auto; }
+/* PaperMod sets every post table to display: block with 80px minimum cells
+   (`.md-content table:not(...) td`, specificity 0,3,2), which pushed the
+   Result column off a 390px screen. This table is built to fit, so it is a
+   table again, and its cells are reset with a selector of the same weight,
+   loaded later. */
+.md-content .scoreboard-wrap table.scoreboard {
+  display: table;
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.md-content .scoreboard-wrap table.scoreboard caption { caption-side: top; text-align: start; padding: 0 0 6px; font-size: 0.85rem; color: var(--secondary); }
+.md-content .scoreboard-wrap table.scoreboard th,
+.md-content .scoreboard-wrap table.scoreboard td {
+  min-width: 0;
+  padding: 5px 6px;
+  border-width: 0 0 1px;
+  border-style: solid;
+  border-color: var(--border);
+  line-height: 1.3;
+  text-align: start;
+  vertical-align: top;
+}
+.md-content .scoreboard-wrap table.scoreboard th { font-size: 0.8rem; font-weight: 600; color: var(--secondary); border-bottom: var(--rule-strong); }
+.md-content .scoreboard-wrap table.scoreboard .sb-n { width: 1.8em; padding-inline-start: 0; color: var(--secondary); }
+.md-content .scoreboard-wrap table.scoreboard .sb-num { text-align: end; }
+.md-content .scoreboard-wrap table.scoreboard .sb-date,
+.md-content .scoreboard-wrap table.scoreboard .sb-res { white-space: nowrap; }
+.md-content .scoreboard-wrap table.scoreboard a { color: var(--accent); }
+.scoreboard-note,
+.scoreboard-cal { margin: 6px 0 0; font-size: 0.9rem; line-height: 1.5; color: var(--secondary); max-width: 68ch; }
+.scoreboard-cal { margin-top: 12px; color: var(--ink); font-size: 1rem; }
+.scoreboard-cal a { color: var(--accent); text-decoration: underline; box-shadow: none; }
+@media (max-width: 420px) {
+  .md-content .scoreboard-wrap table.scoreboard { font-size: 0.84rem; }
+  .md-content .scoreboard-wrap table.scoreboard th,
+  .md-content .scoreboard-wrap table.scoreboard td { padding: 5px 4px; }
+}

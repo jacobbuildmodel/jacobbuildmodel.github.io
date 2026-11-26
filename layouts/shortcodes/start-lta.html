@@ -1,0 +1,10 @@
+{{- /* layouts/shortcodes/start-lta.html
+   Start here page: the reply to LTA's public consultation, by the page's
+   own title, with the line the home page's box carried until 26 November
+   2026. Usage: {{< start-lta >}} */ -}}
+{{- $lta := site.GetPage "/decisions/lta-coe-categories" }}
+{{- if not $lta }}{{ errorf "start-lta shortcode: no /decisions/lta-coe-categories page" }}{{ end }}
+<ul class="start-here-list">
+  <li><a href="{{ $lta.RelPermalink }}">{{ $lta.Title }}</a>
+    <span class="start-here-meta">A reply to a public consultation by the Land Transport Authority</span></li>
+</ul>

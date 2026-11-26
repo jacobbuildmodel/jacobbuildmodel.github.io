@@ -1,37 +1,41 @@
 {{- /* layouts/partials/welcome_home.html
-   The home page (SMU week, third update, November 2026): one screen that
-   says who Jacob is, why economics, and where to start. One narrow column:
-     the heading (site.Params.welcome.heading): what the work is
-     the identity line: his name, his age (computed, as the age shortcode
-       does) and site.Params.welcome.identity
-     one sentence on why economics, in his own words
-       (site.Params.welcome.why; printed only when set)
-     the start-here box (start_here.html): the three lead projects with
-       their method and score, the record, the reply to LTA, How I work
-   What left this page, and why: the "Welcome to" heading; the three doors
-   (the "Latest finding" slot put the newest piece first, which is how a
-   news feed works, not a portfolio: Jacob, 15 November 2026; the record and
-   the question form are reached from the box and from About); and the
-   open-questions strip (the Projects index lists the open question).
-   Every count is read from front matter, never typed, and a missing page or
-   field stops the build. */ -}}
+   The home page. Start-here PR (Jacob, 26 November 2026): one identity,
+   calibrated judgement shown in public, readable in 15 seconds. Above the
+   fold, three things only:
+     the tagline (site.Params.welcome.heading), unchanged
+     the record in one line (record_line.html), read from the record's
+       front matter at build time
+     three buttons: Start here (/start/), The record (/record/), How I work
+       (/process/), in that order
+   Below them, unchanged words: the method sentence, who Jacob is and why
+   economics, and "What I do".
+   What left this page, and why: the record as four numbers and the
+   start-here box (scholarly layer, 24 November 2026). The one line and the
+   Start here page now carry them; the box's list of three projects became
+   the start-projects shortcode on the Start here page. Every page is found
+   with site.GetPage, so a moved page stops the build. */ -}}
 {{- $w := site.Params.welcome }}
 {{- if not (and $w.heading $w.identity) }}{{ errorf "welcome_home.html: hugo.toml needs params.welcome.heading and .identity" }}{{ end }}
 {{- $birth := time.AsTime "2004-06-10" }}
 {{- $age := sub now.Year $birth.Year }}
 {{- if lt now.YearDay $birth.YearDay }}{{ $age = sub $age 1 }}{{ end }}
+{{- $start := site.GetPage "/start" }}
+{{- $record := site.GetPage "/record" }}
+{{- $how := site.GetPage "/process" }}
+{{- if not (and $start $record $how) }}{{ errorf "welcome_home.html: the three buttons need /start, /record and /process pages" }}{{ end }}
 <header class="welcome">
   {{- /* An h2: the masthead's wordmark is the home page's one h1 (header.html). */}}
   <h2 class="welcome-title">{{ $w.heading }}</h2>
-  {{- /* Scholarly layer (November 2026): the method in one sentence
-         (params.welcome.method), then the record, then the lead projects;
-         who Jacob is and "What I do" follow, words unchanged. */}}
+  {{- partial "record_line.html" . }}
+  <nav class="welcome-buttons" aria-label="Where to start">
+    <a class="welcome-button is-first" href="{{ $start.RelPermalink }}">{{ $start.Title }}</a>
+    <a class="welcome-button" href="{{ $record.RelPermalink }}">{{ $record.Title }}</a>
+    <a class="welcome-button" href="{{ $how.RelPermalink }}">{{ $how.Title }}</a>
+  </nav>
   {{- with $w.method }}
   <p class="welcome-method">{{ . }}</p>
   {{- end }}
 </header>
-{{- partial "record_numbers.html" . }}
-{{- partial "start_here.html" . }}
 <section class="welcome-who" aria-label="About Jacob Ong">
   <p class="welcome-identity">Jacob Ong, {{ $age }}. {{ $w.identity }}</p>
   {{- with $w.why }}
